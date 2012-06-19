@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>List all the books</title>
+</h:head>
+<h:body>
+    <h1>List all the books</h1>
+    <hr/>
+    <h:dataTable value="#{bookController.books}" var="bk" border="1">
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Title"/>
+            </f:facet>
+            <h:outputText value="#{bk.title}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Price"/>
+            </f:facet>
+            <h:outputText value="#{bk.price}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Description"/>
+            </f:facet>
+            <h:outputText value="#{bk.description}"/>
+        </h:column>
+
+    </h:dataTable>
+    <hr/>
+    <i>APress - Beginning Java EE 6</i>
+</h:body>
+</html>

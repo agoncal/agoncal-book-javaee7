@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+*.vpdm
+*.log
+*.iml
+vpproject
+target
+*.ipr
+*.iws
+rebel.xml
+*DB
+*.dat
+.classpath
+.project
+.settings
+WebContent

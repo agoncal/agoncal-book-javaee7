@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.agoncal.book.javaee7.chapter20</groupId>
+    <artifactId>consumer</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>20 - JAX-RS (Consumer)</name>
+
+    <parent>
+        <groupId>org.agoncal.book.javaee7</groupId>
+        <artifactId>chapter20</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <build>
+        <finalName>chapter20-consumer-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.maven.war.plugin}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

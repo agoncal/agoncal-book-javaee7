@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Creates a new book</title>
+</h:head>
+<h:body>
+    <h1>Create a new book</h1>
+    <hr/>
+    <h:form>
+        <table border="0">
+            <tr>
+                <td>
+                    <h:outputLabel value="Title : "/>
+                </td>
+                <td>
+                    <h:inputText value="#{bookController.book.title}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputLabel value="Price : "/>
+                </td>
+                <td>
+                    <h:inputText value="#{bookController.book.price}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputLabel value="Description : "/>
+                </td>
+                <td>
+                    <h:inputText value="#{bookController.book.description}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:outputLabel value="ISBN : "/>
+                </td>
+                <td>
+                    <h:inputText value="#{bookController.book.isbn}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h:outputLabel value="Number of pages : "/>
+                </td>
+                <td>
+                    <h:inputText value="#{bookController.book.nbOfPage}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h:outputLabel value="Illustrations : "/>
+                </td>
+                <td>
+                    <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
+                </td>
+            </tr>
+
+        </table>
+
+        <h:commandButton value="Create a book" action="#{bookController.doCreateBook}"/>
+
+    </h:form>
+    <hr/>
+    <i>APress - Beginning Java EE 6</i>
+
+</h:body>
+</html>
