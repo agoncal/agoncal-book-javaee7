@@ -96,6 +96,7 @@ To compile, package and execute the code you need the following software :
 * Web Services 1.2 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
 * Web Services Metadata 1.1 - [JSR 181](http://jcp.org/en/jsr/detail?id=181)
 * JAX-RS 2.0 - [JSR 339](http://jcp.org/en/jsr/detail?id=339) - [Project](http://java.net/projects/jax-rs-spec) - [Jersey](http://jersey.java.net/) - [@gf_jersey](https://twitter.com/gf_jersey) - [Code on GitHub](https://github.com/jersey/jersey)
+* JSON-P 1.0 - [JSR 353](http://jcp.org/en/jsr/detail?id=353) - [Project](http://java.net/projects/json-processing-spec) - [JIRA](http://java.net/jira/browse/JSON_PROCESSING_SPEC)
 * JAXR 1.1 - [JSR 93](http://jcp.org/en/jsr/detail?id=93)
 
 ## Web Specifications
