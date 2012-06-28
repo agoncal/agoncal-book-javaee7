@@ -14,7 +14,7 @@ import javax.ws.rs.Produces;
  *         curl http://localhost:8080/chapter15-resource-2.0/rs/02/book
  */
 @Path("/02/book")
-public class BookResource02 {
+public class BookRestService02 {
 
     // ======================================
     // =           Public Methods           =
