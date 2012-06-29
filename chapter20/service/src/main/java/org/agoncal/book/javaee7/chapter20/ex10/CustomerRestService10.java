@@ -20,7 +20,7 @@ import java.net.URI;
  *         --
  */
 @Path("/10/customers")
-public class CustomerResource10 {
+public class CustomerRestService10 {
 
     // ======================================
     // =             Attributes             =

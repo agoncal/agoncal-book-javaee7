@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
  *         http://www.antoniogoncalves.org
  *         --
  *         <p/>
- *         curl http://localhost:8080/chapter15-resource-2.0/rs/02/book
+ *         curl http://localhost:8080/chapter20-service-1.0/rs/02/book
  */
 @Path("/02/book")
 public class BookRestService02 {

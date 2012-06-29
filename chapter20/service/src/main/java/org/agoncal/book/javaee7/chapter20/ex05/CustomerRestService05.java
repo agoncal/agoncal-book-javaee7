@@ -15,14 +15,14 @@ import java.util.List;
  */
 @Path("/05/customers")
 @Produces(MediaType.TEXT_PLAIN)
-public class CustomerResource05 {
+public class CustomerRestService05 {
 
     // ======================================
     // =           Public Methods           =
     // ======================================
 
     /**
-     * curl http://localhost:8080/chapter15-resource-2.0/rs/05/customers
+     * curl http://localhost:8080/chapter20-service-1.0/rs/05/customers
      */
     @GET
     public String getAsPlainText() {
@@ -31,7 +31,7 @@ public class CustomerResource05 {
     }
 
     /**
-     * curl -H "Accept: text/html" http://localhost:8080/chapter15-resource-2.0/rs/05/customers
+     * curl -H "Accept: text/html" http://localhost:8080/chapter20-service-1.0/rs/05/customers
      */
     @GET
     @Produces(MediaType.TEXT_HTML)
@@ -41,7 +41,7 @@ public class CustomerResource05 {
     }
 
     /**
-     * curl -H "Accept: application/json" http://localhost:8080/chapter15-resource-2.0/rs/05/customers
+     * curl -H "Accept: application/json" http://localhost:8080/chapter20-service-1.0/rs/05/customers
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)

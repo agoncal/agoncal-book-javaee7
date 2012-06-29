@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter20.ex14;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -24,13 +25,13 @@ import java.util.List;
 @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Stateless
-public class BookResource14 {
+public class BookRestService14 {
 
     // ======================================
     // =             Attributes             =
     // ======================================
 
-    @PersistenceContext(unitName = "chapter15PU")
+    @Inject
     private EntityManager em;
     @Context
     private UriInfo uriInfo;
@@ -40,7 +41,7 @@ public class BookResource14 {
     // ======================================
 
     /**
-     * curl -X POST --data-binary "{ \"title\":\"H2G2\", \"description\":\"Scifi IT book\", \"illustrations\":\"false\",\"isbn\":\"134-234\",\"nbOfPage\":\"241\",\"price\":\"24.0\" }" -H "Content-Type: application/json" http://localhost:8080/chapter15-resource-2.0/rs/14/books -v
+     * curl -X POST --data-binary "{ \"title\":\"H2G2\", \"description\":\"Scifi IT book\", \"illustrations\":\"false\",\"isbn\":\"134-234\",\"nbOfPage\":\"241\",\"price\":\"24.0\" }" -H "Content-Type: application/json" http://localhost:8080/chapter20-service-1.0/rs/14/books -v
      */
     @POST
     public Response createNewBook(JAXBElement<Book14> bookJaxb) {
@@ -51,8 +52,8 @@ public class BookResource14 {
     }
 
     /**
-     * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter15-resource-2.0/rs/14/books/4
-     * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter15-resource-2.0/rs/14/books/4
+     * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter20-service-1.0/rs/14/books/4
+     * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter20-service-1.0/rs/14/books/4
      */
     @GET
     @Path("{id}/")
@@ -62,7 +63,7 @@ public class BookResource14 {
     }
 
     /**
-     * curl -X DELETE http://localhost:8080/chapter15-resource-2.0/rs/14/books/4 -v
+     * curl -X DELETE http://localhost:8080/chapter20-service-1.0/rs/14/books/4 -v
      */
     @DELETE
     @Path("{id}/")

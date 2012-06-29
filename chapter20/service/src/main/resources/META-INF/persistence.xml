@@ -4,11 +4,8 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-    <persistence-unit name="chapter15PU" transaction-type="JTA">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <persistence-unit name="chapter20PU" transaction-type="JTA">
         <jta-data-source>jdbc/__default</jta-data-source>
-        <class>org.agoncal.book.javaee6.chapter15.ex03.Book03</class>
-        <class>org.agoncal.book.javaee6.chapter15.ex14.Book14</class>
         <properties>
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
             <property name="eclipselink.logging.level" value="INFO"/>

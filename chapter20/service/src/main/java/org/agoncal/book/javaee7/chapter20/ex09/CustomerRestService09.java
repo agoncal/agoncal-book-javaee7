@@ -14,7 +14,7 @@ import java.util.List;
  *         --
  */
 @Path("/09/customers")
-public class CustomerResource09 {
+public class CustomerRestService09 {
 
     // ======================================
     // =           Public Methods           =

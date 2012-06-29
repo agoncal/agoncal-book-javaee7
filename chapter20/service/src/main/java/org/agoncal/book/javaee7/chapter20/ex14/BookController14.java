@@ -1,7 +1,7 @@
 package org.agoncal.book.javaee7.chapter20.ex14;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@ManagedBean
+@Named("bookController")
 @RequestScoped
 public class BookController14 {
 
@@ -37,7 +37,7 @@ public class BookController14 {
         System.out.println("VVV ###################################");
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter15PU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter20PU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();

@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter20.ex10;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CustomerEJB10 {
     // =             Attributes             =
     // ======================================
 
-    @PersistenceContext(unitName = "chapter15PU")
+    @Inject
     private EntityManager em;
 
 

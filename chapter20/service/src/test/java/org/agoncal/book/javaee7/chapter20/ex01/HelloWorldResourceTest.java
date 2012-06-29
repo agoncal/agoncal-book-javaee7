@@ -38,7 +38,7 @@ public class HelloWorldResourceTest {
     public void init() throws IOException {
         Map<String, String> initParams = new HashMap<String, String>();
 
-        initParams.put("com.sun.jersey.config.property.packages", "com.apress.javaee6.chapter15.ex01");
+        initParams.put("com.sun.jersey.config.property.packages", "com.apress.javaee6.chapter20.ex01");
 
         System.out.println("Starting grizzly...");
 //        threadSelector = GrizzlyWebContainerFactory.create(URI, initParams);

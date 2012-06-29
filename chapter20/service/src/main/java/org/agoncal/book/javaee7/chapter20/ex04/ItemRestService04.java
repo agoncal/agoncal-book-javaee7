@@ -14,14 +14,14 @@ import java.util.List;
  *         --
  */
 @Path("/04/items")
-public class ItemResource04 {
+public class ItemRestService04 {
 
     // ======================================
     // =           Public Methods           =
     // ======================================
 
     /**
-     * curl http://localhost:8080/chapter15-resource-2.0/rs/04/items
+     * curl http://localhost:8080/chapter20-service-1.0/rs/04/items
      */
     @GET
     public List<Item04> getListOfItems() {
@@ -30,7 +30,7 @@ public class ItemResource04 {
     }
 
     /**
-     * curl http://localhost:8080/chapter15-resource-2.0/rs/04/items/1234
+     * curl http://localhost:8080/chapter20-service-1.0/rs/04/items/1234
      */
     @GET
     @Path("{itemid}")
@@ -40,7 +40,7 @@ public class ItemResource04 {
     }
 
     /**
-     * curl -X DELETE http://localhost:8080/chapter15-resource-2.0/rs/04/items/1234
+     * curl -X DELETE http://localhost:8080/chapter20-service-1.0/rs/04/items/1234
      */
     @DELETE
     @Path("{itemid}")
@@ -49,7 +49,7 @@ public class ItemResource04 {
     }
 
     /**
-     * curl http://localhost:8080/chapter15-resource-2.0/rs/04/items/books
+     * curl http://localhost:8080/chapter20-service-1.0/rs/04/items/books
      */
     @GET
     @Path("/books/")
@@ -59,7 +59,7 @@ public class ItemResource04 {
     }
 
     /**
-     * curl http://localhost:8080/chapter15-resource-2.0/rs/04/items/books/1234
+     * curl http://localhost:8080/chapter20-service-1.0/rs/04/items/books/1234
      */
     @GET
     @Path("/books/{bookid}")
