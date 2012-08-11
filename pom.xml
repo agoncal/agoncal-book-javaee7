@@ -9,6 +9,7 @@
     <name>00 - Parent of Book Java EE 7</name>
 
     <modules>
+        <module>chapter20</module>
         <module>chapter22</module>
     </modules>
 
@@ -29,6 +30,7 @@
         <version.maven.help.plugin>2.1.1</version.maven.help.plugin>
         <version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
         <version.maven.jaxws.plugin>1.10</version.maven.jaxws.plugin>
+        <!-- Project -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
