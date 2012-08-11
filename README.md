@@ -104,7 +104,7 @@ To compile, package and execute the code you need the following software :
 * JSF 2.2 - [JSR 344](http://jcp.org/en/jsr/detail?id=344)
 * JSP 2.2 - [JSR 245](http://jcp.org/en/jsr/detail?id=245)
 * JSTL (JavaServer Pages Standard Tag Library) 1.2 - [JSR 52](http://jcp.org/en/jsr/detail?id=52)
-* Servlet 3.1 - [JSR 340](http://jcp.org/en/jsr/detail?id=340)
+* Servlet 3.1 - [JSR 340](http://jcp.org/en/jsr/detail?id=340) - [Project](http://java.net/projects/servlet-spec/)
 * Expression Language 3.0 - [JSR 341](http://jcp.org/en/jsr/detail?id=341) - [Project](http://java.net/projects/el-spec)
 
 ## Enterprise Specifications
