@@ -75,9 +75,9 @@ The code used in the book is defined in the following sub-directories :
 To compile, package and execute the code you need the following software :
 
 * Java SE 7 : http://java.sun.com/javase/downloads
-* Derby 1.5 : http://db.apache.org/derby
-* Maven 2 : http://maven.apache.org
-* GlassFish v3 : http://glassfish.org
+* Derby 10.9 : http://db.apache.org/derby
+* Maven 3 : http://maven.apache.org
+* GlassFish v4 : http://glassfish.org
 
 # Java EE 7 Specifications
 
@@ -88,8 +88,8 @@ To compile, package and execute the code you need the following software :
 
 ## Web Services Specifications
 
-* JAX-RPC 1.1 - [JSR 101](http://jcp.org/en/jsr/detail?id=101)
-* JAX-WS 2.2 - [JSR 224](http://jcp.org/en/jsr/detail?id=224)
+* (Prunned) JAX-RPC 1.1 - [JSR 101](http://jcp.org/en/jsr/detail?id=101) - [Project](http://java.net/projects/jax-rpc)
+* JAX-WS 2.2 - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws)
 * JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222)
 * JAXM 1.0 - [JSR 67](http://jcp.org/en/jsr/detail?id=67)
 * StAX 1.0 - [JSR 173](http://jcp.org/en/jsr/detail?id=173)
