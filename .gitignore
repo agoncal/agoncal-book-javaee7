@@ -16,3 +16,4 @@ WebContent
 *.vpdm
 vpproject
 .vpprefdata
+*dummy*.*

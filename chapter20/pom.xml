@@ -15,4 +15,27 @@
         <version>1.0</version>
     </parent>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>schemagen</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>${project.build.sourceDirectory}/**/*.java</include>
+                    </includes>
+                    <outputDirectory>${project.build.directory}/schemas</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

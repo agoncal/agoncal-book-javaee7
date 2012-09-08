@@ -11,6 +11,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -29,7 +30,7 @@ public class OrderTest {
     // ======================================
 
     private static Date creationDate;
-    public static final String orderXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><order id=\"1234\" date=\"11/08/2012\" total_amount=\"93.48\"><customer first_name=\"James\" last_name=\"Rorrison\"><email>j.rorri@me.com</email><phoneNumber>+44 1234 1234</phoneNumber></customer><content><order_line item=\"H2G2\"><unit_price>23.5</unit_price><quantity>1</quantity></order_line><order_line item=\"Harry Potter\"><unit_price>34.99</unit_price><quantity>2</quantity></order_line></content><credit_card number=\"123412341234\"><expiry_date>10/13</expiry_date><control_number>234</control_number><type>Visa</type></credit_card></order>";
+    public static final String orderXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><order id=\"1234\" date=\"05/06/2013\" total_amount=\"93.48\"><customer first_name=\"James\" last_name=\"Rorrison\"><email>j.rorri@me.com</email><phoneNumber>+44 1234 1234</phoneNumber></customer><content><order_line item=\"H2G2\"><unit_price>23.5</unit_price><quantity>1</quantity></order_line><order_line item=\"Harry Potter\"><unit_price>34.99</unit_price><quantity>2</quantity></order_line></content><credit_card number=\"123412341234\"><expiry_date>10/13</expiry_date><control_number>234</control_number><type>Visa</type></credit_card></order>";
 
     // ======================================
     // =          Lifecycle Methods         =
@@ -37,7 +38,9 @@ public class OrderTest {
 
     @BeforeClass
     public static void init() throws IOException {
-        creationDate = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2013, Calendar.JUNE, 5);
+        creationDate = calendar.getTime();
     }
 
     @After
