@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter20.ex02;
+package org.agoncal.book.javaee7.chapter20.ex04;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -6,6 +6,10 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 
 /**
@@ -15,7 +19,7 @@ import java.io.IOException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class DomParsing {
+public class XPathQuerying {
 
     public static void main(String[] args) {
         String xmlDocument = "src/main/resources/order.xml";
@@ -24,13 +28,15 @@ public class DomParsing {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             builder = factory.newDocumentBuilder();
-            System.out.println("getDOMImplementation : " + builder.getDOMImplementation().toString());
-//            System.out.println("getDOMImplementation : " + builder.getSchema().toString());
             Document document = builder.parse(xmlDocument);
-            System.out.println("getDocumentURI : " + document.getDocumentURI());
-            System.out.println("getInputEncoding : " + document.getInputEncoding());
-            System.out.println("getXmlVersion : " + document.getXmlVersion());
-        } catch (SAXException | IOException | ParserConfigurationException e) {
+
+            // evaluate the XPath expression against the Document
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            String expression = "/order/@total_amount";
+            Double totalAmount = (Double) xpath.evaluate(expression, document, XPathConstants.NUMBER);
+            System.out.println("totalAmount " + totalAmount);
+
+        } catch (ParserConfigurationException | SAXException | XPathExpressionException | IOException e) {
             e.printStackTrace();
         }
     }

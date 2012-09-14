@@ -18,12 +18,14 @@ import java.io.IOException;
 public class SaxParsing extends DefaultHandler{
 
     public static void main(String[] args) {
+        String xmlDocument = "src/main/resources/order.xml";
+
         SAXParser parser;
         DefaultHandler handler = new SaxParsing();
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             parser = factory.newSAXParser();
-            parser.parse("http://myserver/mycontent.xml", handler);
+            parser.parse(xmlDocument, handler);
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
