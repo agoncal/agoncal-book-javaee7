@@ -24,10 +24,9 @@ public class XPathQuerying {
     public static void main(String[] args) {
         String xmlDocument = "src/main/resources/order.xml";
 
-        DocumentBuilder builder;
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
-            builder = factory.newDocumentBuilder();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(xmlDocument);
 
             // evaluate the XPath expression against the Document

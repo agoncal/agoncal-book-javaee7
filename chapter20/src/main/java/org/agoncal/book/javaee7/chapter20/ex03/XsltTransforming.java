@@ -17,14 +17,12 @@ import javax.xml.transform.stream.StreamSource;
 public class XsltTransforming {
 
     public static void main(String[] args) {
-        Transformer transformer;
-        TransformerFactory factory = TransformerFactory.newInstance();
-
         String stylesheet = "src/main/resources/order.xsl";
         String xmlDocument = "src/main/resources/order.xml";
 
         try {
-            transformer = factory.newTransformer(new StreamSource(stylesheet));
+            TransformerFactory factory = TransformerFactory.newInstance();
+            Transformer transformer = factory.newTransformer(new StreamSource(stylesheet));
             transformer.transform(new StreamSource(xmlDocument), new StreamResult(System.out));
         } catch (TransformerException e) {
             e.printStackTrace();

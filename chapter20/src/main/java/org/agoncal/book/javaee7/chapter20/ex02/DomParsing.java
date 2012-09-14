@@ -20,10 +20,9 @@ public class DomParsing {
     public static void main(String[] args) {
         String xmlDocument = "src/main/resources/order.xml";
 
-        DocumentBuilder builder;
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
-            builder = factory.newDocumentBuilder();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
             System.out.println("getDOMImplementation : " + builder.getDOMImplementation().toString());
 //            System.out.println("getDOMImplementation : " + builder.getSchema().toString());
             Document document = builder.parse(xmlDocument);
