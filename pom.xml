@@ -15,7 +15,7 @@
 
     <properties>
         <version.java>1.7</version.java>
-        <version.glassfish>3.1.2-b20</version.glassfish>
+        <version.glassfish>3.1.2.2</version.glassfish>
         <!--<version.glassfish>4.0-b43</version.glassfish>-->
         <version.jersey>2.0-m04-2</version.jersey>
         <!-- Test -->
