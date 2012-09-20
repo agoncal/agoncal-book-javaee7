@@ -19,53 +19,47 @@ import java.io.IOException;
 public class SaxParsing extends DefaultHandler {
 
     public static void main(String[] args) {
-        String xmlDocument = "src/main/resources/order.xml";
+        File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
 
         try {
-            DefaultHandler handler = new SaxParsing();
+            DefaultHandler handler = new SaxParsingWithValidation();
             SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser parser = factory.newSAXParser();
-            parser.parse(xmlDocument, handler);
+            SAXParser saxParser = factory.newSAXParser();
+            saxParser.parse(xmlDocument, handler);
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
     }
 
-    public void startDocument() throws SAXException {
-        emit("<?xml version='1.0' encoding='UTF-8'?>");
-        nl();
-    }
+    private String elementName = "";
+    private int nbTabs;
 
-    public void endDocument() throws SAXException {
-        nl();
-    }
+    public void startElement(String namespaceURI, String localName, String qualifiedName, Attributes attrs) throws SAXException {
 
-    public void startElement(String namespaceURI, String sName, String qName, Attributes attrs) throws SAXException {
-        String eName = sName; // element name
-        if ("".equals(eName)) eName = qName; // not namespace-aware
-        emit("<" + eName);
+        if (localName != null && !localName.isEmpty())
+            elementName = localName;
+        else
+            elementName = qualifiedName;
+
+        System.out.println(tabs() + elementName + "{");
+        nbTabs++;
         if (attrs != null) {
             for (int i = 0; i < attrs.getLength(); i++) {
-                String aName = attrs.getLocalName(i); // Attr name
-                if ("".equals(aName)) aName = attrs.getQName(i);
-                emit(" ");
-                emit(aName + "=\"" + attrs.getValue(i) + "\"");
+                System.out.println(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i));
             }
         }
-        emit(">");
     }
 
-    public void endElement(String namespaceURI, String sName, String qName) throws SAXException {
-        String eName = sName; // element name
-        if ("".equals(eName)) eName = qName; // not namespace-aware
-        emit("</" + eName + ">");
+    public void endElement(String namespaceURI, String localName, String qualifiedName) throws SAXException {
+        nbTabs--;
+        System.out.println(tabs() + "}");
     }
 
-    private void emit(String s) {
-        System.out.println(s);
-    }
-
-    private void nl() {
-        System.out.println("");
+    private String tabs() {
+        String tabs = "";
+        for (int i = 0; i < nbTabs; i++) {
+            tabs += "\t";
+        }
+        return tabs;
     }
 }
