@@ -18,17 +18,24 @@ import java.io.IOException;
 public class DomParsing {
 
     public static void main(String[] args) {
-        String xmlDocument = "src/main/resources/order.xml";
+        File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
 
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            System.out.println("getDOMImplementation : " + builder.getDOMImplementation().toString());
-//            System.out.println("getDOMImplementation : " + builder.getSchema().toString());
             Document document = builder.parse(xmlDocument);
+
+            System.out.println("getDOMImplementation : " + builder.getDOMImplementation().toString());
             System.out.println("getDocumentURI : " + document.getDocumentURI());
             System.out.println("getInputEncoding : " + document.getInputEncoding());
             System.out.println("getXmlVersion : " + document.getXmlVersion());
+
+            String root = document.getDocumentElement().getTagName();
+            System.out.println(">> " + root);
+
+            Node creditCard = document.getElementsByTagName("credit_card").item(0);
+            System.out.println(">>>>> " + creditCard.getAttributes().getNamedItem("number").getNodeName());
+
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
