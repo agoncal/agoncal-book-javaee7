@@ -129,12 +129,17 @@ To compile, package and execute the code you need the following software :
 * Debugging Support for Other Languages 1.0 - [JSR 45](http://jcp.org/en/jsr/detail?id=45)
 * JCache 1.0 - [JSR 107](http://jcp.org/en/jsr/detail?id=107)
 
-# Other
+# Licensing
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
 
 Book - Beginning Java EE 6 with Glassfish
 Antonio Goncalves
 --
 --
+
+# Other
+
 The test clases of this chapter, by default, use the Embedded mode of Derby (JavaDB). That means that the persistence.xml file defines a persistent unit with the folowing JDBC Driver
 
     <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
