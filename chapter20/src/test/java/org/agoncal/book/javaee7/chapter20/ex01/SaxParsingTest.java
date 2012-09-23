@@ -13,7 +13,38 @@ import static org.junit.Assert.assertEquals;
  */
 public class SaxParsingTest {
 
-    public static final String ORDER_OUTPUT = "order{\tid=1234\tdate=05/06/2013\tcustomer{\t\tfirst_name=James\t\tlast_name=Rorrison\t\temail{\t\t}\t\tphoneNumber{\t\t}\t}\tcontent{\t\torder_line{\t\t\titem=H2G2\t\t\tquantity=1\t\t\tunit_price{\t\t\t}\t\t}\t\torder_line{\t\t\titem=Harry Potter\t\t\tquantity=2\t\t\tunit_price{\t\t\t}\t\t}\t}\tcredit_card{\t\tnumber=123412341234\t\texpiry_date=10/13\t\tcontrol_number=234\t\ttype=Visa\t}}";
+    public static final String ORDER_OUTPUT = "order{\n" +
+            "\tid=1234\n" +
+            "\tdate=05/06/2013\n" +
+            "\tcustomer{\n" +
+            "\t\tfirst_name=James\n" +
+            "\t\tlast_name=Rorrison\n" +
+            "\t\temail{\n" +
+            "\t\t}\n" +
+            "\t\tphoneNumber{\n" +
+            "\t\t}\n" +
+            "\t}\n" +
+            "\tcontent{\n" +
+            "\t\torder_line{\n" +
+            "\t\t\titem=H2G2\n" +
+            "\t\t\tquantity=1\n" +
+            "\t\t\tunit_price{\n" +
+            "\t\t\t}\n" +
+            "\t\t}\n" +
+            "\t\torder_line{\n" +
+            "\t\t\titem=Harry Potter\n" +
+            "\t\t\tquantity=2\n" +
+            "\t\t\tunit_price{\n" +
+            "\t\t\t}\n" +
+            "\t\t}\n" +
+            "\t}\n" +
+            "\tcredit_card{\n" +
+            "\t\tnumber=123412341234\n" +
+            "\t\texpiry_date=10/13\n" +
+            "\t\tcontrol_number=234\n" +
+            "\t\ttype=Visa\n" +
+            "\t}\n" +
+            "}\n";
 
     @Test
     public void shouldParseOutput() throws Exception {

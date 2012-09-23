@@ -1,7 +1,10 @@
 package org.agoncal.book.javaee7.chapter20.ex02;
 
+import org.agoncal.book.javaee7.chapter20.OrderLine;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -17,6 +20,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -27,11 +32,13 @@ import java.nio.file.Paths;
  */
 public class DomParsingWithValidation {
 
-    public static void main(String[] args) {
-        File xmlDocument = Paths.get("src/main/resources/invalidOrder.xml").toFile();
-        File xmlSchema = Paths.get("src/main/resources/order.xsd").toFile();
+    public List<OrderLine> parseOrderLines() {
+
+        List<OrderLine> orderLines = new ArrayList<>();
 
         try {
+            File xmlDocument = Paths.get("src/main/resources/invalidOrder.xml").toFile();
+            File xmlSchema = Paths.get("src/main/resources/order.xsd").toFile();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             //Setting the Schema for validation
@@ -44,15 +51,24 @@ public class DomParsingWithValidation {
 
             Document document = builder.parse(xmlDocument);
 
-            String root = document.getDocumentElement().getTagName();
-            System.out.println(">> " + root);
+            NodeList orderLinesNode = document.getElementsByTagName("order_line");
 
-            Node creditCard = document.getElementsByTagName("cc").item(0);
-            System.out.println(">>>>> " + creditCard.getAttributes().getNamedItem("number").getNodeName());
+            for (int i = 0; i < orderLinesNode.getLength(); i++) {
+                Element orderLineNode = (Element) orderLinesNode.item(i);
+                OrderLine orderLine = new OrderLine();
+                orderLine.setItem(orderLineNode.getAttribute("item"));
+                orderLine.setQuantity(Integer.valueOf(orderLineNode.getAttribute("quantity")));
+
+                Node unitPriceNode = orderLineNode.getChildNodes().item(1);
+                orderLine.setUnitPrice(Double.valueOf(unitPriceNode.getFirstChild().getNodeValue()));
+
+                orderLines.add(orderLine);
+            }
 
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
+        return orderLines;
     }
 }
 

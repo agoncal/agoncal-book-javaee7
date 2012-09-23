@@ -43,18 +43,18 @@ public class SaxParsing extends DefaultHandler {
         else
             elementName = qualifiedName;
 
-        buffer.append(tabs() + elementName + "{");
+        buffer.append(tabs() + elementName + "{\n");
         nbTabs++;
         if (attrs != null) {
             for (int i = 0; i < attrs.getLength(); i++) {
-                buffer.append(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i));
+                buffer.append(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i) + "\n");
             }
         }
     }
 
     public void endElement(String namespaceURI, String localName, String qualifiedName) throws SAXException {
         nbTabs--;
-        buffer.append(tabs() + "}");
+        buffer.append(tabs() + "}\n");
     }
 
     private String tabs() {
