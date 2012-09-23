@@ -30,7 +30,7 @@ public class OrderTest {
     // ======================================
 
     private static Date creationDate;
-    public static final String orderXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><order id=\"1234\" date=\"05/06/2013\" total_amount=\"93.48\"><customer first_name=\"James\" last_name=\"Rorrison\"><email>j.rorri@me.com</email><phoneNumber>+44 1234 1234</phoneNumber></customer><content><order_line item=\"H2G2\"><unit_price>23.5</unit_price><quantity>1</quantity></order_line><order_line item=\"Harry Potter\"><unit_price>34.99</unit_price><quantity>2</quantity></order_line></content><credit_card number=\"123412341234\"><expiry_date>10/13</expiry_date><control_number>234</control_number><type>Visa</type></credit_card></order>";
+    public static final String orderXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><order id=\"1234\" date=\"05/06/2013\"><customer first_name=\"James\" last_name=\"Rorrison\"><email>j.rorri@me.com</email><phoneNumber>+44 1234 1234</phoneNumber></customer><content><order_line item=\"H2G2\" quantity=\"1\"><unit_price>23.5</unit_price></order_line><order_line item=\"Harry Potter\" quantity=\"2\"><unit_price>34.99</unit_price></order_line></content><credit_card number=\"123412341234\" expiry_date=\"10/13\" control_number=\"234\" type=\"Visa\"/></order>";
 
     // ======================================
     // =          Lifecycle Methods         =
@@ -65,7 +65,7 @@ public class OrderTest {
         Marshaller m = context.createMarshaller();
         m.marshal(order, writer);
 
-        System.out.println(writer);
+//        System.out.println(writer);
 
         assertEquals(orderXML, writer.toString());
 
@@ -79,7 +79,6 @@ public class OrderTest {
         Order order = (Order) u.unmarshal(reader);
 
         assertEquals((Object) 1234L, order.getId());
-        assertEquals((Object) 93.48, order.getTotalAmount());
         assertEquals(2, order.getOrderLines().size());
         assertEquals("Rorrison", order.getCustomer().getLastName());
         assertEquals("123412341234", order.getCreditCard().getNumber());

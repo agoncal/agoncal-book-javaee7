@@ -47,15 +47,14 @@
     </xs:sequence>
     <xs:attribute name="id" type="xs:long"/>
     <xs:attribute name="date" type="xs:string"/>
-    <xs:attribute name="total_amount" type="xs:double"/>
   </xs:complexType>
 
   <xs:complexType name="orderLine">
     <xs:sequence>
       <xs:element name="unit_price" type="xs:double" minOccurs="0"/>
-      <xs:element name="quantity" type="xs:int" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="item" type="xs:string"/>
+    <xs:attribute name="quantity" type="xs:int"/>
   </xs:complexType>
 </xs:schema>
 

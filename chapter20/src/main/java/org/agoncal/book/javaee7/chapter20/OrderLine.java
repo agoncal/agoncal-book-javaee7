@@ -23,6 +23,7 @@ public class OrderLine {
     private String item;
     @XmlElement(name = "unit_price")
     private Double unitPrice;
+    @XmlAttribute
     private Integer quantity;
 
     // ======================================

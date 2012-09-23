@@ -1,12 +1,20 @@
 package org.agoncal.book.javaee7.chapter20.ex02;
 
+import org.agoncal.book.javaee7.chapter20.OrderLine;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -17,27 +25,34 @@ import java.io.IOException;
  */
 public class DomParsing {
 
-    public static void main(String[] args) {
-        File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
+    public List<OrderLine> parseOrderLines() {
+
+        List<OrderLine> orderLines = new ArrayList<>();
 
         try {
+            File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(xmlDocument);
 
-            System.out.println("getDOMImplementation : " + builder.getDOMImplementation().toString());
-            System.out.println("getDocumentURI : " + document.getDocumentURI());
-            System.out.println("getInputEncoding : " + document.getInputEncoding());
-            System.out.println("getXmlVersion : " + document.getXmlVersion());
+            NodeList orderLinesNode = document.getElementsByTagName("order_line");
 
-            String root = document.getDocumentElement().getTagName();
-            System.out.println(">> " + root);
+            for (int i = 0; i < orderLinesNode.getLength(); i++) {
+                Element orderLineNode = (Element) orderLinesNode.item(i);
+                OrderLine orderLine = new OrderLine();
+                orderLine.setItem(orderLineNode.getAttribute("item"));
+                orderLine.setQuantity(Integer.valueOf(orderLineNode.getAttribute("quantity")));
 
-            Node creditCard = document.getElementsByTagName("credit_card").item(0);
-            System.out.println(">>>>> " + creditCard.getAttributes().getNamedItem("number").getNodeName());
+                Node unitPriceNode = orderLineNode.getChildNodes().item(1);
+                orderLine.setUnitPrice(Double.valueOf(unitPriceNode.getFirstChild().getNodeValue()));
+
+                orderLines.add(orderLine);
+            }
+
 
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
+        return orderLines;
     }
 }

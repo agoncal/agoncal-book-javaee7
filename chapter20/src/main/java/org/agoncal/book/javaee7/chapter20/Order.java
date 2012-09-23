@@ -14,7 +14,7 @@ import java.util.List;
  *         --
  */
 @XmlRootElement
-@XmlType(propOrder = {"id", "creationDate", "totalAmount", "customer", "orderLines", "creditCard"})
+@XmlType(propOrder = {"id", "creationDate", "customer", "orderLines", "creditCard"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Order {
 
@@ -27,7 +27,7 @@ public class Order {
     @XmlAttribute(name = "date")
     @XmlJavaTypeAdapter(DateAdapter.class)
     private Date creationDate;
-    @XmlAttribute(name = "total_amount")
+    @XmlTransient
     private Double totalAmount;
     @XmlElementWrapper(name = "content")
     @XmlElement(name = "order_line")
