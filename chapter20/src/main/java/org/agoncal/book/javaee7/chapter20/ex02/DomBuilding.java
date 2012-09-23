@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.io.StringWriter;
 
 /**
  * @author Antonio Goncalves
@@ -20,6 +21,13 @@ import java.io.IOException;
 public class DomBuilding {
 
     public static void main(String[] args) {
+        String order = new DomBuilding().buildOrder();
+        System.out.println(order);
+    }
+
+    public String buildOrder() {
+
+        StringWriter writer = new StringWriter();
 
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -43,10 +51,13 @@ public class DomBuilding {
             phoneNumber.appendChild(document.createTextNode("+44 1234 1234"));
             customer.appendChild(phoneNumber);
 
-            XMLSerializer ser = new XMLSerializer(System.out, new OutputFormat("xml", "UTF-8", true));
+            XMLSerializer ser = new XMLSerializer(writer, new OutputFormat("xml", "UTF-8", true));
             ser.serialize(document);
+
         } catch (IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
+
+        return writer.toString().trim();
     }
 }

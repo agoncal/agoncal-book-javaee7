@@ -49,7 +49,6 @@ public class DomParsing {
                 orderLines.add(orderLine);
             }
 
-
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
