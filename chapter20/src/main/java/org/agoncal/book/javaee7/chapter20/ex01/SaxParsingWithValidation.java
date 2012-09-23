@@ -24,26 +24,23 @@ import java.nio.file.Paths;
  */
 public class SaxParsingWithValidation extends DefaultHandler {
 
-    public static void main(String[] args) {
-        File xmlDocument = Paths.get("src/main/resources/invalidOrder.xml").toFile();
-        File xmlSchema = Paths.get("src/main/resources/order.xsd").toFile();
-
-        try {
-            DefaultHandler handler = new SaxParsingWithValidation();
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            //Setting the Schema for validation
-            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = schemaFactory.newSchema(xmlSchema);
-            factory.setSchema(schema);
-            SAXParser saxParser = factory.newSAXParser();
-            saxParser.parse(xmlDocument, handler);
-        } catch (SAXException | IOException | ParserConfigurationException e) {
-            e.printStackTrace();
-        }
-    }
-
     private String elementName = "";
     private int nbTabs;
+    private StringBuffer buffer = new StringBuffer();
+
+    public void parseOrderXML() throws SAXException, IOException, ParserConfigurationException {
+
+        File xmlDocument = Paths.get("src/main/resources/invalidOrder.xml").toFile();
+        File xmlSchema = Paths.get("src/main/resources/order.xsd").toFile();
+        DefaultHandler handler = new SaxParsingWithValidation();
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        //Setting the Schema for validation
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = schemaFactory.newSchema(xmlSchema);
+        factory.setSchema(schema);
+        SAXParser saxParser = factory.newSAXParser();
+        saxParser.parse(xmlDocument, this);
+    }
 
     public void startElement(String namespaceURI, String localName, String qualifiedName, Attributes attrs) throws SAXException {
 
@@ -52,18 +49,18 @@ public class SaxParsingWithValidation extends DefaultHandler {
         else
             elementName = qualifiedName;
 
-        System.out.println(tabs() +elementName + "{");
+        buffer.append(tabs() + elementName + "{");
         nbTabs++;
         if (attrs != null) {
             for (int i = 0; i < attrs.getLength(); i++) {
-                System.out.println(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i));
+                buffer.append(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i));
             }
         }
     }
 
     public void endElement(String namespaceURI, String localName, String qualifiedName) throws SAXException {
         nbTabs--;
-        System.out.println(tabs() + "}");
+        buffer.append(tabs() + "}");
     }
 
     @Override
@@ -82,5 +79,9 @@ public class SaxParsingWithValidation extends DefaultHandler {
             tabs += "\t";
         }
         return tabs;
+    }
+
+    public String getOutput() {
+        return buffer.toString();
     }
 }

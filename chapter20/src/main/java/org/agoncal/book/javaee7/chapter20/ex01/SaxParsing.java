@@ -25,9 +25,9 @@ public class SaxParsing extends DefaultHandler {
     private StringBuffer buffer = new StringBuffer();
 
     public void parseOrderXML() {
-        File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
 
         try {
+            File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
             saxParser.parse(xmlDocument, this);
@@ -47,7 +47,7 @@ public class SaxParsing extends DefaultHandler {
         nbTabs++;
         if (attrs != null) {
             for (int i = 0; i < attrs.getLength(); i++) {
-                System.out.println(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i));
+                buffer.append(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i));
             }
         }
     }
