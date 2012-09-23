@@ -20,21 +20,21 @@ import java.nio.file.Paths;
  */
 public class SaxParsing extends DefaultHandler {
 
-    public static void main(String[] args) {
+    private String elementName = "";
+    private int nbTabs;
+    private StringBuffer buffer = new StringBuffer();
+
+    public void parseOrderXML() {
         File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
 
         try {
-            DefaultHandler handler = new SaxParsingWithValidation();
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
-            saxParser.parse(xmlDocument, handler);
+            saxParser.parse(xmlDocument, this);
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
     }
-
-    private String elementName = "";
-    private int nbTabs;
 
     public void startElement(String namespaceURI, String localName, String qualifiedName, Attributes attrs) throws SAXException {
 
@@ -43,7 +43,7 @@ public class SaxParsing extends DefaultHandler {
         else
             elementName = qualifiedName;
 
-        System.out.println(tabs() + elementName + "{");
+        buffer.append(tabs() + elementName + "{");
         nbTabs++;
         if (attrs != null) {
             for (int i = 0; i < attrs.getLength(); i++) {
@@ -54,7 +54,7 @@ public class SaxParsing extends DefaultHandler {
 
     public void endElement(String namespaceURI, String localName, String qualifiedName) throws SAXException {
         nbTabs--;
-        System.out.println(tabs() + "}");
+        buffer.append(tabs() + "}");
     }
 
     private String tabs() {
@@ -63,5 +63,9 @@ public class SaxParsing extends DefaultHandler {
             tabs += "\t";
         }
         return tabs;
+    }
+
+    public String getOutput() {
+        return buffer.toString();
     }
 }

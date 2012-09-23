@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class DomBuildingTest {
 
-    public static final String order = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+    public static final String ORDER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
             "<order date=\"05/06/2013\" id=\"1234\">\n" +
             "    <customer first_name=\"James\" last_name=\"Rorrison\">\n" +
             "        <email>j.rorri@me.com</email>\n" +
@@ -26,7 +26,7 @@ public class DomBuildingTest {
 
         String orderXML = new DomBuilding().buildOrder() ;
 
-        assertEquals(order, orderXML);
+        assertEquals(ORDER_XML, orderXML);
 
     }
 }
