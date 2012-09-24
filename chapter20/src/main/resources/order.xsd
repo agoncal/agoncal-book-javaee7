@@ -4,12 +4,11 @@
   <xs:element name="order" type="order"/>
 
   <xs:complexType name="creditCard">
-    <xs:sequence>
-      <xs:element name="expiry_date" type="xs:string" minOccurs="0"/>
-      <xs:element name="control_number" type="xs:int" minOccurs="0"/>
-      <xs:element name="type" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
+    <xs:sequence/>
     <xs:attribute name="number" type="xs:string"/>
+    <xs:attribute name="expiry_date" type="xs:string"/>
+    <xs:attribute name="control_number" type="xs:int"/>
+    <xs:attribute name="type" type="xs:string"/>
   </xs:complexType>
 
   <xs:complexType name="customer">
@@ -19,18 +18,6 @@
     </xs:sequence>
     <xs:attribute name="first_name" type="xs:string"/>
     <xs:attribute name="last_name" type="xs:string"/>
-  </xs:complexType>
-
-  <xs:complexType name="dateAdapter">
-    <xs:complexContent>
-      <xs:extension base="xmlAdapter">
-        <xs:sequence/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-  <xs:complexType name="xmlAdapter" abstract="true">
-    <xs:sequence/>
   </xs:complexType>
 
   <xs:complexType name="order">
@@ -46,7 +33,7 @@
       <xs:element name="credit_card" type="creditCard" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:long"/>
-    <xs:attribute name="date" type="xs:string"/>
+    <xs:attribute name="date" type="xs:dateTime"/>
   </xs:complexType>
 
   <xs:complexType name="orderLine">
@@ -57,4 +44,3 @@
     <xs:attribute name="quantity" type="xs:int"/>
   </xs:complexType>
 </xs:schema>
-

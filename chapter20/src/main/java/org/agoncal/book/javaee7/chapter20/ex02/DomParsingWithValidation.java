@@ -17,8 +17,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +44,7 @@ public class DomParsingWithValidation {
             Schema schema = schemaFactory.newSchema(xmlSchema);
             factory.setSchema(schema);
 
-            ErrorHandler handler = new BestSAXChecker();
+            ErrorHandler handler = new DomParsingErrorHandler();
             builder.setErrorHandler(handler);
 
             Document document = builder.parse(xmlDocument);
@@ -72,7 +70,7 @@ public class DomParsingWithValidation {
     }
 }
 
-class BestSAXChecker implements ErrorHandler {
+class DomParsingErrorHandler implements ErrorHandler {
     public void warning(SAXParseException exception) {
         System.out.println("### Warning: " + exception.getMessage());
     }
