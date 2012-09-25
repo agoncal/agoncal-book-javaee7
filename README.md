@@ -12,43 +12,45 @@ Section 1 - Introduction
 
 Section 2 - Cross concerns
 
-* Chapter 2 - Context & dependency injection
-* Chapter 3 - Resources & injection
-* Chapter 4 - Interceptors, decorators and events
+* Chapter 2 - Context & Dependency Injection
+* Chapter 3 - Resources Injection & Scopes
+* Chapter 4 - Loose Coupling
 * Chapter 5 - Bean Validation
 
 Section 3 - Building a domain model
 
-* Chapter 6 - Java Persistence
+* Chapter 6 - Persistence
 * Chapter 7 - Object-Relational Mapping
-* Chapter 8 - Querying Objects
-* Chapter 9 - Callbacks and Listeners
+* Chapter 8 - Managing Persistent Object
+* Chapter 9 - Callbacks & Listeners
 
 Section 4 - Implementing business logic
 
 * Chapter 10 - Enterprise Java Beans
 * Chapter 11 - Session Beans
 * Chapter 12 - Callback & Timer Service
-* Chapter 13 - Transactions and security
+* Chapter 13 - Transactions & security
 
 Section 5 - Adding a web & user interface
 
 * Chapter 14 - Servlets
-* Chapter 15 - Java Server Faces
-* Chapter 16 - Pages and components
-* Chapter 17 - Navigation
+* Chapter 15 - Java Server Pages
+* Chapter 16 - JavaServer Faces
+* Chapter 17 - Pages & components
+* Chapter 18 - Processing & Navigation
 
 Section 6 - Interoperability
 
-* Chapter 18 - JMS & MDB
-* Chapter 19 - SOAP Web Services
-* Chapter 20 - RESTful Web Service
+* Chapter 19 - XML & JSON
+* Chapter 20 - Messaging
+* Chapter 21 - SOAP Web Services
+* Chapter 22 - RESTful Web Service
 
 Section 7 - Putting it all together
 
-* Chapter 21 - Developping a web application
-* Chapter 22 - Testing
-* Chapter 23 - Extensions
+* Chapter 23 - Developping a web application
+* Chapter 24 - Testing
+* Chapter 25 - Extensions
 
 
 # Structure of the code and Maven modules
@@ -83,16 +85,16 @@ To compile, package and execute the code you need the following software :
 
 ## Java Enterprise Edition Specification
 
-* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342)
+* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec)
 * Web Profile 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342)
 
 ## Web Services Specifications
 
 * (Prunned) JAX-RPC 1.1 - [JSR 101](http://jcp.org/en/jsr/detail?id=101) - [Project](http://java.net/projects/jax-rpc)
 * JAX-WS 2.2 - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws)
-* JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222)
+* JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222) - [Project](http://jaxb.java.net/)
 * JAXM 1.0 - [JSR 67](http://jcp.org/en/jsr/detail?id=67)
-* StAX 1.0 - [JSR 173](http://jcp.org/en/jsr/detail?id=173)
+* StAX 1.0 - [JSR 173](http://jcp.org/en/jsr/detail?id=173) - [Project](http://java.net/projects/sjsxp)
 * Web Services 1.2 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
 * Web Services Metadata 1.1 - [JSR 181](http://jcp.org/en/jsr/detail?id=181)
 * JAX-RS 2.0 - [JSR 339](http://jcp.org/en/jsr/detail?id=339) - [Project](http://java.net/projects/jax-rs-spec) - [Jersey](http://jersey.java.net/) - [@gf_jersey](https://twitter.com/gf_jersey) - [Code on GitHub](https://github.com/jersey/jersey)
@@ -101,34 +103,34 @@ To compile, package and execute the code you need the following software :
 
 ## Web Specifications
 
-* JSF 2.2 - [JSR 344](http://jcp.org/en/jsr/detail?id=344)
-* JSP 2.2 - [JSR 245](http://jcp.org/en/jsr/detail?id=245)
+* JSF 2.2 - [JSR 344](http://jcp.org/en/jsr/detail?id=344) - [Project](http://javaserverfaces.java.net/)
+* JSP 2.2 - [JSR 245](http://jcp.org/en/jsr/detail?id=245) - [Project](http://java.net/projects/jsp)
 * JSTL (JavaServer Pages Standard Tag Library) 1.2 - [JSR 52](http://jcp.org/en/jsr/detail?id=52)
 * Servlet 3.1 - [JSR 340](http://jcp.org/en/jsr/detail?id=340) - [Project](http://java.net/projects/servlet-spec/)
 * Expression Language 3.0 - [JSR 341](http://jcp.org/en/jsr/detail?id=341) - [Project](http://java.net/projects/el-spec)
 
 ## Enterprise Specifications
 
-* EJB 3.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345)
+* EJB 3.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/ejb-spec)
 * Interceptor 1.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/interceptors-spec)
 * JAF 1.1 - [JSR 925](http://jcp.org/en/jsr/detail?id=925)
 * JavaMail 1.4 - [JSR 919](http://jcp.org/en/jsr/detail?id=919)
 * JCA 1.6 - [JSR 322](http://jcp.org/en/jsr/detail?id=322)
-* JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343)
-* JPA 2.1 - [JSR 338](http://jcp.org/en/jsr/detail?id=338)
+* JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/mq)
+* JPA 2.1 - [JSR 338](http://jcp.org/en/jsr/detail?id=338) - [Project](http://java.net/projects/jpa-spec)
 * JTA 1.1 - [JSR 907](http://jcp.org/en/jsr/detail?id=907) - [Project](http://java.net/projects/jta-spec/)
 
 ## Management, Security, and other specifications
 
-* CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346)
+* CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346) - [Documentation](http://docs.jboss.org/cdi/spec/) - [JIRA](https://issues.jboss.org/browse/CDI)
 * JACC 1.1 - [JSR 115](http://jcp.org/en/jsr/detail?id=115)
-* Bean Validation 1.1 - [JSR 349](http://jcp.org/en/jsr/detail?id=349)
+* Bean Validation 1.1 - [JSR 349](http://jcp.org/en/jsr/detail?id=349) - [Web site](http://beanvalidation.org/)
 * Common Annotations 1.0 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
 * Java EE Application Deployment 1.2 - [JSR 88](http://jcp.org/en/jsr/detail?id=88)
 * Java EE Management 1.1 - [JSR 77](http://jcp.org/en/jsr/detail?id=77)
 * Java Authentication Service Provider Interface for Containers 1.0 - [JSR 196](http://jcp.org/en/jsr/detail?id=196)
 * Debugging Support for Other Languages 1.0 - [JSR 45](http://jcp.org/en/jsr/detail?id=45)
-* JCache 1.0 - [JSR 107](http://jcp.org/en/jsr/detail?id=107)
+* JCache 1.0 - [JSR 107](http://jcp.org/en/jsr/detail?id=107) - [RI on GitHub](https://github.com/jsr107/RI)
 
 # Licensing
 
