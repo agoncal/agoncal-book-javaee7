@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class DomParsingWithValidationTest {
 
-    @Test
+    @Test(expected = SAXParseException.class)
     public void shouldParseOrderLines() throws Exception {
         List<OrderLine> parseOrderLines = new DomParsingWithValidation().parseOrderLines();
         assertEquals(2, parseOrderLines.size());
