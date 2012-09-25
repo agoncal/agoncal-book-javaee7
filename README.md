@@ -110,6 +110,7 @@ To compile, package and execute the code you need the following software :
 ## Enterprise Specifications
 
 * EJB 3.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345)
+* Interceptor 1.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/interceptors-spec)
 * JAF 1.1 - [JSR 925](http://jcp.org/en/jsr/detail?id=925)
 * JavaMail 1.4 - [JSR 919](http://jcp.org/en/jsr/detail?id=919)
 * JCA 1.6 - [JSR 322](http://jcp.org/en/jsr/detail?id=322)
