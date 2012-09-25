@@ -31,12 +31,16 @@ public class DomParsing {
 
         try {
             File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
+
+            // DOM Factory
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(xmlDocument);
 
+            // Parsing the document
+            DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+            Document document = documentBuilder.parse(xmlDocument);
+
+            // Getting the order_line node
             NodeList orderLinesNode = document.getElementsByTagName("order_line");
-
             for (int i = 0; i < orderLinesNode.getLength(); i++) {
                 Element orderLineNode = (Element) orderLinesNode.item(i);
                 OrderLine orderLine = new OrderLine();
