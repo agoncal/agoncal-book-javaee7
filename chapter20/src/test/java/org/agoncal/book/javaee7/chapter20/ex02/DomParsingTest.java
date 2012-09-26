@@ -24,5 +24,9 @@ public class DomParsingTest {
         assertEquals("H2G2", orderLine.getItem());
         assertEquals((Integer) 1, orderLine.getQuantity());
         assertEquals((Double) 23.5, orderLine.getUnitPrice());
+        orderLine = parseOrderLines.get(1);
+        assertEquals("Harry Potter", orderLine.getItem());
+        assertEquals((Integer) 2, orderLine.getQuantity());
+        assertEquals((Double) 34.99, orderLine.getUnitPrice());
     }
 }
