@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter20.ex01;
 
+import org.agoncal.book.javaee7.chapter20.OrderLine;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -10,6 +11,8 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -20,11 +23,12 @@ import java.nio.file.Paths;
  */
 public class SaxParsing extends DefaultHandler {
 
-    private String elementName = "";
-    private int nbTabs;
-    private StringBuffer buffer = new StringBuffer();
+    private List<OrderLine> orderLines = new ArrayList<>();
+    private OrderLine orderLine;
+    private Boolean dealingWithUnitPrice = false;
+    private StringBuffer unitPriceBuffer;
 
-    public void parseOrderXML() {
+    public List<OrderLine> parseOrderLines() {
 
         try {
             File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
@@ -34,38 +38,48 @@ public class SaxParsing extends DefaultHandler {
         } catch (SAXException | IOException | ParserConfigurationException e) {
             e.printStackTrace();
         }
+        return orderLines;
     }
 
     public void startElement(String namespaceURI, String localName, String qualifiedName, Attributes attrs) throws SAXException {
 
-        if (localName != null && !localName.isEmpty())
-            elementName = localName;
-        else
-            elementName = qualifiedName;
-
-        buffer.append(tabs() + elementName + "{\n");
-        nbTabs++;
-        if (attrs != null) {
-            for (int i = 0; i < attrs.getLength(); i++) {
-                buffer.append(tabs() + attrs.getLocalName(i) + "=" + attrs.getValue(i) + "\n");
-            }
+        switch (qualifiedName) {
+            case "order_line":
+                orderLine = new OrderLine();
+                for (int i = 0; i < attrs.getLength(); i++) {
+                    switch (attrs.getLocalName(i)) {
+                        case "item":
+                            orderLine.setItem(attrs.getValue(i));
+                            break;
+                        case "quantity":
+                            orderLine.setQuantity(Integer.valueOf(attrs.getValue(i)));
+                            break;
+                    }
+                }
+                break;
+            case "unit_price":
+                dealingWithUnitPrice = true;
+                unitPriceBuffer = new StringBuffer();
+                break;
         }
+    }
+
+    @Override
+    public void characters(char[] ch, int start, int length) throws SAXException {
+        if (dealingWithUnitPrice)
+            unitPriceBuffer.append(ch, start, length);
     }
 
     public void endElement(String namespaceURI, String localName, String qualifiedName) throws SAXException {
-        nbTabs--;
-        buffer.append(tabs() + "}\n");
-    }
 
-    private String tabs() {
-        String tabs = "";
-        for (int i = 0; i < nbTabs; i++) {
-            tabs += "\t";
+        switch (qualifiedName) {
+            case "order_line":
+                orderLines.add(orderLine);
+                break;
+            case "unit_price":
+                orderLine.setUnitPrice(Double.valueOf(unitPriceBuffer.toString()));
+                dealingWithUnitPrice = false;
+                break;
         }
-        return tabs;
-    }
-
-    public String getOutput() {
-        return buffer.toString();
     }
 }
