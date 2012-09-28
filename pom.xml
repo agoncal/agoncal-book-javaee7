@@ -9,7 +9,7 @@
     <name>00 - Parent of Book Java EE 7</name>
 
     <modules>
-        <module>chapter20</module>
+        <module>chapter19</module>
         <module>chapter22</module>
     </modules>
 
