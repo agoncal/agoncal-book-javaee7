@@ -5,6 +5,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import java.io.File;
+import java.io.StringWriter;
+import java.nio.file.Paths;
 
 /**
  * @author Antonio Goncalves
@@ -15,17 +18,30 @@ import javax.xml.transform.stream.StreamSource;
  */
 public class XsltTransforming {
 
-    public static void main(String[] args) {
-        String stylesheet = "src/main/resources/order.xsl";
-        String xmlDocument = "src/main/resources/order.xml";
+  public static void main(String[] args) {
+    String order = new XsltTransforming().transformOrder();
+    System.out.println(order);
+  }
 
-        try {
-            TransformerFactory factory = TransformerFactory.newInstance();
-            Transformer transformer = factory.newTransformer(new StreamSource(stylesheet));
-            transformer.transform(new StreamSource(xmlDocument), new StreamResult(System.out));
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        }
+  public String transformOrder() {
 
+    StringWriter writer = new StringWriter();
+
+    try {
+      File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
+      File stylesheet = Paths.get("src/main/resources/order.xsl").toFile();
+
+      // Saxon Factory for using XSLT 2
+      TransformerFactory factory = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null);
+
+      // Transforming the document
+      Transformer transformer = factory.newTransformer(new StreamSource(stylesheet));
+      transformer.transform(new StreamSource(xmlDocument), new StreamResult(writer));
+
+    } catch (TransformerException e) {
+      e.printStackTrace();
     }
+
+    return writer.toString().trim();
+  }
 }

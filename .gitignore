@@ -3,6 +3,11 @@
 *.log
 *.iml
 target
+*.class
+*.jar
+*.war
+*.ear
+*.rar
 *.ipr
 *.iws
 rebel.xml

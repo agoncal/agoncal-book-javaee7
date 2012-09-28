@@ -22,11 +22,11 @@
 
   <xs:complexType name="order">
     <xs:sequence>
-      <xs:element name="customer" type="customer" minOccurs="0"/>
+      <xs:element name="customer" type="customer"/>
       <xs:element name="content" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="order_line" type="orderLine" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="order_line" type="orderLine" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>

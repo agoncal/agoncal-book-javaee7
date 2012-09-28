@@ -18,96 +18,97 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Order {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @XmlAttribute
-    private Long id;
-    @XmlAttribute(name = "date")
-    @XmlJavaTypeAdapter(DateAdapter.class)
-    private Date creationDate;
-    @XmlTransient
-    private Double totalAmount;
-    @XmlElementWrapper(name = "content")
-    @XmlElement(name = "order_line")
-    private List<OrderLine> orderLines;
-    private Customer customer;
-    @XmlElement(name = "credit_card")
-    private CreditCard creditCard;
+  @XmlAttribute
+  private Long id;
+  @XmlAttribute(name = "date")
+  @XmlJavaTypeAdapter(DateAdapter.class)
+  private Date creationDate;
+  @XmlTransient
+  private Double totalAmount;
+  @XmlElementWrapper(name = "content")
+  @XmlElement(name = "order_line", required = true)
+  private List<OrderLine> orderLines;
+  @XmlElement(required = true)
+  private Customer customer;
+  @XmlElement(name = "credit_card")
+  private CreditCard creditCard;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Order() {
-    }
+  public Order() {
+  }
 
-    public Order(Long id, Double totalAmount, Date creationDate) {
-        this.id = id;
-        this.totalAmount = totalAmount;
-        this.creationDate = creationDate;
-    }
+  public Order(Long id, Double totalAmount, Date creationDate) {
+    this.id = id;
+    this.totalAmount = totalAmount;
+    this.creationDate = creationDate;
+  }
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public void addOrderLine(OrderLine orderLine) {
-        if (orderLines == null)
-            orderLines = new ArrayList<>();
-        orderLines.add(orderLine);
-    }
+  public void addOrderLine(OrderLine orderLine) {
+    if (orderLines == null)
+      orderLines = new ArrayList<>();
+    orderLines.add(orderLine);
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
+  public Date getCreationDate() {
+    return creationDate;
+  }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+  public void setCreationDate(Date creationDate) {
+    this.creationDate = creationDate;
+  }
 
-    public List<OrderLine> getOrderLines() {
-        return orderLines;
-    }
+  public List<OrderLine> getOrderLines() {
+    return orderLines;
+  }
 
-    public void setOrderLines(List<OrderLine> orderLines) {
-        this.orderLines = orderLines;
-    }
+  public void setOrderLines(List<OrderLine> orderLines) {
+    this.orderLines = orderLines;
+  }
 
-    public Double getTotalAmount() {
-        return totalAmount;
-    }
+  public Double getTotalAmount() {
+    return totalAmount;
+  }
 
-    public void setTotalAmount(Double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
+  public void setTotalAmount(Double totalAmount) {
+    this.totalAmount = totalAmount;
+  }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+  public Customer getCustomer() {
+    return customer;
+  }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
 
-    public CreditCard getCreditCard() {
-        return creditCard;
-    }
+  public CreditCard getCreditCard() {
+    return creditCard;
+  }
 
-    public void setCreditCard(CreditCard creditCard) {
-        this.creditCard = creditCard;
-    }
+  public void setCreditCard(CreditCard creditCard) {
+    this.creditCard = creditCard;
+  }
 }
