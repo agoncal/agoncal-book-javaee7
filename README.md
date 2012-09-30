@@ -116,7 +116,7 @@ To compile, package and execute the code you need the following software :
 * JAF 1.1 - [JSR 925](http://jcp.org/en/jsr/detail?id=925)
 * JavaMail 1.4 - [JSR 919](http://jcp.org/en/jsr/detail?id=919)
 * JCA 1.6 - [JSR 322](http://jcp.org/en/jsr/detail?id=322)
-* JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/mq)
+* JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/mq) - [JIRA|http://java.net/jira/browse/JMS_SPEC]
 * JPA 2.1 - [JSR 338](http://jcp.org/en/jsr/detail?id=338) - [Project](http://java.net/projects/jpa-spec)
 * JTA 1.1 - [JSR 907](http://jcp.org/en/jsr/detail?id=907) - [Project](http://java.net/projects/jta-spec/)
 
