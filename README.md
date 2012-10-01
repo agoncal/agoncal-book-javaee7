@@ -46,12 +46,6 @@ Section 6 - Interoperability
 * Chapter 21 - SOAP Web Services
 * Chapter 22 - RESTful Web Service
 
-Section 7 - Putting it all together
-
-* Chapter 23 - Developping a web application
-* Chapter 24 - Testing
-* Chapter 25 - Extensions
-
 
 # Structure of the code and Maven modules
 
@@ -68,11 +62,11 @@ The code used in the book is defined in the following sub-directories :
 * Chapter10 : Introduction to JSF 2.0
 * Chapter11 : JSF Pages and components
 * Chapter12 : Processing & JSF Navigation
-* Chapter13 : JMS Sender
-* Chapter13-MDB : JMS Message Driven Bean
-* Chapter14-Consumer : SOAP Web service consumer
-* Chapter14-Service : SOAP Web service
-* Chapter15-Resource : RESTful Web service
+* Chapter19 : JMS Sender
+* Chapter19-MDB : JMS Message Driven Bean
+* Chapter21-Consumer : SOAP Web service consumer
+* Chapter21-Service : SOAP Web service
+* Chapter22-Resource : RESTful Web service
 
 To compile, package and execute the code you need the following software :
 
