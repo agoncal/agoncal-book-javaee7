@@ -16,17 +16,11 @@
     </parent>
 
     <modules>
-        <module>consumer</module>
-        <module>service</module>
+        <module>chapter22-consumer</module>
+        <module>chapter22-service</module>
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>org.glassfish.main.extras</groupId>
-            <artifactId>glassfish-embedded-all</artifactId>
-            <version>${version.glassfish}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-common</artifactId>
