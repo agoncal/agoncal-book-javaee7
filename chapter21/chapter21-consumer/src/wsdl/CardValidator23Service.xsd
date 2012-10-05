@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-hudson-28-. -->
-<xs:schema xmlns:tns="http://chapter21.javaee7.book.agoncal.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
-           targetNamespace="http://chapter21.javaee7.book.agoncal.org/">
+<xs:schema xmlns:tns="http://ex23.chapter21.javaee7.book.agoncal.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+           targetNamespace="http://ex23.chapter21.javaee7.book.agoncal.org/">
 
     <xs:element name="creditCard" type="tns:creditCard"/>
 

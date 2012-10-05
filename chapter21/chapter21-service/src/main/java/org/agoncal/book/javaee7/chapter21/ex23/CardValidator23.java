@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21;
+package org.agoncal.book.javaee7.chapter21.ex23;
 
 import javax.jws.WebService;
 
@@ -10,13 +10,13 @@ import javax.jws.WebService;
  *         --
  */
 @WebService
-public class CardValidator {
+public class CardValidator23 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(CreditCard creditCard) {
+  public boolean validate(CreditCard23 creditCard) {
 
     String lastDigit = creditCard.getNumber().substring(creditCard.getNumber().length() - 1, creditCard.getNumber().length());
 

@@ -64,7 +64,7 @@
               <wsdlFiles>
                 <wsdlFile>CardValidator01Service.wsdl</wsdlFile>
                 <wsdlFile>CardValidator16Service.wsdl</wsdlFile>
-                <wsdlFile>CardValidatorService.wsdl</wsdlFile>
+                <wsdlFile>CardValidator23Service.wsdl</wsdlFile>
               </wsdlFiles>
               <keep>true</keep>
 

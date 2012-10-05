@@ -1,9 +1,5 @@
 package org.agoncal.book.javaee7.chapter21.ex23;
 
-import org.agoncal.book.javaee7.chapter21.CardValidator;
-import org.agoncal.book.javaee7.chapter21.CardValidatorService;
-import org.agoncal.book.javaee7.chapter21.CreditCard;
-
 import javax.xml.ws.WebServiceRef;
 
 /**
@@ -16,19 +12,19 @@ import javax.xml.ws.WebServiceRef;
 public class Main {
 
     @WebServiceRef
-    private static CardValidatorService cardValidatorService;
+    private static CardValidator23Service cardValidatorService;
 
     public static void main(String[] args) {
 
         System.out.println("Invoking web service with injection");
 
-        CreditCard creditCard = new CreditCard();
+        CreditCard23 creditCard = new CreditCard23();
         creditCard.setNumber("12341234");
         creditCard.setExpiryDate("10/10");
         creditCard.setType("VISA");
         creditCard.setControlNumber(1234);
 
-        CardValidator cardValidator = cardValidatorService.getCardValidatorPort();
+        CardValidator23 cardValidator = cardValidatorService.getCardValidatorPort();
         System.out.println(cardValidator.validate(creditCard));
 
         creditCard.setNumber("12341233");

@@ -85,12 +85,12 @@ To compile, package and execute the code you need the following software :
 ## Web Services Specifications
 
 * (Prunned) JAX-RPC 1.1 - [JSR 101](http://jcp.org/en/jsr/detail?id=101) - [Project](http://java.net/projects/jax-rpc)
-* JAX-WS 2.2 - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws)
+* JAX-WS 2.2a - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws)
 * JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222) - [Project](http://jaxb.java.net/)
 * JAXM 1.0 - [JSR 67](http://jcp.org/en/jsr/detail?id=67)
 * StAX 1.0 - [JSR 173](http://jcp.org/en/jsr/detail?id=173) - [Project](http://java.net/projects/sjsxp)
-* Web Services 1.2 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
-* Web Services Metadata 1.1 - [JSR 181](http://jcp.org/en/jsr/detail?id=181)
+* Web Services 1.3 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
+* Web Services Metadata 1.3 - [JSR 181](http://jcp.org/en/jsr/detail?id=181)
 * JAX-RS 2.0 - [JSR 339](http://jcp.org/en/jsr/detail?id=339) - [Project](http://java.net/projects/jax-rs-spec) - [Jersey](http://jersey.java.net/) - [@gf_jersey](https://twitter.com/gf_jersey) - [Code on GitHub](https://github.com/jersey/jersey)
 * JSON-P 1.0 - [JSR 353](http://jcp.org/en/jsr/detail?id=353) - [Project](http://java.net/projects/json-processing-spec) - [JIRA](http://java.net/jira/browse/JSON_PROCESSING_SPEC)
 * JAXR 1.1 - [JSR 93](http://jcp.org/en/jsr/detail?id=93)

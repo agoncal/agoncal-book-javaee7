@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21;
+package org.agoncal.book.javaee7.chapter21.ex23;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *         --
  */
 @XmlRootElement
-public class CreditCard {
+public class CreditCard23 {
 
     // ======================================
     // =             Attributes             =
@@ -24,10 +24,10 @@ public class CreditCard {
     // =            Constructors            =
     // ======================================
 
-    public CreditCard() {
+    public CreditCard23() {
     }
 
-    public CreditCard(String number, String expiryDate, Integer controlNumber, String type) {
+    public CreditCard23(String number, String expiryDate, Integer controlNumber, String type) {
         this.number = number;
         this.expiryDate = expiryDate;
         this.controlNumber = controlNumber;
