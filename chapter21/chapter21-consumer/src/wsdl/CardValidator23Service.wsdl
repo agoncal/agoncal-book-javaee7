@@ -18,15 +18,15 @@
     <message name="validateResponse">
         <part name="parameters" element="tns:validateResponse"/>
     </message>
-    <portType name="CardValidator">
+    <portType name="CardValidator23">
         <operation name="validate">
-            <input wsam:Action="http://ex23.chapter21.javaee7.book.agoncal.org/CardValidator/validateRequest"
+            <input wsam:Action="http://ex23.chapter21.javaee7.book.agoncal.org/CardValidator23/validateRequest"
                    message="tns:validate"/>
-            <output wsam:Action="http://ex23.chapter21.javaee7.book.agoncal.org/CardValidator/validateResponse"
+            <output wsam:Action="http://ex23.chapter21.javaee7.book.agoncal.org/CardValidator23/validateResponse"
                     message="tns:validateResponse"/>
         </operation>
     </portType>
-    <binding name="CardValidatorPortBinding" type="tns:CardValidator">
+    <binding name="CardValidator23PortBinding" type="tns:CardValidator23">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
         <operation name="validate">
             <soap:operation soapAction=""/>
@@ -39,7 +39,7 @@
         </operation>
     </binding>
     <service name="CardValidator23Service">
-        <port name="CardValidatorPort" binding="tns:CardValidatorPortBinding">
+        <port name="CardValidator23Port" binding="tns:CardValidator23PortBinding">
             <soap:address location="http://localhost:8080/chapter21-service-1.0/CardValidator23Service"/>
         </port>
     </service>

@@ -24,7 +24,7 @@ public class Main23 {
         creditCard.setType("VISA");
         creditCard.setControlNumber(1234);
 
-        CardValidator23 cardValidator = cardValidatorService.getCardValidatorPort();
+        CardValidator23 cardValidator = cardValidatorService.getCardValidator23Port();
         System.out.println(cardValidator.validate(creditCard));
 
         creditCard.setNumber("12341233");

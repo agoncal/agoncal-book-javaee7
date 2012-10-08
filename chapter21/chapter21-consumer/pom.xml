@@ -33,7 +33,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.agoncal.book.javaee7.chapter21.ex23.Main23</mainClass>
+              <mainClass>org.agoncal.book.javaee7.chapter21.ex25.Main25</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -65,6 +65,7 @@
                 <wsdlFile>CardValidator01Service.wsdl</wsdlFile>
                 <wsdlFile>CardValidator16Service.wsdl</wsdlFile>
                 <wsdlFile>CardValidator23Service.wsdl</wsdlFile>
+                <wsdlFile>CardValidator25Service.wsdl</wsdlFile>
               </wsdlFiles>
               <keep>true</keep>
 
