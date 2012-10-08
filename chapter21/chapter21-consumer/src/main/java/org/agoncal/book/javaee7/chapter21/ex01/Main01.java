@@ -2,12 +2,12 @@ package org.agoncal.book.javaee7.chapter21.ex01;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Main {
+public class Main01 {
 
     public static void main(String[] args) {
 

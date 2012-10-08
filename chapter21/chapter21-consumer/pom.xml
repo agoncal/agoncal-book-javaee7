@@ -33,7 +33,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.agoncal.book.javaee7.chapter21.ex23.Main</mainClass>
+              <mainClass>org.agoncal.book.javaee7.chapter21.ex23.Main23</mainClass>
             </manifest>
           </archive>
         </configuration>

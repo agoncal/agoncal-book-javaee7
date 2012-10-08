@@ -1,23 +1,31 @@
 package org.agoncal.book.javaee7.chapter21.ex23;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  */
-@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CreditCard23 {
 
     // ======================================
     // =             Attributes             =
     // ======================================
+
+  @XmlAttribute(required = true)
     private String number;
+  @XmlAttribute(name = "expiry_date", required = true)
     private String expiryDate;
+  @XmlAttribute(name = "control_number", required = true)
     private Integer controlNumber;
+  @XmlAttribute(required = true)
     private String type;
 
     // ======================================
@@ -69,5 +77,4 @@ public class CreditCard23 {
     public void setType(String type) {
         this.type = type;
     }
-
 }

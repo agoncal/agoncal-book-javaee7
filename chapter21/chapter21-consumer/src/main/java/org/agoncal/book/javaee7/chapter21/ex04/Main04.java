@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21.ex08;
+package org.agoncal.book.javaee7.chapter21.ex04;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -7,12 +7,12 @@ import java.io.StringWriter;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Main {
+public class Main04 {
 
     public static void main(String[] args) throws JAXBException {
 

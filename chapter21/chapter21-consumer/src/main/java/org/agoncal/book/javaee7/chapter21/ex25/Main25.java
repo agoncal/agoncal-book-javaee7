@@ -1,15 +1,15 @@
-package org.agoncal.book.javaee7.chapter21.ex23;
+package org.agoncal.book.javaee7.chapter21.ex25;
 
 import javax.xml.ws.WebServiceRef;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Main {
+public class Main25 {
 
     @WebServiceRef
     private static CardValidator23Service cardValidatorService;
