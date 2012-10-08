@@ -22,3 +22,5 @@ WebContent
 vpproject
 .vpprefdata
 *dummy*.*
+*-soapui-project.xml
+.lock
