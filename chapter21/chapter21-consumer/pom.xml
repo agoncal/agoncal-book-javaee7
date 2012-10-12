@@ -30,13 +30,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>${version.maven.jar.plugin}</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>org.agoncal.book.javaee7.chapter21.ex25.Main25</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
       </plugin>
 
       <plugin>
