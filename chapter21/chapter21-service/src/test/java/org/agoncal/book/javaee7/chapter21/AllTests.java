@@ -1,6 +1,6 @@
 package org.agoncal.book.javaee7.chapter21;
 
-import org.agoncal.book.javaee7.chapter21.ex01.CardValidator01Test;
+import org.agoncal.book.javaee7.chapter21.ex06.CardValidator06Test;
 import org.agoncal.book.javaee7.chapter21.ex16.CardValidator16Test;
 import org.agoncal.book.javaee7.chapter21.ex23.CardValidator23Test;
 import org.junit.runner.RunWith;
@@ -15,7 +15,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        CardValidator01Test.class,
+        CardValidator06Test.class,
         CardValidator16Test.class,
         CardValidator23Test.class
 })

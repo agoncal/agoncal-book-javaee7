@@ -1,9 +1,8 @@
-package org.agoncal.book.javaee7.chapter21.ex01;
+package org.agoncal.book.javaee7.chapter21.ex06;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Antonio Goncalves
@@ -13,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *         --
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CreditCard01 {
+public class CreditCard06 {
 
   // ======================================
   // =             Attributes             =
@@ -32,10 +31,10 @@ public class CreditCard01 {
   // =            Constructors            =
   // ======================================
 
-  public CreditCard01() {
+  public CreditCard06() {
   }
 
-  public CreditCard01(String number, String expiryDate, Integer controlNumber, String type) {
+  public CreditCard06(String number, String expiryDate, Integer controlNumber, String type) {
     this.number = number;
     this.expiryDate = expiryDate;
     this.controlNumber = controlNumber;
