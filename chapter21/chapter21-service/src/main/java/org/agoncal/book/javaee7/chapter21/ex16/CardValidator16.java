@@ -15,7 +15,7 @@ import javax.xml.ws.WebServiceContext;
  *         --
  */
 @WebService(name = "CardValidator16", portName = "ValidatorPort")
-public class CardValidator16 implements CCValidator16 {
+public class CardValidator16 implements Validator16 {
 
     // ======================================
     // =            Constructors            =
