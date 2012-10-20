@@ -9,7 +9,7 @@ import javax.jws.WebService;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService(portName = "CreditCardValidator", serviceName = "ValidatorService09")
+@WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.ex09.Validator09")
 public class CardValidator09 {
 
   // ======================================

@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21.ex16;
+package org.agoncal.book.javaee7.chapter21.ex09;
 
 import javax.xml.ws.Endpoint;
 
@@ -9,12 +9,12 @@ import javax.xml.ws.Endpoint;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Start {
+public class Start09 {
 
   public static void main(String[] args) {
 
-    CardValidator16 cardValidator = new CardValidator16();
-    Endpoint ep = Endpoint.publish("http://localhost:8080/cardValidator", cardValidator);
+    CardValidator09 cardValidator = new CardValidator09();
+    Endpoint.publish("http://localhost:8080/cardValidator", cardValidator);
 
     System.out.println("The end");
   }

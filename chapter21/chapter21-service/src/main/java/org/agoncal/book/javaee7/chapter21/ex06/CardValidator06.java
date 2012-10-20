@@ -9,21 +9,21 @@ import javax.jws.WebService;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService
+@WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.ex06.Validator06")
 public class CardValidator06 {
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public boolean validate(CreditCard06 creditCard) {
+  public boolean validate(CreditCard06 creditCard) {
 
-        Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
+    Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
-        if (Integer.parseInt(lastDigit.toString()) % 2 != 0) {
-            return true;
-        } else {
-            return false;
-        }
+    if (Integer.parseInt(lastDigit.toString()) % 2 != 0) {
+      return true;
+    } else {
+      return false;
     }
+  }
 }

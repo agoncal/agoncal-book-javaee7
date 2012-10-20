@@ -3,7 +3,6 @@ package org.agoncal.book.javaee7.chapter21.ex16;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Antonio Goncalves
@@ -15,66 +14,66 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CreditCard16 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
   @XmlAttribute(required = true)
-    private String number;
+  private String number;
   @XmlAttribute(name = "expiry_date", required = true)
-    private String expiryDate;
+  private String expiryDate;
   @XmlAttribute(name = "control_number", required = true)
-    private Integer controlNumber;
+  private Integer controlNumber;
   @XmlAttribute(required = true)
-    private String type;
+  private String type;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public CreditCard16() {
-    }
+  public CreditCard16() {
+  }
 
-    public CreditCard16(String number, String expiryDate, Integer controlNumber, String type) {
-        this.number = number;
-        this.expiryDate = expiryDate;
-        this.controlNumber = controlNumber;
-        this.type = type;
-    }
+  public CreditCard16(String number, String expiryDate, Integer controlNumber, String type) {
+    this.number = number;
+    this.expiryDate = expiryDate;
+    this.controlNumber = controlNumber;
+    this.type = type;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public String getNumber() {
-        return number;
-    }
+  public String getNumber() {
+    return number;
+  }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+  public void setNumber(String number) {
+    this.number = number;
+  }
 
-    public String getExpiryDate() {
-        return expiryDate;
-    }
+  public String getExpiryDate() {
+    return expiryDate;
+  }
 
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
+  public void setExpiryDate(String expiryDate) {
+    this.expiryDate = expiryDate;
+  }
 
-    public Integer getControlNumber() {
-        return controlNumber;
-    }
+  public Integer getControlNumber() {
+    return controlNumber;
+  }
 
-    public void setControlNumber(Integer controlNumber) {
-        this.controlNumber = controlNumber;
-    }
+  public void setControlNumber(Integer controlNumber) {
+    this.controlNumber = controlNumber;
+  }
 
-    public String getType() {
-        return type;
-    }
+  public String getType() {
+    return type;
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public void setType(String type) {
+    this.type = type;
+  }
 }

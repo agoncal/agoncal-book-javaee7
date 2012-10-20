@@ -17,31 +17,31 @@ import javax.xml.ws.WebServiceContext;
 @WebService(name = "CardValidator16", portName = "ValidatorPort")
 public class CardValidator16 implements Validator16 {
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
-    @Resource
-    private WebServiceContext context;
+  // ======================================
+  // =            Constructors            =
+  // ======================================
+  @Resource
+  private WebServiceContext context;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    @WebMethod(operationName = "ValidateCreditCard")
-    @WebResult(name = "IsValid")
-    public boolean validate(@WebParam(name = "CreditCard") CreditCard16 creditCard) {
+  @WebMethod(operationName = "ValidateCreditCard")
+  @WebResult(name = "IsValid")
+  public boolean validate(@WebParam(name = "CreditCard") CreditCard16 creditCard) {
 
-        Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
+    Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
-        if (Integer.parseInt(lastDigit.toString()) % 2 != 0) {
-            return true;
-        } else {
-            return false;
-        }
+    if (Integer.parseInt(lastDigit.toString()) % 2 != 0) {
+      return true;
+    } else {
+      return false;
     }
+  }
 
-    @WebMethod(exclude = true)
-    public void validate(String ccNumber) {
+  @WebMethod(exclude = true)
+  public void validate(String ccNumber) {
 
-    }
+  }
 }

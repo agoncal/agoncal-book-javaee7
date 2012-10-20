@@ -1,5 +1,7 @@
-package org.agoncal.book.javaee7.chapter21.ex06;
+package org.agoncal.book.javaee7.chapter21.ex09;
 
+import org.agoncal.book.javaee7.chapter21.ex06.CardValidator06;
+import org.agoncal.book.javaee7.chapter21.ex06.CreditCard06;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -12,7 +14,7 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CardValidator06Test {
+public class CardValidator09Test {
 
   @Test
   public void shouldCheckCreditCardValidity() {

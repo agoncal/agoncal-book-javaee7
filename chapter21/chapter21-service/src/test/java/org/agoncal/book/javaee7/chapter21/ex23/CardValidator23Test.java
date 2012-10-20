@@ -14,23 +14,23 @@ import static org.junit.Assert.assertTrue;
  */
 public class CardValidator23Test {
 
-    @Test
-    public void shouldCheckCreditCardValidity() {
+  @Test
+  public void shouldCheckCreditCardValidity() {
 
-        CreditCard23 creditCard = new CreditCard23();
-        creditCard.setNumber("12341234");
-        creditCard.setExpiryDate("10/10");
-        creditCard.setType("VISA");
-        creditCard.setControlNumber(1234);
+    CreditCard23 creditCard = new CreditCard23();
+    creditCard.setNumber("12341234");
+    creditCard.setExpiryDate("10/10");
+    creditCard.setType("VISA");
+    creditCard.setControlNumber(1234);
 
-        CardValidator23 cardValidator = new CardValidator23();
-        assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
-        creditCard.setNumber("2");
-        assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    CardValidator23 cardValidator = new CardValidator23();
+    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    creditCard.setNumber("2");
+    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
 
-        creditCard.setNumber("12341233");
-        assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
-        creditCard.setNumber("1");
-        assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
-    }
+    creditCard.setNumber("12341233");
+    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+    creditCard.setNumber("1");
+    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+  }
 }
