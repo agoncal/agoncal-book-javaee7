@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter21;
 
 import javax.jws.WebService;
+import javax.xml.ws.Endpoint;
 
 /**
  * @author Antonio Goncalves
@@ -21,5 +22,10 @@ public class CardValidator {
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
     return Integer.parseInt(lastDigit.toString()) % 2 != 0;
+  }
+
+
+  public static void main(String[] args) {
+    Endpoint.publish("http://localhost:8080/cardValidator", new CardValidator());
   }
 }

@@ -1,6 +1,7 @@
-package org.agoncal.book.javaee7.chapter21.ex06;
+package org.agoncal.book.javaee7.chapter21.ex10;
 
 import javax.jws.WebService;
+import javax.xml.ws.Endpoint;
 
 /**
  * @author Antonio Goncalves
@@ -10,13 +11,13 @@ import javax.jws.WebService;
  *         --
  */
 @WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.ex06.Validator06")
-public class CardValidator06 {
+public class CardValidator10 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(CreditCard06 creditCard) {
+  public boolean validate(CreditCard10 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -25,5 +26,9 @@ public class CardValidator06 {
     } else {
       return false;
     }
+  }
+
+  public static void main(String[] args) {
+    Endpoint.publish("http://localhost:8080/cardValidator06", new CardValidator10());
   }
 }

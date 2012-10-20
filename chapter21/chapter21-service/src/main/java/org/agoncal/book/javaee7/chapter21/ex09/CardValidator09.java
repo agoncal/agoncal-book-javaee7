@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter21.ex09;
 
 import javax.jws.WebService;
+import javax.xml.ws.Endpoint;
 
 /**
  * @author Antonio Goncalves
@@ -9,7 +10,7 @@ import javax.jws.WebService;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.ex09.Validator09")
+@WebService(portName = "CreditCardValidator09", serviceName = "ValidatorService09")
 public class CardValidator09 {
 
   // ======================================
@@ -25,5 +26,9 @@ public class CardValidator09 {
     } else {
       return false;
     }
+  }
+
+  public static void main(String[] args) {
+    Endpoint.publish("http://localhost:8080/cardValidator09", new CardValidator09());
   }
 }
