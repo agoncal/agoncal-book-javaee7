@@ -9,7 +9,7 @@ import javax.jws.WebService;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService
+@WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.Validator")
 public class CardValidator {
 
   // ======================================
@@ -20,10 +20,6 @@ public class CardValidator {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
-    if (Integer.parseInt(lastDigit.toString()) % 2 != 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return Integer.parseInt(lastDigit.toString()) % 2 != 0;
   }
 }
