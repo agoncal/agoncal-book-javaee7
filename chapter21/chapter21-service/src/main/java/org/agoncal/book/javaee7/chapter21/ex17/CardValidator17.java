@@ -1,8 +1,16 @@
-package org.agoncal.book.javaee7.chapter21.ex10;
+package org.agoncal.book.javaee7.chapter21.ex17;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Endpoint;
+
+import static javax.jws.WebParam.Mode.IN;
+import static javax.jws.soap.SOAPBinding.Style.RPC;
+import static javax.jws.soap.SOAPBinding.Use.ENCODED;
+import static javax.jws.soap.SOAPBinding.Use.LITERAL;
 
 /**
  * @author Antonio Goncalves
@@ -11,15 +19,17 @@ import javax.xml.ws.Endpoint;
  *         http://www.antoniogoncalves.org
  *         --
  */
-//@WebService
-public class CardValidator10 {
+@WebService(portName = "CreditCardValidator17", serviceName = "ValidatorService17")
+@SOAPBinding(style = RPC, use = LITERAL)
+public class CardValidator17 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
+  @WebResult(name = "IsValid")
   @WebMethod(operationName = "ValidateCreditCard")
-  public boolean validate(CreditCard10 creditCard) {
+  public boolean validate(@WebParam(name = "Credit-Card", mode = IN) CreditCard17 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -30,8 +40,9 @@ public class CardValidator10 {
     }
   }
 
+  @WebResult(name = "IsValid")
   @WebMethod(operationName = "ValidateCreditCardNumber")
-  public void validate(String creditCardNumber) {
+  public void validate(@WebParam(name = "Credit-Card-Number") String creditCardNumber) {
     // business logic
   }
 
@@ -41,6 +52,6 @@ public class CardValidator10 {
   }
 
   public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator10", new CardValidator10());
+    Endpoint.publish("http://localhost:8080/cardValidator17", new CardValidator17());
   }
 }

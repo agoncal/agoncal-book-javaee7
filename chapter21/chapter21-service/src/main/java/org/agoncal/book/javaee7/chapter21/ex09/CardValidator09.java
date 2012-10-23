@@ -10,7 +10,7 @@ import javax.xml.ws.Endpoint;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService//(portName = "CreditCardValidator09", serviceName = "ValidatorService09")
+@WebService(portName = "CreditCardValidator09", serviceName = "ValidatorService09")
 public class CardValidator09 {
 
   // ======================================

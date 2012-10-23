@@ -17,7 +17,7 @@ import static javax.jws.soap.SOAPBinding.Use.LITERAL;
  *         --
  */
 @WebService
-@SOAPBinding(style = RPC, use = ENCODED, parameterStyle = WRAPPED)
+@SOAPBinding(style = RPC, use = ENCODED)
 public class CardValidator15 {
 
   // ======================================

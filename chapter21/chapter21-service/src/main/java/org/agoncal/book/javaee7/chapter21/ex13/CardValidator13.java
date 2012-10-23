@@ -14,7 +14,6 @@ import static javax.jws.WebParam.Mode.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@SOAPBinding()
 @WebService
 public class CardValidator13 {
 

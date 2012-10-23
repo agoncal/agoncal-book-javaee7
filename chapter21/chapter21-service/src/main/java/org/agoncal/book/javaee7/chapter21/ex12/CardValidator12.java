@@ -18,7 +18,7 @@ public class CardValidator12 {
   // =           Public Methods           =
   // ======================================
 
-  @WebResult(name = "isValid")
+  @WebResult(name = "IsValid")
   public boolean validate(CreditCard12 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
