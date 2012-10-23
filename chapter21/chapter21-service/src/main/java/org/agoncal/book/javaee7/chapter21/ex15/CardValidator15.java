@@ -1,11 +1,13 @@
-package org.agoncal.book.javaee7.chapter21.ex13;
+package org.agoncal.book.javaee7.chapter21.ex15;
 
-import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Endpoint;
 
-import static javax.jws.WebParam.Mode.*;
+import static javax.jws.soap.SOAPBinding.ParameterStyle.WRAPPED;
+import static javax.jws.soap.SOAPBinding.Style.RPC;
+import static javax.jws.soap.SOAPBinding.Use.ENCODED;
+import static javax.jws.soap.SOAPBinding.Use.LITERAL;
 
 /**
  * @author Antonio Goncalves
@@ -14,15 +16,15 @@ import static javax.jws.WebParam.Mode.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@SOAPBinding()
 @WebService
-public class CardValidator13 {
+@SOAPBinding(style = RPC, use = ENCODED, parameterStyle = WRAPPED)
+public class CardValidator15 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(@WebParam(name = "Credit-Card", mode = IN) CreditCard13 creditCard) {
+  public boolean validate(CreditCard15 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -34,6 +36,6 @@ public class CardValidator13 {
   }
 
   public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator13", new CardValidator13());
+    Endpoint.publish("http://localhost:8080/cardValidator15", new CardValidator15());
   }
 }
