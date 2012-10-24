@@ -11,7 +11,7 @@ import javax.xml.ws.Endpoint;
  *         --
  */
 @WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.Validator")
-public class CardValidator {
+public class CardValidator implements Validator {
 
   // ======================================
   // =           Public Methods           =
