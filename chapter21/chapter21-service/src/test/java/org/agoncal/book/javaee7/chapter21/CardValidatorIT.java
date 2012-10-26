@@ -42,9 +42,9 @@ public class CardValidatorIT {
     // Invokes the web service
     CreditCard creditCard = new CreditCard("12341234", "10/10", 1234, "VISA");
 
-    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validate(creditCard));
     creditCard.setNumber("12341233");
-    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+    assertFalse("Credit card should not be valid", cardValidator.validate(creditCard));
 
     // Unpublishes the SOAP Web Service
     endpoint.stop();

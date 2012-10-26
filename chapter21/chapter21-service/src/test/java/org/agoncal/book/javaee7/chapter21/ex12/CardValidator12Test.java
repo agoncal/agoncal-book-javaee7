@@ -20,13 +20,13 @@ public class CardValidator12Test {
     CreditCard12 creditCard = new CreditCard12("12341234", "12/12", 1234, "VISA");
 
     CardValidator12 cardValidator = new CardValidator12();
-    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validate(creditCard));
     creditCard.setNumber("2");
-    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validate(creditCard));
 
     creditCard.setNumber("12341233");
-    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+    assertFalse("Credit card should not be valid", cardValidator.validate(creditCard));
     creditCard.setNumber("1");
-    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+    assertFalse("Credit card should not be valid", cardValidator.validate(creditCard));
   }
 }

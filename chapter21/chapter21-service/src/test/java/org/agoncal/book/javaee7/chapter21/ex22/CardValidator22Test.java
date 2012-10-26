@@ -22,14 +22,14 @@ public class CardValidator22Test {
     CreditCard22 creditCard = new CreditCard22("12341234", "10/10", 1234, "VISA");
 
     CardValidator22 cardValidator = new CardValidator22();
-    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validate(creditCard));
     creditCard.setNumber("2");
-    assertFalse("Credit card should be valid", cardValidator.validate(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validate(creditCard));
 
     creditCard.setNumber("12341233");
-    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+    assertFalse("Credit card should not be valid", cardValidator.validate(creditCard));
     creditCard.setNumber("1");
-    assertTrue("Credit card should not be valid", cardValidator.validate(creditCard));
+    assertFalse("Credit card should not be valid", cardValidator.validate(creditCard));
   }
 
   @Test(expected = NullPointerException.class)
@@ -44,7 +44,7 @@ public class CardValidator22Test {
     CreditCard22 creditCard = new CreditCard22("12341234", "10/10", 1234, "VISA");
 
     CardValidator22 cardValidator = new CardValidator22();
-    assertFalse("Credit card should be valid", cardValidator.validateWithException(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validateWithException(creditCard));
     creditCard.setNumber("12341233");
     cardValidator.validateWithException(creditCard);
   }
@@ -55,7 +55,7 @@ public class CardValidator22Test {
     CreditCard22 creditCard = new CreditCard22("12341234", "10/10", 1234, "VISA");
 
     CardValidator22 cardValidator = new CardValidator22();
-    assertFalse("Credit card should be valid", cardValidator.validateWithRTException(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validateWithRTException(creditCard));
     creditCard.setNumber("12341233");
     cardValidator.validateWithRTException(creditCard);
   }
@@ -66,7 +66,7 @@ public class CardValidator22Test {
     CreditCard22 creditCard = new CreditCard22("12341234", "10/10", 1234, "VISA");
 
     CardValidator22 cardValidator = new CardValidator22();
-    assertFalse("Credit card should be valid", cardValidator.validateWithSOAPFaultException(creditCard));
+    assertTrue("Credit card should be valid", cardValidator.validateWithSOAPFaultException(creditCard));
     creditCard.setNumber("12341233");
     cardValidator.validateWithSOAPFaultException(creditCard);
   }
