@@ -39,7 +39,7 @@ public class CardValidator22 {
     if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
       return true;
     } else {
-      throw new CardValidatorException22("toto");
+      throw new CardValidatorException22();
     }
   }
 
@@ -50,7 +50,7 @@ public class CardValidator22 {
     if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
       return true;
     } else {
-      throw new CardValidatorRTException22("toto");
+      throw new CardValidatorRTException22();
     }
   }
 

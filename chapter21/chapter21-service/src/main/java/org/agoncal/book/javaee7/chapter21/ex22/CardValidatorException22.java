@@ -12,6 +12,10 @@ import javax.xml.ws.WebFault;
 @WebFault(name = "CardValidationFault", messageName = "The credit card number is invalid")
 public class CardValidatorException22 extends Exception {
 
+  public CardValidatorException22() {
+    super();
+  }
+
   public CardValidatorException22(String message) {
     super(message);
   }
