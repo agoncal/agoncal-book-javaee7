@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21.ex09;
+package org.agoncal.book.javaee7.chapter21.ex28;
 
 import org.junit.Test;
 
@@ -12,14 +12,14 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CardValidator09Test {
+public class CardValidator28Test {
 
   @Test
   public void shouldCheckCreditCardValidity() {
 
-    CreditCard09 creditCard = new CreditCard09("12341234", "10/10", 1234, "VISA");
+    CreditCard28 creditCard = new CreditCard28("12341234", "10/10", 1234, "VISA");
 
-    CardValidator09 cardValidator = new CardValidator09();
+    CardValidator28 cardValidator = new CardValidator28();
     assertTrue("Credit card should be valid", cardValidator.validate(creditCard));
     creditCard.setNumber("2");
     assertTrue("Credit card should be valid", cardValidator.validate(creditCard));

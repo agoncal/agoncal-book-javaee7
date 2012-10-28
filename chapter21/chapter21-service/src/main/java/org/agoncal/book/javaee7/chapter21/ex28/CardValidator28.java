@@ -1,11 +1,7 @@
-package org.agoncal.book.javaee7.chapter21.ex15;
+package org.agoncal.book.javaee7.chapter21.ex28;
 
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Endpoint;
-
-import static javax.jws.soap.SOAPBinding.Style.RPC;
-import static javax.jws.soap.SOAPBinding.Use.ENCODED;
 
 /**
  * @author Antonio Goncalves
@@ -15,14 +11,13 @@ import static javax.jws.soap.SOAPBinding.Use.ENCODED;
  *         --
  */
 @WebService
-@SOAPBinding(style = RPC, use = ENCODED)
-public class CardValidator15 {
+public class CardValidator28 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(CreditCard15 creditCard) {
+  public boolean validate(CreditCard28 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -34,6 +29,6 @@ public class CardValidator15 {
   }
 
   public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator15", new CardValidator15());
+    Endpoint.publish("http://localhost:8080/cardValidator28", new CardValidator28());
   }
 }

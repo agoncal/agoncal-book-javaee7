@@ -9,7 +9,6 @@ import javax.xml.ws.Endpoint;
 
 import static javax.jws.WebParam.Mode.IN;
 import static javax.jws.soap.SOAPBinding.Style.RPC;
-import static javax.jws.soap.SOAPBinding.Use.ENCODED;
 import static javax.jws.soap.SOAPBinding.Use.LITERAL;
 
 /**

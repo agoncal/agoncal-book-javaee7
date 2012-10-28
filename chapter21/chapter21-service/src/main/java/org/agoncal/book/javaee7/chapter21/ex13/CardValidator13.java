@@ -2,10 +2,9 @@ package org.agoncal.book.javaee7.chapter21.ex13;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Endpoint;
 
-import static javax.jws.WebParam.Mode.*;
+import static javax.jws.WebParam.Mode.IN;
 
 /**
  * @author Antonio Goncalves
