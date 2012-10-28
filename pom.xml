@@ -10,6 +10,7 @@
 
   <modules>
     <module>chapter19</module>
+    <module>chapter20</module>
     <module>chapter21</module>
     <module>chapter22</module>
   </modules>
@@ -103,6 +104,11 @@
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${version.maven.jar.plugin}</version>
       </plugin>
     </plugins>
   </build>
