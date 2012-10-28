@@ -39,7 +39,7 @@ public class CardValidator22 {
     if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
       return true;
     } else {
-      throw new CardValidatorException22();
+      throw new CardValidatorException22(new IllegalArgumentException("toto"));
     }
   }
 
@@ -50,7 +50,7 @@ public class CardValidator22 {
     if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
       return true;
     } else {
-      throw new CardValidatorRTException22();
+      throw new CardValidatorRTException22(new IllegalArgumentException("toto"));
     }
   }
 
@@ -62,7 +62,7 @@ public class CardValidator22 {
       return true;
     } else {
       SOAPFactory soapFactory = SOAPFactory.newInstance();
-      SOAPFault fault = soapFactory.createFault("Reason Text", new QName("tototototot"));
+      SOAPFault fault = soapFactory.createFault("Reason Text", new QName("tututututututu"));
       throw new CardValidatorSOAPFaultException22(fault);
     }
   }
