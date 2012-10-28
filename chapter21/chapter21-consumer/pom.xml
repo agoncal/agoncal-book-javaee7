@@ -16,11 +16,21 @@
   </parent>
 
   <dependencies>
+    <!--<dependency>-->
+    <!--<groupId>com.sun.xml.ws</groupId>-->
+    <!--<artifactId>jaxws-rt</artifactId>-->
+    <!--<version>${version.jaxws-rt}</version>-->
+    <!--<scope>provided</scope>-->
+    <!--</dependency>-->
     <dependency>
-      <groupId>com.sun.xml.ws</groupId>
-      <artifactId>jaxws-rt</artifactId>
-      <version>${version.jaxws-rt}</version>
-      <scope>provided</scope>
+      <groupId>org.glassfish.main.extras</groupId>
+      <artifactId>glassfish-embedded-all</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.agoncal.book.javaee7.chapter21</groupId>
+      <artifactId>chapter21-service</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 
@@ -29,13 +39,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>${version.maven.jar.plugin}</version>
       </plugin>
 
       <plugin>
         <groupId>org.jvnet.jax-ws-commons</groupId>
         <artifactId>jaxws-maven-plugin</artifactId>
-        <version>${version.maven.jaxws.plugin}</version>
         <executions>
           <execution>
             <goals>

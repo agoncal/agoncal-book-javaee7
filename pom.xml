@@ -20,6 +20,7 @@
     <!--<version.glassfish>3.1.2.2</version.glassfish>-->
     <version.glassfish>4.0-SNAPSHOT</version.glassfish>
     <version.jersey>2.0-m09</version.jersey>
+    <version.json>1.0-b01</version.json>
     <!-- Test -->
     <version.junit>4.10</version.junit>
     <version.xmlunit>1.3</version.xmlunit>
@@ -39,78 +40,115 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-  <dependencies>
-    <!--<dependency>-->
-    <!--<groupId>javax</groupId>-->
-    <!--<artifactId>javaee-api</artifactId>-->
-    <!--<version>${version.javaee}</version>-->
-    <!--<scope>compile</scope>-->
-    <!--</dependency>-->
-
-    <!--This has most of the needed dependencies : Derby, JPA, EJB, Java EE 6...-->
-    <dependency>
-      <groupId>org.glassfish.main.extras</groupId>
-      <artifactId>glassfish-embedded-all</artifactId>
-      <version>${version.glassfish}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${version.junit}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>xmlunit</groupId>
-      <artifactId>xmlunit</artifactId>
-      <version>${version.xmlunit}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-
   <dependencyManagement>
     <dependencies>
-    </dependencies>
+      <!-- This has most of the needed dependencies : Derby, JPA, EJB, Java EE 6... -->
+      <dependency>
+        <groupId>org.glassfish.main.extras</groupId>
+        <artifactId>glassfish-embedded-all</artifactId>
+        <version>${version.glassfish}</version>
+        <scope>provided</scope>
+      </dependency>
 
+      <!-- JSOn-P -->
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.json</artifactId>
+        <version>${version.json}</version>
+      </dependency>
+
+      <!-- Jersey -->
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-common</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-client</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-grizzly2-http</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet-core</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+
+
+      <!-- Test -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${version.junit}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>xmlunit</groupId>
+        <artifactId>xmlunit</artifactId>
+        <version>${version.xmlunit}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
   </dependencyManagement>
 
 
   <build>
     <pluginManagement>
       <plugins>
+        <!-- Apache -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-help-plugin</artifactId>
           <version>${version.maven.help.plugin}</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.maven.compiler.plugin}</version>
+          <inherited>true</inherited>
+          <configuration>
+            <source>${version.java}</source>
+            <target>${version.java}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${version.maven.war.plugin}</version>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.maven.jar.plugin}</version>
+        </plugin>
+
+        <!-- JVNet -->
+        <plugin>
+          <groupId>org.jvnet.jax-ws-commons</groupId>
+          <artifactId>jaxws-maven-plugin</artifactId>
+          <version>${version.maven.jaxws.plugin}</version>
+        </plugin>
+
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${version.maven.compiler.plugin}</version>
-        <inherited>true</inherited>
-        <configuration>
-          <source>${version.java}</source>
-          <target>${version.java}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>${version.maven.war.plugin}</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>${version.maven.jar.plugin}</version>
-      </plugin>
-    </plugins>
   </build>
 
   <repositories>

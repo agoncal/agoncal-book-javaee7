@@ -19,8 +19,14 @@
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>javax.json</artifactId>
-      <version>1.0-b01</version>
     </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+
+    <!-- Dummy -->
     <dependency>
       <groupId>net.sf.saxon</groupId>
       <artifactId>saxon</artifactId>

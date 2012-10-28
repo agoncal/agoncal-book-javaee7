@@ -20,36 +20,4 @@
     <module>chapter22-service</module>
   </modules>
 
-  <dependencies>
-
-    <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-common</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-server</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-client</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <artifactId>jersey-container-grizzly2-http</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <!--<artifactId>jersey-container-servlet-core</artifactId>-->
-      <artifactId>jersey-container-servlet</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-
-  </dependencies>
-
 </project>
