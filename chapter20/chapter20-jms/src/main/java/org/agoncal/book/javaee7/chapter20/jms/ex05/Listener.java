@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee6.chapter13.jms.ex05;
+package org.agoncal.book.javaee7.chapter13.jms.ex05;
 
 import javax.annotation.Resource;
 import javax.jms.*;

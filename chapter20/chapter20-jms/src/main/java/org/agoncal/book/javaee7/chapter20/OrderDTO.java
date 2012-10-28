@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee6.chapter13;
+package org.agoncal.book.javaee7.chapter13;
 
 import java.io.Serializable;
 import java.util.Date;

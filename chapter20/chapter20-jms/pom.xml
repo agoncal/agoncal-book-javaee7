@@ -30,7 +30,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.agoncal.book.javaee6.chapter13.jms.ex04.Receiver</mainClass>
+              <mainClass>org.agoncal.book.javaee7.chapter13.jms.ex04.Receiver</mainClass>
               <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex04.Sender</mainClass>-->
               <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex05.Receiver</mainClass>-->
               <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex05.Listener</mainClass>-->

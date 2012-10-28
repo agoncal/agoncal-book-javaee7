@@ -1,6 +1,6 @@
-package org.agoncal.book.javaee6.chapter13.jms.ex14;
+package org.agoncal.book.javaee7.chapter13.jms.ex14;
 
-import org.agoncal.book.javaee6.chapter13.OrderDTO;
+import org.agoncal.book.javaee7.chapter13.OrderDTO;
 
 import javax.annotation.Resource;
 import javax.jms.*;
