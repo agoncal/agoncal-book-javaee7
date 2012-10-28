@@ -11,7 +11,7 @@ import javax.xml.ws.soap.SOAPFaultException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebFault(name="CardValidationFault", messageName = "totomessageName")
+@WebFault
 public class CardValidatorSOAPFaultException22 extends SOAPFaultException {
 
   /**

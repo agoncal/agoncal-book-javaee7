@@ -9,7 +9,7 @@ import javax.xml.ws.WebFault;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebFault(name = "CardValidationFault", messageName = "The credit card number is invalid")
+@WebFault(name = "CardValidationFault")
 public class CardValidatorException22 extends Exception {
 
   public CardValidatorException22() {

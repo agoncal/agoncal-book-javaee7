@@ -62,7 +62,7 @@ public class CardValidator22 {
       return true;
     } else {
       SOAPFactory soapFactory = SOAPFactory.newInstance();
-      SOAPFault fault = soapFactory.createFault("Reason Text", new QName("tututututututu"));
+      SOAPFault fault = soapFactory.createFault("The credit card number is invalid", new QName("ValidationFault"));
       throw new CardValidatorSOAPFaultException22(fault);
     }
   }
