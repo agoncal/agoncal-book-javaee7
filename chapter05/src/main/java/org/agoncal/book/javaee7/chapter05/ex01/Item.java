@@ -15,6 +15,7 @@ public class Item {
   // ======================================
   // =             Attributes             =
   // ======================================
+
   protected Long id;
   @NotNull
   @Size(min = 4, max = 50, message = "{title}")

@@ -1,7 +1,9 @@
 package org.agoncal.book.javaee7.chapter21.ex28;
 
+import javax.annotation.Resource;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+import javax.xml.ws.WebServiceContext;
 
 /**
  * @author Antonio Goncalves
@@ -14,10 +16,20 @@ import javax.xml.ws.Endpoint;
 public class CardValidator28 {
 
   // ======================================
+  // =             Attributes             =
+  // ======================================
+
+  @Resource
+  private WebServiceContext context;
+
+
+  // ======================================
   // =           Public Methods           =
   // ======================================
 
   public boolean validate(CreditCard28 creditCard) {
+
+    context.isUserInRole("dummy");
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
