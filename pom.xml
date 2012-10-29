@@ -19,8 +19,9 @@
   <properties>
     <version.java>1.7</version.java>
     <!--<version.glassfish>3.1.2.2</version.glassfish>-->
-    <version.glassfish>4.0-SNAPSHOT</version.glassfish>
+    <version.glassfish>4.0-b60</version.glassfish>
     <version.jersey>2.0-m09</version.jersey>
+    <version.hibernate.validator>5.0.0.Alpha1</version.hibernate.validator>
     <version.json>1.0-b01</version.json>
     <!-- Test -->
     <version.junit>4.10</version.junit>
@@ -49,6 +50,13 @@
         <artifactId>glassfish-embedded-all</artifactId>
         <version>${version.glassfish}</version>
         <scope>provided</scope>
+      </dependency>
+
+      <!-- Bean Validation -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${version.hibernate.validator}</version>
       </dependency>
 
       <!-- JSOn-P -->
