@@ -29,7 +29,8 @@ public class CardValidator28 {
 
   public boolean validate(CreditCard28 creditCard) {
 
-    context.isUserInRole("dummy");
+    if (!context.isUserInRole("Admin"))
+      throw new SecurityException("Only Admins can validate cards");
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
