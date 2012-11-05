@@ -18,6 +18,7 @@
   <modules>
     <module>chapter21-consumer</module>
     <module>chapter21-service</module>
+    <module>chapter21-service2</module>
   </modules>
 
 </project>	
