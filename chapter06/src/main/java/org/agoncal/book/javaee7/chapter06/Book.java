@@ -16,6 +16,7 @@ public class Book {
     // ======================================
     // =             Attributes             =
     // ======================================
+
     @Id
     @GeneratedValue
     private Long id;
@@ -47,6 +48,7 @@ public class Book {
     // ======================================
     // =          Getters & Setters         =
     // ======================================
+
     public Long getId() {
         return id;
     }

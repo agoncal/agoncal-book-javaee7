@@ -1,241 +1,249 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.agoncal.book.javaee7</groupId>
-    <artifactId>parent</artifactId>
-    <version>1.0</version>
-    <packaging>pom</packaging>
-    <name>00 - Parent of Book Java EE 7</name>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.agoncal.book.javaee7</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>00 - Parent of Book Java EE 7</name>
 
-    <modules>
-        <module>chapter05</module>
-        <module>chapter06</module>
-        <module>chapter14</module>
-        <module>chapter13</module>
-        <module>chapter19</module>
-        <module>chapter20</module>
-        <module>chapter21</module>
-        <module>chapter22</module>
-    </modules>
+  <modules>
+    <module>chapter05</module>
+    <module>chapter06</module>
+    <module>chapter14</module>
+    <module>chapter13</module>
+    <module>chapter19</module>
+    <module>chapter20</module>
+    <module>chapter21</module>
+    <module>chapter22</module>
+  </modules>
 
-    <properties>
-        <version.java>1.7</version.java>
-        <!--<version.glassfish>3.1.2.2</version.glassfish>-->
-        <version.glassfish>4.0-b60</version.glassfish>
-        <version.jersey>2.0-m09</version.jersey>
-        <version.eclipselink>2.5.0-M4</version.eclipselink>
-        <version.derby>10.9.1.0</version.derby>
-        <version.hibernate.validator>5.0.0.Alpha1</version.hibernate.validator>
-        <version.json>1.0-b01</version.json>
-        <!-- Test -->
-        <version.junit>4.10</version.junit>
-        <version.xmlunit>1.3</version.xmlunit>
-        <!-- Maven Plugins -->
-        <version.maven.jar.plugin>2.4</version.maven.jar.plugin>
-        <version.maven.war.plugin>2.2</version.maven.war.plugin>
-        <version.maven.processor.plugin>1.3.5</version.maven.processor.plugin>
-        <version.maven.compiler.plugin>2.5.1</version.maven.compiler.plugin>
-        <version.maven.dependency.plugin>2.5</version.maven.dependency.plugin>
-        <version.maven.help.plugin>2.1.1</version.maven.help.plugin>
-        <version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
-        <version.maven.jaxws.plugin>2.2</version.maven.jaxws.plugin>
-        <version.jaxws-rt>2.2.7</version.jaxws-rt>
+  <properties>
+    <version.java>1.7</version.java>
+    <!--<version.glassfish>3.1.2.2</version.glassfish>-->
+    <version.glassfish>4.0-b60</version.glassfish>
+    <version.weld>2.0.0.Alpha3</version.weld>
+    <version.jersey>2.0-m09</version.jersey>
+    <version.eclipselink>2.5.0-M4</version.eclipselink>
+    <version.derby>10.9.1.0</version.derby>
+    <version.hibernate.validator>5.0.0.Alpha1</version.hibernate.validator>
+    <version.json>1.0-b01</version.json>
+    <!-- Test -->
+    <version.junit>4.10</version.junit>
+    <version.xmlunit>1.3</version.xmlunit>
+    <!-- Maven Plugins -->
+    <version.maven.jar.plugin>2.4</version.maven.jar.plugin>
+    <version.maven.war.plugin>2.2</version.maven.war.plugin>
+    <version.maven.processor.plugin>1.3.5</version.maven.processor.plugin>
+    <version.maven.compiler.plugin>2.5.1</version.maven.compiler.plugin>
+    <version.maven.dependency.plugin>2.5</version.maven.dependency.plugin>
+    <version.maven.help.plugin>2.1.1</version.maven.help.plugin>
+    <version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
+    <version.maven.jaxws.plugin>2.2</version.maven.jaxws.plugin>
+    <version.jaxws-rt>2.2.7</version.jaxws-rt>
 
-        <!-- Project -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
+    <!-- Project -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- This has most of the needed dependencies : Derby, JPA, EJB, Java EE 6... -->
-            <dependency>
-                <groupId>org.glassfish.main.extras</groupId>
-                <artifactId>glassfish-embedded-all</artifactId>
-                <version>${version.glassfish}</version>
-                <scope>provided</scope>
-            </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <!-- This has most of the needed dependencies : Derby, JPA, EJB, Java EE 6... -->
+      <dependency>
+        <groupId>org.glassfish.main.extras</groupId>
+        <artifactId>glassfish-embedded-all</artifactId>
+        <version>${version.glassfish}</version>
+        <scope>provided</scope>
+      </dependency>
 
-            <!-- Bean Validation -->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${version.hibernate.validator}</version>
-            </dependency>
+      <!-- CDI -->
+      <dependency>
+        <groupId>org.jboss.weld.se</groupId>
+        <artifactId>weld-se</artifactId>
+        <version>${version.weld}</version>
+      </dependency>
 
-            <!-- JPA -->
-            <dependency>
-                <groupId>org.eclipse.persistence</groupId>
-                <artifactId>org.eclipse.persistence.jpa</artifactId>
-                <version>${version.eclipselink}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.persistence</groupId>
-                <artifactId>org.eclipse.persistence.jpa.modelgen</artifactId>
-                <version>${version.eclipselink}</version>
-            </dependency>
+      <!-- Bean Validation -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${version.hibernate.validator}</version>
+      </dependency>
 
-            <!-- Derby -->
-            <dependency>
-                <groupId>org.apache.derby</groupId>
-                <artifactId>derby</artifactId>
-                <version>${version.derby}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.derby</groupId>
-                <artifactId>derbyclient</artifactId>
-                <version>${version.derby}</version>
-            </dependency>
+      <!-- JPA -->
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa</artifactId>
+        <version>${version.eclipselink}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa.modelgen</artifactId>
+        <version>${version.eclipselink}</version>
+      </dependency>
 
-            <!-- JSOn-P -->
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>${version.json}</version>
-            </dependency>
+      <!-- Derby -->
+      <dependency>
+        <groupId>org.apache.derby</groupId>
+        <artifactId>derby</artifactId>
+        <version>${version.derby}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.derby</groupId>
+        <artifactId>derbyclient</artifactId>
+        <version>${version.derby}</version>
+      </dependency>
 
-            <!-- Jersey -->
-            <dependency>
-                <groupId>org.glassfish.jersey.core</groupId>
-                <artifactId>jersey-common</artifactId>
-                <version>${version.jersey}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jersey.core</groupId>
-                <artifactId>jersey-server</artifactId>
-                <version>${version.jersey}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jersey.core</groupId>
-                <artifactId>jersey-client</artifactId>
-                <version>${version.jersey}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jersey.containers</groupId>
-                <artifactId>jersey-container-grizzly2-http</artifactId>
-                <version>${version.jersey}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jersey.containers</groupId>
-                <artifactId>jersey-container-servlet</artifactId>
-                <version>${version.jersey}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jersey.containers</groupId>
-                <artifactId>jersey-container-servlet-core</artifactId>
-                <version>${version.jersey}</version>
-            </dependency>
+      <!-- JSOn-P -->
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.json</artifactId>
+        <version>${version.json}</version>
+      </dependency>
 
-
-            <!-- Test -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${version.junit}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>xmlunit</groupId>
-                <artifactId>xmlunit</artifactId>
-                <version>${version.xmlunit}</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+      <!-- Jersey -->
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-common</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-client</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-grizzly2-http</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet-core</artifactId>
+        <version>${version.jersey}</version>
+      </dependency>
 
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <!-- Apache -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-help-plugin</artifactId>
-                    <version>${version.maven.help.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${version.maven.compiler.plugin}</version>
-                    <inherited>true</inherited>
-                    <configuration>
-                        <source>${version.java}</source>
-                        <target>${version.java}</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>${version.maven.war.plugin}</version>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${version.maven.jar.plugin}</version>
-                </plugin>
+      <!-- Test -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${version.junit}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>xmlunit</groupId>
+        <artifactId>xmlunit</artifactId>
+        <version>${version.xmlunit}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-                <!-- JVNet -->
-                <plugin>
-                    <groupId>org.jvnet.jax-ws-commons</groupId>
-                    <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>${version.maven.jaxws.plugin}</version>
-                </plugin>
 
-            </plugins>
-        </pluginManagement>
-    </build>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Apache -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-help-plugin</artifactId>
+          <version>${version.maven.help.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.maven.compiler.plugin}</version>
+          <inherited>true</inherited>
+          <configuration>
+            <source>${version.java}</source>
+            <target>${version.java}</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${version.maven.war.plugin}</version>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.maven.jar.plugin}</version>
+        </plugin>
 
-    <repositories>
-        <repository>
-            <id>EclipseLink</id>
-            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-        </repository>
-        <repository>
-            <id>apache-snapshot</id>
-            <url>https://repository.apache.org/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>java.net-public-repository-group</id>
-            <name>Java.Net Public Maven Repository Group</name>
-            <url>https://maven.java.net/content/groups/public</url>
-        </repository>
-        <repository>
-            <id>java.net-staging-repository-group</id>
-            <name>Java.Net Staging Maven Repository Group</name>
-            <url>https://maven.java.net/content/groups/staging</url>
-        </repository>
-        <repository>
-            <id>java.net-releases-repository-group</id>
-            <name>Java.Net Releases Maven Repository Group</name>
-            <url>https://maven.java.net/content/repositories/releases</url>
-        </repository>
-        <repository>
-            <id>java.net-snapshots-repository-group</id>
-            <name>Java.Net Snapshots Maven Repository Group</name>
-            <url>https://maven.java.net/content/repositories/snapshots</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
+        <!-- JVNet -->
+        <plugin>
+          <groupId>org.jvnet.jax-ws-commons</groupId>
+          <artifactId>jaxws-maven-plugin</artifactId>
+          <version>${version.maven.jaxws.plugin}</version>
+        </plugin>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>apache-snapshot</id>
-            <url>https://repository.apache.org/content/repositories/snapshots/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>maven-central</id>
-            <url>http://repo1.maven.org/maven2/</url>
-        </pluginRepository>
-    </pluginRepositories>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>EclipseLink</id>
+      <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+    </repository>
+    <repository>
+      <id>apache-snapshot</id>
+      <url>https://repository.apache.org/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      <layout>default</layout>
+    </repository>
+    <repository>
+      <id>java.net-public-repository-group</id>
+      <name>Java.Net Public Maven Repository Group</name>
+      <url>https://maven.java.net/content/groups/public</url>
+    </repository>
+    <repository>
+      <id>java.net-staging-repository-group</id>
+      <name>Java.Net Staging Maven Repository Group</name>
+      <url>https://maven.java.net/content/groups/staging</url>
+    </repository>
+    <repository>
+      <id>java.net-releases-repository-group</id>
+      <name>Java.Net Releases Maven Repository Group</name>
+      <url>https://maven.java.net/content/repositories/releases</url>
+    </repository>
+    <repository>
+      <id>java.net-snapshots-repository-group</id>
+      <name>Java.Net Snapshots Maven Repository Group</name>
+      <url>https://maven.java.net/content/repositories/snapshots</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache-snapshot</id>
+      <url>https://repository.apache.org/content/repositories/snapshots/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>maven-central</id>
+      <url>http://repo1.maven.org/maven2/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>
