@@ -143,8 +143,6 @@ To compile, package and execute the code you need the following software :
 * SAAJ 1.3 - [Project](http://java.net/projects/saaj/)
 * Common Annotations 1.1 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
 
-* JAXM 1.0 - [JSR 67](http://jcp.org/en/jsr/detail?id=67)
-
 # Licensing
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
