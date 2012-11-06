@@ -79,52 +79,53 @@ To compile, package and execute the code you need the following software :
 
 ## Java Enterprise Edition Specification
 
-* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec)
-* Web Profile 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342)
+* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
+* Web Profile 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 
 ## Web Services Specifications
 
 * (Prunned) JAX-RPC 1.1 - [JSR 101](http://jcp.org/en/jsr/detail?id=101) - [Project](http://java.net/projects/jax-rpc)
-* JAX-WS 2.2a - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws)
-* JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222) - [Project](http://jaxb.java.net/)
+* JAX-WS 2.2a - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws) - [Mailing lists](http://java.net/projects/jax-ws/lists)
+* JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222) - [Project](http://jaxb.java.net/) - [Mailing lists](http://java.net/projects/jaxb/lists/)
 * JAXM 1.0 - [JSR 67](http://jcp.org/en/jsr/detail?id=67)
 * StAX 1.0 - [JSR 173](http://jcp.org/en/jsr/detail?id=173) - [Project](http://java.net/projects/sjsxp)
 * Web Services 1.3 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
 * Web Services Metadata 1.3 - [JSR 181](http://jcp.org/en/jsr/detail?id=181)
-* JAX-RS 2.0 - [JSR 339](http://jcp.org/en/jsr/detail?id=339) - [Project](http://java.net/projects/jax-rs-spec) - [Jersey](http://jersey.java.net/) - [@gf_jersey](https://twitter.com/gf_jersey) - [Code on GitHub](https://github.com/jersey/jersey)
-* JSON-P 1.0 - [JSR 353](http://jcp.org/en/jsr/detail?id=353) - [Project](http://java.net/projects/json-processing-spec) - [JIRA](http://java.net/jira/browse/JSON_PROCESSING_SPEC)
+* JAX-RS 2.0 - [JSR 339](http://jcp.org/en/jsr/detail?id=339) - [Project](http://java.net/projects/jax-rs-spec) - [Mailing lists](http://java.net/projects/jax-rs-spec/lists) - [Jersey](http://jersey.java.net/) - [@gf_jersey](https://twitter.com/gf_jersey) - [Code on GitHub](https://github.com/jersey/jersey)
+* JSON-P 1.0 - [JSR 353](http://jcp.org/en/jsr/detail?id=353) - [Project](http://java.net/projects/json-processing-spec) - [Mailing lists](http://java.net/projects/json-processing-spec/lists) - [JIRA](http://java.net/jira/browse/JSON_PROCESSING_SPEC)
 * JAXR 1.1 - [JSR 93](http://jcp.org/en/jsr/detail?id=93)
 
 ## Web Specifications
 
-* JSF 2.2 - [JSR 344](http://jcp.org/en/jsr/detail?id=344) - [Project](http://javaserverfaces.java.net/)
-* JSP 2.2 - [JSR 245](http://jcp.org/en/jsr/detail?id=245) - [Project](http://java.net/projects/jsp)
+* JSF 2.2 - [JSR 344](http://jcp.org/en/jsr/detail?id=344) - [Project](http://javaserverfaces.java.net/) - [Mailing lists](http://java.net/projects/javaserverfaces-spec-public/lists)
+* JSP 2.3 - [JSR 245](http://jcp.org/en/jsr/detail?id=245) - [Project](http://java.net/projects/jsp) - [Mailing lists](http://java.net/projects/jsp/lists)
 * JSTL (JavaServer Pages Standard Tag Library) 1.2 - [JSR 52](http://jcp.org/en/jsr/detail?id=52)
-* Servlet 3.1 - [JSR 340](http://jcp.org/en/jsr/detail?id=340) - [Project](http://java.net/projects/servlet-spec/)
-* Expression Language 3.0 - [JSR 341](http://jcp.org/en/jsr/detail?id=341) - [Project](http://java.net/projects/el-spec)
+* Servlet 3.1 - [JSR 340](http://jcp.org/en/jsr/detail?id=340) - [Project](http://java.net/projects/servlet-spec/) - [Mailing lists](http://java.net/projects/servlet-spec/lists)
+* Expression Language 3.0 - [JSR 341](http://jcp.org/en/jsr/detail?id=341) - [Project](http://java.net/projects/el-spec) - [Mailing lists](http://java.net/projects/el-spec/lists)
 
 ## Enterprise Specifications
 
-* EJB 3.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/ejb-spec)
-* Interceptor 1.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/interceptors-spec)
+* EJB 3.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/ejb-spec) - [Mailing lists](http://java.net/projects/ejb-spec/lists)
+* Interceptor 1.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/interceptors-spec) - [Mailing lists](http://java.net/projects/interceptors-spec/lists)
 * JAF 1.1 - [JSR 925](http://jcp.org/en/jsr/detail?id=925)
 * JavaMail 1.4 - [JSR 919](http://jcp.org/en/jsr/detail?id=919)
 * JCA 1.6 - [JSR 322](http://jcp.org/en/jsr/detail?id=322)
-* JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/mq) - [JIRA|http://java.net/jira/browse/JMS_SPEC]
-* JPA 2.1 - [JSR 338](http://jcp.org/en/jsr/detail?id=338) - [Project](http://java.net/projects/jpa-spec)
-* JTA 1.1 - [JSR 907](http://jcp.org/en/jsr/detail?id=907) - [Project](http://java.net/projects/jta-spec/)
+* JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/jms-spec) - [Mailing lists](http://java.net/projects/jms-spec/lists) - [JIRA|http://java.net/jira/browse/JMS_SPEC]
+* JPA 2.1 - [JSR 338](http://jcp.org/en/jsr/detail?id=338) - [Project](http://java.net/projects/jpa-spec) - [Mailing lists](http://java.net/projects/jpa-spec/lists)
+* JTA 1.1 - [JSR 907](http://jcp.org/en/jsr/detail?id=907) - [Project](http://java.net/projects/jta-spec/) - [Mailing lists](http://java.net/projects/jta-spec/lists)
 
 ## Management, Security, and other specifications
 
-* CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346) - [Documentation](http://docs.jboss.org/cdi/spec/) - [JIRA](https://issues.jboss.org/browse/CDI)
+* CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346) - [Mailing lists](http://seamframework.org/Community/MailingLists) - [Documentation](http://docs.jboss.org/cdi/spec/) - [JIRA](https://issues.jboss.org/browse/CDI)
 * JACC 1.1 - [JSR 115](http://jcp.org/en/jsr/detail?id=115)
-* Bean Validation 1.1 - [JSR 349](http://jcp.org/en/jsr/detail?id=349) - [Web site](http://beanvalidation.org/)
-* Common Annotations 1.0 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
+* Bean Validation 1.1 - [JSR 349](http://jcp.org/en/jsr/detail?id=349) - [Mailing lists](https://lists.jboss.org/mailman/listinfo/beanvalidation-dev) - [Web site](http://beanvalidation.org/)
+* Common Annotations 1.1 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
 * Java EE Application Deployment 1.2 - [JSR 88](http://jcp.org/en/jsr/detail?id=88)
 * Java EE Management 1.1 - [JSR 77](http://jcp.org/en/jsr/detail?id=77)
 * Java Authentication Service Provider Interface for Containers 1.0 - [JSR 196](http://jcp.org/en/jsr/detail?id=196)
 * Debugging Support for Other Languages 1.0 - [JSR 45](http://jcp.org/en/jsr/detail?id=45)
-* JCache 1.0 - [JSR 107](http://jcp.org/en/jsr/detail?id=107) - [RI on GitHub](https://github.com/jsr107/RI)
+* JCache 1.0 - [JSR 107](http://jcp.org/en/jsr/detail?id=107) - [Project](https://github.com/jsr107/jsr107spec) - [Forum](https://groups.google.com/forum/?fromgroups#!forum/jsr107) - [RI on GitHub](https://github.com/jsr107/RI)
+* JBatch 1.0 - [JSR 352](http://jcp.org/en/jsr/detail?id=352) - [Project](http://java.net/projects/jbatch) - [Mailing lists](http://java.net/projects/jbatch/lists)
 
 # Licensing
 
