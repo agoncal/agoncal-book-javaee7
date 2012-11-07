@@ -25,4 +25,4 @@ vpproject
 *-soapui-project.xml
 .lock
 teamworkUser.xml
-projectFilesBackup
+projectFilesBackup*

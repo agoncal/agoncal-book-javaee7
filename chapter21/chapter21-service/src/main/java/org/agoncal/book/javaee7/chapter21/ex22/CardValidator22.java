@@ -43,6 +43,17 @@ public class CardValidator22 {
     }
   }
 
+ public boolean validateWithExceptionAndMessage(CreditCard22 creditCard) throws CardValidatorException22 {
+
+    Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
+
+    if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
+      return true;
+    } else {
+      throw new CardValidatorException22("The credit card number is invalid");
+    }
+  }
+
   public boolean validateWithRTException(CreditCard22 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
@@ -51,6 +62,17 @@ public class CardValidator22 {
       return true;
     } else {
       throw new CardValidatorRTException22();
+    }
+  }
+
+  public boolean validateWithRTExceptionAndMessage(CreditCard22 creditCard) {
+
+    Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
+
+    if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
+      return true;
+    } else {
+      throw new CardValidatorRTException22("The credit card number is invalid");
     }
   }
 

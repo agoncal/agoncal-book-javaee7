@@ -49,6 +49,16 @@ public class CardValidator22Test {
     cardValidator.validateWithException(creditCard);
   }
 
+  @Test(expected = CardValidatorException22.class)
+  public void shouldThrowACardValidatorExceptionWithAMessage() throws Exception {
+    CreditCard22 creditCard = new CreditCard22("12341234", "10/10", 1234, "VISA");
+
+    CardValidator22 cardValidator = new CardValidator22();
+    assertTrue("Credit card should be valid", cardValidator.validateWithException(creditCard));
+    creditCard.setNumber("12341233");
+    cardValidator.validateWithExceptionAndMessage(creditCard);
+  }
+
   @Test(expected = CardValidatorRTException22.class)
   public void shouldThrowACardValidatorRTException() {
 
@@ -58,6 +68,17 @@ public class CardValidator22Test {
     assertTrue("Credit card should be valid", cardValidator.validateWithRTException(creditCard));
     creditCard.setNumber("12341233");
     cardValidator.validateWithRTException(creditCard);
+  }
+
+  @Test(expected = CardValidatorRTException22.class)
+  public void shouldThrowACardValidatorRTExceptionWithAMessage() {
+
+    CreditCard22 creditCard = new CreditCard22("12341234", "10/10", 1234, "VISA");
+
+    CardValidator22 cardValidator = new CardValidator22();
+    assertTrue("Credit card should be valid", cardValidator.validateWithRTException(creditCard));
+    creditCard.setNumber("12341233");
+    cardValidator.validateWithRTExceptionAndMessage(creditCard);
   }
 
   @Test(expected = CardValidatorSOAPFaultException22.class)
@@ -70,6 +91,4 @@ public class CardValidator22Test {
     creditCard.setNumber("12341233");
     cardValidator.validateWithSOAPFaultException(creditCard);
   }
-
-
 }
