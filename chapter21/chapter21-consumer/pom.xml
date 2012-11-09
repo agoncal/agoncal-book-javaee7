@@ -28,6 +28,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.agoncal.book.javaee7.chapter21.ex31.WebServiceConsumer31</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
       </plugin>
 
       <plugin>

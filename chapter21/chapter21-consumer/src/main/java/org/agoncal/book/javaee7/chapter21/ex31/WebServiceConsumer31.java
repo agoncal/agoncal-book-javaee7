@@ -1,8 +1,10 @@
-package org.agoncal.book.javaee7.chapter21.ex30;
+package org.agoncal.book.javaee7.chapter21.ex31;
 
 import org.agoncal.book.javaee7.chapter21.CardValidator;
 import org.agoncal.book.javaee7.chapter21.CardValidatorService;
 import org.agoncal.book.javaee7.chapter21.CreditCard;
+
+import javax.xml.ws.WebServiceRef;
 
 /**
  * @author Antonio Goncalves
@@ -11,20 +13,22 @@ import org.agoncal.book.javaee7.chapter21.CreditCard;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Main30 {
+public class WebServiceConsumer31 {
 
+  @WebServiceRef
+  private static CardValidatorService cardValidatorService;
 
   public static void main(String[] args) {
 
-    System.out.println("Invoking web service programmatically");
+    System.out.println("Invoking web service with injection");
 
     CreditCard creditCard = new CreditCard();
     creditCard.setNumber("12341234");
-    creditCard.setExpiryDate("10/10");
+    creditCard.setExpiryDate("10/12");
     creditCard.setType("VISA");
     creditCard.setControlNumber(1234);
 
-    CardValidator cardValidator = new CardValidatorService().getCardValidatorPort();
+    CardValidator cardValidator = cardValidatorService.getCardValidatorPort();
     System.out.println(cardValidator.validate(creditCard));
 
     creditCard.setNumber("12341233");
