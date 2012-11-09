@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter21.ex09;
 
 import javax.jws.WebMethod;
+import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 
 /**
@@ -10,7 +11,7 @@ import javax.xml.ws.Endpoint;
  *         http://www.antoniogoncalves.org
  *         --
  */
-//@WebService
+@WebService
 public class CardValidator09 {
 
   // ======================================

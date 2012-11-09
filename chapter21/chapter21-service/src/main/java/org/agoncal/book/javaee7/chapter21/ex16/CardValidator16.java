@@ -18,7 +18,7 @@ import static javax.jws.soap.SOAPBinding.Use.LITERAL;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService(portName = "CreditCardValidator17", serviceName = "ValidatorService17")
+@WebService(portName = "CreditCardValidator16", serviceName = "ValidatorService16")
 @SOAPBinding(style = RPC, use = LITERAL)
 public class CardValidator16 {
 
