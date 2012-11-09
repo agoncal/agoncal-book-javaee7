@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21.ex04;
+package org.agoncal.book.javaee7.chapter21.ex30;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
