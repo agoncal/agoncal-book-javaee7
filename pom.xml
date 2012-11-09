@@ -44,7 +44,6 @@
     <version.maven.help.plugin>2.1.1</version.maven.help.plugin>
     <version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
     <version.maven.jaxws.plugin>2.2</version.maven.jaxws.plugin>
-    <version.jaxws-rt>2.2.7</version.jaxws-rt>
 
     <!-- Project -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

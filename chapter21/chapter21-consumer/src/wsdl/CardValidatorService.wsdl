@@ -9,7 +9,7 @@
   <types>
     <xsd:schema>
       <xsd:import namespace="http://chapter21.javaee7.book.agoncal.org/"
-                  schemaLocation="http://localhost:8080/chapter21-service2-1.0/CardValidatorService?xsd=1"/>
+                  schemaLocation="http://localhost:8080/chapter21-service-1.0/CardValidatorService?xsd=1"/>
     </xsd:schema>
   </types>
   <message name="validate">
@@ -40,7 +40,7 @@
   </binding>
   <service name="CardValidatorService">
     <port name="CardValidatorPort" binding="tns:CardValidatorPortBinding">
-      <soap:address location="http://localhost:8080/chapter21-service2-1.0/CardValidatorService"/>
+      <soap:address location="http://localhost:8080/chapter21-service-1.0/CardValidatorService"/>
     </port>
   </service>
 </definitions>
