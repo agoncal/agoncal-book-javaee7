@@ -1,8 +1,10 @@
 package org.agoncal.book.javaee7.chapter21.ex12;
 
-import javax.jws.WebResult;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+
+import static javax.jws.WebParam.Mode.IN;
 
 /**
  * @author Antonio Goncalves
@@ -18,8 +20,7 @@ public class CardValidator12 {
   // =           Public Methods           =
   // ======================================
 
-  @WebResult(name = "IsValid")
-  public boolean validate(CreditCard12 creditCard) {
+  public boolean validate(@WebParam(name = "Credit-Card", mode = IN) CreditCard12 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 

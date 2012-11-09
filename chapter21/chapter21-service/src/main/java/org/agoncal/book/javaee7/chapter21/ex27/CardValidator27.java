@@ -1,7 +1,9 @@
-package org.agoncal.book.javaee7.chapter21.ex28;
+package org.agoncal.book.javaee7.chapter21.ex27;
 
+import javax.annotation.Resource;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
+import javax.xml.ws.WebServiceContext;
 
 /**
  * @author Antonio Goncalves
@@ -11,13 +13,24 @@ import javax.xml.ws.Endpoint;
  *         --
  */
 @WebService
-public class CardValidator28 {
+public class CardValidator27 {
+
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+
+  @Resource
+  private WebServiceContext context;
+
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(CreditCard28 creditCard) {
+  public boolean validate(CreditCard27 creditCard) {
+
+    if (!context.isUserInRole("Admin"))
+      throw new SecurityException("Only Admins can validate cards");
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -29,6 +42,6 @@ public class CardValidator28 {
   }
 
   public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator28", new CardValidator28());
+    Endpoint.publish("http://localhost:8080/cardValidator27", new CardValidator27());
   }
 }

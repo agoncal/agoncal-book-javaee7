@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter21.ex28;
+package org.agoncal.book.javaee7.chapter21.ex08;
 
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
@@ -10,14 +10,14 @@ import javax.xml.ws.Endpoint;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService
-public class CardValidator28 {
+@WebService(portName = "CreditCardValidator08", serviceName = "ValidatorService08")
+public class CardValidator08 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(CreditCard28 creditCard) {
+  public boolean validate(CreditCard08 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -29,6 +29,6 @@ public class CardValidator28 {
   }
 
   public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator28", new CardValidator28());
+    Endpoint.publish("http://localhost:8080/cardValidator08", new CardValidator08());
   }
 }

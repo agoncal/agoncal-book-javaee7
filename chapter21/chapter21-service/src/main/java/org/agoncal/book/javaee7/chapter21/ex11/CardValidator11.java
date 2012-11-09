@@ -1,5 +1,6 @@
-package org.agoncal.book.javaee7.chapter21.ex28;
+package org.agoncal.book.javaee7.chapter21.ex11;
 
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 
@@ -11,13 +12,14 @@ import javax.xml.ws.Endpoint;
  *         --
  */
 @WebService
-public class CardValidator28 {
+public class CardValidator11 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(CreditCard28 creditCard) {
+  @WebResult(name = "IsValid")
+  public boolean validate(CreditCard11 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 
@@ -29,6 +31,6 @@ public class CardValidator28 {
   }
 
   public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator28", new CardValidator28());
+    Endpoint.publish("http://localhost:8080/cardValidator11", new CardValidator11());
   }
 }
