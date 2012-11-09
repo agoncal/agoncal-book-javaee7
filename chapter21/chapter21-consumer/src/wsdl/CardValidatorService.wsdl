@@ -9,7 +9,7 @@
   <types>
     <xsd:schema>
       <xsd:import namespace="http://chapter21.javaee7.book.agoncal.org/"
-                  schemaLocation="http://localhost:8080/chapter21-service-1.0/CardValidatorService?xsd=1"/>
+                  schemaLocation="CardValidatorService.xsd"/>
     </xsd:schema>
   </types>
   <message name="validate">

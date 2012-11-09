@@ -16,12 +16,6 @@
   </parent>
 
   <dependencies>
-    <!--<dependency>-->
-    <!--<groupId>com.sun.xml.ws</groupId>-->
-    <!--<artifactId>jaxws-rt</artifactId>-->
-    <!--<version>${version.jaxws-rt}</version>-->
-    <!--<scope>provided</scope>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.glassfish.main.extras</groupId>
       <artifactId>glassfish-embedded-all</artifactId>
