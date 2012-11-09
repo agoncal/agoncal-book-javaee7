@@ -3,6 +3,7 @@ package org.agoncal.book.javaee7.chapter21.ex16;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author Antonio Goncalves
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  *         --
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class CreditCard16 {
 
   // ======================================
