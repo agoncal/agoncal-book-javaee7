@@ -49,13 +49,13 @@
               <!--Stubs can be created either by wsdl URL (GlassFish need to be running with the WS deployed)-->
               <!--Or by wsdl files (these files are located under the wsdl directory)-->
 
-              <!--<wsdlUrls>-->
-              <!--<wsdlUrl>http://localhost:8080/chapter21-service-1.0//CardValidatorService?wsdl-->
-              <!--</wsdlUrl>-->
+              <wsdlUrls>
+                <wsdlUrl>http://localhost:8080/chapter21-service-1.0/CardValidatorService?wsdl</wsdlUrl>
+              </wsdlUrls>
 
-              <wsdlFiles>
-                <wsdlFile>CardValidatorService.wsdl</wsdlFile>
-              </wsdlFiles>
+              <!--<wsdlFiles>-->
+              <!--<wsdlFile>CardValidatorService.wsdl</wsdlFile>-->
+              <!--</wsdlFiles>-->
               <keep>true</keep>
 
             </configuration>

@@ -10,8 +10,8 @@ import javax.xml.ws.Endpoint;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@WebService
-public class CardValidator {
+@WebService(endpointInterface = "org.agoncal.book.javaee7.chapter21.Validator")
+public class CardValidator implements Validator {
 
   // ======================================
   // =           Public Methods           =
@@ -26,9 +26,5 @@ public class CardValidator {
     } else {
       return false;
     }
-  }
-
-  public static void main(String[] args) {
-    Endpoint.publish("http://localhost:8080/cardValidator08", new CardValidator());
   }
 }

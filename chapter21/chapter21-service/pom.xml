@@ -34,24 +34,24 @@
         <artifactId>maven-war-plugin</artifactId>
       </plugin>
 
-      <!--<plugin>-->
-        <!--<groupId>org.jvnet.jax-ws-commons</groupId>-->
-        <!--<artifactId>jaxws-maven-plugin</artifactId>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<goals>-->
-              <!--<goal>wsgen</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
+      <plugin>
+        <groupId>org.jvnet.jax-ws-commons</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsgen</goal>
+            </goals>
+            <configuration>
               <!--Optional-->
               <!--Reads a JAX-WS service endpoint implementation class and generates all of the portable artifacts for a JAX-WS web service-->
-              <!--<genWsdl>true</genWsdl>-->
-              <!--<verbose>true</verbose>-->
-              <!--<keep>true</keep>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
-      <!--</plugin>-->
+              <genWsdl>true</genWsdl>
+              <verbose>true</verbose>
+              <keep>true</keep>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
     </plugins>
   </build>
