@@ -2,7 +2,7 @@ package org.agoncal.book.javaee7.chapter22.ex02;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ClientFactory;
+import javax.ws.rs.client.ClientFactory;
 
 /**
  * @author Antonio Goncalves
