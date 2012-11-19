@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex02;
+package org.agoncal.book.javaee7.chapter22.ex03;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

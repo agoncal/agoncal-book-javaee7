@@ -33,7 +33,7 @@
     <version.derby>10.9.1.0</version.derby>
     <version.mysql>5.1.21</version.mysql>
     <!-- Test -->
-    <version.junit>4.10</version.junit>
+    <version.junit>4.11</version.junit>
     <version.xmlunit>1.3</version.xmlunit>
     <version.mockito>1.9.5</version.mockito>
     <!-- Maven Plugins -->

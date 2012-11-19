@@ -1,10 +1,10 @@
 package org.agoncal.book.javaee7.chapter22;
 
-import org.agoncal.book.javaee7.chapter22.ex02.BookRestService02;
-import org.agoncal.book.javaee7.chapter22.ex03.BookRestService03;
+import org.agoncal.book.javaee7.chapter22.ex03.BookRestService02;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,13 +20,17 @@ public class ApplicationConfig extends Application {
     // ======================================
     // =          Business methods          =
     // ======================================
+    private final Set<Class<?>> classes;
 
-    @Override
-    public Set<Class<?>> getClasses() {
-        Set<Class<?>> classes = new HashSet<>();
-        classes.add(BookRestService02.class);
-        classes.add(BookRestService03.class);
-        return classes;
-    }
+  public ApplicationConfig() {
+    HashSet<Class<?>> c = new HashSet<Class<?>>();
+    c.add(BookRestService02.class);
+    classes = Collections.unmodifiableSet(c);
+  }
+
+  @Override
+  public Set<Class<?>> getClasses() {
+    return classes;
+  }
 
 }
