@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex03;
+package org.agoncal.book.javaee7.chapter22.ex04;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
