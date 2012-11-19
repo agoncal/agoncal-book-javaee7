@@ -1,8 +1,6 @@
-package org.agoncal.book.javaee7.chapter22.ex04;
+package org.agoncal.book.javaee7.chapter22.ex05;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,23 +11,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Entity
-@NamedQuery(name = Book03.FIND_ALL, query = "SELECT b FROM Book03 b")
+//@Entity
+@NamedQuery(name = Book04.FIND_ALL, query = "SELECT b FROM Book04 b")
 @XmlRootElement
-public class Book03 {
+public class Book04 extends Item04 {
 
     // ======================================
     // =             Attributes             =
     // ======================================
 
-    public static final String FIND_ALL = "Book03.findAll";
+    public static final String FIND_ALL = "Book04.findAll";
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String title;
-    private Float price;
-    private String description;
     private String isbn;
     private Integer nbOfPage;
     private Boolean illustrations;
@@ -38,44 +30,7 @@ public class Book03 {
     // =            Constructors            =
     // ======================================
 
-    public Book03() {
-    }
-
-    public Book03(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.isbn = isbn;
-        this.nbOfPage = nbOfPage;
-        this.illustrations = illustrations;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public Book04() {
     }
 
     public String getIsbn() {

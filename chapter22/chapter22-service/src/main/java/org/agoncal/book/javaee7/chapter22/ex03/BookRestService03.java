@@ -13,7 +13,7 @@ import javax.ws.rs.Produces;
  *         <p/>
  *         curl http://localhost:8080/chapter22-service-1.0/rs/02/book
  */
-@Path("/02/book")
+@Path("/03/book")
 public class BookRestService03 {
 
     // ======================================

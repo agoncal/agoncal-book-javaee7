@@ -69,18 +69,23 @@ public class BookRestService03IT {
 
   @Test
   public void shouldCheckForH2G2WithWebTarget() {
-    WebTarget target = client.target(uri + "02/book");
+    WebTarget target = client.target(uri + "03/book");
     assertEquals("H2G2", target.request(MediaType.TEXT_PLAIN).get(String.class));
   }
 
   @Test
   public void shouldCheckForH2G2() {
-    assertEquals("H2G2", client.target(uri).path("02/book").request(MediaType.TEXT_PLAIN).get(String.class));
+    assertEquals("H2G2", client.target(uri).path("03/book").request(MediaType.TEXT_PLAIN).get(String.class));
+  }
+
+  @Test
+  public void shouldCheckForH2G2WithSeveralPaths() {
+    assertEquals("H2G2", client.target(uri).path("03").path("book").request(MediaType.TEXT_PLAIN).get(String.class));
   }
 
   @Test
   public void shouldCheckForH2G2WithResponse() {
-    Response response = client.target(UriBuilder.fromUri(uri).path("02/book").build().toString()).request("text/plain").get();
+    Response response = client.target(UriBuilder.fromUri(uri).path("03/book").build().toString()).request("text/plain").get();
     assertEquals(200, response.getStatus());
     assertTrue(response.hasEntity());
     assertTrue("H2G2".equals(response.readEntity(String.class)));

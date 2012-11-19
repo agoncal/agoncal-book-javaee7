@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex04;
+package org.agoncal.book.javaee7.chapter22.ex05;
 
 import javax.persistence.*;
 

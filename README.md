@@ -46,7 +46,6 @@ Section 6 - Interoperability
 * Chapter 21 - SOAP Web Services
 * Chapter 22 - RESTful Web Service
 
-
 # Structure of the code and Maven modules
 
 The code used in the book is defined in the following sub-directories :
