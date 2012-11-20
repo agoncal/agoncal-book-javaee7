@@ -2,7 +2,6 @@ package org.agoncal.book.javaee7.chapter22.ex05;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
@@ -71,7 +70,7 @@ public class ItemRestService05 {
   @POST
   @Path("/book")
   public Response createBook(Book05 book) {
-    System.out.println("createNewBook");
+    System.out.println("createBook");
     book.setId(123L);
     URI bookUri = uriInfo.getAbsolutePathBuilder().path(book.getId().toString()).build();
     return Response.created(bookUri).build();
@@ -81,7 +80,7 @@ public class ItemRestService05 {
    * curl -X DELETE http://localhost:8080/chapter22-service-1.0/rs/05/items/1234
    */
   @DELETE
-  @Path("/book/{bookid}")
+  @Path("/book/{bookid : \\d+}")
   public Response deleteBook(@PathParam("bookid") String id) {
     System.out.println("deleteBook : " + id);
     return Response.noContent().build();

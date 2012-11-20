@@ -107,6 +107,12 @@ public class BookRestService05IT {
   }
 
   @Test
+  public void shouldCheckGetBookURIWithWrongParam() {
+    Response response = client.target("http://localhost:8282/05/items/book/abc").request().get();
+    assertEquals(200, response.getStatus());
+  }
+
+  @Test
   public void shouldCheckPostBookURI() {
     Response response = client.target("http://localhost:8282/05/items/book").request().post(Entity.entity(new Book05("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false), MediaType.APPLICATION_XML));
     assertEquals(201, response.getStatus());
@@ -119,9 +125,14 @@ public class BookRestService05IT {
   }
 
   @Test
+  public void shouldCheckDeleteBookURIWithWrongParam() {
+    Response response = client.target("http://localhost:8282/05/items/book/abc").request().delete();
+    assertEquals(204, response.getStatus());
+  }
+
+  @Test
   public void shouldCheckDummyURI() {
     Response response = client.target("http://localhost:8282/05/items/dummy").request().get();
     assertEquals(404, response.getStatus());
   }
-
 }
