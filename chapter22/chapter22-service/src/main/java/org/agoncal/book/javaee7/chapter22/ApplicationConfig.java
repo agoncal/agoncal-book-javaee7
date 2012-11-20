@@ -2,6 +2,7 @@ package org.agoncal.book.javaee7.chapter22;
 
 import org.agoncal.book.javaee7.chapter22.ex03.BookRestService03;
 import org.agoncal.book.javaee7.chapter22.ex04.BookRestService04;
+import org.agoncal.book.javaee7.chapter22.ex05.ItemRestService05;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -33,8 +34,7 @@ public class ApplicationConfig extends Application {
     HashSet<Class<?>> c = new HashSet<>();
     c.add(BookRestService03.class);
     c.add(BookRestService04.class);
-//    classes.add(BookRestService03.class);
-//    classes.add(BookRestService04.class);
+    c.add(ItemRestService05.class);
 
     classes = Collections.unmodifiableSet(c);
   }

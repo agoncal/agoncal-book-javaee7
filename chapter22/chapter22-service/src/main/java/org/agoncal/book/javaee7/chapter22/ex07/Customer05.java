@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex05;
+package org.agoncal.book.javaee7.chapter22.ex07;
 
 import java.util.Date;
 

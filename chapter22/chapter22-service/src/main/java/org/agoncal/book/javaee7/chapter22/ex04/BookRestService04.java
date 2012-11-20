@@ -64,15 +64,15 @@ public class BookRestService04 {
 
   @POST
   @Consumes(MediaType.APPLICATION_XML)
-  public Response createNewBook(Book04 book) {
+  public Response createBook(Book04 book) {
     em.persist(book);
     URI bookUri = uriInfo.getAbsolutePathBuilder().path(book.getId().toString()).build();
     return Response.created(bookUri).build();
   }
 
   @POST
-  @Consumes("text/plain")
-  public Response createNewBookTitle(String title) {
+  @Consumes(MediaType.TEXT_PLAIN)
+  public Response createBookWithTitle(String title) {
     Book04 book = new Book04();
     book.setTitle(title);
     em.persist(book);

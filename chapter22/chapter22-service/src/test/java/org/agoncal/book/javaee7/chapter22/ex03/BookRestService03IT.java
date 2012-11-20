@@ -49,7 +49,7 @@ public class BookRestService03IT {
     server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
 
     // create a handler wrapping the JAX-RS application
-    HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig(), HttpHandler.class);
+    HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig03(), HttpHandler.class);
 
     // map JAX-RS handler to the server root
     server.createContext(uri.getPath(), handler);
@@ -85,7 +85,7 @@ public class BookRestService03IT {
 
   @Test
   public void shouldCheckForH2G2WithResponse() {
-    Response response = client.target(UriBuilder.fromUri(uri).path("03/book").build().toString()).request("text/plain").get();
+    Response response = client.target(UriBuilder.fromUri(uri).path("03/book").build()).request("text/plain").get();
     assertEquals(200, response.getStatus());
     assertTrue(response.hasEntity());
     assertTrue("H2G2".equals(response.readEntity(String.class)));
@@ -95,12 +95,4 @@ public class BookRestService03IT {
   public void shouldCheckForApplicationWadl() {
     assertTrue(ClientFactory.newClient().target(uri).path("application.wadl").request(MediaTypes.WADL).get(String.class).length() > 0);
   }
-
-  @Test
-  public void should() {
-    // given
-    // when
-    // then
-  }
-
 }
