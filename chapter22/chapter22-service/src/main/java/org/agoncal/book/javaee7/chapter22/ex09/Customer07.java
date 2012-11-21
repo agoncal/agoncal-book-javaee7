@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex07;
+package org.agoncal.book.javaee7.chapter22.ex09;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Customer05 {
+public class Customer07 {
 
     // ======================================
     // =             Attributes             =
@@ -27,10 +27,10 @@ public class Customer05 {
     // =            Constructors            =
     // ======================================
 
-    public Customer05() {
+    public Customer07() {
     }
 
-    public Customer05(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date creationDate) {
+    public Customer07(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date creationDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

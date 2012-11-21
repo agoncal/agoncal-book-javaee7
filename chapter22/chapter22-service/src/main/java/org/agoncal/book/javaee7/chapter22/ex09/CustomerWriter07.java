@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex07;
+package org.agoncal.book.javaee7.chapter22.ex09;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;

@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter22.ex07;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
@@ -9,11 +10,13 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@XmlRootElement
 public class Customer07 {
 
     // ======================================
     // =             Attributes             =
     // ======================================
+
     private Long id;
     private String firstName;
     private String lastName;
