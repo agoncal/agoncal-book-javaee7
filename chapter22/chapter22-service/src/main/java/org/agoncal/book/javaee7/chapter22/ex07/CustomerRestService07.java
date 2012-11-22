@@ -55,4 +55,20 @@ public class CustomerRestService07 {
     System.out.println("getCustomerByFirstnameName : " + firstname + " - " + surname);
     return new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
   }
+
+  @GET
+  @Path("cookie")
+  @Produces(MediaType.APPLICATION_XML)
+  public Customer07 getCustomerWithCookieParam(@CookieParam("sessionId") String sessionId) {
+    System.out.println("getCustomerWithCookieParam : " + sessionId );
+    return new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
+  }
+
+  @GET
+  @Path("header")
+  @Produces(MediaType.APPLICATION_XML)
+  public Customer07 getCustomerWithHeaderParam(@HeaderParam(value = "User-Agent") String userAgent) {
+    System.out.println("getCustomerWithHeaderParam : " + userAgent );
+    return new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
+  }
 }
