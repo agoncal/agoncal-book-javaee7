@@ -106,4 +106,22 @@ public class BookRestService07IT {
     Response response = client.target("http://localhost:8282/07/customer/search;firstname=Antonio;surname=Goncalves").request().get();
     assertEquals(200, response.getStatus());
   }
+
+  @Test
+  public void shouldCheckGetCustomerByFirstnameNameWithParamURI() {
+    Response response = client.target("http://localhost:8282/07/customer/search").matrixParam("firstname","Antonio2").matrixParam("surname","Goncalves2").request().get();
+    assertEquals(200, response.getStatus());
+  }
+
+  @Test
+  public void shouldCheckGetCustomerWithCookieParamURI() {
+    Response response = client.target("http://localhost:8282/07/customer/cookie").request().get();
+    assertEquals(200, response.getStatus());
+  }
+
+  @Test
+  public void shouldCheckGetCustomerWithHeaderParamURI() {
+    Response response = client.target("http://localhost:8282/07/customer/header").request().get();
+    assertEquals(200, response.getStatus());
+  }
 }
