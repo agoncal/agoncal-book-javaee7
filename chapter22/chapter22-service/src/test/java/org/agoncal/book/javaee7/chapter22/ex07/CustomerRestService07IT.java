@@ -4,10 +4,12 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientFactory;
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.ext.RuntimeDelegate;
@@ -29,7 +31,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookRestService07IT {
+public class CustomerRestService07IT {
 
   // ======================================
   // =             Attributes             =
@@ -115,7 +117,7 @@ public class BookRestService07IT {
 
     @Test
     public void shouldCheckGetCustomerWithCookieParamURI() {
-        Cookie myCookie = new NewCookie("myCookie", "This is my cookie");
+        Cookie myCookie = new Cookie("myCookie", "This is my cookie");
         String response = client.target("http://localhost:8282/07/customer/cookie").request().cookie(myCookie).get(String.class);
         assertEquals("This is my cookie from the server", response);
     }
