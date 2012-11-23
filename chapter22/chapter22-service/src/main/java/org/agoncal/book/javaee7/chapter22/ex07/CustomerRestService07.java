@@ -56,19 +56,26 @@ public class CustomerRestService07 {
     return new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
   }
 
-  @GET
-  @Path("cookie")
-  @Produces(MediaType.APPLICATION_XML)
-  public Customer07 getCustomerWithCookieParam(@CookieParam("sessionId") String sessionId) {
-    System.out.println("getCustomerWithCookieParam : " + sessionId );
-    return new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
-  }
+    @GET
+    @Path("cookie")
+    @Produces(MediaType.APPLICATION_XML)
+    public String echoCookie(@CookieParam("myCookie") String myCookie) {
+        System.out.println("echoCookie : " + myCookie);
+        return myCookie + " from the server";
+    }
 
-  @GET
-  @Path("header")
-  @Produces(MediaType.APPLICATION_XML)
-  public Customer07 getCustomerWithHeaderParam(@HeaderParam(value = "User-Agent") String userAgent) {
-    System.out.println("getCustomerWithHeaderParam : " + userAgent );
-    return new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
-  }
+    @GET
+    @Path("userAgent")
+    public String echoUserAgent(@HeaderParam(value = "User-Agent") String userAgent) {
+        System.out.println("echoUserAgent : " + userAgent);
+        return userAgent + " from the server";
+    }
+
+    @GET
+    @Path("userAgentRep")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response echoUserAgentWithReponse(@HeaderParam(value = "User-Agent") String userAgent) {
+        System.out.println("echoUserAgentWithReponse : " + userAgent);
+        return Response.ok(userAgent + " from the server", MediaType.TEXT_PLAIN).build();
+    }
 }
