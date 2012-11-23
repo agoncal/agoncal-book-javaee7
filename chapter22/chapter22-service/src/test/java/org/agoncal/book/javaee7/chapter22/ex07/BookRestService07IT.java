@@ -113,15 +113,23 @@ public class BookRestService07IT {
     assertEquals(200, response.getStatus());
   }
 
-  @Test
-  public void shouldCheckGetCustomerWithCookieParamURI() {
-    Response response = client.target("http://localhost:8282/07/customer/cookie").request().get();
-    assertEquals(200, response.getStatus());
-  }
+    @Test
+    public void shouldCheckGetCustomerWithCookieParamURI() {
+        Cookie myCookie = new NewCookie("myCookie", "This is my cookie");
+        String response = client.target("http://localhost:8282/07/customer/cookie").request().cookie(myCookie).get(String.class);
+        assertEquals("This is my cookie from the server", response);
+    }
 
-  @Test
-  public void shouldCheckGetCustomerWithHeaderParamURI() {
-    Response response = client.target("http://localhost:8282/07/customer/header").request().get();
-    assertEquals(200, response.getStatus());
-  }
+    @Test
+    public void shouldEchoUserAgentValue() {
+        String response = client.target("http://localhost:8282/07/customer/userAgent").request().get(String.class);
+        assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_02) from the server", response);
+    }
+
+    @Test @Ignore
+    public void shouldEchoUserAgentWithReponse() {
+        Response response = client.target("http://localhost:8282/07/customer/userAgentRep").request().get();
+        assertEquals(200, response.getStatus());
+        assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_02) from the server", response.getEntity());
+    }
 }
