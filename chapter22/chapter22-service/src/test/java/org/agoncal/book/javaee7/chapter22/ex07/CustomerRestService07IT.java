@@ -80,6 +80,12 @@ public class CustomerRestService07IT {
   }
 
   @Test
+  public void shouldCheckSearchCustomerURI() {
+    Response response = client.target("http://localhost:8282/07/customer/search/agoncal").request().get();
+    assertEquals(200, response.getStatus());
+  }
+
+  @Test
   public void shouldCheckGetCustomerByLoginURI() {
     Response response = client.target("http://localhost:8282/07/customer/agoncal").request().get();
     assertEquals(200, response.getStatus());
@@ -92,8 +98,14 @@ public class CustomerRestService07IT {
   }
 
   @Test
+  public void shouldCheckGetCustomerByZipCodeCityURI() {
+    Response response = client.target("http://localhost:8282/07/customer?zip=75012&city=Paris").request().get();
+    assertEquals(200, response.getStatus());
+  }
+
+  @Test
   public void shouldCheckGetCustomerByZipCodeURI() {
-    Response response = client.target("http://localhost:8282/07/customer?zip=75012").request().get();
+    Response response = client.target("http://localhost:8282/07/customer?zip=75001").request().get();
     assertEquals(200, response.getStatus());
   }
 
@@ -110,28 +122,35 @@ public class CustomerRestService07IT {
   }
 
   @Test
-  public void shouldCheckGetCustomerByFirstnameNameWithParamURI() {
-    Response response = client.target("http://localhost:8282/07/customer/search").matrixParam("firstname","Antonio2").matrixParam("surname","Goncalves2").request().get();
+  public void shouldCheckGetCustomerByFirstnameURI() {
+    Response response = client.target("http://localhost:8282/07/customer/search;firstname=AntonioNull").request().get();
     assertEquals(200, response.getStatus());
   }
 
-    @Test
-    public void shouldCheckGetCustomerWithCookieParamURI() {
-        Cookie myCookie = new Cookie("myCookie", "This is my cookie");
-        String response = client.target("http://localhost:8282/07/customer/cookie").request().cookie(myCookie).get(String.class);
-        assertEquals("This is my cookie from the server", response);
-    }
+  @Test
+  public void shouldCheckGetCustomerByFirstnameNameWithParamURI() {
+    Response response = client.target("http://localhost:8282/07/customer/search").matrixParam("firstname", "Antonio2").matrixParam("surname", "Goncalves2").request().get();
+    assertEquals(200, response.getStatus());
+  }
 
-    @Test
-    public void shouldEchoUserAgentValue() {
-        String response = client.target("http://localhost:8282/07/customer/userAgent").request().get(String.class);
-        assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_02) from the server", response);
-    }
+  @Test
+  public void shouldCheckGetCustomerWithCookieParamURI() {
+    Cookie myCookie = new Cookie("sessionID", "This is my cookie");
+    String response = client.target("http://localhost:8282/07/customer/cookie").request().cookie(myCookie).get(String.class);
+    assertEquals("This is my cookie from the server", response);
+  }
 
-    @Test @Ignore
-    public void shouldEchoUserAgentWithReponse() {
-        Response response = client.target("http://localhost:8282/07/customer/userAgentRep").request().get();
-        assertEquals(200, response.getStatus());
-        assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_02) from the server", response.getEntity());
-    }
+  @Test
+  public void shouldEchoUserAgentValue() {
+    String response = client.target("http://localhost:8282/07/customer/userAgent").request().get(String.class);
+    assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_04) from the server", response);
+  }
+
+  @Test
+  @Ignore
+  public void shouldEchoUserAgentWithReponse() {
+    Response response = client.target("http://localhost:8282/07/customer/userAgentRep").request().get();
+    assertEquals(200, response.getStatus());
+    assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_04) from the server", response.getEntity());
+  }
 }

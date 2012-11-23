@@ -35,7 +35,7 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookRestService05IT {
+public class ItemRestService05IT {
 
   // ======================================
   // =             Attributes             =
