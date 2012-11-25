@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex12;
+package org.agoncal.book.javaee7.chapter22.ex14;
 
 import javax.persistence.EntityNotFoundException;
 import javax.ws.rs.core.MediaType;
