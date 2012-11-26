@@ -92,7 +92,7 @@ public class BookRestService04IT {
 
     System.out.println("########## " + response.getEntity());
 
-    book = (Book04) response.getEntity();
+    book = response.readEntity(Book04.class);
     assertEquals("The Hitchhiker's Guide to the Galaxy", book.getTitle());
     assertEquals("Science fiction comedy book", book.getDescription());
   }

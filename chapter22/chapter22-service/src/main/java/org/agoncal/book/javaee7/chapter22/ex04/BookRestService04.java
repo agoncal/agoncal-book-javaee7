@@ -50,8 +50,7 @@ public class BookRestService04 {
   @Produces(MediaType.APPLICATION_XML)
   public Books04 getAllBooks() {
     TypedQuery<Book04> query = em.createNamedQuery(Book04.FIND_ALL, Book04.class);
-    Books04 books = new Books04();
-    books.setBooks(query.getResultList());
+    Books04 books = new Books04(query.getResultList());
     return books;
   }
 

@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -16,6 +17,18 @@ import java.util.List;
 @XmlRootElement
 @XmlSeeAlso(Book04.class)
 public class Books04 extends ArrayList<Book04> {
+
+  // ======================================
+  // =            Constructors            =
+  // ======================================
+
+  public Books04() {
+    super();
+  }
+
+  public Books04(Collection<? extends Book04> c) {
+    super(c);
+  }
 
   // ======================================
   // =          Getters & Setters         =
