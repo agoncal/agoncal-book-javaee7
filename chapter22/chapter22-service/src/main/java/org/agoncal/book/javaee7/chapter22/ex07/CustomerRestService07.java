@@ -29,7 +29,7 @@ public class CustomerRestService07 {
   @Path("search/{text}")
   public List<Customer07> searchCustomers(@PathParam("text") String textToSearch) {
     System.out.println("searchCustomer : " + textToSearch);
-    List<Customer07> customers = new ArrayList<>();
+    Customers07 customers = new Customers07();
     customers.add(new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
     customers.add(new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
     return customers;

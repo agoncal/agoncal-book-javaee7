@@ -71,12 +71,22 @@ public class CustomerRestService07IT {
 
   @Test
   public void shouldMarshallACustomer() throws JAXBException {
-    // given
     Customer07 customer = new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
     StringWriter writer = new StringWriter();
     JAXBContext context = JAXBContext.newInstance(Customer07.class);
     Marshaller m = context.createMarshaller();
     m.marshal(customer, writer);
+  }
+
+  @Test
+  public void shouldMarshallAListOfCustomers() throws JAXBException {
+    Customers07 customers = new Customers07();
+    customers.add(new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
+    customers.add(new Customer07("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date()));
+    StringWriter writer = new StringWriter();
+    JAXBContext context = JAXBContext.newInstance(Customers07.class);
+    Marshaller m = context.createMarshaller();
+    m.marshal(customers, writer);
   }
 
   @Test

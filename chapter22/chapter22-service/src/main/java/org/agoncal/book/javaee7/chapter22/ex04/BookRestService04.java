@@ -10,7 +10,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
-import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -49,9 +48,10 @@ public class BookRestService04 {
 
   @GET
   @Produces(MediaType.APPLICATION_XML)
-  public List<Book04> getAllBooks() {
+  public Books04 getAllBooks() {
     TypedQuery<Book04> query = em.createNamedQuery(Book04.FIND_ALL, Book04.class);
-    List<Book04> books = query.getResultList();
+    Books04 books = new Books04();
+    books.setBooks(query.getResultList());
     return books;
   }
 

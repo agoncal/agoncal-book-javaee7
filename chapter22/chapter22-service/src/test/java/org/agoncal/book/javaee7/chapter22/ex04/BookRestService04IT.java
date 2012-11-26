@@ -56,6 +56,18 @@ public class BookRestService04IT {
   }
 
   @Test
+  public void shouldMarshallAListOfBooks() throws JAXBException {
+    Books04 books = new Books04();
+    books.add(new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    books.add(new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    StringWriter writer = new StringWriter();
+    JAXBContext context = JAXBContext.newInstance(Books04.class);
+    Marshaller m = context.createMarshaller();
+    m.marshal(books, writer);
+  }
+
+
+  @Test
   public void shouldCreateABook() throws JAXBException {
     // given
     Book04 book = new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);

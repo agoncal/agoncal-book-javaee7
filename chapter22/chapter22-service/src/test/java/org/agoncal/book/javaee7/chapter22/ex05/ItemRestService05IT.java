@@ -2,8 +2,6 @@ package org.agoncal.book.javaee7.chapter22.ex05;
 
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import org.agoncal.book.javaee7.chapter22.ApplicationConfig;
-import org.glassfish.jersey.message.internal.MediaTypes;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -12,7 +10,6 @@ import org.junit.Test;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientFactory;
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -26,7 +23,6 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -88,7 +84,18 @@ public class ItemRestService05IT {
     assertEquals(XML, writer.toString());
   }
 
-  @Test  @Ignore
+  @Test
+  public void shouldMarshallAListOfBooks() throws JAXBException {
+    Items05 items05 = new Items05();
+    items05.add(new Book05("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    items05.add(new Book05("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    StringWriter writer = new StringWriter();
+    JAXBContext context = JAXBContext.newInstance(Items05.class);
+    Marshaller m = context.createMarshaller();
+    m.marshal(items05, writer);
+  }
+
+  @Test
   public void shouldCheckGetItemsURI() {
     Response response = client.target("http://localhost:8282/05/items").request().get();
     assertEquals(200, response.getStatus());

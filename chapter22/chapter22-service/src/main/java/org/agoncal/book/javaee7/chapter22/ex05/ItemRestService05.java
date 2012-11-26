@@ -33,9 +33,9 @@ public class ItemRestService05 {
    * curl http://localhost:8080/chapter22-service-1.0/rs/05/items
    */
   @GET
-  public List<Item05> getItems() {
+  public Items05 getItems() {
     System.out.println("getItems");
-    List<Item05> items = new ArrayList<>();
+    Items05 items = new Items05();
     items.add(new Book05("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     items.add(new Book05("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     return items;

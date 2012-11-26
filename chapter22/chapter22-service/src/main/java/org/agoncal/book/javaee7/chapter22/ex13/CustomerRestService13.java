@@ -1,7 +1,5 @@
-package org.agoncal.book.javaee7.chapter22.ex12;
+package org.agoncal.book.javaee7.chapter22.ex13;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -21,7 +19,7 @@ import java.util.List;
 @Path("/12/customer")
 @Produces(MediaType.APPLICATION_XML)
 @Consumes(MediaType.APPLICATION_XML)
-public class CustomerRestService12 {
+public class CustomerRestService13 {
 
   // ======================================
   // =             Attributes             =
@@ -30,45 +28,33 @@ public class CustomerRestService12 {
   @Context
   private UriInfo uriInfo;
 
-  @PersistenceContext(unitName = "chapter22PU")
-  private EntityManager em;
-
   // ======================================
   // =           Public Methods           =
   // ======================================
 
   @GET
   public Response getListOfCustomers() {
-    Customers12 customers = new Customers12();
-    customers.add(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"));
-    customers.add(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"));
+    List<Customer13> customers = new ArrayList<>();
+    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565"));
+    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565"));
     return Response.ok(customers).build();
   }
 
   @GET
   @Path("{customerId}")
   public Response getCustomer(@PathParam("customerId") String customerId) {
-
-    if(customerId == null || customerId.trim().length() == 0) {
-      return Response.serverError().entity("Customer Id cannot be blank").build();
-    }
-
-    Customer12 customer = em.find(Customer12.class, customerId);
-    if(customer == null) {
-      return Response.status(Response.Status.NOT_FOUND).entity("Customer not found for id: " + customerId).build();
-    }
-    return Response.ok(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_JSON).build();
+    return Response.ok(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565")).build();
   }
 
   @POST
-  public Response createCustomer(Customer12 customer) {
+  public Response createCustomer(Customer13 customer) {
     URI bookUri = uriInfo.getAbsolutePathBuilder().path(customer.getId().toString()).build();
     return Response.created(bookUri).build();
   }
 
   @PUT
   @Path("{customerId}")
-  public Response updateCustomer(@PathParam("customerId") String customerId, Customer12 customer) {
+  public Response updateCustomer(@PathParam("customerId") String customerId, Customer13 customer) {
     return Response.ok().build();
   }
 
