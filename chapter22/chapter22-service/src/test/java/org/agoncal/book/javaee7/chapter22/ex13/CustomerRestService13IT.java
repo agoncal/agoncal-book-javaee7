@@ -8,10 +8,16 @@ import org.junit.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientFactory;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.ext.RuntimeDelegate;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.URI;
 
@@ -63,9 +69,67 @@ public class CustomerRestService13IT {
   // ======================================
 
   @Test
-  public void shouldCheckGetMethod() {
-    Response response = client.target("/12/customer").request().get();
+  public void shouldMarshallACustomer() throws JAXBException {
+    Customer13 customer = new Customer13("John", "Smith", "jsmith@gmail.com", "1334565");
+    StringWriter writer = new StringWriter();
+    JAXBContext context = JAXBContext.newInstance(Customer13.class);
+    Marshaller m = context.createMarshaller();
+    m.marshal(customer, writer);
+  }
+
+  @Test
+  public void shouldMarshallAListOfCustomers() throws JAXBException {
+    Customers13 customers = new Customers13();
+    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"));
+    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"));
+    StringWriter writer = new StringWriter();
+    JAXBContext context = JAXBContext.newInstance(Customers13.class);
+    Marshaller m = context.createMarshaller();
+    m.marshal(customers, writer);
+  }
+
+  @Test
+  public void shouldFailAsCustomerIDStartsWithCust() {
+    Response response = client.target("http://localhost:8282/13/customer/doesNotStartWithCust").request().get();
+    assertEquals(500, response.getStatus());
+  }
+
+  @Test
+  public void shouldNotFindBecauseEntityManagerIsNull() {
+    Response response = client.target("http://localhost:8282/13/customer/cust1334").request().get();
+    assertEquals(404, response.getStatus());
+  }
+
+  @Test
+  public void shouldCreateACustomerWithURIBuilderFromUri() {
+    Response response = client.target("http://localhost:8282/13/customer/fromUri").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+    assertEquals(201, response.getStatus());
+    assertEquals("http://localhost:8282/13/customer/1334", response.getLocation().toString());
+  }
+
+  @Test
+  public void shouldCreateACustomerWithURIBuilderFromMethod() {
+    Response response = client.target("http://localhost:8282/13/customer/fromMethod").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+    assertEquals(201, response.getStatus());
+    assertEquals("fromMethod", response.getLocation().toString());
+  }
+
+  @Test
+  public void shouldCreateACustomerWithURIBuilderFromResource() {
+    Response response = client.target("http://localhost:8282/13/customer/fromResource").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+    assertEquals(201, response.getStatus());
+    assertEquals("/13/customer/1334", response.getLocation().toString());
+  }
+
+  @Test
+  public void shouldUpdateCustomer() {
+    Response response = client.target("http://localhost:8282/13/customer/cust1334").request().put(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
     assertEquals(200, response.getStatus());
   }
 
+  @Test
+  public void shouldDeleteCustomer() {
+    Response response = client.target("http://localhost:8282/13/customer/cust1334").request().delete();
+    assertEquals(204, response.getStatus());
+  }
 }

@@ -1,13 +1,10 @@
 package org.agoncal.book.javaee7.chapter22.ex13;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -16,39 +13,49 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Path("/12/customer")
+@Path("/13/customer")
 @Produces(MediaType.APPLICATION_XML)
 @Consumes(MediaType.APPLICATION_XML)
 public class CustomerRestService13 {
-
-  // ======================================
-  // =             Attributes             =
-  // ======================================
-
-  @Context
-  private UriInfo uriInfo;
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
   @GET
-  public Response getListOfCustomers() {
-    List<Customer13> customers = new ArrayList<>();
-    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565"));
-    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565"));
-    return Response.ok(customers).build();
-  }
-
-  @GET
   @Path("{customerId}")
   public Response getCustomer(@PathParam("customerId") String customerId) {
-    return Response.ok(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565")).build();
+    System.out.println("getCustomer " + customerId);
+
+    if (!customerId.startsWith("cust")) {
+      return Response.serverError().entity("Customer Id must start with 'cust'").build();
+    }
+
+    Customer13 customer = null;//em.find(Customer13.class, customerId);
+    if (customer == null) {
+      return Response.status(Response.Status.NOT_FOUND).entity("Customer not found for id: " + customerId).build();
+    }
+    return Response.ok(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_JSON).build();
   }
 
   @POST
-  public Response createCustomer(Customer13 customer) {
-    URI bookUri = uriInfo.getAbsolutePathBuilder().path(customer.getId().toString()).build();
+  @Path("fromUri")
+  public Response createCustomerFromUri(Customer13 customer) {
+    URI bookUri = UriBuilder.fromUri("http://localhost:8282/13/customer/1334").build();
+    return Response.created(bookUri).build();
+  }
+
+  @POST
+  @Path("fromMethod")
+  public Response createCustomerFromMethod(Customer13 customer) {
+    URI bookUri = UriBuilder.fromMethod(CustomerRestService13.class, "createCustomerFromMethod").build();
+    return Response.created(bookUri).build();
+  }
+
+  @POST
+  @Path("fromResource")
+  public Response createCustomerFromResource(Customer13 customer) {
+    URI bookUri = UriBuilder.fromResource(CustomerRestService13.class).path("1334").build();
     return Response.created(bookUri).build();
   }
 
