@@ -20,54 +20,43 @@ public class CustomerRestService13 {
 
   // ======================================
   // =           Public Methods           =
-  // ======================================
+  // ======================================f
+
+  @GET
+  public Response getCustomers() {
+    System.out.println("getCustomers");
+    Customers13 customers = new Customers13();
+    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565"));
+    customers.add(new Customer13("John", "Smith", "jsmith@gmail.com", "1234565"));
+    return Response.ok(customers).build();
+  }
 
   @GET
   @Path("{customerId}")
   public Response getCustomer(@PathParam("customerId") String customerId) {
     System.out.println("getCustomer " + customerId);
-
-    if (!customerId.startsWith("cust")) {
-      return Response.serverError().entity("Customer Id must start with 'cust'").build();
-    }
-
-    Customer13 customer = null;//em.find(Customer13.class, customerId);
-    if (customer == null) {
-      return Response.status(Response.Status.NOT_FOUND).entity("Customer not found for id: " + customerId).build();
-    }
-    return Response.ok(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_JSON).build();
+    Customer13 customer = new Customer13("John", "Smith", "jsmith@gmail.com", "1334565");
+    return Response.ok(customer).build();
   }
 
   @POST
-  @Path("fromUri")
-  public Response createCustomerFromUri(Customer13 customer) {
-    URI bookUri = UriBuilder.fromUri("http://localhost:8282/13/customer/1334").build();
-    return Response.created(bookUri).build();
-  }
-
-  @POST
-  @Path("fromMethod")
-  public Response createCustomerFromMethod(Customer13 customer) {
-    URI bookUri = UriBuilder.fromMethod(CustomerRestService13.class, "createCustomerFromMethod").build();
-    return Response.created(bookUri).build();
-  }
-
-  @POST
-  @Path("fromResource")
-  public Response createCustomerFromResource(Customer13 customer) {
-    URI bookUri = UriBuilder.fromResource(CustomerRestService13.class).path("1334").build();
-    return Response.created(bookUri).build();
+  public Response createCustomer(Customer13 customer) {
+    System.out.println("createCustomer " + customer);
+    URI createdCustomerURI = UriBuilder.fromResource(CustomerRestService13.class).path("1334").build();
+    return Response.created(createdCustomerURI).build();
   }
 
   @PUT
-  @Path("{customerId}")
-  public Response updateCustomer(@PathParam("customerId") String customerId, Customer13 customer) {
-    return Response.ok().build();
+  public Response updateCustomer(Customer13 customer) {
+    System.out.println("updateCustomer " + customer);
+    customer = new Customer13("JohnUpdated", "Smith", "jsmith@gmail.com", "1334565");
+    return Response.ok(customer).build();
   }
 
   @DELETE
   @Path("{customerId}")
   public Response deleteCustomer(@PathParam("customerId") String customerId) {
+    System.out.println("getCustomer " + customerId);
     return Response.noContent().build();
   }
 }

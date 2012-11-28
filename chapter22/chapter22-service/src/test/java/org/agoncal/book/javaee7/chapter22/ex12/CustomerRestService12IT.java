@@ -9,9 +9,7 @@ import org.junit.Test;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientFactory;
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,6 +18,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.URI;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -89,47 +88,41 @@ public class CustomerRestService12IT {
   }
 
   @Test
-  public void shouldFailAsCustomerIDStartsWithCust() {
-    Response response = client.target("http://localhost:8282/12/customer/doesNotStartWithCust").request().get();
-    assertEquals(500, response.getStatus());
-  }
-
-  @Test
-  public void shouldNotFindBecauseEntityManagerIsNull() {
-    Response response = client.target("http://localhost:8282/12/customer/cust1234").request().get();
-    assertEquals(404, response.getStatus());
-  }
-
-  @Test
-  public void shouldCreateACustomerWithURIBuilderFromUri() {
-    Response response = client.target("http://localhost:8282/12/customer/fromUri").request().post(Entity.entity(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
-    assertEquals(201, response.getStatus());
-    assertEquals("http://localhost:8282/12/customer/1234", response.getLocation().toString());
-  }
-
-  @Test
-  public void shouldCreateACustomerWithURIBuilderFromMethod() {
-    Response response = client.target("http://localhost:8282/12/customer/fromMethod").request().post(Entity.entity(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
-    assertEquals(201, response.getStatus());
-    assertEquals("fromMethod", response.getLocation().toString());
-  }
-
-  @Test
-  public void shouldCreateACustomerWithURIBuilderFromResource() {
-    Response response = client.target("http://localhost:8282/12/customer/fromResource").request().post(Entity.entity(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
-    assertEquals(201, response.getStatus());
-    assertEquals("/12/customer/1234", response.getLocation().toString());
-  }
-
-  @Test
-  public void shouldUpdateCustomer() {
-    Response response = client.target("http://localhost:8282/12/customer/cust1234").request().put(Entity.entity(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
+  public void shouldGetgetMaximumBonusAllowed() {
+    Response response = client.target("http://localhost:8282/12/customer/max").request(MediaType.TEXT_PLAIN).get();
     assertEquals(200, response.getStatus());
+    assertEquals((Object) 1234L, response.readEntity(Long.class));
   }
 
   @Test
-  public void shouldDeleteCustomer() {
-    Response response = client.target("http://localhost:8282/12/customer/cust1234").request().delete();
-    assertEquals(204, response.getStatus());
+  public void shouldGetAsPlainText() {
+    Response response = client.target("http://localhost:8282/12/customer").request(MediaType.TEXT_PLAIN).get();
+    assertEquals(200, response.getStatus());
+    assertEquals("Customer11{id=null, firstName='John', lastName='Smith', email='jsmith@gmail.com', phoneNumber='1234565'}", response.readEntity(String.class));
+  }
+
+  @Test
+  public void shouldGetStringAsXML() {
+    Response response = client.target("http://localhost:8282/12/customer").request(MediaType.APPLICATION_XML).get();
+    assertEquals(200, response.getStatus());
+    assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><customer12><email>jsmith@gmail.com</email><firstName>John</firstName><lastName>Smith</lastName><phoneNumber>1234565</phoneNumber></customer12>", response.readEntity(String.class));
+  }
+
+  @Test
+  public void shouldGetAsJSon() {
+    Response response = client.target("http://localhost:8282/12/customer").request(MediaType.APPLICATION_JSON).get();
+    assertEquals(200, response.getStatus());
+    assertEquals("{\"email\":\"jsmith@gmail.com\",\"firstName\":\"John\",\"lastName\":\"Smith\",\"phoneNumber\":\"1234565\"}", response.readEntity(String.class));
+  }
+
+  @Test
+  public void shouldCheckResponse() {
+    Response.ok().build();
+    Response.ok().cookie(new NewCookie("SessionID", "5G79GDIFY09")).build();
+    Response.ok("Plain Text").expires(new Date()).build();
+    Response.ok(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_JSON).build();
+    Response.noContent().build();
+    Response.accepted(new Customer12("John", "Smith", "jsmith@gmail.com", "1234565")).build();
+    Response.notModified().header("User-Agent", "Mozilla").build();
   }
 }

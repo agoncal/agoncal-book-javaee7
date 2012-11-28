@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex13;
+package org.agoncal.book.javaee7.chapter22.ex99;
 
 import org.agoncal.book.javaee7.chapter22.ex12.CustomerRestService12;
 import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
@@ -31,7 +31,7 @@ public class ApplicationConfig13 extends Application {
 
   public ApplicationConfig13() {
     HashSet<Class<?>> c = new HashSet<>();
-    c.add(CustomerRestService13.class);
+    c.add(CustomerRestService12.class);
     c.add(MOXyJsonProvider.class);
     classes = Collections.unmodifiableSet(c);
   }

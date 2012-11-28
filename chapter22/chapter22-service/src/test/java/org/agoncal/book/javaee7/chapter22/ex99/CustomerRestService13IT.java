@@ -1,8 +1,9 @@
-package org.agoncal.book.javaee7.chapter22.ex13;
+package org.agoncal.book.javaee7.chapter22.ex99;
 
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import org.agoncal.book.javaee7.chapter22.ex04.Book04;
+import org.agoncal.book.javaee7.chapter22.ex13.Customer13;
+import org.agoncal.book.javaee7.chapter22.ex13.Customers13;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -23,7 +24,6 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -91,44 +91,47 @@ public class CustomerRestService13IT {
   }
 
   @Test
-  public void shouldGetCustomers() {
-    Response response = client.target("http://localhost:8282/13/customer").request(MediaType.APPLICATION_XML).get();
-    assertEquals(200, response.getStatus());
-    assertTrue(response.hasEntity());
-    Customers13 customers = response.readEntity(Customers13.class);
-    assertEquals(2, customers.size());
+  public void shouldFailAsCustomerIDStartsWithCust() {
+    Response response = client.target("http://localhost:8282/13/customer/doesNotStartWithCust").request().get();
+    assertEquals(500, response.getStatus());
   }
 
   @Test
-  public void shouldGetCustomer() {
-    Response response = client.target("http://localhost:8282/13/customer/1234").request().get();
-    assertEquals(200, response.getStatus());
-    assertTrue(response.hasEntity());
-    Customer13 customer = response.readEntity(Customer13.class);
-    assertEquals("jsmith@gmail.com", customer.getEmail());
-    assertEquals("John", customer.getFirstName());
-    assertEquals("Smith", customer.getLastName());
+  public void shouldNotFindBecauseEntityManagerIsNull() {
+    Response response = client.target("http://localhost:8282/13/customer/cust1334").request().get();
+    assertEquals(404, response.getStatus());
   }
 
   @Test
-  public void shouldCreateCustomer() {
-    Response response = client.target("http://localhost:8282/13/customer").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+  public void shouldCreateACustomerWithURIBuilderFromUri() {
+    Response response = client.target("http://localhost:8282/13/customer/fromUri").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+    assertEquals(201, response.getStatus());
+    assertEquals("http://localhost:8282/13/customer/1334", response.getLocation().toString());
+  }
+
+  @Test
+  public void shouldCreateACustomerWithURIBuilderFromMethod() {
+    Response response = client.target("http://localhost:8282/13/customer/fromMethod").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+    assertEquals(201, response.getStatus());
+    assertEquals("fromMethod", response.getLocation().toString());
+  }
+
+  @Test
+  public void shouldCreateACustomerWithURIBuilderFromResource() {
+    Response response = client.target("http://localhost:8282/13/customer/fromResource").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
     assertEquals(201, response.getStatus());
     assertEquals("/13/customer/1334", response.getLocation().toString());
   }
 
   @Test
   public void shouldUpdateCustomer() {
-    Response response = client.target("http://localhost:8282/13/customer").request().put(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
+    Response response = client.target("http://localhost:8282/13/customer/cust1334").request().put(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
     assertEquals(200, response.getStatus());
-    assertTrue(response.hasEntity());
-    Customer13 customer = response.readEntity(Customer13.class);
-    assertEquals("JohnUpdated", customer.getFirstName());
   }
 
   @Test
   public void shouldDeleteCustomer() {
-    Response response = client.target("http://localhost:8282/13/customer/1234").request().delete();
+    Response response = client.target("http://localhost:8282/13/customer/cust1334").request().delete();
     assertEquals(204, response.getStatus());
   }
 }
