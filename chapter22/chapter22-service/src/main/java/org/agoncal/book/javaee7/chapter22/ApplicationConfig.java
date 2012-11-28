@@ -3,6 +3,8 @@ package org.agoncal.book.javaee7.chapter22;
 import org.agoncal.book.javaee7.chapter22.ex03.BookRestService03;
 import org.agoncal.book.javaee7.chapter22.ex04.BookRestService04;
 import org.agoncal.book.javaee7.chapter22.ex05.ItemRestService05;
+import org.agoncal.book.javaee7.chapter22.ex15.CustomerRestService15;
+import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -35,6 +37,9 @@ public class ApplicationConfig extends Application {
     c.add(BookRestService03.class);
     c.add(BookRestService04.class);
     c.add(ItemRestService05.class);
+    c.add(CustomerRestService15.class);
+
+    c.add(MOXyJsonProvider.class);
 
     classes = Collections.unmodifiableSet(c);
   }

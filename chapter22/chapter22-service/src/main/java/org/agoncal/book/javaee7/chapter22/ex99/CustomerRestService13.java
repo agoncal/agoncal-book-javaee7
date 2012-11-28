@@ -70,4 +70,90 @@ public class CustomerRestService13 {
   public Response deleteCustomer(@PathParam("customerId") String customerId) {
     return Response.noContent().build();
   }
+
+
+//  @GET
+//  public JsonArray getCustomerURIs() {
+//
+//    JsonBuilder builder = new JsonBuilder();
+//    JsonArrayBuilder<JsonBuilder.JsonBuildable<JsonArray>> buidable;
+//    buidable = builder.beginArray();
+//
+//    for (Customer15 customer : customerEJB.findAll()) {
+//      UriBuilder ub = uriInfo.getAbsolutePathBuilder();
+//      URI uri = UriBuilder.fromPath("http://www.myserver.com").path(customer.getId().toString()).build();
+//      buidable.beginObject().add("uri", uri.toASCIIString()).endObject();
+//    }
+//
+//    JsonArray array = buidable.endArray().build();
+//    return array;
+//  }
+//
+//  @GET
+//  @Path("{id}")
+//  @Produces(MediaType.TEXT_PLAIN)
+//  public String getCustomerURI(@PathParam("id") String customerId) throws Exception {
+//
+//    JsonBuilder builder = new JsonBuilder();
+//    JsonObject jsonObject;
+//    JsonObjectBuilder<JsonBuilder.JsonBuildable<JsonObject>> buidable;
+//
+//    buidable = builder.beginObject();
+//    buidable.add("id", customerId);
+//    buidable.add("date", "19/09/2012");
+//    buidable.add("total_amount", "93.48");
+//
+//    jsonObject = buidable.endObject().build();
+//
+//    StringWriter orderJSON = new StringWriter();
+//    JsonWriter writer = new JsonWriter(orderJSON);
+//    writer.writeObject(jsonObject);
+//
+//
+//    return orderJSON.toString();
+//  }
+//
+//  @GET
+//  @Path("jsonString/{id}")
+//  public String getCustomerJsonString(@PathParam("id") String customerId) throws Exception {
+//
+//    JsonObject jsonObject = new JsonBuilder().
+//            beginObject().
+//            add("id", customerId).
+//            add("date", "19/09/2012").
+//            add("total_amount", "93.48").
+//            endObject().
+//            build();
+//
+//    StringWriter orderJSON = new StringWriter();
+//    JsonWriter writer = new JsonWriter(orderJSON);
+//    writer.writeObject(jsonObject);
+//
+//    return orderJSON.toString();
+//  }
+//
+//  @GET
+//  @Path("jsonObject/{id}")
+//  public JsonObject getCustomerJsonObject(@PathParam("id") String customerId) throws Exception {
+//
+//    JsonObject jsonObject = new JsonBuilder().
+//            beginObject().
+//            add("id", customerId).
+//            add("date", "19/09/2012").
+//            add("total_amount", "93.48").
+//            endObject().
+//            build();
+//
+//    return jsonObject;
+//  }
+//
+//  private class CustomerEJB10 {
+//    public List<Customer15> findAll() {
+//      List<Customer15> customers = new ArrayList<>();
+//      customers.add(new Customer15(1L, "John", "Smith", "jsmith@gmail.com", "1234565"));
+//      customers.add(new Customer15(2L, "John", "Smith", "jsmith@gmail.com", "1234565"));
+//      return customers;
+//    }
+//  }
+
 }
