@@ -1,5 +1,6 @@
-package org.agoncal.book.javaee7.chapter22.ex16;
+package org.agoncal.book.javaee7.chapter22.ex18;
 
+import org.agoncal.book.javaee7.chapter22.ex15.CustomerRestService15;
 import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
 import javax.ws.rs.ApplicationPath;
@@ -16,7 +17,7 @@ import java.util.Set;
  *         --
  */
 @ApplicationPath("rs")
-public class ApplicationConfig16 extends Application {
+public class ApplicationConfig18 extends Application {
 
   // ======================================
   // =             Attributes             =
@@ -28,12 +29,10 @@ public class ApplicationConfig16 extends Application {
   // =            Constructors            =
   // ======================================
 
-  public ApplicationConfig16() {
+  public ApplicationConfig18() {
     HashSet<Class<?>> c = new HashSet<>();
-    c.add(CustomerRestService16.class);
+    c.add(CustomerRestService18.class);
     c.add(MOXyJsonProvider.class);
-    c.add(CustomCustomerWriter16.class);
-    c.add(CustomCustomerReader16.class);
     classes = Collections.unmodifiableSet(c);
   }
 

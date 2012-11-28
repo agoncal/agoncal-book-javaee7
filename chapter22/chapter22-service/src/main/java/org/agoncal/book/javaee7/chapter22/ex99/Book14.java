@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex14;
+package org.agoncal.book.javaee7.chapter22.ex99;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;

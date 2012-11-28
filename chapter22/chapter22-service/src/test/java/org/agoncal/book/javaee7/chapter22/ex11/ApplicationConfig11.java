@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter22.ex11;
 
-import org.agoncal.book.javaee7.chapter22.ex16.CustomerProvider16;
 import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
 import javax.ws.rs.ApplicationPath;
