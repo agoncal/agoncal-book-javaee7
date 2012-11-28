@@ -2,10 +2,7 @@ package org.agoncal.book.javaee7.chapter19.ex05;
 
 import org.junit.Test;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonValue;
-import javax.json.JsonWriter;
+import javax.json.*;
 import javax.json.stream.JsonParser;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -28,7 +25,12 @@ public class JSonParsingTest {
   public static final String ORDER_JSON = "{\"id\":\"1234\",\"date\":\"19/09/2012\",\"total_amount\":\"93.48\",\"customer\":{\"first_name\":\"James\",\"last_name\":\"Rorrison\",\"email\":\"j.rorri@me.com\",\"phoneNumber\":\"+44 1234 1234\"},\"content\":[{\"item\":\"H2G2\",\"unit_price\":\"23.5\",\"quantity\":\"1\"},{\"item\":\"Harry Potter\",\"unit_price\":\"34.99\",\"quantity\":\"2\"}],\"credit_card\":{\"number\":\"123412341234\",\"expiry_date\":\"10/13\",\"control_number\":\"234\",\"type\":\"Visa\"}}";
 
   @Test
-  public void shouldBuild() throws Exception {
+  public void shouldGenerateJSon() throws Exception {
+    assertEquals(ORDER_JSON, JSonParsing.generateJSon());
+  }
+
+  @Test
+  public void shouldBuildJSon() throws Exception {
 
     JsonObject jsonObject = JSonParsing.buildJSon();
     Map<String, JsonValue> values = jsonObject.getValues();
@@ -42,7 +44,7 @@ public class JSonParsingTest {
   }
 
   @Test
-  public void shouldBuildWithArray() throws Exception {
+  public void shouldBuildJSonWithArray() throws Exception {
 
     JsonObject jsonObject = JSonParsing.buildJSonWithArray();
     StringWriter orderJSON = new StringWriter();
@@ -53,8 +55,23 @@ public class JSonParsingTest {
   }
 
   @Test
-  public void shouldGenerateOrder() throws Exception {
-    assertEquals(ORDER_JSON, JSonParsing.generateJSon());
+  public void shouldBuildPiecesOfJSon() throws Exception {
+
+    JsonBuilder builder = new JsonBuilder();
+    JsonObject jsonObject;
+    JsonObjectBuilder<JsonBuilder.JsonBuildable<JsonObject>> buidable;
+
+    buidable = builder.beginObject();
+    buidable.add("id", "1234");
+    buidable.add("date", "19/09/2012");
+    buidable.add("total_amount", "93.48");
+    jsonObject = buidable.endObject().build();
+
+    StringWriter orderJSON = new StringWriter();
+    JsonWriter writer = new JsonWriter(orderJSON);
+    writer.writeObject(jsonObject);
+
+    assertEquals("{\"id\":\"1234\",\"date\":\"19/09/2012\",\"total_amount\":\"93.48\"}", orderJSON.toString().trim());
   }
 
   @Test
