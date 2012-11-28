@@ -18,6 +18,7 @@
   <modules>
     <module>chapter22-consumer</module>
     <module>chapter22-samples</module>
+    <module>chapter22-service</module>
   </modules>
 
 </project>
