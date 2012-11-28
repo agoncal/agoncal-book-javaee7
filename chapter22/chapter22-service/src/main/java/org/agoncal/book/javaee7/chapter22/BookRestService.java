@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex99;
+package org.agoncal.book.javaee7.chapter22;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -20,11 +20,11 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Path("/14/books")
+@Path("/books")
 @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 @Stateless
-public class BookRestService14 {
+public class BookRestService {
 
     // ======================================
     // =             Attributes             =
@@ -40,41 +40,41 @@ public class BookRestService14 {
     // ======================================
 
     /**
-     * curl -X POST --data-binary "{ \"title\":\"H2G2\", \"description\":\"Scifi IT book\", \"illustrations\":\"false\",\"isbn\":\"134-234\",\"nbOfPage\":\"241\",\"price\":\"24.0\" }" -H "Content-Type: application/json" http://localhost:8080/chapter22-service-1.0/rs/14/books -v
+     * curl -X POST --data-binary "{ \"title\":\"H2G2\", \"description\":\"Scifi IT book\", \"illustrations\":\"false\",\"isbn\":\"134-234\",\"nbOfPage\":\"241\",\"price\":\"24.0\" }" -H "Content-Type: application/json" http://localhost:8080/chapter22-service-1.0/rs//books -v
      */
     @POST
-    public Response createNewBook(JAXBElement<Book14> bookJaxb) {
-        Book14 book = bookJaxb.getValue();
+    public Response createNewBook(JAXBElement<Book> bookJaxb) {
+        Book book = bookJaxb.getValue();
         em.persist(book);
         URI bookUri = uriInfo.getAbsolutePathBuilder().path(book.getId().toString()).build();
         return Response.created(bookUri).build();
     }
 
     /**
-     * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter22-service-1.0/rs/14/books/4
-     * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter22-service-1.0/rs/14/books/4
+     * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter22-service-1.0/rs//books/4
+     * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter22-service-1.0/rs//books/4
      */
     @GET
     @Path("{id}/")
-    public Book14 getBookById(@PathParam("id") Long id) {
-        Book14 book = em.find(Book14.class, id);
+    public Book getBookById(@PathParam("id") Long id) {
+        Book book = em.find(Book.class, id);
         return book;
     }
 
     /**
-     * curl -X DELETE http://localhost:8080/chapter22-service-1.0/rs/14/books/4 -v
+     * curl -X DELETE http://localhost:8080/chapter22-service-1.0/rs//books/4 -v
      */
     @DELETE
     @Path("{id}/")
     public void deleteBook(@PathParam("id") Long id) {
-        Book14 book = em.find(Book14.class, id);
+        Book book = em.find(Book.class, id);
         em.remove(book);
     }
 
     @GET
-    public List<Book14> getAllBooks() {
-        Query query = em.createNamedQuery(Book14.FIND_ALL);
-        List<Book14> books = query.getResultList();
+    public List<Book> getAllBooks() {
+        Query query = em.createNamedQuery(Book.FIND_ALL);
+        List<Book> books = query.getResultList();
         return books;
     }
 }

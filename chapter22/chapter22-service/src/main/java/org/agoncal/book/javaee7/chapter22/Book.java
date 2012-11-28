@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter22.ex99;
+package org.agoncal.book.javaee7.chapter22;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,14 +12,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
-@NamedQuery(name = Book14.FIND_ALL, query = "SELECT b FROM Book14 b")
-public class Book14 {
+@NamedQuery(name = Book.FIND_ALL, query = "SELECT b FROM Book b")
+public class Book {
 
     // ======================================
     // =             Attributes             =
     // ======================================
 
-    public static final String FIND_ALL = "Book14.findAll";
+    public static final String FIND_ALL = "Book.findAll";
 
     @Id
     @GeneratedValue
@@ -37,10 +37,10 @@ public class Book14 {
     // =            Constructors            =
     // ======================================
 
-    public Book14() {
+    public Book() {
     }
 
-    public Book14(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+    public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
         this.title = title;
         this.price = price;
         this.description = description;

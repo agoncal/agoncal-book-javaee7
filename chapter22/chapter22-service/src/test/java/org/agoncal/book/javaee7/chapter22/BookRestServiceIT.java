@@ -1,6 +1,7 @@
-package org.agoncal.book.javaee7.chapter22.ex04;
+package org.agoncal.book.javaee7.chapter22;
 
 import com.sun.net.httpserver.HttpServer;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
@@ -25,7 +26,7 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookRestService04IT {
+public class BookRestServiceIT {
 
   // ======================================
   // =             Attributes             =
@@ -35,7 +36,7 @@ public class BookRestService04IT {
   private static URI uri = UriBuilder.fromUri("http://localhost/chapter22-service-1.0/rs").port(8080).build();
   private static Client client = ClientFactory.newClient();
 
-  private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book04><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book04>";
+  private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book>";
 
   // ======================================
   // =              Unit tests            =
@@ -45,9 +46,9 @@ public class BookRestService04IT {
   @Test
   public void shouldMarshallABook() throws JAXBException {
     // given
-    Book04 book = new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
+    Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
     StringWriter writer = new StringWriter();
-    JAXBContext context = JAXBContext.newInstance(Book04.class);
+    JAXBContext context = JAXBContext.newInstance(Book.class);
     Marshaller m = context.createMarshaller();
     m.marshal(book, writer);
 
@@ -57,31 +58,31 @@ public class BookRestService04IT {
 
   @Test
   public void shouldMarshallAListOfBooks() throws JAXBException {
-    Books04 books = new Books04();
-    books.add(new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
-    books.add(new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    Books books = new Books();
+    books.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
+    books.add(new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false));
     StringWriter writer = new StringWriter();
-    JAXBContext context = JAXBContext.newInstance(Books04.class);
+    JAXBContext context = JAXBContext.newInstance(Books.class);
     Marshaller m = context.createMarshaller();
     m.marshal(books, writer);
   }
 
 
-  @Test
+  @Test @Ignore
   public void shouldCreateABook() throws JAXBException {
     // given
-    Book04 book = new Book04("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
+    Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
     StringWriter writer = new StringWriter();
-    JAXBContext context = JAXBContext.newInstance(Book04.class);
+    JAXBContext context = JAXBContext.newInstance(Book.class);
     Marshaller m = context.createMarshaller();
     m.marshal(book, writer);
 
     // when
-    Response response = client.target(uri).path("/04/books").request().post(Entity.entity(book, "application/xml"));
+    Response response = client.target(uri).path("//books").request().post(Entity.entity(book, "application/xml"));
 
     // then
     assertEquals(201, response.getStatus());
-    assertTrue(response.getLocation().toString().startsWith("http://localhost:8080/chapter22-service-1.0/rs/04/books"));
+    assertTrue(response.getLocation().toString().startsWith("http://localhost:8080/chapter22-service-1.0/rs//books"));
 
     // when
     response = client.target(response.getLocation()).request(MediaType.APPLICATION_XML).get();
@@ -92,7 +93,7 @@ public class BookRestService04IT {
 
     System.out.println("########## " + response.getEntity());
 
-    book = response.readEntity(Book04.class);
+    book = response.readEntity(Book.class);
     assertEquals("The Hitchhiker's Guide to the Galaxy", book.getTitle());
     assertEquals("Science fiction comedy book", book.getDescription());
   }
