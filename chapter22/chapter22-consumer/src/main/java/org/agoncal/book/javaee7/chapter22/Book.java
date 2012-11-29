@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter22;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -10,24 +9,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Entity
 @XmlRootElement
-@NamedQuery(name = Book.FIND_ALL, query = "SELECT b FROM Book b")
 public class Book {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  public static final String FIND_ALL = "Book.findAll";
-
-  @Id
-  @GeneratedValue
   private String id;
-  @Column(nullable = false)
   private String title;
   private Float price;
-  @Column(length = 2000)
   private String description;
   private String isbn;
   private Integer nbOfPage;

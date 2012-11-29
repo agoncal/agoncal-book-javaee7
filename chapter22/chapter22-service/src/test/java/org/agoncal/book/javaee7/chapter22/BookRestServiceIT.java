@@ -82,7 +82,7 @@ public class BookRestServiceIT {
 
     // then
     assertEquals(201, response.getStatus());
-    assertTrue(response.getLocation().toString().startsWith("http://localhost:8080/chapter22-service-1.0/rs//books"));
+    assertTrue(response.getLocation().toString().startsWith("http://localhost:8080/chapter22-service-1.0/rs/books"));
 
     // when
     response = client.target(response.getLocation()).request(MediaType.APPLICATION_XML).get();
