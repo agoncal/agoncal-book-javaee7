@@ -65,7 +65,7 @@ public class BookRestService {
    * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter22-service-1.0/rs/book/1 -v
    */
   @GET
-  @Path("{id}/")
+  @Path("{id}")
   public Response getBook(@PathParam("id") String id) {
     Book book = em.find(Book.class, id);
 
@@ -79,7 +79,7 @@ public class BookRestService {
    * curl -X DELETE http://localhost:8080/chapter22-service-1.0/rs/book/1 -v
    */
   @DELETE
-  @Path("{id}/")
+  @Path("{id}")
   public Response deleteBook(@PathParam("id") String id) {
     Book book = em.find(Book.class, id);
 
