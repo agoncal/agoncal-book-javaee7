@@ -28,7 +28,6 @@ public class BookRestService {
   // =             Attributes             =
   // ======================================
 
-  //    @Inject
   @PersistenceContext(unitName = "chapter22PU")
   private EntityManager em;
   @Context
@@ -39,7 +38,8 @@ public class BookRestService {
   // ======================================
 
   /**
-   * curl -X POST --data-binary "{ \"title\":\"H2G2\", \"description\":\"Scifi IT book\", \"illustrations\":\"false\",\"isbn\":\"134-234\",\"nbOfPage\":\"241\",\"price\":\"24.0\" }" -H "Content-Type: application/json" http://localhost:8080/chapter22-service-1.0/rs//books -v
+   * curl -X POST --data-binary "<book><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book>" -H "Content-Type: application/xml" http://localhost:8080/chapter22-service-1.0/rs/book -v
+   * curl -X POST --data-binary "{\"description\":\"Science fiction comedy book\",\"illustrations\":false,\"isbn\":\"1-84023-742-2\",\"nbOfPage\":354,\"price\":12.5,\"title\":\"The Hitchhiker's Guide to the Galaxy\"}" -H "Content-Type: application/json" http://localhost:8080/chapter22-service-1.0/rs/book -v
    */
   @POST
   public Response createBook(Book book) {
@@ -61,37 +61,44 @@ public class BookRestService {
   }
 
   /**
-   * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter22-service-1.0/rs//books/4
-   * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter22-service-1.0/rs//books/4
+   * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter22-service-1.0/rs/book/1 -v
+   * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter22-service-1.0/rs/book/1 -v
    */
   @GET
   @Path("{id}/")
-  public Book getBookById(@PathParam("id") String id) {
+  public Response getBook(@PathParam("id") String id) {
     Book book = em.find(Book.class, id);
 
     if (book == null)
       throw new NotFoundException();
 
-    return book;
+    return Response.ok(book).build();
   }
 
   /**
-   * curl -X DELETE http://localhost:8080/chapter22-service-1.0/rs//books/4 -v
+   * curl -X DELETE http://localhost:8080/chapter22-service-1.0/rs/book/1 -v
    */
   @DELETE
   @Path("{id}/")
-  public void deleteBook(@PathParam("id") String id) {
+  public Response deleteBook(@PathParam("id") String id) {
     Book book = em.find(Book.class, id);
 
     if (book == null)
       throw new NotFoundException();
 
     em.remove(book);
+
+    return Response.noContent().build();
   }
 
+  /**
+   * JSON : curl -X GET -H "Accept: application/json" http://localhost:8080/chapter22-service-1.0/rs/book -v
+   * XML  : curl -X GET -H "Accept: application/xml" http://localhost:8080/chapter22-service-1.0/rs/book -v
+   */
   @GET
-  public Books getAllBooks() {
+  public Response getAllBooks() {
     TypedQuery<Book> query = em.createNamedQuery(Book.FIND_ALL, Book.class);
-    return new Books(query.getResultList());
+    Books books = new Books(query.getResultList());
+    return Response.ok(books).build();
   }
 }

@@ -1,7 +1,5 @@
 package org.agoncal.book.javaee7.chapter22;
 
-import com.sun.net.httpserver.HttpServer;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
@@ -17,7 +15,6 @@ import java.io.StringWriter;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -32,8 +29,7 @@ public class BookRestServiceIT {
   // =             Attributes             =
   // ======================================
 
-  private static HttpServer server;
-  private static URI uri = UriBuilder.fromUri("http://localhost/chapter22-service-1.0/rs").port(8080).build();
+  private static URI uri = UriBuilder.fromUri("http://localhost/chapter22-service-1.0/rs/book").port(8080).build();
   private static Client client = ClientFactory.newClient();
 
   private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book>";
@@ -68,33 +64,46 @@ public class BookRestServiceIT {
   }
 
 
-  @Test @Ignore
-  public void shouldCreateABook() throws JAXBException {
-    // given
+  @Test
+  public void shouldCreateAndDeleteABook() throws JAXBException {
+
     Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
-    StringWriter writer = new StringWriter();
-    JAXBContext context = JAXBContext.newInstance(Book.class);
-    Marshaller m = context.createMarshaller();
-    m.marshal(book, writer);
 
-    // when
-    Response response = client.target(uri).path("//books").request().post(Entity.entity(book, "application/xml"));
+    // POSTs a Book
+    Response response = client.target(uri).request().post(Entity.entity(book, MediaType.APPLICATION_XML));
+    assertEquals(Response.Status.CREATED, response.getStatusInfo());
+    URI bookURI = response.getLocation();
 
-    // then
-    assertEquals(201, response.getStatus());
-    assertTrue(response.getLocation().toString().startsWith("http://localhost:8080/chapter22-service-1.0/rs/books"));
-
-    // when
-    response = client.target(response.getLocation()).request(MediaType.APPLICATION_XML).get();
-
-    // then
-    assertEquals(200, response.getStatus());
-    assertTrue(response.hasEntity());
-
-    System.out.println("########## " + response.getEntity());
-
+    // With the location, GETs the Book
+    response = client.target(bookURI).request().get();
     book = response.readEntity(Book.class);
+    assertEquals(Response.Status.OK, response.getStatusInfo());
     assertEquals("The Hitchhiker's Guide to the Galaxy", book.getTitle());
-    assertEquals("Science fiction comedy book", book.getDescription());
+
+    // Gets the book id and DELETEs it
+    String bookId = bookURI.toString().split("/")[6];
+    response = client.target(uri).path(bookId).request().delete();
+    assertEquals(Response.Status.NO_CONTENT, response.getStatusInfo());
+
+    // GETs the Book and checks it has been deleted
+    response = client.target(bookURI).request().get();
+    assertEquals(Response.Status.NOT_FOUND, response.getStatusInfo());
+
+  }
+
+  @Test
+  public void shouldNotCreateANullBook() throws JAXBException {
+
+    // POSTs a Null Book
+    Response response = client.target(uri).request().post(Entity.entity(null, MediaType.APPLICATION_XML));
+    assertEquals(Response.Status.BAD_REQUEST, response.getStatusInfo());
+  }
+
+  @Test
+  public void shouldNotFindTheBookID() throws JAXBException {
+
+    // GETs a Book with an unknown ID
+    Response response = client.target(uri).path("invalidID").request().get();
+    assertEquals(Response.Status.NOT_FOUND, response.getStatusInfo());
   }
 }
