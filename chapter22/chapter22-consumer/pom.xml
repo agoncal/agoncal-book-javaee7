@@ -17,12 +17,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.agoncal.book.javaee7.chapter22</groupId>
-      <artifactId>chapter22-service</artifactId>
-      <version>1.0</version>
-	  <type>war</type>
-    </dependency>
-    <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-common</artifactId>
     </dependency>
