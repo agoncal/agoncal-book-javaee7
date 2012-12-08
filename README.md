@@ -43,8 +43,45 @@ Section 6 - Interoperability
 
 * Chapter 19 - XML & JSON
 * Chapter 20 - Messaging
-* Chapter 21 - SOAP Web Services
-* Chapter 22 - RESTful Web Service
+* Chapter 21 (44) - SOAP Web Services
+* Chapter 22 (49) - RESTful Web Service
+
+
+
+Section 1 - Introduction
+
+* Chapter  1 - Java EE 7 Environment
+
+Section 2 - Cross concerns
+
+* Chapter  2 - Context & Dependency Injection
+* Chapter  3 - Bean Validation
+
+Section 3 - Building a domain model
+
+* Chapter  4 - Persistence
+* Chapter  5 - Object-Relational Mapping
+* Chapter  6 - Managing Persistent Object
+* Chapter  7 - Callbacks & Listeners
+
+Section 4 - Implementing business logic
+
+* Chapter  8 (40) - Enterprise Java Beans (intro 11/session bean 29)
+* Chapter  9 (27) - Timer Service, Callback and Security (5/6/7/putting 9)
+* Chapter 10 - Interceptors & Transactions
+
+Section 5 - Adding a web & user interface
+
+* Chapter 11 - Servlets
+* Chapter 12 - Java Server Pages
+* Chapter 13 - JavaServer Faces
+
+Section 6 - Interoperability
+
+* Chapter 13 - XML & JSON
+* Chapter 14 - Messaging
+* Chapter 15 (44) - SOAP Web Services
+* Chapter 16 (49) - RESTful Web Service
 
 # Structure of the code and Maven modules
 
@@ -78,7 +115,7 @@ To compile, package and execute the code you need the following software :
 
 ## Java Enterprise Edition Specification
 
-* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
+* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [JIRA|http://java.net/jira/browse/JAVAEE_SPEC] - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 * Web Profile 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 * Managed Beans 1.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 
@@ -111,7 +148,7 @@ To compile, package and execute the code you need the following software :
 * JCA 1.7 - [JSR 322](http://jcp.org/en/jsr/detail?id=322)
 * JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/jms-spec) - [Mailing lists](http://java.net/projects/jms-spec/lists) - [JIRA|http://java.net/jira/browse/JMS_SPEC]
 * JPA 2.1 - [JSR 338](http://jcp.org/en/jsr/detail?id=338) - [Project](http://java.net/projects/jpa-spec) - [Mailing lists](http://java.net/projects/jpa-spec/lists)
-* JTA 1.2 - [JSR 907](http://jcp.org/en/jsr/detail?id=907) - [Project](http://java.net/projects/jta-spec/) - [Mailing lists](http://java.net/projects/jta-spec/lists)
+* JTA 1.2 - [JSR 907](http://jcp.org/en/jsr/detail?id=907) - [Project](http://java.net/projects/jta-spec/) - [Mailing lists](http://java.net/projects/jta-spec/lists) - [JIRA|http://java.net/jira/browse/JTA_SPEC]
 
 ## Management, Security, and other specifications
 
