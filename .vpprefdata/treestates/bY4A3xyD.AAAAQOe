@@ -3,37 +3,26 @@
 	<TreeState name="ModelRepository" viewX="0" viewY="0">
 		<ExpandedPath>ModelRepository</ExpandedPath>
 	</TreeState>
-	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
+	<TreeState name="DiagramNavigator" viewX="12" viewY="162">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
-		<ExpandedPath>ClassDiagram</ExpandedPath>
+		<ExpandedPath>DeploymentDiagram</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Requirements Capturing</ExpandedPath>
+		<ExpandedPath>FreehandDiagram</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Business Process Modeling</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,SysML</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Enterprise Modeling</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Impact Analysis</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Others</ExpandedPath>
-		<SelectedPath>ClassDiagram,nMovXxyD.AAAAQNg</SelectedPath>
+		<SelectedPath>DeploymentDiagram,la0iZ1yGAqACESOa</SelectedPath>
 	</TreeState>
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>
 		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
 		<ExpandedPath>ClassBrowser,Instant Reverse</ExpandedPath>
 		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal,book</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal,book,javaee7</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal,book,javaee7,chapter20</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal,book,javaee7,chapter20,ex02</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal,book,javaee7,chapter20,ex02,BookClient02.java</ExpandedPath>
-		<SelectedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7,chapter20,consumer,src,main,java,org,agoncal,book,javaee7,chapter20,ex02,BookClient02.java</SelectedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,/Users/antoniombp/Documents/Code/github/agoncal-book-javaee7</SelectedPath>
 	</TreeState>
 	<TreeState name="LogicalView" viewX="0" viewY="0"/>
 </ProjectTreeState>
