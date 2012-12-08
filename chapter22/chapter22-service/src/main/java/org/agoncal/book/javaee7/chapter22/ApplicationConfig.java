@@ -33,7 +33,7 @@ public class ApplicationConfig extends Application {
     HashSet<Class<?>> c = new HashSet<>();
     c.add(BookRestService.class);
 
-    c.add(MOXyJsonProvider.class);
+    c.add(JacksonJsonProvider.class);
 
     classes = Collections.unmodifiableSet(c);
   }
