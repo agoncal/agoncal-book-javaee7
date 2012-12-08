@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
-public class Book {
+public class Book01 {
 
   // ======================================
   // =             Attributes             =
@@ -38,10 +38,10 @@ public class Book {
   // =            Constructors            =
   // ======================================
 
-  public Book() {
+  public Book01() {
   }
 
-  public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+  public Book01(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
     this.title = title;
     this.price = price;
     this.description = description;

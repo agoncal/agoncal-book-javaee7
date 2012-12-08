@@ -14,7 +14,7 @@ import java.util.List;
  *         --
  */
 @Stateless
-public class BookEJB {
+public class BookEJB01 {
 
   // ======================================
   // =             Attributes             =
@@ -27,25 +27,25 @@ public class BookEJB {
   // =           Public Methods           =
   // ======================================
 
-  public List<Book> findBooks() {
-    TypedQuery<Book> query = em.createNamedQuery("findAllBooks", Book.class);
+  public List<Book01> findBooks() {
+    TypedQuery<Book01> query = em.createNamedQuery("findAllBooks", Book01.class);
     return query.getResultList();
   }
 
-  public Book findBookById(Long id) {
-    return em.find(Book.class, id);
+  public Book01 findBookById(Long id) {
+    return em.find(Book01.class, id);
   }
 
-  public Book createBook(Book book) {
+  public Book01 createBook(Book01 book) {
     em.persist(book);
     return book;
   }
 
-  public void deleteBook(Book book) {
+  public void deleteBook(Book01 book) {
     em.remove(em.merge(book));
   }
 
-  public Book updateBook(Book book) {
+  public Book01 updateBook(Book01 book) {
     return em.merge(book);
   }
 }
