@@ -2,7 +2,6 @@ package org.agoncal.book.javaee7.chapter08.ex05;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.util.HashMap;
 
 /**

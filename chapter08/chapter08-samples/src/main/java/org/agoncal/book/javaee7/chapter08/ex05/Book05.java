@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 
 import static org.agoncal.book.javaee7.chapter08.ex05.Book05.FIND_ALL;
 
