@@ -61,6 +61,7 @@ public class ShoppingCartEJB07 {
 
   @Remove
   public void checkout() {
+    // Do some business logic
     cartItems.clear();
   }
 }
