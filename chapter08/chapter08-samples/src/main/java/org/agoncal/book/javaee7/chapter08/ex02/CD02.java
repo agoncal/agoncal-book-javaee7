@@ -1,8 +1,11 @@
 package org.agoncal.book.javaee7.chapter08.ex02;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashMap;
+
+import static org.agoncal.book.javaee7.chapter08.ex02.CD02.*;
 
 /**
  * @author Antonio Goncalves
@@ -12,8 +15,14 @@ import java.util.HashMap;
  *         --
  */
 @Entity
-@NamedQuery(name = "CD09.findAllCDs", query = "SELECT c FROM CD09 c")
+@NamedQuery(name = FIND_ALL, query = "SELECT c FROM CD02 c")
 public class CD02 implements Serializable {
+
+  // ======================================
+  // =             Constants              =
+  // ======================================
+
+  public static final String FIND_ALL = "CD02.findAllCDs";
 
   // ======================================
   // =             Attributes             =
@@ -23,7 +32,7 @@ public class CD02 implements Serializable {
   private Long id;
   private String title;
   private Float price;
-  @Column(length = 2000)
+  @Size(max = 2000)
   private String description;
   @Lob
   private byte[] cover;

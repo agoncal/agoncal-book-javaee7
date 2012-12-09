@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter08.ex02;
 
+import javax.ejb.Local;
 import java.util.List;
 
 /**
@@ -9,12 +10,13 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-//@Local
+@Local
 public interface ItemLocal02 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
+
   List<Book02> findBooks();
 
   List<CD02> findCDs();

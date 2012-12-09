@@ -1,7 +1,14 @@
 package org.agoncal.book.javaee7.chapter08.ex02;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+
+import static org.agoncal.book.javaee7.chapter08.ex02.Book02.FIND_ALL;
 
 /**
  * @author Antonio Goncalves
@@ -11,19 +18,26 @@ import java.io.Serializable;
  *         --
  */
 @Entity
-@NamedQuery(name = "Book09.findAllBooks", query = "SELECT b FROM Book09 b")
+@NamedQuery(name = FIND_ALL, query = "SELECT b FROM Book02 b")
 public class Book02 implements Serializable {
+
+  // ======================================
+  // =             Constants              =
+  // ======================================
+
+  public static final String FIND_ALL = "Book02.findAllBooks";
 
   // ======================================
   // =             Attributes             =
   // ======================================
+
   @Id
   @GeneratedValue
   private Long id;
-  @Column(nullable = false)
+  @NotNull
   private String title;
   private Float price;
-  @Column(length = 2000)
+  @Size(max = 2000)
   private String description;
   private String isbn;
   private Integer nbOfPage;
@@ -48,6 +62,7 @@ public class Book02 implements Serializable {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
+
   public Long getId() {
     return id;
   }
@@ -107,7 +122,7 @@ public class Book02 implements Serializable {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder();
-    sb.append("Book01");
+    sb.append("Book02");
     sb.append("{id=").append(id);
     sb.append(", title='").append(title).append('\'');
     sb.append(", price=").append(price);

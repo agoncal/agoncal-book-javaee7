@@ -16,7 +16,6 @@ public interface ItemRemote02 {
   // ======================================
   // =           Public Methods           =
   // ======================================
-  String sayHello();
 
   List<Book02> findBooks();
 

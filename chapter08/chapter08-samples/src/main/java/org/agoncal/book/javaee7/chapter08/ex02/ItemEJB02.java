@@ -5,6 +5,7 @@ import javax.ejb.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -16,8 +17,8 @@ import java.util.List;
  */
 @Stateless
 @LocalBean
-@Local(ItemLocal02.class)
-@Remote(ItemRemote02.class)
+//@Local(ItemLocal02.class)
+//@Remote(ItemRemote02.class)
 public class ItemEJB02 implements ItemLocal02, ItemRemote02 {
 
   // ======================================
@@ -27,31 +28,17 @@ public class ItemEJB02 implements ItemLocal02, ItemRemote02 {
   @PersistenceContext(unitName = "chapter08PU")
   private EntityManager em;
 
-  @Resource
-  private SessionContext ctx;
-
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public String sayHello() {
-// OK        WorldEJB09 worldEJB = (WorldEJB09) ctx.lookup("java:global/chapter07-2.0/WorldEJB09!org.agoncal.book.javaee6.chapter07.ex09.WorldEJB09");
-// OK        WorldEJB09 worldEJB = (WorldEJB09) ctx.lookup("java:global/chapter07-2.0/WorldEJB09");
-// OK        WorldEJB09 worldEJB = (WorldEJB09) ctx.lookup("java:app/chapter07-2.0/WorldEJB09!org.agoncal.book.javaee6.chapter07.ex09.WorldEJB09");
-// OK        WorldEJB09 worldEJB = (WorldEJB09) ctx.lookup("java:app/chapter07-2.0/WorldEJB09");
-// OK        WorldEJB09 worldEJB = (WorldEJB09) ctx.lookup("java:module/WorldEJB09!org.agoncal.book.javaee6.chapter07.ex09.WorldEJB09");
-
-    WorldEJB02 worldEJB = (WorldEJB02) ctx.lookup("java:module/WorldEJB09");
-    return "Hello " + worldEJB.sayWorld();
-  }
-
   public List<Book02> findBooks() {
-    Query query = em.createNamedQuery("Book09.findAllBooks");
+    TypedQuery<Book02> query = em.createNamedQuery(Book02.FIND_ALL, Book02.class);
     return query.getResultList();
   }
 
   public List<CD02> findCDs() {
-    Query query = em.createNamedQuery("CD09.findAllCDs");
+    TypedQuery<CD02> query = em.createNamedQuery(CD02.FIND_ALL, CD02.class);
     return query.getResultList();
   }
 

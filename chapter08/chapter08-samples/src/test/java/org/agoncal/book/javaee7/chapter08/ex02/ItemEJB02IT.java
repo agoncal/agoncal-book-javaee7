@@ -10,7 +10,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -25,6 +24,7 @@ public class ItemEJB02IT {
   // ======================================
   // =             Attributes             =
   // ======================================
+
   private static EJBContainer ec;
   private static Context ctx;
 
@@ -34,7 +34,7 @@ public class ItemEJB02IT {
 
   @BeforeClass
   public static void initContainer() throws Exception {
-    Map<String, Object> properties = new HashMap<String, Object>();
+    Map<String, Object> properties = new HashMap<>();
     properties.put(EJBContainer.MODULES, new File("target/classes"));
     ec = EJBContainer.createEJBContainer(properties);
     ctx = ec.getContext();
@@ -53,15 +53,7 @@ public class ItemEJB02IT {
   // ======================================
 
   @Test
-  public void shouldSayHelloWorld() throws Exception {
-
-    // Looks up the EJB with the no-interface view
-    ItemEJB02 itemEJB = (ItemEJB02) ctx.lookup("java:global/classes/WorldEJB02!org.agoncal.book.javaee7.chapter08.ex02.WorldEJB02");
-    assertEquals("Should return Hello World !!!!!!!!!!!!!!!", "Hello World !!!!!!!!!!!!!!!", itemEJB.sayHello());
-  }
-
-  @Test
-  public void shouldLookUpDifferentEJBInterfaces() throws Exception {
+  public void shouldCreateAnItem() throws Exception {
 
     // Creates an instance of book
     Book02 book = new Book02();
@@ -72,18 +64,33 @@ public class ItemEJB02IT {
     book.setNbOfPage(354);
     book.setIllustrations(false);
 
+    // Check JNDI dependencies
+    assertNotNull(ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemRemote02"));
+    assertNotNull(ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemLocal02"));
+    assertNotNull(ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemEJB02"));
+
     // Looks up the EJB with the no-interface view
-    ItemEJB02 itemEJB = (ItemEJB02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee6.chapter07.ex02.ItemEJB02");
+    ItemEJB02 itemEJB = (ItemEJB02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemEJB02");
 
     // Persists the book to the database
     book = itemEJB.createBook(book);
-    assertNotNull("ID should not be null", book.getId());
+    assertNotNull("Book should not be null", book);
 
     // Looks up the EJB with the local interface
-    ItemLocal02 itemLocal = (ItemLocal02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee6.chapter07.ex02.ItemLocal02");
+    ItemLocal02 itemLocal = (ItemLocal02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemLocal02");
 
     // Persists the book to the database
     book = itemLocal.findBookById(book.getId());
     assertNotNull("Book should not be null", book);
+
+    // Looks up the EJB with the local interface
+    ItemRemote02 itemRemote = (ItemRemote02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemRemote02");
+
+    // Persists the book to the database
+    book = itemRemote.findBookById(book.getId());
+    assertNotNull("Book should not be null", book);
+
+    // Retrieves all the books from the database
+    assertNotNull(itemEJB.findBooks());
   }
 }

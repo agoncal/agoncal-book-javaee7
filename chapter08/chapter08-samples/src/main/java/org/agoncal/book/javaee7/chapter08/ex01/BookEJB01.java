@@ -6,6 +6,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+import static org.agoncal.book.javaee7.chapter08.ex01.Book01.*;
+
 /**
  * @author Antonio Goncalves
  *         APress Book - Beginning Java EE 7 with Glassfish 4
@@ -28,7 +30,7 @@ public class BookEJB01 {
   // ======================================
 
   public List<Book01> findBooks() {
-    TypedQuery<Book01> query = em.createNamedQuery("findAllBooks", Book01.class);
+    TypedQuery<Book01> query = em.createNamedQuery(FIND_ALL, Book01.class);
     return query.getResultList();
   }
 

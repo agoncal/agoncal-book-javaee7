@@ -77,7 +77,6 @@ public class BookEJB01IT {
     assertNotNull("ID should not be null", book.getId());
 
     // Retrieves all the books from the database
-    List<Book01> books = bookEJB.findBooks();
-    assertNotNull(books);
+    assertNotNull(bookEJB.findBooks());
   }
 }
