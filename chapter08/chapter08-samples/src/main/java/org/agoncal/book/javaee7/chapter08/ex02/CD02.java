@@ -27,6 +27,7 @@ public class CD02 implements Serializable {
   // ======================================
   // =             Attributes             =
   // ======================================
+
   @Id
   @GeneratedValue
   private Long id;

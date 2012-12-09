@@ -69,6 +69,7 @@ public class ItemEJB02IT {
     assertNotNull(ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemLocal02"));
     assertNotNull(ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemEJB02"));
 
+
     // Looks up the EJB with the no-interface view
     ItemEJB02 itemEJB = (ItemEJB02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemEJB02");
 
@@ -76,21 +77,26 @@ public class ItemEJB02IT {
     book = itemEJB.createBook(book);
     assertNotNull("Book should not be null", book);
 
+    // Retrieves all the books from the database
+    assertNotNull(itemEJB.findBooks());
+
+
     // Looks up the EJB with the local interface
     ItemLocal02 itemLocal = (ItemLocal02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemLocal02");
 
-    // Persists the book to the database
-    book = itemLocal.findBookById(book.getId());
-    assertNotNull("Book should not be null", book);
+    // Retrieves all the books from the database
+    assertNotNull(itemLocal.findBooks());
 
-    // Looks up the EJB with the local interface
+
+    // Looks up the EJB with the remote interface
     ItemRemote02 itemRemote = (ItemRemote02) ctx.lookup("java:global/classes/ItemEJB02!org.agoncal.book.javaee7.chapter08.ex02.ItemRemote02");
 
     // Persists the book to the database
-    book = itemRemote.findBookById(book.getId());
+    book.setId(null);
+    book = itemRemote.createBook(book);
     assertNotNull("Book should not be null", book);
 
     // Retrieves all the books from the database
-    assertNotNull(itemEJB.findBooks());
+    assertNotNull(itemRemote.findBooks());
   }
 }

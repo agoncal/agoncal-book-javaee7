@@ -1,10 +1,8 @@
 package org.agoncal.book.javaee7.chapter08.ex02;
 
-import javax.annotation.Resource;
 import javax.ejb.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -42,14 +40,6 @@ public class ItemEJB02 implements ItemLocal02, ItemRemote02 {
     return query.getResultList();
   }
 
-  public Book02 findBookById(Long id) {
-    return em.find(Book02.class, id);
-  }
-
-  public CD02 findCDById(Long id) {
-    return em.find(CD02.class, id);
-  }
-
   public Book02 createBook(Book02 book) {
     em.persist(book);
     return book;
@@ -58,21 +48,5 @@ public class ItemEJB02 implements ItemLocal02, ItemRemote02 {
   public CD02 createCD(CD02 cd) {
     em.persist(cd);
     return cd;
-  }
-
-  public void deleteBook(Book02 book) {
-    em.remove(em.merge(book));
-  }
-
-  public void deleteCD(CD02 cd) {
-    em.remove(em.merge(cd));
-  }
-
-  public Book02 updateBook(Book02 book) {
-    return em.merge(book);
-  }
-
-  public CD02 updateCD(CD02 cd) {
-    return em.merge(cd);
   }
 }

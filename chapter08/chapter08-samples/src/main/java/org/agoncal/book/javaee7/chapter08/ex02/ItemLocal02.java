@@ -21,7 +21,4 @@ public interface ItemLocal02 {
 
   List<CD02> findCDs();
 
-  Book02 findBookById(Long id);
-
-  CD02 findCDById(Long id);
 }
