@@ -1,8 +1,6 @@
 package org.agoncal.book.javaee7.chapter08.ex17;
 
-import javax.annotation.Resource;
 import javax.ejb.LocalBean;
-import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,7 +18,7 @@ import static org.agoncal.book.javaee7.chapter08.ex17.Book17.FIND_ALL;
  */
 @Stateless
 @LocalBean
-public class ItemEJB17 implements ItemLocal17, ItemRemote17{
+public class ItemEJB17 implements ItemLocal17, ItemRemote17 {
 
   // ======================================
   // =             Attributes             =

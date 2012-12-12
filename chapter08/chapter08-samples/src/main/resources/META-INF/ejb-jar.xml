@@ -11,15 +11,18 @@
       <ejb-class>org.agoncal.book.javaee7.chapter08.ex17.ItemEJB17</ejb-class>
       <session-type>Stateless</session-type>
       <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+      <ejb-name>ItemEJB18</ejb-name>
       <env-entry>
         <env-entry-name>currencyEntry</env-entry-name>
         <env-entry-type>java.lang.String</env-entry-type>
-        <env-entry-value>Euros</env-entry-value>
+        <env-entry-value>Dollars</env-entry-value>
       </env-entry>
       <env-entry>
         <env-entry-name>changeRateEntry</env-entry-name>
         <env-entry-type>java.lang.Float</env-entry-type>
-        <env-entry-value>0.80</env-entry-value>
+        <env-entry-value>0.90</env-entry-value>
       </env-entry>
     </session>
   </enterprise-beans>
