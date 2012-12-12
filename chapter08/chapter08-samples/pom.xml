@@ -19,6 +19,8 @@
     <dependency>
       <groupId>org.glassfish.main.extras</groupId>
       <artifactId>glassfish-embedded-all</artifactId>
+      <!--  use scope compile to run the main class -->
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
