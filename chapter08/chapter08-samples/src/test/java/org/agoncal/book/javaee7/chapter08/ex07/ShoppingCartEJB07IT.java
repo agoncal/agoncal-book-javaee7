@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ShoppingCartEJB07Test {
+public class ShoppingCartEJB07IT {
 
   // ======================================
   // =             Attributes             =

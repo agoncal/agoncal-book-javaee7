@@ -30,8 +30,7 @@ public class Main17 {
     // Creates an Embedded Container and get the JNDI context
     try (EJBContainer ec = EJBContainer.createEJBContainer(properties)) {
 
-//      Context ctx = ec.getContext();
-      Context ctx = new InitialContext();
+      Context ctx = ec.getContext();
 
 
       // Creates an instance of book

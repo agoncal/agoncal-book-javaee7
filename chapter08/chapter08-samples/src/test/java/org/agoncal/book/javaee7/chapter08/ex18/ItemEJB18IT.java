@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ItemEJB18Test {
+public class ItemEJB18IT {
 
   // ======================================
   // =             Attributes             =

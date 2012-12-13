@@ -13,6 +13,7 @@
     <module>chapter03</module>
     <module>chapter04</module>
     <module>chapter08</module>
+    <module>chapter09</module>
     <module>chapter13</module>
     <module>chapter14</module>
     <module>chapter19</module>
@@ -34,6 +35,9 @@
     <version.derby>10.9.1.0</version.derby>
     <version.mysql>5.1.21</version.mysql>
     <!-- Test -->
+    <skipTests>false</skipTests>
+    <skipITs>${skipTests}</skipITs>
+    <skipUTs>${skipTests}</skipUTs>
     <version.junit>4.11</version.junit>
     <version.xmlunit>1.3</version.xmlunit>
     <version.mockito>1.9.5</version.mockito>
@@ -181,6 +185,35 @@
 
 
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${version.maven.surefire.plugin}</version>
+        <configuration>
+          <skipTests>${skipUTs}</skipTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${version.maven.failsafe.plugin}</version>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+          <skipITs>${skipITs}</skipITs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
     <pluginManagement>
       <plugins>
         <!-- Apache -->
@@ -211,16 +244,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${version.maven.jar.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${version.maven.surefire.plugin}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${version.maven.failsafe.plugin}</version>
         </plugin>
 
         <!-- JVNet -->
