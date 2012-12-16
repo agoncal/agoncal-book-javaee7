@@ -50,11 +50,12 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderOld {
 
-    @Resource(lookup = "java:global/jms/demoConnectionFactory")
+//    @Resource(lookup = "java:global/jms/chapter20ConnectionFactory")
+    @Resource(lookup = "java:global/jms/__defaultConnectionFactory")
     ConnectionFactory connectionFactory;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
-    Queue demoQueue;
+    @Resource(lookup = "java:global/jms/chapter20Queue")
+    Queue chapter20Queue;
     
     // GlassFish 4.0 currently uses Java SE 6, so these examples do not make use of the Java SE 7 AutoCloseable API. 
 
@@ -63,7 +64,7 @@ public class JavaEESenderOld {
             Connection connection = connectionFactory.createConnection();
             try {
                 Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
-                MessageProducer messageProducer = session.createProducer(demoQueue);
+                MessageProducer messageProducer = session.createProducer(chapter20Queue);
                 TextMessage textMessage = session.createTextMessage(payload);
                 messageProducer.send(textMessage);
             } finally {

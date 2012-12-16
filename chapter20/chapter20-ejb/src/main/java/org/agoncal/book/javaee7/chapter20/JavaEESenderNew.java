@@ -53,11 +53,11 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderNew {
 
-    @Resource(lookup = "java:global/jms/demoConnectionFactory")
+    @Resource(lookup = "java:global/jms/chapter20ConnectionFactory")
     ConnectionFactory connectionFactory;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
-    Queue demoQueue;
+    @Resource(lookup = "java:global/jms/chapter20Queue")
+    Queue chapter20Queue;
     
     // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API. 
 
@@ -65,7 +65,7 @@ public class JavaEESenderNew {
         try {
             JMSContext context = connectionFactory.createContext();
             try {
-                context.createProducer().send(demoQueue, payload);
+                context.createProducer().send(chapter20Queue, payload);
             } finally {
                 context.close();
             }

@@ -52,15 +52,15 @@ import java.util.logging.Logger;
 public class JavaEESyncReceiverNewCDIWithProperties {
 
     @Inject
-    @JMSConnectionFactory("java:global/jms/demoConnectionFactory") // <== could omit this and use the default
+    @JMSConnectionFactory("java:global/jms/chapter20ConnectionFactory") // <== could omit this and use the default
     private JMSContext context;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
-    Queue inboundQueue;
+    @Resource(lookup = "java:global/jms/chapter20Queue")
+    Queue chapter20Queue;
     
     public String receiveMessageNewCDIWithProperties() {
                 try {
-            JMSConsumer consumer = context.createConsumer(inboundQueue);
+            JMSConsumer consumer = context.createConsumer(chapter20Queue);
             TextMessage textMessage = (TextMessage) consumer.receive(1000);
             if (textMessage==null){
                 return "Received null";

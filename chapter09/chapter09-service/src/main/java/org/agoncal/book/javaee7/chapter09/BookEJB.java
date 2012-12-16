@@ -7,9 +7,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+import static org.agoncal.book.javaee7.chapter09.Book.FIND_ALL;
+
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -18,36 +20,36 @@ import java.util.List;
 @LocalBean
 public class BookEJB implements BookEJBRemote {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @PersistenceContext(unitName = "chapter06PU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "chapter09PU")
+  private EntityManager em;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public List<Book> findBooks() {
-        TypedQuery<Book> query = em.createNamedQuery("findAllBooks", Book.class);
-        return query.getResultList();
-    }
+  public List<Book> findBooks() {
+    TypedQuery<Book> query = em.createNamedQuery(FIND_ALL, Book.class);
+    return query.getResultList();
+  }
 
-    public Book findBookById(Long id) {
-        return em.find(Book.class, id);
-    }
+  public Book findBookById(Long id) {
+    return em.find(Book.class, id);
+  }
 
-    public Book createBook(Book book) {
-        em.persist(book);
-        return book;
-    }
+  public Book createBook(Book book) {
+    em.persist(book);
+    return book;
+  }
 
-    public void deleteBook(Book book) {
-        em.remove(em.merge(book));
-    }
+  public void deleteBook(Book book) {
+    em.remove(em.merge(book));
+  }
 
-    public Book updateBook(Book book) {
-        return em.merge(book);
-    }
+  public Book updateBook(Book book) {
+    return em.merge(book);
+  }
 }

@@ -3,10 +3,9 @@
 	<TreeState name="ModelRepository" viewX="0" viewY="0">
 		<ExpandedPath>ModelRepository</ExpandedPath>
 	</TreeState>
-	<TreeState name="DiagramNavigator" viewX="12" viewY="162">
+	<TreeState name="DiagramNavigator" viewX="12" viewY="90">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
-		<ExpandedPath>DeploymentDiagram</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Requirements Capturing</ExpandedPath>
 		<ExpandedPath>FreehandDiagram</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
@@ -15,7 +14,7 @@
 		<ExpandedPath>DiagramNavigator,Enterprise Modeling</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Impact Analysis</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Others</ExpandedPath>
-		<SelectedPath>DeploymentDiagram,la0iZ1yGAqACESOa</SelectedPath>
+		<SelectedPath>FreehandDiagram,qj4avASGAqAAxzhO</SelectedPath>
 	</TreeState>
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>

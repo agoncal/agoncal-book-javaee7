@@ -3,121 +3,130 @@ package org.agoncal.book.javaee7.chapter09;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import static org.agoncal.book.javaee7.chapter09.Book.FIND_ALL;
+
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  *         Simple Book ,entity
  */
 @Entity
-@NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
+@NamedQuery(name = FIND_ALL, query = "SELECT b FROM Book b")
 public class Book implements Serializable {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Column(nullable = false)
-    private String title;
-    private Float price;
-    @Column(length = 2000)
-    private String description;
-    private String isbn;
-    private Integer nbOfPage;
-    private Boolean illustrations;
+  // ======================================
+  // =             Constants              =
+  // ======================================
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  public static final String FIND_ALL = "Book.findAllBooks";
 
-    public Book() {
-    }
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.isbn = isbn;
-        this.nbOfPage = nbOfPage;
-        this.illustrations = illustrations;
-    }
+  @Id
+  @GeneratedValue
+  private Long id;
+  @Column(nullable = false)
+  private String title;
+  private Float price;
+  @Column(length = 2000)
+  private String description;
+  private String isbn;
+  private Integer nbOfPage;
+  private Boolean illustrations;
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Book() {
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.isbn = isbn;
+    this.nbOfPage = nbOfPage;
+    this.illustrations = illustrations;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Float getPrice() {
-        return price;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public Float getPrice() {
+    return price;
+  }
 
-    public String getIsbn() {
-        return isbn;
-    }
+  public void setPrice(Float price) {
+    this.price = price;
+  }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public Integer getNbOfPage() {
-        return nbOfPage;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setNbOfPage(Integer nbOfPage) {
-        this.nbOfPage = nbOfPage;
-    }
+  public String getIsbn() {
+    return isbn;
+  }
 
-    public Boolean getIllustrations() {
-        return illustrations;
-    }
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
+  }
 
-    public void setIllustrations(Boolean illustrations) {
-        this.illustrations = illustrations;
-    }
+  public Integer getNbOfPage() {
+    return nbOfPage;
+  }
 
-    // ======================================
-    // =         hash, equals, toString     =
-    // ======================================
+  public void setNbOfPage(Integer nbOfPage) {
+    this.nbOfPage = nbOfPage;
+  }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Book");
-        sb.append("{id=").append(id);
-        sb.append(", title='").append(title).append('\'');
-        sb.append(", price=").append(price);
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", isbn='").append(isbn).append('\'');
-        sb.append(", nbOfPage=").append(nbOfPage);
-        sb.append(", illustrations=").append(illustrations);
-        sb.append('}');
-        return sb.toString();
-    }
+  public Boolean getIllustrations() {
+    return illustrations;
+  }
+
+  public void setIllustrations(Boolean illustrations) {
+    this.illustrations = illustrations;
+  }
+
+  // ======================================
+  // =         hash, equals, toString     =
+  // ======================================
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder();
+    sb.append("Book");
+    sb.append("{id=").append(id);
+    sb.append(", title='").append(title).append('\'');
+    sb.append(", price=").append(price);
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", isbn='").append(isbn).append('\'');
+    sb.append(", nbOfPage=").append(nbOfPage);
+    sb.append(", illustrations=").append(illustrations);
+    sb.append('}');
+    return sb.toString();
+  }
 }

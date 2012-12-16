@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish 3
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -13,17 +13,17 @@ import java.util.List;
 @Remote
 public interface BookEJBRemote {
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    List<Book> findBooks();
+  List<Book> findBooks();
 
-    Book findBookById(Long id);
+  Book findBookById(Long id);
 
-    Book createBook(Book book);
+  Book createBook(Book book);
 
-    void deleteBook(Book book);
+  void deleteBook(Book book);
 
-    Book updateBook(Book book);
+  Book updateBook(Book book);
 }
