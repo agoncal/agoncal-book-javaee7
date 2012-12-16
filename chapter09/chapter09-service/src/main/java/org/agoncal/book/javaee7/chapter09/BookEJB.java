@@ -37,10 +37,6 @@ public class BookEJB implements BookEJBRemote {
     return query.getResultList();
   }
 
-  public Book findBookById(@NotNull Long id) {
-    return em.find(Book.class, id);
-  }
-
   public
   @NotNull
   Book createBook(@NotNull Book book) {
