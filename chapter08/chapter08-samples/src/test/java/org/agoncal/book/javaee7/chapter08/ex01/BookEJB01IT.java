@@ -66,6 +66,8 @@ public class BookEJB01IT {
     book.setIllustrations(false);
 
     // Check JNDI dependencies
+//    assertNotNull(ctx.lookup("java:global/jdbc/__default"));
+//    assertNotNull(ctx.lookup("java:comp/env/org.agoncal.book.javaee7.chapter08.ex01.BookEJB01/ds"));
     assertNotNull(ctx.lookup("java:global/classes/BookEJB01!org.agoncal.book.javaee7.chapter08.ex01.BookEJB01"));
     assertNotNull(ctx.lookup("java:global/classes/BookEJB01"));
 
