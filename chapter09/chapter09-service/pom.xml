@@ -4,10 +4,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.agoncal.book.javaee7.chapter09</groupId>
-  <artifactId>chapter09-samples</artifactId>
+  <artifactId>chapter09-service</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
-  <name>09 - Callback and Timer (Samples)</name>
+  <name>09 - Callback and Timer (Service)</name>
 
   <parent>
     <groupId>org.agoncal.book.javaee7</groupId>
