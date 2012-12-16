@@ -1,7 +1,8 @@
 package org.agoncal.book.javaee7.chapter09;
 
-import javax.ejb.Remote;
-import java.util.List;
+import javax.enterprise.inject.Produces;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * @author Antonio Goncalves
@@ -10,18 +11,14 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Remote
-public interface BookEJBRemote {
+
+public class DatabaseProducer {
 
   // ======================================
-  // =           Public Methods           =
+  // =             Attributes             =
   // ======================================
 
-  List<Book> findBooks();
-
-  Book createBook(Book book);
-
-  void deleteBook(Book book);
-
-  Book updateBook(Book book);
+  @Produces
+  @PersistenceContext(unitName = "chapter09PU")
+  private EntityManager em;
 }

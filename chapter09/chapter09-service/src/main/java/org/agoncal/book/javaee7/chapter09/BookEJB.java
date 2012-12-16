@@ -2,9 +2,10 @@ package org.agoncal.book.javaee7.chapter09;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 import static org.agoncal.book.javaee7.chapter09.Book.FIND_ALL;
@@ -24,7 +25,7 @@ public class BookEJB implements BookEJBRemote {
   // =             Attributes             =
   // ======================================
 
-  @PersistenceContext(unitName = "chapter09PU")
+  @Inject
   private EntityManager em;
 
   // ======================================
@@ -36,20 +37,24 @@ public class BookEJB implements BookEJBRemote {
     return query.getResultList();
   }
 
-  public Book findBookById(Long id) {
+  public Book findBookById(@NotNull Long id) {
     return em.find(Book.class, id);
   }
 
-  public Book createBook(Book book) {
+  public
+  @NotNull
+  Book createBook(@NotNull Book book) {
     em.persist(book);
     return book;
   }
 
-  public void deleteBook(Book book) {
+  public void deleteBook(@NotNull Book book) {
     em.remove(em.merge(book));
   }
 
-  public Book updateBook(Book book) {
+  public
+  @NotNull
+  Book updateBook(@NotNull Book book) {
     return em.merge(book);
   }
 }

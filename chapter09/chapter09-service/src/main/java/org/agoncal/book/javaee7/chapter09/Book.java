@@ -1,6 +1,8 @@
 package org.agoncal.book.javaee7.chapter09;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 import static org.agoncal.book.javaee7.chapter09.Book.FIND_ALL;
@@ -11,7 +13,6 @@ import static org.agoncal.book.javaee7.chapter09.Book.FIND_ALL;
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
- *         Simple Book ,entity
  */
 @Entity
 @NamedQuery(name = FIND_ALL, query = "SELECT b FROM Book b")
@@ -30,9 +31,11 @@ public class Book implements Serializable {
   @Id
   @GeneratedValue
   private Long id;
+  @NotNull
   @Column(nullable = false)
   private String title;
   private Float price;
+  @Size(max = 2000)
   @Column(length = 2000)
   private String description;
   private String isbn;
