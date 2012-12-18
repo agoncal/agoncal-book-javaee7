@@ -44,13 +44,13 @@ public class BookEJB implements BookEJBRemote {
     return book;
   }
 
-  public void deleteBook(@NotNull Book book) {
-    em.remove(em.merge(book));
-  }
-
   public
   @NotNull
   Book updateBook(@NotNull Book book) {
     return em.merge(book);
+  }
+
+  public void deleteBook(@NotNull Book book) {
+    em.remove(em.merge(book));
   }
 }
