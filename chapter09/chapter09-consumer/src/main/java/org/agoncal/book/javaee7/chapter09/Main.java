@@ -24,13 +24,14 @@ public class Main {
     Context ctx = new InitialContext();
     BookEJBRemote bookEJB = (BookEJBRemote) ctx.lookup("java:global/chapter09-service-1.0/BookEJB!org.agoncal.book.javaee7.chapter09.BookEJBRemote");
 
-    // Creates an instance of book
-    Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction by Douglas Adams.", "1-24561-799-0", 354, false);
-
+    // Gets and displays all the books from the database
     List<Book> books = bookEJB.findBooks();
     for (Book aBook : books) {
       System.out.println("--- " + aBook);
     }
+
+    // Creates an instance of book
+    Book book = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction by Douglas Adams.", "1-24561-799-0", 354, false);
 
     book = bookEJB.createBook(book);
     System.out.println("### Book created : " + book);
