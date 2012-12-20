@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.agoncal.book.javaee7</groupId>
-  <artifactId>chapter06</artifactId>
+  <artifactId>chapter04</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
   <name>06 - JPA</name>

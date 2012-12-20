@@ -115,7 +115,7 @@ To compile, package and execute the code you need the following software :
 
 ## Java Enterprise Edition Specification
 
-* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [JIRA|http://java.net/jira/browse/JAVAEE_SPEC] - [Mailing lists](http://java.net/projects/javaee-spec/lists)
+* Java EE 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [JIRA](http://java.net/jira/browse/JAVAEE_SPEC) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 * Web Profile 7.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 * Managed Beans 1.0 - [JSR 342](http://http://jcp.org/en/jsr/detail?id=342) - [Project](http://java.net/projects/javaee-spec) - [Mailing lists](http://java.net/projects/javaee-spec/lists)
 
