@@ -62,8 +62,8 @@ public class BookTest {
 
   private void displayContraintViolations(Set<ConstraintViolation<Book>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
-      System.out.println("### "+constraintViolation.getRootBeanClass().getSimpleName() +
-              "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue()+" - Error Msg = "+ constraintViolation.getMessage());
+      System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
+              "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());
 
     }
   }

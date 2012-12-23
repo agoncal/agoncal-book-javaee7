@@ -40,7 +40,7 @@ public class CardValidator02Test {
   @Test
   public void shouldRaiseNoConstraintViolation() {
 
-    ValidatorFactory vf= Validation.buildDefaultValidatorFactory();
+    ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
     Validator validator = vf.getValidator();
 
     Set<ConstraintViolation<Boolean>> constraints = validator.validate(new CardValidator02().validate(null));

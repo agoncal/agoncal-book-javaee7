@@ -16,103 +16,103 @@ import static org.junit.Assert.assertEquals;
  */
 public class CDTest {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    protected static ValidatorFactory vf;
-    protected static Validator validator;
+  protected static ValidatorFactory vf;
+  protected static Validator validator;
 
-    // ======================================
-    // =          Lifecycle Methods         =
-    // ======================================
+  // ======================================
+  // =          Lifecycle Methods         =
+  // ======================================
 
-    @BeforeClass
-    public static void init() {
-        vf = Validation.buildDefaultValidatorFactory();
-        validator = vf.getValidator();
-    }
+  @BeforeClass
+  public static void init() {
+    vf = Validation.buildDefaultValidatorFactory();
+    validator = vf.getValidator();
+  }
 
-    // ======================================
-    // =              Methods               =
-    // ======================================
+  // ======================================
+  // =              Methods               =
+  // ======================================
 
-    @Test
-    public void shouldRaiseNoConstraintViolation() {
+  @Test
+  public void shouldRaiseNoConstraintViolation() {
 
-        // Creates a CD with null title
-        CD cd = new CD("title", 12.80f, "Beatles master piece", "Apple", 1, 53.32f, "Pop");
+    // Creates a CD with null title
+    CD cd = new CD("title", 12.80f, "Beatles master piece", "Apple", 1, 53.32f, "Pop");
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(0, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(0, constraints.size());
+  }
 
-    @Test
-    public void shouldRaiseConstraintsViolation() {
+  @Test
+  public void shouldRaiseConstraintsViolation() {
 
-        // Creates a CD with null title
-        CD cd = new CD();
+    // Creates a CD with null title
+    CD cd = new CD();
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(1, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(1, constraints.size());
+  }
 
-    @Test
-    public void shouldRaiseWrongMusicCompany() throws Exception {
+  @Test
+  public void shouldRaiseWrongMusicCompany() throws Exception {
 
-        // Creates a cd
-        CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "apple", 1, 53.32f, "Pop");
+    // Creates a cd
+    CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "apple", 1, 53.32f, "Pop");
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(1, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(1, constraints.size());
+  }
 
-    @Test
-    public void shouldRaiseTooManyCDs() throws Exception {
+  @Test
+  public void shouldRaiseTooManyCDs() throws Exception {
 
-        // Creates a cd
-        CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "Pop");
+    // Creates a cd
+    CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "Pop");
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(1, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(1, constraints.size());
+  }
 
-    @Test
-    public void shouldRaiseMusicGenreLowerCase() throws Exception {
+  @Test
+  public void shouldRaiseMusicGenreLowerCase() throws Exception {
 
-        // Creates a cd
-        CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "pop");
+    // Creates a cd
+    CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "pop");
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(2, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(2, constraints.size());
+  }
 
-    @Test
-    public void shouldRaiseMusicGenreTooShort() {
+  @Test
+  public void shouldRaiseMusicGenreTooShort() {
 
-        // Creates a cd
-        CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "P");
+    // Creates a cd
+    CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "P");
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(2, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(2, constraints.size());
+  }
 
-    @Test
-    public void shouldRaiseMusicGenreTooLong() {
+  @Test
+  public void shouldRaiseMusicGenreTooLong() {
 
-        // Creates a cd
-        CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "Poooooooooooooooooooooooooooooooooooooooooooooooooooooop");
+    // Creates a cd
+    CD cd = new CD("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "Poooooooooooooooooooooooooooooooooooooooooooooooooooooop");
 
-        // Validate the cd
-        Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
-        assertEquals(2, constraints.size());
-    }
+    // Validate the cd
+    Set<ConstraintViolation<CD>> constraints = validator.validate(cd);
+    assertEquals(2, constraints.size());
+  }
 
 
 }

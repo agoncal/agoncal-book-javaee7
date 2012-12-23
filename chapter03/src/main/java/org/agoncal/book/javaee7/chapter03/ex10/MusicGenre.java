@@ -23,9 +23,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MusicGenre {
 
-    String message() default "{music.genre}";
+  String message() default "{music.genre}";
 
-    Class<? extends Payload>[] payload() default {};
+  Class<? extends Payload>[] payload() default {};
 
-    Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 }
