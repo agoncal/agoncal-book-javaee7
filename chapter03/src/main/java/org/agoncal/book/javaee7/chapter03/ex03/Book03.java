@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex02;
+package org.agoncal.book.javaee7.chapter03.ex03;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Book02 {
+public class Book03 {
 
   // ======================================
   // =             Attributes             =
@@ -28,10 +28,10 @@ public class Book02 {
   // =            Constructors            =
   // ======================================
 
-  public Book02() {
+  public Book03() {
   }
 
-  public Book02(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+  public Book03(@NotNull String title, @NotNull @Min(2) Float price, @Size(max = 2000) String description, String isbn, Integer nbOfPage, Boolean illustrations) {
     this.title = title;
     this.price = price;
     this.description = description;
@@ -44,7 +44,6 @@ public class Book02 {
   // =          Getters & Setters         =
   // ======================================
 
-  @NotNull
   public String getTitle() {
     return title;
   }
@@ -53,8 +52,6 @@ public class Book02 {
     this.title = title;
   }
 
-  @NotNull
-  @Min(2)
   public Float getPrice() {
     return price;
   }
@@ -63,7 +60,7 @@ public class Book02 {
     this.price = price;
   }
 
-  @Size(max = 2000)
+
   public String getDescription() {
     return description;
   }

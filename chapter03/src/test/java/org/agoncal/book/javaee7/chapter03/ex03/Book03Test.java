@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter03.ex03;
 
+import org.agoncal.book.javaee7.chapter03.ex03.Book03;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -7,19 +8,14 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.Date;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 7 with Glassfish 4
- *         http://www.apress.com/
- *         http://www.antoniogoncalves.org
- *         --
  */
-public class Customer03Test {
+public class Book03Test {
 
   // ======================================
   // =             Attributes             =
@@ -46,52 +42,38 @@ public class Customer03Test {
   public void shouldRaiseNoConstraintViolation() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
-
+    Book03 book = new Book03("H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false);
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Book03>> constraints = validator.validate(book);
     assertEquals(0, constraints.size());
   }
 
   @Test
-  public void shouldRaiseConstraintsViolationCauseEmailWithoutDot() {
+  public void shouldRaiseConstraintViolationCausePriceLow() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "jsmith@gmailcom", "1234565", new Date(), new Date());
-
+    Book03 book = new Book03("H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false);
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Book03>> constraints = validator.validate(book);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
   }
 
   @Test
-  public void shouldRaiseConstraintsViolationCauseEmailWithoutAt() {
+  public void shouldRaiseConstraintsViolationCauseTitleAndPriceNull() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "jsmithgmail.com", "1234565", new Date(), new Date());
+    Book03 book = new Book03();
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Book03>> constraints = validator.validate(book);
     displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    assertEquals(2, constraints.size());
   }
 
-  @Test
-  public void shouldRaiseConstraintsViolationCauseEmailNull() {
-
-    // Creates a book
-    Customer03 customer = new Customer03();
-
-    // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-  }
-
-  private void displayContraintViolations(Set<ConstraintViolation<Customer03>> constraintViolations) {
+  private void displayContraintViolations(Set<ConstraintViolation<Book03>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());

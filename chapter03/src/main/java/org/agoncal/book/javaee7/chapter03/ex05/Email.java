@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex03;
+package org.agoncal.book.javaee7.chapter03.ex05;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
