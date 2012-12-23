@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter05.ex02;
+package org.agoncal.book.javaee7.chapter05.ex20;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
