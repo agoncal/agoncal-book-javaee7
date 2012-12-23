@@ -1,5 +1,7 @@
-package org.agoncal.book.javaee7.chapter03.ex20;
+package org.agoncal.book.javaee7.chapter03.ex04;
 
+import javax.validation.Valid;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -9,13 +11,14 @@ import javax.validation.constraints.NotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CardValidator02 {
+public class CardValidator04 {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
-  public boolean validate(@NotNull CreditCard02 creditCard) {
+  @AssertTrue
+  public Boolean validate(@NotNull @Valid CreditCard04 creditCard) {
 
     Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
 

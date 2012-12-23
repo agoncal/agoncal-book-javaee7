@@ -1,4 +1,6 @@
-package org.agoncal.book.javaee7.chapter03.ex20;
+package org.agoncal.book.javaee7.chapter03.ex04;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Antonio Goncalves
@@ -7,14 +9,17 @@ package org.agoncal.book.javaee7.chapter03.ex20;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CreditCard02 {
+public class CreditCard04 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
+  @NotNull
   private String number;
+  @NotNull
   private String expiryDate;
+  @NotNull
   private Integer controlNumber;
   private String type;
 
@@ -22,10 +27,10 @@ public class CreditCard02 {
   // =            Constructors            =
   // ======================================
 
-  public CreditCard02() {
+  public CreditCard04() {
   }
 
-  public CreditCard02(String number, String expiryDate, Integer controlNumber, String type) {
+  public CreditCard04(String number, String expiryDate, Integer controlNumber, String type) {
     this.number = number;
     this.expiryDate = expiryDate;
     this.controlNumber = controlNumber;

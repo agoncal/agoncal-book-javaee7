@@ -1,10 +1,10 @@
-package org.agoncal.book.javaee7.chapter03.ex03;
+package org.agoncal.book.javaee7.chapter03.ex04;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.validation.*;
-import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Book03Test {
+public class CardValidator04Test {
 
   // ======================================
   // =             Attributes             =
@@ -42,33 +42,44 @@ public class Book03Test {
   @Test
   public void shouldRaiseNoConstraintViolation() throws NoSuchMethodException {
 
+    CreditCard04 creditCard = new CreditCard04("12341234", "10/10", 1234, "VISA");
+    CardValidator04 cardValidator = new CardValidator04();
+
     MethodValidator methodValidator = validator.forMethods();
-    Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
-    Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
+    Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
+    Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
+    assertEquals(0, constraints.size());
+
+    constraints = methodValidator.validateReturnValue(cardValidator, method, new Object[]{creditCard});
     assertEquals(0, constraints.size());
   }
 
   @Test
-  public void shouldRaiseConstraintViolationCausePriceLow() throws NoSuchMethodException {
+  public void shouldRaiseConstraintViolationCauseCreditCardIsNull() throws NoSuchMethodException {
+
+    CardValidator04 cardValidator = new CardValidator04();
 
     MethodValidator methodValidator = validator.forMethods();
-    Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
-    Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
+    Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
+    Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{null});
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
   }
 
   @Test
-  public void shouldRaiseConstraintsViolationCauseTitleAndPriceNull() throws NoSuchMethodException {
+  public void shouldRaiseConstraintViolationCauseCreditCardParametersAreNull() throws NoSuchMethodException {
+
+    CreditCard04 creditCard = new CreditCard04(null, null, null, null);
+    CardValidator04 cardValidator = new CardValidator04();
 
     MethodValidator methodValidator = validator.forMethods();
-    Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
-    Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{null, null, null, null, null, null});
+    Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
+    Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
     displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    assertEquals(3, constraints.size());
   }
 
-  private void displayContraintViolations(Set<ConstraintViolation<Book03>> constraintViolations) {
+  private void displayContraintViolations(Set<ConstraintViolation<CardValidator04>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());
