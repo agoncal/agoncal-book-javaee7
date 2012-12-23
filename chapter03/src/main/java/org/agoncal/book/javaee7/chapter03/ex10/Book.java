@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter05.ex10;
+package org.agoncal.book.javaee7.chapter03.ex10;
 
 /**
  * @author Antonio Goncalves

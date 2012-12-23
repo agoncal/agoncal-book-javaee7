@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter05.ex20;
+package org.agoncal.book.javaee7.chapter03.ex10;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Antonio Goncalves
  */
-public class CardValidator02Test {
+public class BookTest {
 
   // ======================================
   // =             Attributes             =
@@ -40,12 +40,31 @@ public class CardValidator02Test {
   @Test
   public void shouldRaiseNoConstraintViolation() {
 
-    ValidatorFactory vf= Validation.buildDefaultValidatorFactory();
-    Validator validator = vf.getValidator();
+    // Creates a book
+    Book book = new Book("H2G2", 12.5f, "Best IT Scifi Book", 247, false);
 
-    Set<ConstraintViolation<Boolean>> constraints = validator.validate(new CardValidator02().validate(null));
+    // Validate the cd
+    Set<ConstraintViolation<Book>> constraints = validator.validate(book);
     assertEquals(0, constraints.size());
-
   }
 
+  @Test
+  public void shouldRaiseConstraintsViolation() {
+
+    // Creates a book
+    Book book = new Book();
+
+    // Validate the cd
+    Set<ConstraintViolation<Book>> constraints = validator.validate(book);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+  }
+
+  private void displayContraintViolations(Set<ConstraintViolation<Book>> constraintViolations) {
+    for (ConstraintViolation constraintViolation : constraintViolations) {
+      System.out.println("### "+constraintViolation.getRootBeanClass().getSimpleName() +
+              "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue()+" - Error Msg = "+ constraintViolation.getMessage());
+
+    }
+  }
 }
