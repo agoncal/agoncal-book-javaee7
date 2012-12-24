@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex02;
+package org.agoncal.book.javaee7.chapter03.ex06;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -7,6 +7,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import javax.validation.groups.Default;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Book02Test {
+public class Order06Test {
 
   // ======================================
   // =             Attributes             =
@@ -42,35 +43,46 @@ public class Book02Test {
   // ======================================
 
   @Test
-  public void shouldRaiseNoConstraintViolation() {
+  public void shouldRaiseConstraintsViolationCauseIdIsNull() {
 
-    Book02 book = new Book02("H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false);
+    Order06 order = new Order06();
 
-    Set<ConstraintViolation<Book02>> constraints = validator.validate(book);
-    assertEquals(0, constraints.size());
-  }
-
-  @Test
-  public void shouldRaiseConstraintViolationCausePriceLow() {
-
-    Book02 book = new Book02("H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false);
-
-    Set<ConstraintViolation<Book02>> constraints = validator.validate(book);
+    Set<ConstraintViolation<Order06>> constraints = validator.validate(order);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
   }
 
   @Test
-  public void shouldRaiseConstraintsViolationCauseTitleAndPriceNull() {
+  public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDateAreNull() {
 
-    Book02 book = new Book02();
+    Order06 order = new Order06();
 
-    Set<ConstraintViolation<Book02>> constraints = validator.validate(book);
+    Set<ConstraintViolation<Order06>> constraints = validator.validate(order, Default.class, Creation.class);
     displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    assertEquals(3, constraints.size());
   }
 
-  private void displayContraintViolations(Set<ConstraintViolation<Book02>> constraintViolations) {
+  @Test
+  public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDatePaymentDateAreNull() {
+
+    Order06 order = new Order06();
+
+    Set<ConstraintViolation<Order06>> constraints = validator.validate(order, Default.class, Creation.class, Payment.class);
+    displayContraintViolations(constraints);
+    assertEquals(4, constraints.size());
+  }
+
+  @Test
+  public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDatePaymentDateDeliveryDateAreNull() {
+
+    Order06 order = new Order06();
+
+    Set<ConstraintViolation<Order06>> constraints = validator.validate(order, Default.class, Creation.class, Payment.class, Delivery.class);
+    displayContraintViolations(constraints);
+    assertEquals(5, constraints.size());
+  }
+
+  private void displayContraintViolations(Set<ConstraintViolation<Order06>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());
