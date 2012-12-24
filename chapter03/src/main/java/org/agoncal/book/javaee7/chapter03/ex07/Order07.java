@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex06;
+package org.agoncal.book.javaee7.chapter03.ex07;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -13,13 +13,13 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Order06 {
+public class Order07 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @NotNull(groups = {Creation.class, Payment.class, Delivery.class})
+  @NotNull(groups = {Default.class, Creation.class, Payment.class, Delivery.class})
   private Long id;
   @NotNull(groups = {Creation.class, Payment.class, Delivery.class})
   @Past(groups = {Creation.class, Payment.class, Delivery.class})
@@ -32,13 +32,13 @@ public class Order06 {
   @NotNull(groups = Delivery.class)
   @Past(groups = Delivery.class)
   private Date deliveryDate;
-  private List<OrderLine06> orderLines;
+  private List<OrderLine07> orderLines;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Order06() {
+  public Order07() {
   }
 
   // ======================================
@@ -85,11 +85,11 @@ public class Order06 {
     this.deliveryDate = deliveryDate;
   }
 
-  public List<OrderLine06> getOrderLines() {
+  public List<OrderLine07> getOrderLines() {
     return orderLines;
   }
 
-  public void setOrderLines(List<OrderLine06> orderLines) {
+  public void setOrderLines(List<OrderLine07> orderLines) {
     this.orderLines = orderLines;
   }
 }
