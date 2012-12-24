@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex07;
+package org.agoncal.book.javaee7.chapter03.ex08;
 
 /**
  * @author Antonio Goncalves
@@ -7,5 +7,5 @@ package org.agoncal.book.javaee7.chapter03.ex07;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public interface Creation {
+public interface Delivery {
 }

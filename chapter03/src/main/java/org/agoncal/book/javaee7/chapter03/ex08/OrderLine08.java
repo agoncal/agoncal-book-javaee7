@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex06;
+package org.agoncal.book.javaee7.chapter03.ex08;
 
 /**
  * @author Antonio Goncalves
@@ -7,7 +7,7 @@ package org.agoncal.book.javaee7.chapter03.ex06;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class OrderLine06 {
+public class OrderLine08 {
 
   // ======================================
   // =             Attributes             =
@@ -21,10 +21,10 @@ public class OrderLine06 {
   // =            Constructors            =
   // ======================================
 
-  public OrderLine06() {
+  public OrderLine08() {
   }
 
-  public OrderLine06(String item, Double unitPrice, Integer quantity) {
+  public OrderLine08(String item, Double unitPrice, Integer quantity) {
     this.item = item;
     this.unitPrice = unitPrice;
     this.quantity = quantity;

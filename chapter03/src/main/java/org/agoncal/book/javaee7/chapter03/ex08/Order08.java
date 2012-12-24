@@ -1,8 +1,7 @@
-package org.agoncal.book.javaee7.chapter03.ex06;
+package org.agoncal.book.javaee7.chapter03.ex08;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.groups.Default;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Order06 {
+public class Order08 {
 
   // ======================================
   // =             Attributes             =
@@ -32,13 +31,13 @@ public class Order06 {
   @NotNull(groups = Delivery.class)
   @Past(groups = Delivery.class)
   private Date deliveryDate;
-  private List<OrderLine06> orderLines;
+  private List<OrderLine08> orderLines;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Order06() {
+  public Order08() {
   }
 
   // ======================================
@@ -85,11 +84,11 @@ public class Order06 {
     this.deliveryDate = deliveryDate;
   }
 
-  public List<OrderLine06> getOrderLines() {
+  public List<OrderLine08> getOrderLines() {
     return orderLines;
   }
 
-  public void setOrderLines(List<OrderLine06> orderLines) {
+  public void setOrderLines(List<OrderLine08> orderLines) {
     this.orderLines = orderLines;
   }
 }
