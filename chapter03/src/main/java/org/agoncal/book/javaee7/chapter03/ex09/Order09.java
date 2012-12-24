@@ -1,8 +1,7 @@
-package org.agoncal.book.javaee7.chapter03.ex07;
+package org.agoncal.book.javaee7.chapter03.ex09;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.groups.Default;
 import java.util.Date;
 import java.util.List;
 
@@ -13,32 +12,32 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Order07 {
+public class Order09 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @NotNull(groups = {Default.class, Creation.class, Payment.class, Delivery.class})
+  @NotNull(groups = FromCreation.class)
   private Long id;
-  @NotNull(groups = {Creation.class, Payment.class, Delivery.class})
-  @Past(groups = {Creation.class, Payment.class, Delivery.class})
+  @NotNull(groups = FromCreation.class)
+  @Past(groups = FromCreation.class)
   private Date creationDate;
-  @NotNull(groups = {Creation.class, Payment.class, Delivery.class})
+  @NotNull(groups = FromCreation.class)
   private Double totalAmount;
-  @NotNull(groups = {Payment.class, Delivery.class})
-  @Past(groups = {Payment.class, Delivery.class})
+  @NotNull(groups = FromPayment.class)
+  @Past(groups = FromPayment.class)
   private Date paymentDate;
-  @NotNull(groups = Delivery.class)
-  @Past(groups = Delivery.class)
+  @NotNull(groups = FromDelivery.class)
+  @Past(groups = FromDelivery.class)
   private Date deliveryDate;
-  private List<OrderLine07> orderLines;
+  private List<OrderLine09> orderLines;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Order07() {
+  public Order09() {
   }
 
   // ======================================
@@ -85,11 +84,11 @@ public class Order07 {
     this.deliveryDate = deliveryDate;
   }
 
-  public List<OrderLine07> getOrderLines() {
+  public List<OrderLine09> getOrderLines() {
     return orderLines;
   }
 
-  public void setOrderLines(List<OrderLine07> orderLines) {
+  public void setOrderLines(List<OrderLine09> orderLines) {
     this.orderLines = orderLines;
   }
 }

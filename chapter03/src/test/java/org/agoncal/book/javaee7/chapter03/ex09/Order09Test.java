@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter03.ex07;
+package org.agoncal.book.javaee7.chapter03.ex09;
 
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Order07Test {
+public class Order09Test {
 
   // ======================================
   // =             Attributes             =
@@ -60,106 +60,107 @@ public class Order07Test {
   @Test
   public void shouldRaiseNoConstraintsViolation() {
 
-    Order07 order = new Order07();
+    Order09 order = new Order09();
     order.setId(1234L);
     order.setTotalAmount(1234.5);
 
     order.setCreationDate(creationDate);
 
-    Set<ConstraintViolation<Order07>> constraints = validator.validate(order, Creation.class);
+    Set<ConstraintViolation<Order09>> constraints = validator.validate(order, FromCreation.class);
+    displayContraintViolations(constraints);
     assertEquals(0, constraints.size());
 
     order.setPaymentDate(paymentDate);
 
-    constraints = validator.validate(order, Payment.class);
+    constraints = validator.validate(order, FromPayment.class);
     assertEquals(0, constraints.size());
 
     order.setDeliveryDate(deliveryDate);
 
-    constraints = validator.validate(order, Delivery.class);
+    constraints = validator.validate(order, FromDelivery.class);
     assertEquals(0, constraints.size());
   }
 
-  @Test
+  @Test @Ignore
   public void shouldRaiseConstraintsViolationCauseCreationDateIsThenSetToNull() {
 
-    Order07 order = new Order07();
+    Order09 order = new Order09();
     order.setId(1234L);
     order.setTotalAmount(1234.5);
 
     order.setCreationDate(creationDate);
 
-    Set<ConstraintViolation<Order07>> constraints = validator.validate(order, Creation.class);
+    Set<ConstraintViolation<Order09>> constraints = validator.validate(order, FromCreation.class);
     assertEquals(0, constraints.size());
 
     order.setPaymentDate(paymentDate);
 
-    constraints = validator.validate(order, Payment.class);
+    constraints = validator.validate(order, FromPayment.class);
     assertEquals(0, constraints.size());
 
     order.setCreationDate(null);
     order.setDeliveryDate(deliveryDate);
 
-    constraints = validator.validate(order, Delivery.class);
+    constraints = validator.validate(order, FromDelivery.class);
     assertEquals(1, constraints.size());
   }
 
-  @Test
+  @Test @Ignore
   public void shouldRaiseConstraintsViolationCauseCreationDatePaymentDateAreThenSetToNull() {
 
-    Order07 order = new Order07();
+    Order09 order = new Order09();
     order.setId(1234L);
     order.setTotalAmount(1234.5);
 
     order.setCreationDate(creationDate);
 
-    Set<ConstraintViolation<Order07>> constraints = validator.validate(order, Creation.class);
+    Set<ConstraintViolation<Order09>> constraints = validator.validate(order, FromCreation.class);
     assertEquals(0, constraints.size());
 
     order.setPaymentDate(paymentDate);
 
-    constraints = validator.validate(order, Payment.class);
+    constraints = validator.validate(order, FromPayment.class);
     assertEquals(0, constraints.size());
 
     order.setCreationDate(null);
     order.setPaymentDate(null);
     order.setDeliveryDate(deliveryDate);
 
-    constraints = validator.validate(order, Delivery.class);
+    constraints = validator.validate(order, FromDelivery.class);
     assertEquals(2, constraints.size());
   }
 
-  @Test
+  @Test  @Ignore
   public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDateAreNull() {
 
-    Order07 order = new Order07();
+    Order09 order = new Order09();
 
-    Set<ConstraintViolation<Order07>> constraints = validator.validate(order, Creation.class);
+    Set<ConstraintViolation<Order09>> constraints = validator.validate(order, FromCreation.class);
     displayContraintViolations(constraints);
     assertEquals(3, constraints.size());
   }
 
-  @Test
+  @Test  @Ignore
   public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDatePaymentDateAreNull() {
 
-    Order07 order = new Order07();
+    Order09 order = new Order09();
 
-    Set<ConstraintViolation<Order07>> constraints = validator.validate(order, Default.class, Creation.class, Payment.class);
+    Set<ConstraintViolation<Order09>> constraints = validator.validate(order, Default.class, FromCreation.class, FromPayment.class);
     displayContraintViolations(constraints);
     assertEquals(4, constraints.size());
   }
 
-  @Test
+  @Test @Ignore
   public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDatePaymentDateDeliveryDateAreNull() {
 
-    Order07 order = new Order07();
+    Order09 order = new Order09();
 
-    Set<ConstraintViolation<Order07>> constraints = validator.validate(order, Default.class, Creation.class, Payment.class, Delivery.class);
+    Set<ConstraintViolation<Order09>> constraints = validator.validate(order, Default.class, FromCreation.class, FromPayment.class, FromDelivery.class);
     displayContraintViolations(constraints);
     assertEquals(5, constraints.size());
   }
 
-  private void displayContraintViolations(Set<ConstraintViolation<Order07>> constraintViolations) {
+  private void displayContraintViolations(Set<ConstraintViolation<Order09>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());
