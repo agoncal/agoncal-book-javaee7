@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Constraint(validatedBy = {})
+@Constraint(validatedBy = {ChronologicalDatesValidator.class})
 @Documented
 @Target(TYPE)
 @Retention(RUNTIME)

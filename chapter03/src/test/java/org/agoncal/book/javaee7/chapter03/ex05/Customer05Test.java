@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Customer03Test {
+public class Customer05Test {
 
   // ======================================
   // =             Attributes             =
