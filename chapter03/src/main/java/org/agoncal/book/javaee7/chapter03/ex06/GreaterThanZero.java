@@ -2,12 +2,13 @@ package org.agoncal.book.javaee7.chapter03.ex06;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.constraints.NotNull;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static java.lang.annotation.ElementType.*;
 
 /**
  * @author Antonio Goncalves
@@ -16,12 +17,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Target(TYPE)
-@Retention(RUNTIME)
-@Constraint(validatedBy = ChronologicalDatesValidator.class)
-public @interface ChronologicalDates {
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@NotNull
+@Constraint(validatedBy = {})
+public @interface GreaterThanZero {
 
-  String message() default "Dates have to be in chronological order";
+  String message() default "Should be greather than zero";
 
   Class<?>[] groups() default {};
 

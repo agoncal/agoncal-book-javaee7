@@ -59,7 +59,7 @@ public class Order06Test {
   public void shouldRaiseNoConstraintsViolation() {
 
     Order06 order = new Order06();
-    order.setId(1234L);
+    order.setOrderId("CA45678");
     order.setTotalAmount(1234.5);
 
     order.setCreationDate(creationDate);
@@ -74,7 +74,7 @@ public class Order06Test {
   public void shouldRaiseConstraintsViolationCauseDatesAreNotChronological() {
 
     Order06 order = new Order06();
-    order.setId(1234L);
+    order.setOrderId("MN345678");
     order.setTotalAmount(1234.5);
 
     order.setCreationDate(deliveryDate);
