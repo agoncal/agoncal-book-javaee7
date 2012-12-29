@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter03.ex05;
 
-import org.agoncal.book.javaee7.chapter03.ex05.Customer03;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -53,6 +52,19 @@ public class Customer05Test {
     // Validate the cd
     Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
     assertEquals(0, constraints.size());
+  }
+
+  @Test
+  public void shouldRaiseConstraintsViolationCauseTooShort() {
+
+    // Creates a book
+    Customer03 customer = new Customer03("John", "Smith", "a@b.c", "1234565", new Date(), new Date());
+
+
+    // Validate the cd
+    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
   }
 
   @Test
