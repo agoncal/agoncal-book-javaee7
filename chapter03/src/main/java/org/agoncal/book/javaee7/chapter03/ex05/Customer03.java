@@ -1,5 +1,7 @@
 package org.agoncal.book.javaee7.chapter03.ex05;
 
+import org.hibernate.validator.constraints.URL;
+
 import java.util.Date;
 
 /**
@@ -15,6 +17,7 @@ public class Customer03 {
   // =             Attributes             =
   // ======================================
 
+  @URL()
   private String firstName;
   private String lastName;
   @Email
