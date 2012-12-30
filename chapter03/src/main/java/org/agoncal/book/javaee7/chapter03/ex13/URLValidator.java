@@ -23,7 +23,7 @@ public class URLValidator implements ConstraintValidator<URL, String> {
     this.port = url.port();
   }
 
-  public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
+  public boolean isValid(String value, ConstraintValidatorContext context) {
     if (value == null || value.length() == 0) {
       return true;
     }
@@ -36,14 +36,20 @@ public class URLValidator implements ConstraintValidator<URL, String> {
     }
 
     if (protocol != null && protocol.length() > 0 && !url.getProtocol().equals(protocol)) {
+      context.disableDefaultConstraintViolation();
+      context.buildConstraintViolationWithTemplate("Invalid protocol").addConstraintViolation();
       return false;
     }
 
     if (host != null && host.length() > 0 && !url.getHost().startsWith(host)) {
+      context.disableDefaultConstraintViolation();
+      context.buildConstraintViolationWithTemplate("Invalid host").addConstraintViolation();
       return false;
     }
 
     if (port != -1 && url.getPort() != port) {
+      context.disableDefaultConstraintViolation();
+      context.buildConstraintViolationWithTemplate("Invalid port").addConstraintViolation();
       return false;
     }
 

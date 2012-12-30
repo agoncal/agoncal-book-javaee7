@@ -21,10 +21,12 @@ public class Order06 {
   // =             Attributes             =
   // ======================================
 
-  @NotNull @Pattern(regexp = "[C,D,M][A-Z][0-9]*")
+  @NotNull
+  @Pattern(regexp = "[C,D,M][A-Z][0-9]*")
   private String orderId;
   private Date creationDate;
-  @NotNull @Min(1)
+  @NotNull
+  @Min(1)
   private Double totalAmount;
   private Date paymentDate;
   private Date deliveryDate;
@@ -45,7 +47,9 @@ public class Order06 {
   // =           Public Methods           =
   // ======================================
 
-  public @NotNull Double calculateTotalAmount(@GreaterThanZero Double changeRate) {
+  public
+  @NotNull
+  Double calculateTotalAmount(@GreaterThanZero Double changeRate) {
     return 1d;
   }
 

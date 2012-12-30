@@ -31,7 +31,7 @@ public class Order08Test {
   protected static ValidatorFactory vf;
   protected static Validator validator;
 
-  private static Date creationDate ;
+  private static Date creationDate;
   private static Date paymentDate;
   private static Date deliveryDate;
 

@@ -32,7 +32,7 @@ public class Order09Test {
   protected static ValidatorFactory vf;
   protected static Validator validator;
 
-  private static Date creationDate ;
+  private static Date creationDate;
   private static Date paymentDate;
   private static Date deliveryDate;
 
@@ -81,7 +81,8 @@ public class Order09Test {
     assertEquals(0, constraints.size());
   }
 
-  @Test @Ignore
+  @Test
+  @Ignore
   public void shouldRaiseConstraintsViolationCauseCreationDateIsThenSetToNull() {
 
     Order09 order = new Order09();
@@ -105,7 +106,8 @@ public class Order09Test {
     assertEquals(1, constraints.size());
   }
 
-  @Test @Ignore
+  @Test
+  @Ignore
   public void shouldRaiseConstraintsViolationCauseCreationDatePaymentDateAreThenSetToNull() {
 
     Order09 order = new Order09();
@@ -130,7 +132,8 @@ public class Order09Test {
     assertEquals(2, constraints.size());
   }
 
-  @Test  @Ignore
+  @Test
+  @Ignore
   public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDateAreNull() {
 
     Order09 order = new Order09();
@@ -140,7 +143,8 @@ public class Order09Test {
     assertEquals(3, constraints.size());
   }
 
-  @Test  @Ignore
+  @Test
+  @Ignore
   public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDatePaymentDateAreNull() {
 
     Order09 order = new Order09();
@@ -150,7 +154,8 @@ public class Order09Test {
     assertEquals(4, constraints.size());
   }
 
-  @Test @Ignore
+  @Test
+  @Ignore
   public void shouldRaiseConstraintsViolationCauseIdTotalAmoutCreationDatePaymentDateDeliveryDateAreNull() {
 
     Order09 order = new Order09();
