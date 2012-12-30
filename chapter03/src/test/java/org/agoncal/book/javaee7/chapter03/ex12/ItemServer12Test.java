@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter03.ex12;
 
-import org.agoncal.book.javaee7.chapter03.ex11.Order11;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -9,6 +8,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.text.ParseException;
+import java.util.Iterator;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -54,14 +54,49 @@ public class ItemServer12Test {
   }
 
   @Test
-  public void shouldRaiseConstraintsViolationCauseInvalidResourceURLAndNullItemURL() {
+  public void shouldRaiseConstraintsViolationCauseInvalidResourceURL() {
 
-    ItemServer12 itemServer = new ItemServer12();
-    itemServer.setResourceURL("dummy");
+    ItemServer12 itemServer = new ItemServer12("dummy", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
 
     Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    assertEquals(1, constraints.size());
+    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
+    assertEquals("Malformed URL", constraints.iterator().next().getMessage());
+  }
+
+  @Test
+  public void shouldRaiseConstraintsViolationCauseInvalidItemURL() {
+
+    ItemServer12 itemServer = new ItemServer12("http://www.cdbookstore.com/book/123", "dummy", "ftp://www.cdbookstore.com:21");
+
+    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
+    assertEquals("Malformed URL", constraints.iterator().next().getMessage());
+  }
+
+  @Test
+  public void shouldRaiseConstraintsViolationCauseInvalidFTPServerURL() {
+
+    ItemServer12 itemServer = new ItemServer12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "dummy");
+
+    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
+    assertEquals("Malformed URL", constraints.iterator().next().getMessage());
+  }
+
+  @Test
+  public void shouldRaiseConstraintsViolationCauseInvalidURLs() {
+
+    ItemServer12 itemServer = new ItemServer12("dummy1", "dummy2", "dummy3");
+
+    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    displayContraintViolations(constraints);
+    assertEquals(3, constraints.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<ItemServer12>> constraintViolations) {
