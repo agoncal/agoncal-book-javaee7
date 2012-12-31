@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ItemServer13Test {
+public class ItemServerConnection13Test {
 
   // ======================================
   // =             Attributes             =
@@ -46,18 +46,18 @@ public class ItemServer13Test {
   @Test
   public void shouldRaiseNoConstraintsViolation() {
 
-    ItemServer13 itemServer = new ItemServer13("http://www.cdbookstore.com/book/133", "http://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection13 itemServer = new ItemServerConnection13("http://www.cdbookstore.com/book/133", "http://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer13>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection13>> constraints = validator.validate(itemServer);
     assertEquals(0, constraints.size());
   }
 
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidResourceURL() {
 
-    ItemServer13 itemServer = new ItemServer13("dummy", "http://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection13 itemServer = new ItemServerConnection13("dummy", "http://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer13>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection13>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("dummy", constraints.iterator().next().getInvalidValue());
@@ -67,9 +67,9 @@ public class ItemServer13Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidProtocol() {
 
-    ItemServer13 itemServer = new ItemServer13("http://www.cdbookstore.com/book/133", "ftp://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection13 itemServer = new ItemServerConnection13("http://www.cdbookstore.com/book/133", "ftp://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer13>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection13>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("ftp://www.cdbookstore.com/book/1334", constraints.iterator().next().getInvalidValue());
@@ -79,9 +79,9 @@ public class ItemServer13Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidHost() {
 
-    ItemServer13 itemServer = new ItemServer13("http://www.cdbookstore.com/book/133", "http://www.dummy.com/book/1334", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection13 itemServer = new ItemServerConnection13("http://www.cdbookstore.com/book/133", "http://www.dummy.com/book/1334", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer13>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection13>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("http://www.dummy.com/book/1334", constraints.iterator().next().getInvalidValue());
@@ -91,16 +91,16 @@ public class ItemServer13Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidPort() {
 
-    ItemServer13 itemServer = new ItemServer13("http://www.cdbookstore.com/book/133", "http://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:22");
+    ItemServerConnection13 itemServer = new ItemServerConnection13("http://www.cdbookstore.com/book/133", "http://www.cdbookstore.com/book/1334", "ftp://www.cdbookstore.com:22");
 
-    Set<ConstraintViolation<ItemServer13>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection13>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("ftp://www.cdbookstore.com:22", constraints.iterator().next().getInvalidValue());
     assertEquals("Invalid port", constraints.iterator().next().getMessage());
   }
 
-  private void displayContraintViolations(Set<ConstraintViolation<ItemServer13>> constraintViolations) {
+  private void displayContraintViolations(Set<ConstraintViolation<ItemServerConnection13>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());

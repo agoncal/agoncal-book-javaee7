@@ -3,11 +3,9 @@ package org.agoncal.book.javaee7.chapter03.ex12;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import javax.validation.*;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ItemServer12Test {
+public class ItemServerConnection12Test {
 
   // ======================================
   // =             Attributes             =
@@ -46,18 +44,18 @@ public class ItemServer12Test {
   @Test
   public void shouldRaiseNoConstraintsViolation() {
 
-    ItemServer12 itemServer = new ItemServer12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
     assertEquals(0, constraints.size());
   }
 
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidResourceURL() {
 
-    ItemServer12 itemServer = new ItemServer12("dummy", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection12 itemServer = new ItemServerConnection12("dummy", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("dummy", constraints.iterator().next().getInvalidValue());
@@ -67,9 +65,9 @@ public class ItemServer12Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidItemURL() {
 
-    ItemServer12 itemServer = new ItemServer12("http://www.cdbookstore.com/book/123", "dummy", "ftp://www.cdbookstore.com:21");
+    ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "dummy", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("dummy", constraints.iterator().next().getInvalidValue());
@@ -79,9 +77,9 @@ public class ItemServer12Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidFTPServerURL() {
 
-    ItemServer12 itemServer = new ItemServer12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "dummy");
+    ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "dummy");
 
-    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
     assertEquals("dummy", constraints.iterator().next().getInvalidValue());
@@ -91,14 +89,24 @@ public class ItemServer12Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseInvalidURLs() {
 
-    ItemServer12 itemServer = new ItemServer12("dummy1", "dummy2", "dummy3");
+    ItemServerConnection12 itemServer = new ItemServerConnection12("dummy1", "dummy2", "dummy3");
 
-    Set<ConstraintViolation<ItemServer12>> constraints = validator.validate(itemServer);
+    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
     displayContraintViolations(constraints);
     assertEquals(3, constraints.size());
   }
 
-  private void displayContraintViolations(Set<ConstraintViolation<ItemServer12>> constraintViolations) {
+  @Test(expected = UnexpectedTypeException.class)
+  public void shouldRaiseExceptionAsDateIsNotAURL() {
+
+    ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
+    itemServer.setLastConnectionDate(new Date());
+
+    validator.validate(itemServer, Error.class);
+  }
+
+
+  private void displayContraintViolations(Set<ConstraintViolation<ItemServerConnection12>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());

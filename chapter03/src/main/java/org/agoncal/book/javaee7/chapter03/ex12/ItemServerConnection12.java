@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter03.ex12;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -9,7 +10,7 @@ import javax.validation.constraints.NotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ItemServer12 {
+public class ItemServerConnection12 {
 
   // ======================================
   // =             Attributes             =
@@ -22,15 +23,17 @@ public class ItemServer12 {
   private String itemURL;
   @URL(protocol = "ftp", port = 21)
   private String ftpServerURL;
+  @URL(groups = Error.class)
+  private Date lastConnectionDate;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public ItemServer12() {
+  public ItemServerConnection12() {
   }
 
-  public ItemServer12(String resourceURL, String itemURL, String ftpServerURL) {
+  public ItemServerConnection12(String resourceURL, String itemURL, String ftpServerURL) {
     this.resourceURL = resourceURL;
     this.itemURL = itemURL;
     this.ftpServerURL = ftpServerURL;
@@ -62,5 +65,13 @@ public class ItemServer12 {
 
   public void setFtpServerURL(String ftpServerURL) {
     this.ftpServerURL = ftpServerURL;
+  }
+
+  public Date getLastConnectionDate() {
+    return lastConnectionDate;
+  }
+
+  public void setLastConnectionDate(Date lastConnectionDate) {
+    this.lastConnectionDate = lastConnectionDate;
   }
 }

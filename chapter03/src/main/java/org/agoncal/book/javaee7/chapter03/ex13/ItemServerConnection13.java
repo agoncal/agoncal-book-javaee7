@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ItemServer13 {
+public class ItemServerConnection13 {
 
   // ======================================
   // =             Attributes             =
@@ -27,10 +27,10 @@ public class ItemServer13 {
   // =            Constructors            =
   // ======================================
 
-  public ItemServer13() {
+  public ItemServerConnection13() {
   }
 
-  public ItemServer13(String resourceURL, String itemURL, String ftpServerURL) {
+  public ItemServerConnection13(String resourceURL, String itemURL, String ftpServerURL) {
     this.resourceURL = resourceURL;
     this.itemURL = itemURL;
     this.ftpServerURL = ftpServerURL;

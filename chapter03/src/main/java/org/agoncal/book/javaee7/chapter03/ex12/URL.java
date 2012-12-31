@@ -26,19 +26,9 @@ public @interface URL {
 
   Class<? extends Payload>[] payload() default {};
 
-  /**
-   * @return the protocol (scheme) the annotated string must match, eg ftp or http.
-   *         Per default any protocol is allowed
-   */
   String protocol() default "";
 
-  /**
-   * @return the host the annotated string must match, eg localhost. Per default any host is allowed
-   */
   String host() default "";
 
-  /**
-   * @return the port the annotated string must match, eg 80. Per default any port is allowed
-   */
   int port() default -1;
 }
