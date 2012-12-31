@@ -13,6 +13,20 @@ import javax.validation.constraints.NotNull;
  */
 public class CardValidator04 {
 
+  private ValidationAlgorithm validationAlgorithm;
+
+  // ======================================
+  // =            Constructors            =
+  // ======================================
+
+
+  public CardValidator04() {
+  }
+
+  public CardValidator04(@NotNull ValidationAlgorithm validationAlgorithm) {
+    this.validationAlgorithm = validationAlgorithm;
+  }
+
   // ======================================
   // =           Public Methods           =
   // ======================================
@@ -20,12 +34,32 @@ public class CardValidator04 {
   @AssertTrue
   public Boolean validate(@NotNull @Valid CreditCard04 creditCard) {
 
-    Character lastDigit = creditCard.getNumber().charAt(creditCard.getNumber().length() - 1);
+    String lastDigit = validationAlgorithm.validate(creditCard.getNumber(), creditCard.getControlNumber());
 
     if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
       return true;
     } else {
       return false;
+    }
+  }
+
+  @AssertTrue
+  public Boolean validate(@NotNull String number, @NotNull String expiryDate, @NotNull Integer controlNumber, String type) {
+
+    String lastDigit = validationAlgorithm.validate(number, controlNumber);
+
+    if (Integer.parseInt(lastDigit.toString()) % 2 == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private class ValidationAlgorithm {
+
+    public String validate(String number, Integer controlNumber) {
+      Character lastDigit = number.charAt(number.length() - 1);
+      return lastDigit.toString();
     }
   }
 }

@@ -105,7 +105,6 @@ public class ItemServerConnection12Test {
     validator.validate(itemServer, Error.class);
   }
 
-
   private void displayContraintViolations(Set<ConstraintViolation<ItemServerConnection12>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
