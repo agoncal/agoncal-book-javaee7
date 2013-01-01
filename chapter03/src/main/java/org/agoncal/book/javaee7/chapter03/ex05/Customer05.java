@@ -1,7 +1,8 @@
 package org.agoncal.book.javaee7.chapter03.ex05;
 
-import org.hibernate.validator.constraints.URL;
-
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -11,19 +12,22 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Customer03 {
+public class Customer05 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @URL()
+  @NotNull @Size(min = 4, max = 50, message = "Firstname should be between {min} and {max}")
   private String firstName;
   private String lastName;
   @Email
   private String email;
+  @Email(message = "Recovery email is not a valid email address")
+  private String recoveryEmail;
   private String phoneNumber;
   private Date dateOfBirth;
+  @Min(value = 18, message = "Customer is too young. Should be older that {value}")
   private Integer age;
   private Date creationDate;
 
@@ -31,13 +35,14 @@ public class Customer03 {
   // =            Constructors            =
   // ======================================
 
-  public Customer03() {
+  public Customer05() {
   }
 
-  public Customer03(String firstName, String lastName, String email, String phoneNumber, Date dateOfBirth, Date creationDate) {
+  public Customer05(String firstName, String lastName, String email, String recoveryEmail, String phoneNumber, Date dateOfBirth, Date creationDate) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.recoveryEmail = recoveryEmail;
     this.phoneNumber = phoneNumber;
     this.dateOfBirth = dateOfBirth;
     this.creationDate = creationDate;
@@ -69,6 +74,14 @@ public class Customer03 {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getRecoveryEmail() {
+    return recoveryEmail;
+  }
+
+  public void setRecoveryEmail(String recoveryEmail) {
+    this.recoveryEmail = recoveryEmail;
   }
 
   public String getPhoneNumber() {

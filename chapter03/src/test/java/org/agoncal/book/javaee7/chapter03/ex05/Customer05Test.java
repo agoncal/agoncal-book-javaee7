@@ -46,11 +46,11 @@ public class Customer05Test {
   public void shouldRaiseNoConstraintViolation() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "jsmith@gmail.com", "1234565", new Date(), new Date());
+    Customer05 customer = new Customer05("John", "Smith", "jsmith@gmail.com", "recovery@gmail.com", "1234565", new Date(), new Date());
 
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
     assertEquals(0, constraints.size());
   }
 
@@ -58,11 +58,11 @@ public class Customer05Test {
   public void shouldRaiseConstraintsViolationCauseTooShort() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "a@b.c", "1234565", new Date(), new Date());
+    Customer05 customer = new Customer05("John", "Smith", "a@b.c", "recovery@gmail.com", "1234565", new Date(), new Date());
 
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
   }
@@ -71,11 +71,11 @@ public class Customer05Test {
   public void shouldRaiseConstraintsViolationCauseEmailWithoutDot() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "jsmith@gmailcom", "1234565", new Date(), new Date());
+    Customer05 customer = new Customer05("John", "Smith", "jsmith@gmailcom", "recovery@gmail.com", "1234565", new Date(), new Date());
 
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
   }
@@ -84,27 +84,80 @@ public class Customer05Test {
   public void shouldRaiseConstraintsViolationCauseEmailWithoutAt() {
 
     // Creates a book
-    Customer03 customer = new Customer03("John", "Smith", "jsmithgmail.com", "1234565", new Date(), new Date());
+    Customer05 customer = new Customer05("John", "Smith", "jsmithgmail.com", "recovery@gmail.com", "1234565", new Date(), new Date());
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
     displayContraintViolations(constraints);
     assertEquals(1, constraints.size());
   }
 
   @Test
-  public void shouldRaiseConstraintsViolationCauseEmailNull() {
+  public void shouldRaiseConstraintsViolationCauseEmailsAndFirstnameAreNull() {
 
     // Creates a book
-    Customer03 customer = new Customer03();
+    Customer05 customer = new Customer05();
 
     // Validate the cd
-    Set<ConstraintViolation<Customer03>> constraints = validator.validate(customer);
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
     displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    assertEquals(3, constraints.size());
   }
 
-  private void displayContraintViolations(Set<ConstraintViolation<Customer03>> constraintViolations) {
+  @Test
+  public void shouldCheckEmailDefaultMessage() {
+
+    // Creates a book
+    Customer05 customer = new Customer05("John", "Smith", "dummy", "recovery@gmail.com", "1234565", new Date(), new Date());
+
+    // Validate the cd
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+    assertEquals("Email address doesn't look good", constraints.iterator().next().getMessage());
+  }
+
+  @Test
+  public void shouldCheckEmailCustomMessage() {
+
+    // Creates a book
+    Customer05 customer = new Customer05("John", "Smith", "jsmith@gmail.com", "dummy", "1234565", new Date(), new Date());
+
+    // Validate the cd
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+    assertEquals("Recovery email is not a valid email address", constraints.iterator().next().getMessage());
+  }
+
+  @Test
+  public void shouldCheckAgeMessage() {
+
+    // Creates a book
+    Customer05 customer = new Customer05("John", "Smith", "jsmith@gmail.com", "recovery@gmail.com", "1234565", new Date(), new Date());
+    customer.setAge(10);
+
+    // Validate the cd
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+    assertEquals("Customer is too young. Should be older that 18", constraints.iterator().next().getMessage());
+  }
+
+  @Test
+  public void shouldCheckFirstnameMessage() {
+
+    // Creates a book
+    Customer05 customer = new Customer05("J", "Smith", "jsmith@gmail.com", "recovery@gmail.com", "1234565", new Date(), new Date());
+
+    // Validate the cd
+    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
+    displayContraintViolations(constraints);
+    assertEquals(1, constraints.size());
+    assertEquals("Firstname should be between 4 and 50", constraints.iterator().next().getMessage());
+  }
+
+  private void displayContraintViolations(Set<ConstraintViolation<Customer05>> constraintViolations) {
     for (ConstraintViolation constraintViolation : constraintViolations) {
       System.out.println("### " + constraintViolation.getRootBeanClass().getSimpleName() +
               "." + constraintViolation.getPropertyPath() + " - Invalid Value = " + constraintViolation.getInvalidValue() + " - Error Msg = " + constraintViolation.getMessage());
