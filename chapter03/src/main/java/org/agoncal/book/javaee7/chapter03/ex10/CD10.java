@@ -1,6 +1,8 @@
 package org.agoncal.book.javaee7.chapter03.ex10;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
@@ -10,7 +12,7 @@ import javax.validation.constraints.Pattern;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CD extends Item {
+public class CD10 extends Item10 {
 
   // ======================================
   // =             Attributes             =
@@ -28,15 +30,24 @@ public class CD extends Item {
   // =            Constructors            =
   // ======================================
 
-  public CD() {
+  public CD10() {
   }
 
-  public CD(String title, Float price, String description, String musicCompany, Integer numberOfCDs, Float totalDuration, String genre) {
+  public CD10(String title, Float price, String description, String musicCompany, Integer numberOfCDs, Float totalDuration, String genre) {
     super(title, price, description);
     this.musicCompany = musicCompany;
     this.numberOfCDs = numberOfCDs;
     this.totalDuration = totalDuration;
     this.genre = genre;
+  }
+
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
+
+  @NotNull @DecimalMin("5.8")
+  public Float calculatePrice(@DecimalMin("1.4") Float rate) {
+    return price * rate;
   }
 
   // ======================================

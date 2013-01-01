@@ -2,7 +2,9 @@ package org.agoncal.book.javaee7.chapter03.ex04;
 
 import javax.validation.Valid;
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -44,7 +46,7 @@ public class CardValidator04 {
   }
 
   @AssertTrue
-  public Boolean validate(@NotNull String number, @NotNull String expiryDate, @NotNull Integer controlNumber, String type) {
+  public Boolean validate(@NotNull String number, @Future Date expiryDate, @NotNull Integer controlNumber, String type) {
 
     String lastDigit = validationAlgorithm.validate(number, controlNumber);
 

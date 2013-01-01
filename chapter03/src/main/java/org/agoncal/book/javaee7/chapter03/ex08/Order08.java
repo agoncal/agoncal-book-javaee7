@@ -12,6 +12,7 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@ChronologicalDates(groups = Delivery.class)
 public class Order08 {
 
   // ======================================

@@ -47,9 +47,8 @@ public class Order06 {
   // =           Public Methods           =
   // ======================================
 
-  public
   @NotNull
-  Double calculateTotalAmount(@GreaterThanZero Double changeRate) {
+  public Double calculateTotalAmount(@GreaterThanZero Double changeRate) {
     return 1d;
   }
 

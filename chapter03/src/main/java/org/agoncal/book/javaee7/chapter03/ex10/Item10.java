@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter03.ex10;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -10,7 +11,7 @@ import javax.validation.constraints.Size;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Item {
+public class Item10 {
 
   // ======================================
   // =             Attributes             =
@@ -18,7 +19,7 @@ public class Item {
 
   protected Long id;
   @NotNull
-  @Size(min = 4, max = 50, message = "{title}")
+  @Size(min = 4, max = 50)
   protected String title;
   protected Float price;
   protected String description;
@@ -27,13 +28,27 @@ public class Item {
   // =            Constructors            =
   // ======================================
 
-  public Item() {
+  public Item10() {
   }
 
-  public Item(String title, Float price, String description) {
+  public Item10(String title, Float price, String description) {
     this.title = title;
     this.price = price;
     this.description = description;
+  }
+
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
+
+  @NotNull
+  public Float calculatePrice(@DecimalMin("1.2") Float rate) {
+    return price * rate;
+  }
+
+  @DecimalMin("9.99")
+  public Float calculateVAT() {
+    return price * 0.196f;
   }
 
   // ======================================
