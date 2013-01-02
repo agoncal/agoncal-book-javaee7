@@ -18,11 +18,11 @@ public class Customer05 {
   // =             Attributes             =
   // ======================================
 
+  @Email
+  private String userId;
   @NotNull @Size(min = 4, max = 50, message = "Firstname should be between {min} and {max}")
   private String firstName;
   private String lastName;
-  @Email
-  private String email;
   @Email(message = "Recovery email is not a valid email address")
   private String recoveryEmail;
   private String phoneNumber;
@@ -38,10 +38,10 @@ public class Customer05 {
   public Customer05() {
   }
 
-  public Customer05(String firstName, String lastName, String email, String recoveryEmail, String phoneNumber, Date dateOfBirth, Date creationDate) {
+  public Customer05(String firstName, String lastName, String userId, String recoveryEmail, String phoneNumber, Date dateOfBirth, Date creationDate) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
+    this.userId = userId;
     this.recoveryEmail = recoveryEmail;
     this.phoneNumber = phoneNumber;
     this.dateOfBirth = dateOfBirth;
@@ -68,12 +68,12 @@ public class Customer05 {
     this.lastName = lastName;
   }
 
-  public String getEmail() {
-    return email;
+  public String getUserId() {
+    return userId;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
 
   public String getRecoveryEmail() {

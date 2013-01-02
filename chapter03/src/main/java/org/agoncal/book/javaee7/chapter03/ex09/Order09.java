@@ -12,24 +12,24 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@ChronologicalDates(groups = Delivery.class)
 public class Order09 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @NotNull(groups = FromCreation.class)
+  @NotNull
   private Long id;
-  @NotNull(groups = FromCreation.class)
-  @Past(groups = FromCreation.class)
+  @NotNull
+  @Past
   private Date creationDate;
-  @NotNull(groups = FromCreation.class)
   private Double totalAmount;
-  @NotNull(groups = FromPayment.class)
-  @Past(groups = FromPayment.class)
+  @NotNull(groups = Payment.class)
+  @Past(groups = Payment.class)
   private Date paymentDate;
-  @NotNull(groups = FromDelivery.class)
-  @Past(groups = FromDelivery.class)
+  @NotNull(groups = Delivery.class)
+  @Past(groups = Delivery.class)
   private Date deliveryDate;
   private List<OrderLine09> orderLines;
 

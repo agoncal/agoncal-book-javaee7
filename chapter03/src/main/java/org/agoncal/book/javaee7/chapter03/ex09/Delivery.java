@@ -7,5 +7,5 @@ package org.agoncal.book.javaee7.chapter03.ex09;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public interface FromDelivery {
+public interface Delivery {
 }

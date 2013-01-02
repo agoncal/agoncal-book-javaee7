@@ -9,6 +9,5 @@ import javax.validation.GroupSequence;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@GroupSequence({FromPayment.class, FromDelivery.class})
-public interface FromCreation {
+public interface Payment {
 }
