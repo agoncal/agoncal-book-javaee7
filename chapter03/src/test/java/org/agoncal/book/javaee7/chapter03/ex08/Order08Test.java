@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter03.ex08;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -50,6 +51,11 @@ public class Order08Test {
     creationDate = dateFormat.parse("01/01/2010");
     paymentDate = dateFormat.parse("02/01/2010");
     deliveryDate = dateFormat.parse("03/01/2010");
+  }
+
+  @AfterClass
+  public static void close() {
+    vf.close();
   }
 
   // ======================================

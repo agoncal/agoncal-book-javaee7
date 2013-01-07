@@ -7,7 +7,9 @@
 
   <bean class="org.agoncal.book.javaee7.chapter03.ex14.Book14" ignore-annotations="false">
     <field name="title">
-      <constraint annotation="javax.validation.constraints.NotNull"/>
+      <constraint annotation="javax.validation.constraints.NotNull">
+        <message>Title should not be null</message>
+      </constraint>
     </field>
     <field name="price">
       <constraint annotation="javax.validation.constraints.NotNull"/>

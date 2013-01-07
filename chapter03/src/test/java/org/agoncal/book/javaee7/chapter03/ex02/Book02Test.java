@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter03.ex02;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -35,6 +36,11 @@ public class Book02Test {
   public static void init() {
     vf = Validation.buildDefaultValidatorFactory();
     validator = vf.getValidator();
+  }
+
+  @AfterClass
+  public static void close() {
+    vf.close();
   }
 
   // ======================================

@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter03.ex04;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -34,6 +35,11 @@ public class CardValidator04Test {
   public static void init() {
     vf = Validation.buildDefaultValidatorFactory();
     validator = vf.getValidator();
+  }
+
+  @AfterClass
+  public static void close() {
+    vf.close();
   }
 
   // ======================================
