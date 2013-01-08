@@ -20,6 +20,8 @@ public class CD21 {
   private String title;
   @NotNull
   private Float price;
+  @NotNull(groups = PrintingCatalog.class)
+  @Size(min = 10, max = 5000, groups = PrintingCatalog.class)
   private String description;
   @Pattern(regexp = "[A-Z][a-z]{1,}")
   private String musicCompany;
@@ -57,6 +59,14 @@ public class CD21 {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public String getMusicCompany() {
     return musicCompany;

@@ -7,5 +7,5 @@ package org.agoncal.book.javaee7.chapter03.ex21;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public interface Delivery {
+public interface PrintingCatalog {
 }
