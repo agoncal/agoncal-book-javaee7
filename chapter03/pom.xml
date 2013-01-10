@@ -17,6 +17,7 @@
 
   <modules>
     <module>chapter03-samples</module>
+    <module>chapter03-putting-together</module>
   </modules>
 
 </project>
