@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<books>
+    <book isbn='1234-234' price='12' nbOfPage='241' illustrations='true'>
+        <title>H2G2</title>
+        <description>Scifi IT book</description>
+    </book>
+    <book isbn='564-694' price='18.5' nbOfPage='317' illustrations='true'>
+        <title>Robots</title>
+        <description>Best seller</description>
+    </book>
+    <book isbn='256-6-56' price='23.25' nbOfPage='529' illustrations='false'>
+        <title>Dune</title>
+        <description>The trilogy</description>
+    </book>
+</books>

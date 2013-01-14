@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="item" required="true"/>
+    <composite:attribute name="style" required="false"/>
+</composite:interface>
+
+<composite:implementation>
+    <tr style="#{cc.attrs.style}">
+        <td>Title :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.item.title}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        <td>Price :</td>
+        <td>
+            <h:inputText value="#{cc.attrs.item.price}"/>
+        </td>
+    </tr>
+    <tr style="#{cc.attrs.style}">
+        <td>Description :</td>
+        <td>
+            <h:inputTextarea value="#{cc.attrs.item.description}" cols="20" rows="5"/>
+        </td>
+    </tr>
+</composite:implementation>
+</html>
