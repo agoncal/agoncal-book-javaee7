@@ -1,47 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xml:lang="en" lang="en">
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+  <title>Create a new book</title>
+</h:head>
+<h:body>
+  <h1>Create a new book</h1>
+  <hr/>
+  <h:form>
+    <h:panelGrid columns="2">
+      <h:outputLabel value="ISBN : "/>
+      <h:inputText value="#{bookController.book.isbn}"/>
 
-<ui:composition template="layout.xhtml">
+      <h:outputLabel value="Title :"/>
+      <h:inputText value="#{bookController.book.title}"/>
 
-    <ui:define name="title">Create a new book</ui:define>
+      <h:outputLabel value="Price : "/>
+      <h:inputText value="#{bookController.book.price}"/>
 
-    <ui:define name="content">
+      <h:outputLabel value="Description  : "/>
+      <h:inputTextarea value="#{bookController.book.description}" cols="20" rows="5"/>
 
-        <table border="0">
-            <tr>
-                <td>ISBN :</td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td>Title :</td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td>Price :</td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td>Description :</td>
-                <td><textarea name="textarea" cols="20" rows="5"></textarea></td>
-            </tr>
-            <tr>
-                <td>Number of pages :</td>
-                <td><input type="text"/></td>
-            </tr>
-            <tr>
-                <td>Illustrations :</td>
-                <td><input type="checkbox"/></td>
-            </tr>
-        </table>
-        <input name="" type="submit" value="Create"/>
+      <h:outputLabel value="Number of pages : "/>
+      <h:inputText value="#{bookController.book.nbOfPage}"/>
 
-    </ui:define>
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
 
-</ui:composition>
+    </h:panelGrid>
+    <h:commandButton value="Create a book" action="#{bookController.doCreateBook}"/>
 
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+  <hr/>
+  <h1>Debug</h1>
+  Press CTRL + SHIFT + D
+  <ui:debug/>
+</h:body>
 </html>
