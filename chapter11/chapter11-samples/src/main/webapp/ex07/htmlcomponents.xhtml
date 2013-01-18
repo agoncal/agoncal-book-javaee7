@@ -318,6 +318,7 @@
     <th>Tag</th>
     <th>Rendering</th>
   </tr>
+
   <tr>
     <td>javax.faces.Image</td>
     <td>h:graphicImage name="book.gif" library="images"</td>
@@ -334,9 +335,16 @@
   </tr>
   <tr>
     <td>javax.faces.Image</td>
-    <td>h:graphicImage value="{resource['bookinjar.gif']}</td>
+    <td>h:graphicImage name="bookInJar.gif" library="externalImages"</td>
     <td>
-      <h:graphicImage value="#{resource['bookinjar.gif']}"/>
+      <h:graphicImage name="bookInJar.gif" library="externalImages"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="{resource['bookInJar.gif']}</td>
+    <td>
+      <h:graphicImage value="#{resource['bookInJar.gif']}"/>
     </td>
   </tr>
   <tr>

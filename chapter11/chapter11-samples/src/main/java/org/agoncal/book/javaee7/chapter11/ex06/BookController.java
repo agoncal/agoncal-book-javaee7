@@ -3,6 +3,7 @@ package org.agoncal.book.javaee7.chapter11.ex06;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -23,6 +24,7 @@ public class BookController {
   private BookEJB bookEJB;
 
   private Book book = new Book();
+  private Date currentDate = new Date();
 
   // ======================================
   // =           Public Methods           =
@@ -43,5 +45,13 @@ public class BookController {
 
   public void setBook(Book book) {
     this.book = book;
+  }
+
+  public Date getCurrentDate() {
+    return currentDate;
+  }
+
+  public void setCurrentDate(Date currentDate) {
+    this.currentDate = currentDate;
   }
 }

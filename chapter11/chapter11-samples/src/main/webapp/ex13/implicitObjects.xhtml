@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+  <title>Implicit objects</title>
+</h:head>
+<h:body>
+  <h1>Implicit objects</h1>
+  <hr/>
+  <h3>Locale</h3>
+  <h:outputText value="#{view.locale}"/>
+
+  <h3>applicationScope</h3>
+  <c:forEach var="parameter" items="#{applicationScope}">
+    <h:outputText value="#{parameter.key}"/>
+    <br/>
+  </c:forEach>
+
+  <h3>sessionScope</h3>
+  <c:forEach var="parameter" items="#{sessionScope}">
+    <h:outputText value="#{parameter.key}"/>
+    <br/>
+  </c:forEach>
+
+  <h3>requestScope</h3>
+  <c:forEach var="parameter" items="#{requestScope}">
+    <h:outputText value="#{parameter.key}"/>
+    <br/>
+  </c:forEach>
+
+  <h3>viewScope</h3>
+  <c:forEach var="parameter" items="#{viewScope}">
+    <h:outputText value="#{parameter.key}"/>
+    <br/>
+  </c:forEach>
+
+  <h3>paramValues</h3>
+
+  <c:forEach var="parameter" items="#{paramValues}">
+    <h:outputText value="#{parameter.key}"/>
+    =
+    <c:forEach var="value" items="#{parameter.value}">
+      <h:outputText value="#{value}" escape="false"/>
+      <br/>
+    </c:forEach>
+  </c:forEach>
+
+  <h3>headerValues</h3>
+
+  <c:forEach var="parameter" items="#{headerValues}">
+    <h:outputText value="#{parameter.key}"/>
+    =
+    <c:forEach var="value" items="#{parameter.value}">
+      <h:outputText value="#{value}" escape="false"/>
+      <br/>
+    </c:forEach>
+  </c:forEach>
+
+  <h3>headerValues</h3>
+
+  <c:forEach var="parameter" items="#{headerValues}">
+    <h:outputText value="#{parameter.key}"/>
+    <br/>
+  </c:forEach>
+
+  <h3>cookie</h3>
+
+  <c:forEach var="parameter" items="#{cookie}">
+    <h:outputText value="#{parameter.key}"/>
+    <br/>
+  </c:forEach>
+
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+</h:body>
+</html>
