@@ -5,28 +5,22 @@
       xmlns:composite="http://java.sun.com/jsf/composite">
 
 <composite:interface>
-    <composite:attribute name="item" required="true"/>
-    <composite:attribute name="style" required="false"/>
+  <composite:attribute name="item" required="true"/>
+  <composite:attribute name="style" required="false"/>
 </composite:interface>
 
 <composite:implementation>
-    <tr style="#{cc.attrs.style}">
-        <td>Title :</td>
-        <td>
-            <h:inputText value="#{cc.attrs.item.title}"/>
-        </td>
-    </tr>
-    <tr style="#{cc.attrs.style}">
-        <td>Price :</td>
-        <td>
-            <h:inputText value="#{cc.attrs.item.price}"/>
-        </td>
-    </tr>
-    <tr style="#{cc.attrs.style}">
-        <td>Description :</td>
-        <td>
-            <h:inputTextarea value="#{cc.attrs.item.description}" cols="20" rows="5"/>
-        </td>
-    </tr>
+  <h:panelGrid columns="2" style="#{cc.attrs.style}">
+
+    <h:outputLabel value="Title : "/>
+    <h:inputText value="#{cc.attrs.item.title}"/>
+
+    <h:outputLabel value="Price : "/>
+    <h:inputText value="#{cc.attrs.item.price}"/>
+
+    <h:outputLabel value="Description : "/>
+    <h:inputTextarea value="#{cc.attrs.item.description}" cols="20" rows="5"/>
+
+  </h:panelGrid>
 </composite:implementation>
 </html>
