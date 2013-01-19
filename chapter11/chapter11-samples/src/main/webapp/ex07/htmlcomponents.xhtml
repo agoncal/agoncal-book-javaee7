@@ -180,13 +180,13 @@
       <h:inputTextarea rows="4" cols="20" value="A text area"/>
     </td>
   </tr>
-  <!--<tr>-->
-    <!--<td>javax.faces.File</td>-->
-    <!--<td>h:inputFile</td>-->
-    <!--<td>-->
-      <!--<h:inputFile/>-->
-    <!--</td>-->
-  <!--</tr>-->
+  <tr>
+    <td>javax.faces.File</td>
+    <td>h:inputFile</td>
+    <td>
+      <h:inputFile/>
+    </td>
+  </tr>
 </table>
 
 <h3>javax.faces.Output</h3>
@@ -335,9 +335,9 @@
   </tr>
   <tr>
     <td>javax.faces.Image</td>
-    <td>h:graphicImage name="bookInJar.gif" library="externalImages"</td>
+    <td>h:graphicImage value="bookInJar.gif" library="externalImages"</td>
     <td>
-      <h:graphicImage name="bookInJar.gif" library="externalImages"/>
+      <h:graphicImage value="bookInJar.gif" library="externalImages"/>
     </td>
   </tr>
   <tr>
@@ -345,6 +345,13 @@
     <td>h:graphicImage value="{resource['bookInJar.gif']}</td>
     <td>
       <h:graphicImage value="#{resource['bookInJar.gif']}"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="{resource['externalImages:bookInJar.gif']}</td>
+    <td>
+      <h:graphicImage value="#{resource['externalImages:bookInJar.gif']}"/>
     </td>
   </tr>
   <tr>
