@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="layout.xhtml">
+
+  <ui:define name="title">Create a new book</ui:define>
+
+  <ui:define name="content">
+
+    <h:form id="bookForm">
+
+      <h:panelGrid columns="2">
+        <h:outputLabel value="Title : "/>
+        <h:inputText value="#{cc.attrs.item.title}"/>
+
+        <h:outputLabel value="Price : "/>
+        <h:inputText value="#{cc.attrs.item.price}"/>
+
+        <h:outputLabel value="Description : "/>
+        <h:inputTextarea value="#{cc.attrs.item.description}" cols="16" rows="3"/>
+
+        <h:outputLabel value="Number of pages : "/>
+        <h:inputText value="#{itemController.book.nbOfPage}"/>
+
+        <h:outputLabel value="Illustrations : "/>
+        <h:selectBooleanCheckbox value="#{itemController.book.illustrations}"/>
+
+        <h:outputLabel value="Tags : "/>
+        <h:inputText value="#{itemController.tags}"/>
+
+        <h:outputLabel value="Language code : "/>
+        <h:selectOneMenu value="#{itemController.book.contentLanguage}">
+          <f:selectItems value="#{itemController.languages}"/>
+        </h:selectOneMenu>
+      </h:panelGrid>
+
+      <h:commandButton value="Create a book" action="#{itemController.doCreateBook}">
+        <f:ajax execute="@form" render=":booklist :errors"/>
+      </h:commandButton>
+
+    </h:form>
+
+    <hr/>
+    <h1>List of books</h1>
+    <hr/>
+    <h:dataTable id="booklist" value="#{itemController.bookList}" var="bk" border="1" rowClasses="evenRow, oddRow">
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="ID"/>
+        </f:facet>
+        <h:outputText value="#{bk.id}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="ISBN"/>
+        </f:facet>
+        <h:outputText value="#{bk.isbn}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Title"/>
+        </f:facet>
+        <h:outputText value="#{bk.title}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Price"/>
+        </f:facet>
+        <h:outputText value="#{bk.price}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Language"/>
+        </f:facet>
+        <h:outputText value="#{bk.contentLanguage}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Description"/>
+        </f:facet>
+        <h:outputText value="#{bk.description}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Number Of Pages"/>
+        </f:facet>
+        <h:outputText value="#{bk.nbOfPage}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Illustrations"/>
+        </f:facet>
+        <h:outputText value="#{bk.illustrations}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Tags"/>
+        </f:facet>
+        <h:outputText value="#{bk.tagsAsString}"/>
+      </h:column>
+    </h:dataTable>
+  </ui:define>
+
+</ui:composition>
+</html>

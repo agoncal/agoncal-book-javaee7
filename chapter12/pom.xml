@@ -16,6 +16,7 @@
   </parent>
 
   <modules>
+    <module>chapter12-putting-together</module>
     <module>chapter12-samples</module>
   </modules>
 
