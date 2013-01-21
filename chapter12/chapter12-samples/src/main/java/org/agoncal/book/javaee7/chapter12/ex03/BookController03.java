@@ -16,7 +16,15 @@ import javax.inject.Named;
 @RequestScoped
 public class BookController03 {
 
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+
   private Book book = new Book();
+
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
   public String doCreateBook() {
     createBook(book);

@@ -47,11 +47,11 @@
     <hr/>
     <h1>List of books</h1>
 
-    <h:dataTable id="booklist" value="#{bookController.bookList}" var="bk" border="1">
+    <h:dataTable id="booklist" value="#{bookEJB.findAllBooks()}" var="bk" border="1">
 
       <h:column>
         <f:facet name="header">
-          <h:outputText value="ID"/>
+          <h:outputText value="Title"/>
         </f:facet>
         <h:link outcome="viewBook.faces?id=#{bk.id}" value="#{bk.title}"/>
       </h:column>

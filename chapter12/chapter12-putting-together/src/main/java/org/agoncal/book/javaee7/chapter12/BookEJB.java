@@ -2,6 +2,7 @@ package org.agoncal.book.javaee7.chapter12;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@Named
 @Stateless
 public class BookEJB {
 

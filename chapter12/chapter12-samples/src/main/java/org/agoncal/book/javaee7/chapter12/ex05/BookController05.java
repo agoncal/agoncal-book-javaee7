@@ -14,6 +14,10 @@ import javax.enterprise.inject.Model;
 @Model
 public class BookController05 {
 
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+
   private Book book = new Book();
 
   public String doCreateBook() {

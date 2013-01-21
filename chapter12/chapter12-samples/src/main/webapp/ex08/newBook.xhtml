@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+  <title>Create a new book (navigation)</title>
+</h:head>
+<h:body>
+  <h1>Create a new book</h1>
+  <hr/>
+  <h:form id="bookForm">
+    <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange"
+                infoStyle="color: blue" globalOnly="true"/>
+
+    <h:panelGrid columns="3">
+      <h:outputLabel value="ISBN : "/>
+      <h:inputText id="isbn" value="#{bookController08.book.isbn}"/>
+      <h:message for="isbn"/>
+
+      <h:outputLabel value="Title :"/>
+      <h:inputText id="title" value="#{bookController08.book.title}"/>
+      <h:message for="title"/>
+
+      <h:outputLabel value="Price : "/>
+      <h:inputText id="price" value="#{bookController08.book.price}"/>
+      <h:message for="price"/>
+
+      <h:outputLabel value="Description  : "/>
+      <h:inputTextarea id="description" value="#{bookController08.book.description}" cols="20"
+                       rows="5"/>
+      <h:message for="description"/>
+
+      <h:outputLabel value="Number of pages : "/>
+      <h:inputText id="nbOfPage" value="#{bookController08.book.nbOfPage}"/>
+      <h:message for="nbOfPage"/>
+
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox id="illustrations" value="#{bookController08.book.illustrations}"/>
+      <h:message for="illustrations"/>
+    </h:panelGrid>
+
+    <h:commandButton value="Create a book" action="#{bookController08.doCreateBook}"/>
+
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+
+</h:body>
+</html>

@@ -17,7 +17,15 @@ import javax.inject.Named;
 @ApplicationScoped
 public class InitController {
 
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+
   private Book defaultBook;
+
+  // ======================================
+  // =          Lifecycle methods         =
+  // ======================================
 
   @PostConstruct
   private void init() {

@@ -2,6 +2,8 @@ package org.agoncal.book.javaee7.chapter12;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
@@ -28,31 +30,17 @@ public class BookController {
   private BookEJB bookEJB;
 
   private Book book = new Book();
-  private List<Book> bookList = new ArrayList<Book>();
   private String tags;
-
-  private Logger logger = Logger.getLogger("org.agoncal.book.javaee7");
-
-  // ======================================
-  // =          Lifecycle methods         =
-  // ======================================
-
-  @PostConstruct
-  private void initList() {
-    logger.fine("ItemController.initList()");
-    bookList = bookEJB.findAllBooks();
-  }
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
   public String doCreateBook() {
-    logger.fine("ItemController.doCreateBook():" + book);
     book.setTags(transformToList(tags));
     bookEJB.createBook(book);
-    bookList = bookEJB.findAllBooks();
-    book = new Book();
+    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Book created",
+            "The book" + book.getTitle() + " has been created with id=" + book.getId()));
     return "newBook.xhtml";
   }
 
@@ -61,7 +49,6 @@ public class BookController {
   // ======================================
 
   private List<String> transformToList(String tagsRequestParameter) {
-    logger.finer("ItemController.transformToList():" + tagsRequestParameter);
     if (tagsRequestParameter == null)
       return null;
     List<String> listOfTags = new ArrayList<>();
@@ -83,14 +70,6 @@ public class BookController {
 
   public void setBook(Book book) {
     this.book = book;
-  }
-
-  public List<Book> getBookList() {
-    return bookList;
-  }
-
-  public void setBookList(List<Book> bookList) {
-    this.bookList = bookList;
   }
 
   public String getTags() {
