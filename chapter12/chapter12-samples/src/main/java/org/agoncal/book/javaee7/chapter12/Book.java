@@ -13,108 +13,116 @@ import javax.persistence.*;
 @NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b")
 public class Book {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Column(nullable = false)
-    private String title;
-    private Float price;
-    @Column(length = 2000)
-    private String description;
-    private String isbn;
-    private Integer nbOfPage;
-    private Boolean illustrations;
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+  @Id
+  @GeneratedValue
+  private Long id;
+  @Column(nullable = false)
+  private String title;
+  private Float price;
+  @Column(length = 2000)
+  private String description;
+  private String isbn;
+  private Integer nbOfPage;
+  private Boolean illustrations;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Book() {
-    }
+  public Book() {
+  }
 
-    public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.isbn = isbn;
-        this.nbOfPage = nbOfPage;
-        this.illustrations = illustrations;
-    }
+  public Book(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.isbn = isbn;
+    this.nbOfPage = nbOfPage;
+    this.illustrations = illustrations;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
-    public Long getId() {
-        return id;
-    }
+  public Book(String title, Float price, String description, Integer nbOfPage, Boolean illustrations) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.nbOfPage = nbOfPage;
+    this.illustrations = illustrations;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
+  public Long getId() {
+    return id;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public Float getPrice() {
-        return price;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+  public Float getPrice() {
+    return price;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setPrice(Float price) {
+    this.price = price;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getIsbn() {
-        return isbn;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+  public String getIsbn() {
+    return isbn;
+  }
 
-    public Integer getNbOfPage() {
-        return nbOfPage;
-    }
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
+  }
 
-    public void setNbOfPage(Integer nbOfPage) {
-        this.nbOfPage = nbOfPage;
-    }
+  public Integer getNbOfPage() {
+    return nbOfPage;
+  }
 
-    public Boolean getIllustrations() {
-        return illustrations;
-    }
+  public void setNbOfPage(Integer nbOfPage) {
+    this.nbOfPage = nbOfPage;
+  }
 
-    public void setIllustrations(Boolean illustrations) {
-        this.illustrations = illustrations;
-    }
+  public Boolean getIllustrations() {
+    return illustrations;
+  }
 
-    // ======================================
-    // =         hash, equals, toString     =
-    // ======================================
+  public void setIllustrations(Boolean illustrations) {
+    this.illustrations = illustrations;
+  }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("Book");
-        sb.append("{id=").append(id);
-        sb.append(", title='").append(title).append('\'');
-        sb.append(", price=").append(price);
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", isbn='").append(isbn).append('\'');
-        sb.append(", nbOfPage=").append(nbOfPage);
-        sb.append(", illustrations=").append(illustrations);
-        sb.append('}');
-        return sb.toString();
-    }
+  // ======================================
+  // =         hash, equals, toString     =
+  // ======================================
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder();
+    sb.append("Book");
+    sb.append("{id=").append(id);
+    sb.append(", title='").append(title).append('\'');
+    sb.append(", price=").append(price);
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", isbn='").append(isbn).append('\'');
+    sb.append(", nbOfPage=").append(nbOfPage);
+    sb.append(", illustrations=").append(illustrations);
+    sb.append('}');
+    return sb.toString();
+  }
 }

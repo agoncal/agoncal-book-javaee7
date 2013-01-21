@@ -5,12 +5,12 @@
               http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
               version="2.0">
 
-    <navigation-rule>
-        <from-view-id>/ex09/newBook.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/ex09/listBooks.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/ex11/newBook.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/ex11/listBooks.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
 
 </faces-config>
