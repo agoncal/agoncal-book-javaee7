@@ -64,7 +64,7 @@ public class BookController {
     logger.finer("ItemController.transformToList():" + tagsRequestParameter);
     if (tagsRequestParameter == null)
       return null;
-    List<String> listOfTags = new ArrayList<String>();
+    List<String> listOfTags = new ArrayList<>();
     StringTokenizer tokens = new StringTokenizer(tagsRequestParameter, ",");
     while (tokens.hasMoreElements()) {
       listOfTags.add(((String) tokens.nextElement()).trim());
@@ -75,6 +75,7 @@ public class BookController {
   // ======================================
   // =          Getters & Setters         =
   // ======================================
+
 
   public Book getBook() {
     return book;

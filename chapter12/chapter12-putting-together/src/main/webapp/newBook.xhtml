@@ -15,30 +15,30 @@
 
       <h:panelGrid columns="2">
         <h:outputLabel value="Title : "/>
-        <h:inputText value="#{cc.attrs.item.title}"/>
+        <h:inputText value="#{bookController.book.title}"/>
 
         <h:outputLabel value="Price : "/>
-        <h:inputText value="#{cc.attrs.item.price}"/>
+        <h:inputText value="#{bookController.book.price}"/>
 
         <h:outputLabel value="Description : "/>
-        <h:inputTextarea value="#{cc.attrs.item.description}" cols="16" rows="3"/>
+        <h:inputTextarea value="#{bookController.book.description}" cols="16" rows="3"/>
 
         <h:outputLabel value="Number of pages : "/>
-        <h:inputText value="#{itemController.book.nbOfPage}"/>
+        <h:inputText value="#{bookController.book.nbOfPage}"/>
 
         <h:outputLabel value="Illustrations : "/>
-        <h:selectBooleanCheckbox value="#{itemController.book.illustrations}"/>
+        <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
 
         <h:outputLabel value="Tags : "/>
-        <h:inputText value="#{itemController.tags}"/>
+        <h:inputText value="#{bookController.tags}"/>
 
         <h:outputLabel value="Language code : "/>
-        <h:selectOneMenu value="#{itemController.book.contentLanguage}">
-          <f:selectItems value="#{itemController.languages}"/>
+        <h:selectOneMenu value="#{bookController.book.contentLanguage}">
+          <f:selectItems value="#{bookController.languages}"/>
         </h:selectOneMenu>
       </h:panelGrid>
 
-      <h:commandButton value="Create a book" action="#{itemController.doCreateBook}">
+      <h:commandButton value="Create a book" action="#{bookController.doCreateBook}">
         <f:ajax execute="@form" render=":booklist :errors"/>
       </h:commandButton>
 
@@ -46,27 +46,14 @@
 
     <hr/>
     <h1>List of books</h1>
-    <hr/>
-    <h:dataTable id="booklist" value="#{itemController.bookList}" var="bk" border="1" rowClasses="evenRow, oddRow">
+
+    <h:dataTable id="booklist" value="#{bookController.bookList}" var="bk" border="1">
+
       <h:column>
         <f:facet name="header">
           <h:outputText value="ID"/>
         </f:facet>
-        <h:outputText value="#{bk.id}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="ISBN"/>
-        </f:facet>
-        <h:outputText value="#{bk.isbn}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Title"/>
-        </f:facet>
-        <h:outputText value="#{bk.title}"/>
+        <h:link outcome="viewBook.faces?id=#{bk.id}" value="#{bk.title}"/>
       </h:column>
 
       <h:column>
@@ -83,33 +70,6 @@
         <h:outputText value="#{bk.contentLanguage}"/>
       </h:column>
 
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Description"/>
-        </f:facet>
-        <h:outputText value="#{bk.description}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Number Of Pages"/>
-        </f:facet>
-        <h:outputText value="#{bk.nbOfPage}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Illustrations"/>
-        </f:facet>
-        <h:outputText value="#{bk.illustrations}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Tags"/>
-        </f:facet>
-        <h:outputText value="#{bk.tagsAsString}"/>
-      </h:column>
     </h:dataTable>
   </ui:define>
 

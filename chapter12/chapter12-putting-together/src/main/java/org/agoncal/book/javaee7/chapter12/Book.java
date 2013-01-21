@@ -25,25 +25,22 @@ public class Book {
   @GeneratedValue
   private Long id;
   @NotNull
-  @Size(min = 4, max = 50, message = "{title}")
+  @Size(min = 4, max = 50)
   @Column(nullable = false)
   private String title;
   private Float price;
   @Column(length = 2000)
   private String description;
 
-  private String isbn;
   private Integer nbOfPage;
   private Boolean illustrations;
 
-  // annotation can be omitted thanks to programming by exception
-  @Enumerated
   private Language contentLanguage;
 
   // annotations can be omitted thanks to programming by exception
   @ElementCollection(fetch = FetchType.EAGER)
   @CollectionTable(name = "tags")
-  private List<String> tags = new ArrayList<String>();
+  private List<String> tags = new ArrayList<>();
 
   // ======================================
   // =            Constructors            =
@@ -52,25 +49,52 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, Float price, String description, Integer nbOfPage, Boolean illustrations, Language contentLanguage) {
+  public Book(String title, Float price, String description, Integer nbOfPage, Boolean illustrations, Language contentLanguage, String... tags) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.nbOfPage = nbOfPage;
     this.illustrations = illustrations;
     this.contentLanguage = contentLanguage;
+    for (String tag : tags) {
+      this.tags.add(tag);
+    }
   }
 
   // ======================================
   // =          Getters & Setters         =
   // ======================================
 
-  public String getIsbn() {
-    return isbn;
+  public Long getId() {
+    return id;
   }
 
-  public void setIsbn(String isbn) {
-    this.isbn = isbn;
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Float getPrice() {
+    return price;
+  }
+
+  public void setPrice(Float price) {
+    this.price = price;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Integer getNbOfPage() {
@@ -101,6 +125,10 @@ public class Book {
     return tags;
   }
 
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public String getTagsAsString() {
     String s = "";
     for (String tag : tags) {
@@ -110,10 +138,6 @@ public class Book {
       return s.substring(0, s.length() - 2);
     else
       return s;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
   }
 
   // ======================================
@@ -128,11 +152,10 @@ public class Book {
     sb.append(", title='").append(title).append('\'');
     sb.append(", price=").append(price);
     sb.append(", description='").append(description).append('\'');
-    sb.append(", isbn='").append(isbn).append('\'');
     sb.append(", nbOfPage=").append(nbOfPage);
     sb.append(", illustrations=").append(illustrations);
     sb.append(", contentLanguage=").append(contentLanguage);
-    sb.append(", tags=").append(tags);
+    sb.append(", tags=").append(getTagsAsString());
     sb.append('}');
     return sb.toString();
   }
