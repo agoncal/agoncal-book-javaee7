@@ -44,6 +44,10 @@ public class BookController {
     return "newBook.xhtml";
   }
 
+  public void doFindBookById(){
+    book = bookEJB.findBook(book.getId());
+  }
+
   // ======================================
   // =           Private methods          =
   // ======================================
