@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title>List of the books (validator)</title>
+</h:head>
+<h:body>
+  <h1>List of the books</h1>
+  <hr/>
+  <h:dataTable value="#{bookController14.bookList}" var="bk" border="1">
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Title"/>
+      </f:facet>
+      <h:outputText value="#{bk.title}"/>
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Price"/>
+      </f:facet>
+      <h:outputText value="#{bk.price}"/>
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Description"/>
+      </f:facet>
+      <h:outputText value="#{bk.description}"/>
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Nb Pages"/>
+      </f:facet>
+      <h:outputText value="#{bk.nbOfPage}"/>
+    </h:column>
+
+    <h:column>
+      <f:facet name="header">
+        <h:outputText value="Illustrations"/>
+      </f:facet>
+      <h:outputText value="#{bk.illustrations}"/>
+    </h:column>
+
+  </h:dataTable>
+  <h:form>
+    <h:link outcome="newBook.xhtml" value="Back to creating a new book"/>
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+</h:body>
+</html>

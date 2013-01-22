@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@FacesConverter(value = "euroConverter")
+@FacesConverter("euroConverter")
 public class EuroConverter implements Converter {
 
   @Override
