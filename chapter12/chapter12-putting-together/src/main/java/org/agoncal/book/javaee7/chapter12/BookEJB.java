@@ -37,7 +37,7 @@ public class BookEJB {
     return em.createNamedQuery("findAllBooks", Book.class).getResultList();
   }
 
-  public Book findBook(Long id) {
+  public Book findBookById(Long id) {
     return em.find(Book.class, id);
   }
 }

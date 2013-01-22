@@ -3,8 +3,6 @@ package org.agoncal.book.javaee7.chapter12;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -35,13 +33,6 @@ public class Book {
   private Integer nbOfPage;
   private Boolean illustrations;
 
-  private Language contentLanguage;
-
-  // annotations can be omitted thanks to programming by exception
-  @ElementCollection(fetch = FetchType.EAGER)
-  @CollectionTable(name = "tags")
-  private List<String> tags = new ArrayList<>();
-
   // ======================================
   // =            Constructors            =
   // ======================================
@@ -49,16 +40,12 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, Float price, String description, Integer nbOfPage, Boolean illustrations, Language contentLanguage, String... tags) {
+  public Book(String title, Float price, String description, Integer nbOfPage, Boolean illustrations) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.nbOfPage = nbOfPage;
     this.illustrations = illustrations;
-    this.contentLanguage = contentLanguage;
-    for (String tag : tags) {
-      this.tags.add(tag);
-    }
   }
 
   // ======================================
@@ -113,33 +100,6 @@ public class Book {
     this.illustrations = illustrations;
   }
 
-  public Language getContentLanguage() {
-    return contentLanguage;
-  }
-
-  public void setContentLanguage(Language contentLanguage) {
-    this.contentLanguage = contentLanguage;
-  }
-
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
-  }
-
-  public String getTagsAsString() {
-    String s = "";
-    for (String tag : tags) {
-      s += tag + ", ";
-    }
-    if (s.length() > 2)
-      return s.substring(0, s.length() - 2);
-    else
-      return s;
-  }
-
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
@@ -154,8 +114,6 @@ public class Book {
     sb.append(", description='").append(description).append('\'');
     sb.append(", nbOfPage=").append(nbOfPage);
     sb.append(", illustrations=").append(illustrations);
-    sb.append(", contentLanguage=").append(contentLanguage);
-    sb.append(", tags=").append(getTagsAsString());
     sb.append('}');
     return sb.toString();
   }

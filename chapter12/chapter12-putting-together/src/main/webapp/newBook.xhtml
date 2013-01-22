@@ -28,14 +28,6 @@
 
         <h:outputLabel value="Illustrations : "/>
         <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
-
-        <h:outputLabel value="Tags : "/>
-        <h:inputText value="#{bookController.tags}"/>
-
-        <h:outputLabel value="Language code : "/>
-        <h:selectOneMenu value="#{bookController.book.contentLanguage}">
-          <f:selectItems value="#{bookController.languages}"/>
-        </h:selectOneMenu>
       </h:panelGrid>
 
       <h:commandButton value="Create a book" action="#{bookController.doCreateBook}">
@@ -61,13 +53,6 @@
           <h:outputText value="Price"/>
         </f:facet>
         <h:outputText value="#{bk.price}"/>
-      </h:column>
-
-      <h:column>
-        <f:facet name="header">
-          <h:outputText value="Language"/>
-        </f:facet>
-        <h:outputText value="#{bk.contentLanguage}"/>
       </h:column>
 
     </h:dataTable>
