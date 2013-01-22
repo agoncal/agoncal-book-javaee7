@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title>Create a new book (converter)</title>
+</h:head>
+<h:body>
+  <h1>Create a new book</h1>
+  <hr/>
+  <h:form>
+
+    <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange"
+                infoStyle="color: blue"/>
+
+    <h:panelGrid columns="2">
+
+      <h:outputLabel value="Title :"/>
+      <h:inputText value="#{bookController13.book.title}"/>
+
+      <h:outputLabel value="Price : "/>
+      <h:inputText value="#{bookController13.book.price}"/>
+
+      <h:outputLabel value="Description  : "/>
+      <h:inputTextarea value="#{bookController13.book.description}" cols="20" rows="5"/>
+
+      <h:outputLabel value="Number of pages : "/>
+      <h:inputText value="#{bookController13.book.nbOfPage}"/>
+
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox value="#{bookController13.book.illustrations}"/>
+
+      <h:outputLabel value="Published Date : "/>
+      <h:outputLabel value="#{bookController13.publishedDate}">
+        <f:convertDateTime pattern="MM/dd/yy"/>
+      </h:outputLabel>
+
+      <h:outputLabel value="Published Price : "/>
+      <h:outputLabel value="#{bookController13.publishedPrice}">
+        <f:convertNumber currencySymbol="$" type="currency" maxIntegerDigits="3"/>
+      </h:outputLabel>
+
+      <h:commandButton value="Create a book" action="#{bookController13.doCreateBook}"/>
+    </h:panelGrid>
+
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+
+</h:body>
+</html>
