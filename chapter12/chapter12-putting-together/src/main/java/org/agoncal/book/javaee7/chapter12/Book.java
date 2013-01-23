@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
  *         --
  */
 @Entity
-@NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b ORDER BY b.id DESC")
+@NamedQuery(name = "findAllBooks", query = "SELECT b FROM Book b ORDER BY b.title DESC")
 public class Book {
 
   // ======================================
@@ -29,7 +29,6 @@ public class Book {
   private Float price;
   @Column(length = 2000)
   private String description;
-
   private Integer nbOfPage;
   private Boolean illustrations;
 
