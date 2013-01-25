@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter06;
+package org.agoncal.book.javaee7.chapter04;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,7 +26,7 @@ public class Main {
         book.setIllustrations(false);
 
         // Gets an entity manager and a transaction
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter06PU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter04PU");
         EntityManager em = emf.createEntityManager();
 
         // Persists the book to the database
