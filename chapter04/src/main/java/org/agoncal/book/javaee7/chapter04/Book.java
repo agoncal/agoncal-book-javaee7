@@ -25,11 +25,9 @@ public class Book {
   @Id
   @GeneratedValue
   private Long id;
-  @Column(nullable = false)
   @NotNull
   private String title;
   private Float price;
-  @Column(length = 2000)
   @Size(min = 10, max = 2000)
   private String description;
   private String isbn;

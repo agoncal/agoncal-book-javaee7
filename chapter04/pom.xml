@@ -33,10 +33,6 @@
       <groupId>org.apache.derby</groupId>
       <artifactId>derbyclient</artifactId>
     </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>junit</groupId>

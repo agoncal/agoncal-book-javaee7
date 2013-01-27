@@ -100,6 +100,7 @@
         <groupId>org.apache.derby</groupId>
         <artifactId>derby</artifactId>
         <version>${version.derby}</version>
+        <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.derby</groupId>

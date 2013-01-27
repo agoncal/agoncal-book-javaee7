@@ -32,7 +32,9 @@ public class Main {
     // 4-Executes the named query
     book = em.createNamedQuery("findBookH2G2", Book.class).getSingleResult();
 
-    // 5-Close the entity manager and the factory
+    System.out.println("######### " + book.getDescription());
+
+    // 5-Closes the entity manager and the factory
     em.close();
     emf.close();
   }

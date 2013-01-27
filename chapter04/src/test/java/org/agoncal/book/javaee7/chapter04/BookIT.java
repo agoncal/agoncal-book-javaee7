@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.validation.ConstraintViolationException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -22,7 +23,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookTest {
+public class BookIT {
 
   // ======================================
   // =             Attributes             =
@@ -35,14 +36,15 @@ public class BookTest {
   // ======================================
   // =          Lifecycle Methods         =
   // ======================================
+
   @BeforeClass
   public static void initEntityManager() throws Exception {
-    emf = Persistence.createEntityManagerFactory("chapter04inMemoryPU");
+    emf = Persistence.createEntityManagerFactory("chapter04TestPU");
     em = emf.createEntityManager();
   }
 
   @AfterClass
-  public static void closeEntityManager() throws SQLException {
+  public static void closeEntityManager() throws Exception {
     if (em != null) em.close();
     if (emf != null) emf.close();
   }
@@ -57,30 +59,34 @@ public class BookTest {
   // ======================================
 
   @Test
-  public void shouldFindABook() throws Exception {
-    Book book = em.find(Book.class, 1234L);
-    assertNotNull(book);
-    assertEquals("H2G2", book.getTitle());
-    assertEquals("The universal answser to everything", book.getDescription());
+  public void shouldFindJavaEE7Book() throws Exception {
+    Book book = em.find(Book.class, 1001L);
+    assertEquals("Beginning Java EE 7", book.getTitle());
   }
 
   @Test
-  public void shouldCreateABook() throws Exception {
+  public void shouldCreateH2G2Book() throws Exception {
+
     // Creates an instance of book
-    Book book = new Book();
-    book.setTitle("The Hitchhiker's Guide to the Galaxy");
-    book.setPrice(12.5F);
-    book.setDescription("Science fiction comedy book");
-    book.setIsbn("1-84023-742-2");
-    book.setNbOfPage(354);
-    book.setIllustrations(false);
+    Book book = new Book("H2G2", "The Hitchhiker's Guide to the Galaxy", 12.5F, "1-84023-742-2", 354, false);
+
     // Persists the book to the database
     tx.begin();
     em.persist(book);
     tx.commit();
     assertNotNull("ID should not be null", book.getId());
+
     // Retrieves all the books from the database
-    List<Book> books = em.createNamedQuery("findAllBooks").getResultList();
-    assertEquals(2, books.size());
+//    List<Book> books = em.createNamedQuery("findBookH2G2", Book.class).getResultList();
+//    assertEquals(2, books.size());
+    book = em.createNamedQuery("findBookH2G2", Book.class).getSingleResult();
+    assertEquals("The Hitchhiker's Guide to the Galaxy", book.getDescription());
+  }
+
+  @Test(expected = ConstraintViolationException.class)
+  public void shouldRaiseConstraintViolationCauseNullTitle() {
+
+    Book book = new Book(null, "Null title, should fail", 12.5F, "1-84023-742-2", 354, false);
+    em.persist(book);
   }
 }
