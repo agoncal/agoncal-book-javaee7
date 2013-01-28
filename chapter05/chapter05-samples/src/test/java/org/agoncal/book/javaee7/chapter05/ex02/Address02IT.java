@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter05.ex01;
+package org.agoncal.book.javaee7.chapter05.ex02;
 
 import org.agoncal.book.javaee7.chapter05.AbstractPersistentTest;
 import org.junit.Test;
@@ -12,18 +12,19 @@ import static org.junit.Assert.assertNotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Book01IT extends AbstractPersistentTest {
+public class Address02IT extends AbstractPersistentTest {
 
   // ======================================
   // =              Unit tests            =
   // ======================================
-  @Test
-  public void shouldCreateABook() throws Exception {
 
-    Book01 book = new Book01(getRandomId(), "The Hitchhiker's Guide to the Galaxy", 12.5F, "The Hitchhiker's Guide to the Galaxy is a science fiction comedy series created by Douglas Adams.", "1-84023-742-2", 354, false);
+  @Test
+  public void shouldCreateAnAddress() throws Exception {
+
+    Address02 address = new Address02(getRandomId(), "65B Ritherdon Rd", "At James place", "London", "LDN", "7QE554", "UK");
     tx.begin();
-    em.persist(book);
+    em.persist(address);
     tx.commit();
-    assertNotNull("ID should not be null", book.getId());
+    assertNotNull("ID should not be null", address.getId());
   }
 }

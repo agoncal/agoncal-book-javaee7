@@ -7,6 +7,9 @@
   <persistence-unit name="chapter05PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>org.agoncal.book.javaee7.chapter05.ex01.Book01</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex02.Address02</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex04.NewsId04</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex04.NewsEmbeddedId04</class>
     <properties>
       <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>
