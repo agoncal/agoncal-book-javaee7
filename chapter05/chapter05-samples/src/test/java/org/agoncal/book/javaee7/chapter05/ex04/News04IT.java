@@ -22,12 +22,12 @@ public class News04IT extends AbstractPersistentTest {
   @Test
   public void shouldCreateANews() throws Exception {
 
-    NewsEmbeddedId04 news = new NewsEmbeddedId04(new NewsId04("Richard Wright has died", "EN"), "The keyboard of Pink Floyd has died today");
+    News04 news = new News04(new NewsId04("Richard Wright has died", "EN"), "The keyboard of Pink Floyd has died today");
     tx.begin();
     em.persist(news);
     tx.commit();
 
-    news = em.find(NewsEmbeddedId04.class, new NewsId04("Richard Wright has died", "EN"));
+    news = em.find(News04.class, new NewsId04("Richard Wright has died", "EN"));
 
     assertEquals("The keyboard of Pink Floyd has died today", news.getContent());
   }

@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ex05_news")
-public class NewsEmbeddedId04 {
+public class News04 {
 
   // ======================================
   // =             Attributes             =
@@ -27,10 +27,10 @@ public class NewsEmbeddedId04 {
   // =            Constructors            =
   // ======================================
 
-  public NewsEmbeddedId04() {
+  public News04() {
   }
 
-  public NewsEmbeddedId04(NewsId04 id, String content) {
+  public News04(NewsId04 id, String content) {
     this.id = id;
     this.content = content;
   }
