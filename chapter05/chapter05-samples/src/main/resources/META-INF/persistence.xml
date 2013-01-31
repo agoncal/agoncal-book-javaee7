@@ -24,6 +24,8 @@
     <class>org.agoncal.book.javaee7.chapter05.ex29.Customer29</class>
     <class>org.agoncal.book.javaee7.chapter05.ex32.Address32</class>
     <class>org.agoncal.book.javaee7.chapter05.ex32.Customer32</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex34.Address34</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex34.Customer34</class>
     <properties>
       <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>
