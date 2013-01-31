@@ -34,6 +34,12 @@
     <class>org.agoncal.book.javaee7.chapter05.ex43.OrderLine43</class>
     <class>org.agoncal.book.javaee7.chapter05.ex45.Order45</class>
     <class>org.agoncal.book.javaee7.chapter05.ex45.OrderLine45</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex46.Artist46</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex46.CD46</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex49.Comment49</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex49.News49</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex51.Comment51</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex51.News51</class>
     <properties>
       <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>
