@@ -16,59 +16,59 @@ import javax.persistence.Table;
 @Table(name = "ex45_order_line")
 public class OrderLine45 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String item;
-    private Double unitPrice;
-    private Integer quantity;
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String item;
+  private Double unitPrice;
+  private Integer quantity;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public OrderLine45() {
-    }
+  public OrderLine45() {
+  }
 
-    public OrderLine45(String item, Double unitPrice, Integer quantity) {
-        this.item = item;
-        this.unitPrice = unitPrice;
-        this.quantity = quantity;
-    }
+  public OrderLine45(String item, Double unitPrice, Integer quantity) {
+    this.item = item;
+    this.unitPrice = unitPrice;
+    this.quantity = quantity;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getItem() {
-        return item;
-    }
+  public String getItem() {
+    return item;
+  }
 
-    public void setItem(String item) {
-        this.item = item;
-    }
+  public void setItem(String item) {
+    this.item = item;
+  }
 
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
+  public Double getUnitPrice() {
+    return unitPrice;
+  }
 
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
+  public void setUnitPrice(Double unitPrice) {
+    this.unitPrice = unitPrice;
+  }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+  public Integer getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
 }

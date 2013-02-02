@@ -19,12 +19,13 @@ public class CD01 extends Item01 {
     // ======================================
     // =             Attributes             =
     // ======================================
+
     @Lob
     private byte[] cover;
     private String musicCompany;
     private Integer numberOfCDs;
     private Float totalDuration;
-    private String gender;
+    private String genre;
 
     // ======================================
     // =            Constructors            =
@@ -75,11 +76,11 @@ public class CD01 extends Item01 {
         this.totalDuration = totalDuration;
     }
 
-    public String getGender() {
-        return gender;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

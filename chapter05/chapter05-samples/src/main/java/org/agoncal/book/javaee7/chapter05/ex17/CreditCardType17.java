@@ -9,10 +9,10 @@ package org.agoncal.book.javaee7.chapter05.ex17;
  */
 public enum CreditCardType17 {
 
-    // ======================================
-    // =             Constants              =
-    // ======================================
-    VISA,
-    MASTER_CARD,
-    AMERICAN_EXPRESS
+  // ======================================
+  // =             Constants              =
+  // ======================================
+  VISA,
+  MASTER_CARD,
+  AMERICAN_EXPRESS
 }

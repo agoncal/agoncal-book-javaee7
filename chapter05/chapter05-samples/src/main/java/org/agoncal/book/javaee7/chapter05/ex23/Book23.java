@@ -15,102 +15,102 @@ import java.util.List;
 @Table(name = "ex27_book")
 public class Book23 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String title;
-    private Float price;
-    private String description;
-    private String isbn;
-    private Integer nbOfPage;
-    private Boolean illustrations;
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "ex27_tag")
-    // @Column(name = "Value")
-    private List<String> tags = new ArrayList<>();
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+  private String title;
+  private Float price;
+  private String description;
+  private String isbn;
+  private Integer nbOfPage;
+  private Boolean illustrations;
+  @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(name = "ex27_tag")
+  // @Column(name = "Value")
+  private List<String> tags = new ArrayList<>();
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Book23() {
-    }
+  public Book23() {
+  }
 
-    public Book23(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations, ArrayList<String> tags) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.isbn = isbn;
-        this.nbOfPage = nbOfPage;
-        this.illustrations = illustrations;
-        this.tags = tags;
-    }
+  public Book23(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations, ArrayList<String> tags) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.isbn = isbn;
+    this.nbOfPage = nbOfPage;
+    this.illustrations = illustrations;
+    this.tags = tags;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public Float getPrice() {
-        return price;
-    }
+  public Float getPrice() {
+    return price;
+  }
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+  public void setPrice(Float price) {
+    this.price = price;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public String getIsbn() {
-        return isbn;
-    }
+  public String getIsbn() {
+    return isbn;
+  }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
+  }
 
-    public Integer getNbOfPage() {
-        return nbOfPage;
-    }
+  public Integer getNbOfPage() {
+    return nbOfPage;
+  }
 
-    public void setNbOfPage(Integer nbOfPage) {
-        this.nbOfPage = nbOfPage;
-    }
+  public void setNbOfPage(Integer nbOfPage) {
+    this.nbOfPage = nbOfPage;
+  }
 
-    public Boolean getIllustrations() {
-        return illustrations;
-    }
+  public Boolean getIllustrations() {
+    return illustrations;
+  }
 
-    public void setIllustrations(Boolean illustrations) {
-        this.illustrations = illustrations;
-    }
+  public void setIllustrations(Boolean illustrations) {
+    this.illustrations = illustrations;
+  }
 
-    public List<String> getTags() {
-        return tags;
-    }
+  public List<String> getTags() {
+    return tags;
+  }
 
-    public void setTags(ArrayList<String> tags) {
-        this.tags = tags;
-    }
+  public void setTags(ArrayList<String> tags) {
+    this.tags = tags;
+  }
 }

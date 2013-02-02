@@ -17,69 +17,69 @@ import java.util.Date;
 @Table(name = "ex49_comment")
 public class Comment49 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String nickname;
-    private String content;
-    private Integer note;
-    @Column(name = "posted_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date postedDate;
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String nickname;
+  private String content;
+  private Integer note;
+  @Column(name = "posted_date")
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date postedDate;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Comment49() {
+  public Comment49() {
+  }
+
+  public Comment49(String nickname, String content, Integer note, String postedDate) {
+    this.nickname = nickname;
+    this.content = content;
+    this.note = note;
+
+    try {
+      DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+      this.postedDate = df.parse(postedDate);
+    } catch (ParseException e) {
+      e.printStackTrace();
     }
+  }
 
-    public Comment49(String nickname, String content, Integer note, String postedDate) {
-        this.nickname = nickname;
-        this.content = content;
-        this.note = note;
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-        try {
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            this.postedDate = df.parse(postedDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
+  public Long getId() {
+    return id;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  public String getNickname() {
+    return nickname;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
 
-    public String getNickname() {
-        return nickname;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public Integer getNote() {
+    return note;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getNote() {
-        return note;
-    }
-
-    public void setNote(Integer note) {
-        this.note = note;
-    }
+  public void setNote(Integer note) {
+    this.note = note;
+  }
 }

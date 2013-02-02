@@ -13,80 +13,80 @@ import javax.persistence.*;
 @Table(name = "ex39_customer")
 public class Customer39 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "add_fk", nullable = false)
-    private Address39 address;
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String firstName;
+  private String lastName;
+  private String email;
+  private String phoneNumber;
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "add_fk", nullable = false)
+  private Address39 address;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Customer39() {
-    }
+  public Customer39() {
+  }
 
-    public Customer39(String firstName, String lastName, String email, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
+  public Customer39(String firstName, String lastName, String email, String phoneNumber) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getFirstName() {
-        return firstName;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public String getLastName() {
-        return lastName;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
-    public Address39 getAddress() {
-        return address;
-    }
+  public Address39 getAddress() {
+    return address;
+  }
 
-    public void setAddress(Address39 address) {
-        this.address = address;
-    }
+  public void setAddress(Address39 address) {
+    this.address = address;
+  }
 }

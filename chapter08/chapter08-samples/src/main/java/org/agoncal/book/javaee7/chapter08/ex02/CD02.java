@@ -40,7 +40,7 @@ public class CD02 implements Serializable {
   private String musicCompany;
   private Integer numberOfCDs;
   private Float totalDuration;
-  private String gender;
+  private String genre;
 
   // ======================================
   // =            Constructors            =
@@ -119,11 +119,11 @@ public class CD02 implements Serializable {
     this.totalDuration = totalDuration;
   }
 
-  public String getGender() {
-    return gender;
+  public String getGenre() {
+    return genre;
   }
 
-  public void setGender(String gender) {
-    this.gender = gender;
+  public void setGenre(String genre) {
+    this.genre = genre;
   }
 }

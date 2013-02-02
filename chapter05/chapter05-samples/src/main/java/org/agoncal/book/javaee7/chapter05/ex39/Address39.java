@@ -16,93 +16,93 @@ import javax.persistence.Table;
 @Table(name = "ex39_address")
 public class Address39 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String street1;
-    private String street2;
-    private String city;
-    private String state;
-    private String zipcode;
-    private String country;
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String street1;
+  private String street2;
+  private String city;
+  private String state;
+  private String zipcode;
+  private String country;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Address39() {
-    }
+  public Address39() {
+  }
 
-    public Address39(String street1, String street2, String city, String state, String zipcode, String country) {
-        this.street1 = street1;
-        this.street2 = street2;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
-        this.country = country;
-    }
+  public Address39(String street1, String street2, String city, String state, String zipcode, String country) {
+    this.street1 = street1;
+    this.street2 = street2;
+    this.city = city;
+    this.state = state;
+    this.zipcode = zipcode;
+    this.country = country;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getStreet1() {
-        return street1;
-    }
+  public String getStreet1() {
+    return street1;
+  }
 
-    public void setStreet1(String street1) {
-        this.street1 = street1;
-    }
+  public void setStreet1(String street1) {
+    this.street1 = street1;
+  }
 
-    public String getStreet2() {
-        return street2;
-    }
+  public String getStreet2() {
+    return street2;
+  }
 
-    public void setStreet2(String street2) {
-        this.street2 = street2;
-    }
+  public void setStreet2(String street2) {
+    this.street2 = street2;
+  }
 
-    public String getCity() {
-        return city;
-    }
+  public String getCity() {
+    return city;
+  }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+  public void setCity(String city) {
+    this.city = city;
+  }
 
-    public String getState() {
-        return state;
-    }
+  public String getState() {
+    return state;
+  }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+  public void setState(String state) {
+    this.state = state;
+  }
 
-    public String getZipcode() {
-        return zipcode;
-    }
+  public String getZipcode() {
+    return zipcode;
+  }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
+  public void setZipcode(String zipcode) {
+    this.zipcode = zipcode;
+  }
 
-    public String getCountry() {
-        return country;
-    }
+  public String getCountry() {
+    return country;
+  }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+  public void setCountry(String country) {
+    this.country = country;
+  }
 }

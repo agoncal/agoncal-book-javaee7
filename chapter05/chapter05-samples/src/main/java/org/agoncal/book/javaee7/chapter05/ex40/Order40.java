@@ -15,46 +15,46 @@ import java.util.List;
 @Table(name = "ex40_order")
 public class Order40 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
-    private List<OrderLine40> orderLines;
+  @Id
+  @GeneratedValue
+  private Long id;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date creationDate;
+  private List<OrderLine40> orderLines;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Order40() {
-        this.creationDate = new Date();
-    }
+  public Order40() {
+    this.creationDate = new Date();
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
+  public Date getCreationDate() {
+    return creationDate;
+  }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+  public void setCreationDate(Date creationDate) {
+    this.creationDate = creationDate;
+  }
 
-    public List<OrderLine40> getOrderLines() {
-        return orderLines;
-    }
+  public List<OrderLine40> getOrderLines() {
+    return orderLines;
+  }
 
-    public void setOrderLines(List<OrderLine40> orderLines) {
-        this.orderLines = orderLines;
-    }
+  public void setOrderLines(List<OrderLine40> orderLines) {
+    this.orderLines = orderLines;
+  }
 }

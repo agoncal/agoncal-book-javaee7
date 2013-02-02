@@ -14,82 +14,82 @@ import javax.persistence.*;
 @Access(AccessType.FIELD)
 public class Customer29 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Column(name = "first_name", nullable = false, length = 50)
-    private String firstName;
-    @Column(name = "last_name", nullable = false, length = 50)
-    private String lastName;
-    private String email;
-    @Column(name = "phone_number", length = 15)
-    private String phoneNumber;
-    @Embedded
-    private Address29 address;
+  @Id
+  @GeneratedValue
+  private Long id;
+  @Column(name = "first_name", nullable = false, length = 50)
+  private String firstName;
+  @Column(name = "last_name", nullable = false, length = 50)
+  private String lastName;
+  private String email;
+  @Column(name = "phone_number", length = 15)
+  private String phoneNumber;
+  @Embedded
+  private Address29 address;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Customer29() {
-    }
+  public Customer29() {
+  }
 
-    public Customer29(String firstName, String lastName, String email, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
+  public Customer29(String firstName, String lastName, String email, String phoneNumber) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getFirstName() {
-        return firstName;
-    }
+  public String getFirstName() {
+    return firstName;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public String getLastName() {
-        return lastName;
-    }
+  public String getLastName() {
+    return lastName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
 
-    public Address29 getAddress() {
-        return address;
-    }
+  public Address29 getAddress() {
+    return address;
+  }
 
-    public void setAddress(Address29 address) {
-        this.address = address;
-    }
+  public void setAddress(Address29 address) {
+    this.address = address;
+  }
 }

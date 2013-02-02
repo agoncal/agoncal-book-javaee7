@@ -40,6 +40,27 @@
     <class>org.agoncal.book.javaee7.chapter05.ex49.News49</class>
     <class>org.agoncal.book.javaee7.chapter05.ex51.Comment51</class>
     <class>org.agoncal.book.javaee7.chapter05.ex51.News51</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex53.Book53</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex53.CD53</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex53.Item53</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex56.Book56</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex56.CD56</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex56.Item56</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex59.Book59</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex59.CD59</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex59.Item59</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex60.Book60</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex60.CD60</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex60.Item60</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex61.Book61</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex61.CD61</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex61.Item61</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63.Book63</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63.Item63</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63bis.Book63Bis</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63bis.Item63Bis</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex66.Book66</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex66.Item66</class>
     <properties>
       <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>

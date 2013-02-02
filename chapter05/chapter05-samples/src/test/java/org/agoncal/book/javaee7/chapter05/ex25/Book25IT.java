@@ -17,7 +17,7 @@ public class Book25IT extends AbstractPersistentTest {
   // ======================================
   // =              Unit tests            =
   // ======================================
-  
+
   @Test
   public void shouldCreateABook() throws Exception {
 
