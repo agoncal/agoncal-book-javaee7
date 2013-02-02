@@ -2,6 +2,7 @@ package org.agoncal.book.javaee7.chapter03.ex08;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.validation.ConstraintViolation;
@@ -23,6 +24,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@Ignore
 public class Order08Test {
 
   // ======================================
