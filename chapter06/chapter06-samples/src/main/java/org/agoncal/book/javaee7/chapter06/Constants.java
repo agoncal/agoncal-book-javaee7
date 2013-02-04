@@ -9,9 +9,9 @@ package org.agoncal.book.javaee7.chapter06;
  */
 public interface Constants {
 
-    // ======================================
-    // =             Constants              =
-    // ======================================
-    public static final String PERSISTENCE_UNIT_NAME = "chapter06PU";
+  // ======================================
+  // =             Constants              =
+  // ======================================
+  public static final String PERSISTENCE_UNIT_NAME = "chapter06PU";
 
 }

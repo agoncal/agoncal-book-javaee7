@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter06.ex03;
+package org.agoncal.book.javaee7.chapter06.ex21;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +13,8 @@ import javax.persistence.Table;
  *         --
  */
 @Entity
-@Table(name = "ex03_address")
-public class Address03 {
+@Table(name = "ex21_address")
+public class Address21 {
 
   // ======================================
   // =             Attributes             =
@@ -32,10 +32,10 @@ public class Address03 {
   // =            Constructors            =
   // ======================================
 
-  public Address03() {
+  public Address21() {
   }
 
-  public Address03(String street1, String city, String zipcode, String country) {
+  public Address21(String street1, String city, String zipcode, String country) {
     this.street1 = street1;
     this.city = city;
     this.zipcode = zipcode;

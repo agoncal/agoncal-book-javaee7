@@ -1,7 +1,6 @@
-package org.agoncal.book.javaee7.chapter06.ex03;
+package org.agoncal.book.javaee7.chapter06.ex21;
 
 import javax.persistence.*;
-
 
 /**
  * @author Antonio Goncalves
@@ -11,8 +10,19 @@ import javax.persistence.*;
  *         --
  */
 @Entity
-@Table(name = "ex03_customer")
-public class Customer03 {
+@Table(name = "ex21_customer")
+@NamedQueries({
+        @NamedQuery(name = "findAll", query = "select c from Customer21 c"),
+        @NamedQuery(name = Customer21.FIND_ALL, query = "select c from Customer21 c"),
+        @NamedQuery(name = "findVincent", query = "select c from Customer21 c where c.firstName = 'Vincent'"),
+        @NamedQuery(name = "findWithParam", query = "select c from Customer21 c where c.firstName = :fname")
+})
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "findAllNative", query = "select * from JPQL_EX01_CUSTOMER", resultClass = Customer21.class)
+})
+public class Customer21 {
+
+  public static final String FIND_ALL = "Customer.findAll";
 
   // ======================================
   // =             Attributes             =
@@ -23,22 +33,24 @@ public class Customer03 {
   private Long id;
   private String firstName;
   private String lastName;
+  private Integer age;
   private String email;
   @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
   @JoinColumn(name = "address_fk")
-  private Address03 address;
+  private Address21 address;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Customer03() {
+  public Customer21() {
   }
 
-  public Customer03(String firstName, String lastName, String email) {
+  public Customer21(String firstName, String lastName, String email, Integer age) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.age = age;
   }
 
   // ======================================
@@ -73,11 +85,19 @@ public class Customer03 {
     this.email = email;
   }
 
-  public Address03 getAddress() {
+  public Address21 getAddress() {
     return address;
   }
 
-  public void setAddress(Address03 address) {
+  public void setAddress(Address21 address) {
     this.address = address;
+  }
+
+  public Integer getAge() {
+    return age;
+  }
+
+  public void setAge(Integer age) {
+    this.age = age;
   }
 }

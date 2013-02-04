@@ -1,53 +1,38 @@
-package org.agoncal.book.javaee7.chapter06.ex03;
-
-import javax.persistence.*;
-
+package org.agoncal.book.javaee7.chapter06.ex21;
 
 /**
  * @author Antonio Goncalves
  *         APress Book - Beginning Java EE 7 with Glassfish 4
- *         http://www.apress.com
+ *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Entity
-@Table(name = "ex03_customer")
-public class Customer03 {
+public class CustomerDTO21 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @Id
-  @GeneratedValue
-  private Long id;
   private String firstName;
   private String lastName;
-  private String email;
-  @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-  @JoinColumn(name = "address_fk")
-  private Address03 address;
+  private String country;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Customer03() {
+  public CustomerDTO21() {
   }
 
-  public Customer03(String firstName, String lastName, String email) {
+  public CustomerDTO21(String firstName, String lastName, String country) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
+    this.country = country;
   }
 
   // ======================================
   // =          Getters & Setters         =
   // ======================================
-
-  public Long getId() {
-    return id;
-  }
 
   public String getFirstName() {
     return firstName;
@@ -65,19 +50,11 @@ public class Customer03 {
     this.lastName = lastName;
   }
 
-  public String getEmail() {
-    return email;
+  public String getCountry() {
+    return country;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public Address03 getAddress() {
-    return address;
-  }
-
-  public void setAddress(Address03 address) {
-    this.address = address;
+  public void setCountry(String country) {
+    this.country = country;
   }
 }
