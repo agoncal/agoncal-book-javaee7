@@ -11,6 +11,8 @@
     <class>org.agoncal.book.javaee7.chapter06.ex21.Address21</class>
     <class>org.agoncal.book.javaee7.chapter06.ex21.Book21</class>
     <class>org.agoncal.book.javaee7.chapter06.ex21.Customer21</class>
+    <class>org.agoncal.book.javaee7.chapter06.ex24.Address24</class>
+    <class>org.agoncal.book.javaee7.chapter06.ex24.Customer24</class>
     <properties>
       <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>
