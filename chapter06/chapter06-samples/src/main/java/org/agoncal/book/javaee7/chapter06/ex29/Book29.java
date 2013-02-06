@@ -11,10 +11,11 @@ import java.util.Date;
  *         --
  */
 @Entity
-@NamedStoredProcedureQuery(name = "archiveOldBooks", procedureName = "sp_archive_old_books", parameters = {
-        @StoredProcedureParameter(name = "archiveDate", mode = ParameterMode.IN, type=Date.class),
-        @StoredProcedureParameter(name = "maxBookArchived", mode = ParameterMode.IN, type=Integer.class)
-})
+@NamedStoredProcedureQuery(name = "archiveOldBooks", procedureName = "sp_archive_books",
+        parameters = {
+                @StoredProcedureParameter(name = "archiveDate", mode = ParameterMode.IN, type = Date.class),
+                @StoredProcedureParameter(name = "warehouse", mode = ParameterMode.IN, type = String.class)
+        })
 @Table(name = "ex29_book")
 public class Book29 {
 
