@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter06.ex29;
 
 import org.agoncal.book.javaee7.chapter06.AbstractPersistentTest;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.ParameterMode;
@@ -20,7 +21,7 @@ public class StoredProcedure29IT extends AbstractPersistentTest {
   // =              Unit tests            =
   // ======================================
 
-  @Test
+  @Test @Ignore
   public void shouldCallANamedStoredProcedureQuery() throws Exception {
 
     StoredProcedureQuery query = em.createNamedStoredProcedureQuery("archiveOldBooks");
@@ -31,7 +32,7 @@ public class StoredProcedure29IT extends AbstractPersistentTest {
     query.execute();
   }
 
-  @Test
+  @Test @Ignore
   public void shouldCallAStoredProcedureQuery() throws Exception {
 
     StoredProcedureQuery query = em.createStoredProcedureQuery("sp_archive_old_books");
