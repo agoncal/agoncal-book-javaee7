@@ -143,7 +143,7 @@ To compile, package and execute the code you need the following software :
 ## Enterprise Specifications
 
 * EJB 3.2 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/ejb-spec) - [Mailing lists](http://java.net/projects/ejb-spec/lists)
-* Interceptor 1.1 - [JSR 345](http://jcp.org/en/jsr/detail?id=345) - [Project](http://java.net/projects/interceptors-spec) - [Mailing lists](http://java.net/projects/interceptors-spec/lists)
+* Interceptor 1.2 - [JSR 318](http://jcp.org/en/jsr/detail?id=318) - [Project](http://java.net/projects/interceptors-spec) - [Mailing lists](http://java.net/projects/interceptors-spec/lists)
 * JavaMail 1.5 - [JSR 919](http://jcp.org/en/jsr/detail?id=919)
 * JCA 1.7 - [JSR 322](http://jcp.org/en/jsr/detail?id=322)
 * JMS 2.0 - [JSR 343](http://jcp.org/en/jsr/detail?id=343) - [Project](http://java.net/projects/jms-spec) - [Mailing lists](http://java.net/projects/jms-spec/lists) - [JIRA|http://java.net/jira/browse/JMS_SPEC]
@@ -156,12 +156,11 @@ To compile, package and execute the code you need the following software :
 * CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346) - [Mailing lists](http://seamframework.org/Community/MailingLists) - [Documentation](http://docs.jboss.org/cdi/spec/) - [JIRA](https://issues.jboss.org/browse/CDI)
 * JACC 1.4 - [JSR 115](http://jcp.org/en/jsr/detail?id=115)
 * Bean Validation 1.1 - [JSR 349](http://jcp.org/en/jsr/detail?id=349) - [Mailing lists](https://lists.jboss.org/mailman/listinfo/beanvalidation-dev) - [Web site](http://beanvalidation.org/)
-* Common Annotations 1.1 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
 * (Prunned) Java EE Application Deployment 1.2 - [JSR 88](http://jcp.org/en/jsr/detail?id=88)
 * Java EE Management 1.1 - [JSR 77](http://jcp.org/en/jsr/detail?id=77)
 * JASPIC 1.0 - [JSR 196](http://jcp.org/en/jsr/detail?id=196)
-* JCache 1.0 - [JSR 107](http://jcp.org/en/jsr/detail?id=107) - [Project](https://github.com/jsr107/jsr107spec) - [Forum](https://groups.google.com/forum/?fromgroups#!forum/jsr107) - [RI on GitHub](https://github.com/jsr107/RI)
 * Batch 1.0 - [JSR 352](http://jcp.org/en/jsr/detail?id=352) - [Project](http://java.net/projects/jbatch) - [Mailing lists](http://java.net/projects/jbatch/lists)
+* Concurrency Utilities for Java EE 1.0 - [JSR 236](http://jcp.org/en/jsr/detail?id=236)
 
 # Related Enterprise Technologies in Java SE 7
 
@@ -177,7 +176,7 @@ To compile, package and execute the code you need the following software :
 * JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222) - [Project](http://jaxb.java.net/) - [Mailing lists](http://java.net/projects/jaxb/lists/)
 * JAF 1.1 - [JSR 925](http://jcp.org/en/jsr/detail?id=925)
 * SAAJ 1.3 - [Project](http://java.net/projects/saaj/)
-* Common Annotations 1.1 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
+* Common Annotations 1.2 - [JSR 250](http://jcp.org/en/jsr/detail?id=250)
 
 # Licensing
 
