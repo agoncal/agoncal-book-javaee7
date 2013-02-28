@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+  <persistence-unit name="chapter05PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <mapping-file>META-INF/ex25_book_mapping.xml</mapping-file>
+    <class>org.agoncal.book.javaee7.chapter05.ex01.Book01</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex02.Address02</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex04.NewsId04</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex04.News04</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex06.News06</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex09.Track09</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex11.Book11</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex14.Customer14</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex17.CreditCard17</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex20.Customer20</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex23.Book23</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex24.CD24</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex25.Book25</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex29.Address29</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex29.Customer29</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex32.Address32</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex32.Customer32</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex34.Address34</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex34.Customer34</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex39.Address39</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex39.Customer39</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex40.Order40</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex40.OrderLine40</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex43.Order43</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex43.OrderLine43</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex45.Order45</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex45.OrderLine45</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex46.Artist46</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex46.CD46</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex49.Comment49</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex49.News49</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex51.Comment51</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex51.News51</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex53.Book53</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex53.CD53</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex53.Item53</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex56.Book56</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex56.CD56</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex56.Item56</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex59.Book59</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex59.CD59</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex59.Item59</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex60.Book60</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex60.CD60</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex60.Item60</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex61.Book61</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex61.CD61</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex61.Item61</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63.Book63</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63.Item63</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63bis.Book63Bis</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex63bis.Item63Bis</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex66.Book66</class>
+    <class>org.agoncal.book.javaee7.chapter05.ex66.Item66</class>
+    <properties>
+      <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:chapter05DB;create=true"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>        

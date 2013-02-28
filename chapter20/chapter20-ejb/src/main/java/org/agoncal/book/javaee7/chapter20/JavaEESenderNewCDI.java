@@ -55,7 +55,7 @@ public class JavaEESenderNewCDI {
 
     @Inject private JMSContext context;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
+    @Resource(lookup = "java:global/jms/chapter20Queue")
     Queue inboundQueue;
                
     public void sendMessageNewCDI(String payload) {

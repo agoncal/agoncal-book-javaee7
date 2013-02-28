@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="layout.xhtml">
+
+  <f:metadata>
+    <f:viewParam name="id" value="#{bookController.book.id}"/>
+    <f:viewAction action="#{bookController.doFindBookById}"/>
+  </f:metadata>
+
+  <ui:define name="title">View a book</ui:define>
+
+  <ui:define name="content">
+
+    <h:panelGrid columns="2">
+      <h:outputLabel value="Title : "/>
+      <h:outputText value="#{bookController.book.title}"/>
+
+      <h:outputLabel value="Price : "/>
+      <h:outputText value="#{bookController.book.price}"/>
+
+      <h:outputLabel value="Description : "/>
+      <h:outputText value="#{bookController.book.description}" cols="16" rows="3"/>
+
+      <h:outputLabel value="Number of pages : "/>
+      <h:outputText value="#{bookController.book.nbOfPage}"/>
+
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
+    </h:panelGrid>
+
+  </ui:define>
+
+</ui:composition>
+</html>

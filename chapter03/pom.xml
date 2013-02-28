@@ -6,7 +6,7 @@
   <groupId>org.agoncal.book.javaee7</groupId>
   <artifactId>chapter03</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>03 - Bean Validation</name>
 
   <parent>
@@ -15,16 +15,9 @@
     <version>1.0</version>
   </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-    </dependency>
+  <modules>
+    <module>chapter03-samples</module>
+    <module>chapter03-putting-together</module>
+  </modules>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-
-  </dependencies>
 </project>

@@ -52,15 +52,15 @@ import java.util.logging.Logger;
 public class JavaEESyncReceiverNewCDI {
 
     @Inject
-    @JMSConnectionFactory("java:global/jms/demoConnectionFactory") // <== could omit this and use the default
+    @JMSConnectionFactory("java:global/jms/chapter20ConnectionFactory") // <== could omit this and use the default
     private JMSContext context;
-    @Resource(lookup = "java:global/jms/demoQueue")
-    Queue inboundQueue;
+    @Resource(lookup = "java:global/jms/chapter20Queue")
+    Queue chapter20Queue;
 
     // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API. 
     public String receiveMessageNewCDI() {
         try {
-            JMSConsumer consumer = context.createConsumer(inboundQueue);
+            JMSConsumer consumer = context.createConsumer(chapter20Queue);
             return "Received " + consumer.receivePayload(String.class, 1000);
         } catch (JMSRuntimeException ex) {
             Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);

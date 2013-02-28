@@ -50,18 +50,18 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderOldWithProperties {
 
-    @Resource(lookup = "java:global/jms/demoConnectionFactory")
+    @Resource(lookup = "java:global/jms/chapter20ConnectionFactory")
     ConnectionFactory connectionFactory;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
-    Queue demoQueue;
+    @Resource(lookup = "java:global/jms/chapter20Queue")
+    Queue chapter20Queue;
 
     public void sendMessageOldWithProperties(String payload) {
         try {
             Connection connection = connectionFactory.createConnection();
             try {
                 Session session = connection.createSession();
-                MessageProducer messageProducer = session.createProducer(demoQueue);
+                MessageProducer messageProducer = session.createProducer(chapter20Queue);
                 messageProducer.setPriority(1);
                 TextMessage textMessage = session.createTextMessage(payload);
                 textMessage.setStringProperty("foo", "bar");

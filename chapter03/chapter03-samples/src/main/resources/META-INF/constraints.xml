@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<constraint-mappings
+        xmlns="http://jboss.org/xml/ns/javax/validation/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping validation-mapping-1.1.xsd"
+        version="1.1">
+
+  <bean class="org.agoncal.book.javaee7.chapter03.ex14.Book14" ignore-annotations="false">
+    <field name="title">
+      <constraint annotation="javax.validation.constraints.NotNull">
+        <message>Title should not be null</message>
+      </constraint>
+    </field>
+    <field name="price">
+      <constraint annotation="javax.validation.constraints.NotNull"/>
+      <constraint annotation="javax.validation.constraints.Min">
+        <element name="value">2</element>
+      </constraint>
+    </field>
+    <field name="description">
+      <constraint annotation="javax.validation.constraints.Size">
+        <element name="max">2000</element>
+      </constraint>
+    </field>
+  </bean>
+</constraint-mappings>

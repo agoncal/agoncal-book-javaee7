@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress">
+<h:head>
+  <title>Create a new CD</title>
+</h:head>
+<h:body>
+  <h1>Create a new CD</h1>
+  <hr/>
+  <h:form>
+
+    <ago:newItem item="#{itemController.cd}"/>
+
+    <h:panelGrid columns="2">
+      <h:outputLabel value="Music company : "/>
+      <h:inputText value="#{itemController.cd.musicCompany}"/>
+
+      <h:outputLabel value="Number of CDs : "/>
+      <h:inputText value="#{itemController.cd.numberOfCDs}"/>
+
+      <h:outputLabel value="Total duration : "/>
+      <h:inputText value="#{itemController.cd.totalDuration}"/>
+
+      <h:outputLabel value="Genre : "/>
+      <h:inputText value="#{itemController.cd.genre}"/>
+    </h:panelGrid>
+
+    <h:commandButton value="Create a cd" action="#{itemController.doCreateCD}"/>
+
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+
+</h:body>
+</html>

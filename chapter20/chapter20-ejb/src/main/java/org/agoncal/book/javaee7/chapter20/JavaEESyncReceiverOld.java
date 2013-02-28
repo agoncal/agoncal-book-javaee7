@@ -50,11 +50,11 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESyncReceiverOld {
 
-    @Resource(lookup = "java:global/jms/demoConnectionFactory")
+    @Resource(lookup = "java:global/jms/chapter20ConnectionFactory")
     ConnectionFactory connectionFactory;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
-    Queue demoQueue;
+    @Resource(lookup = "java:global/jms/chapter20Queue")
+    Queue chapter20Queue;
     
     // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API. 
 
@@ -65,7 +65,7 @@ public class JavaEESyncReceiverOld {
                 connection = connectionFactory.createConnection();
                 connection.start();
                 Session session = connection.createSession();
-                MessageConsumer messageConsumer = session.createConsumer(demoQueue);
+                MessageConsumer messageConsumer = session.createConsumer(chapter20Queue);
                 TextMessage textMessage = (TextMessage) messageConsumer.receive(1000);
                 if (textMessage==null){
                     return "Received null";

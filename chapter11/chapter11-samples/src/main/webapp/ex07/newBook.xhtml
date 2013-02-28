@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+  <title>Create a new book</title>
+</h:head>
+<h:body>
+  <h1>Create a new book</h1>
+  <hr/>
+  <h:form>
+    <h:panelGrid columns="2">
+      <h:outputLabel value="ISBN : "/>
+      <h:inputText value="#{bookController.book.isbn}"/>
+
+      <h:outputLabel value="Title :"/>
+      <h:inputText value="#{bookController.book.title}"/>
+
+      <h:outputLabel value="Price : "/>
+      <h:inputText value="#{bookController.book.price}"/>
+
+      <h:outputLabel value="Description  : "/>
+      <h:inputTextarea value="#{bookController.book.description}" cols="20" rows="5"/>
+
+      <h:outputLabel value="Number of pages : "/>
+      <h:inputText value="#{bookController.book.nbOfPage}"/>
+
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox value="#{bookController.book.illustrations}"/>
+
+    </h:panelGrid>
+    <h:commandButton value="Create a book" action="#{bookController.doCreateBook}"/>
+
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+  <hr/>
+  <h1>Debug</h1>
+  Press CTRL + SHIFT + D
+  <ui:debug/>
+</h:body>
+</html>

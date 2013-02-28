@@ -91,7 +91,7 @@ public class ItemEJB04Test {
         cd.setMusicCompany("Zappa Corp.");
         cd.setNumberOfCDs(1);
         cd.setTotalDuration(65f);
-        cd.setGender("Rock");
+        cd.setGenre("Rock");
 
         // Looks up the EJB
         ItemEJB04 itemEJB = (ItemEJB04) ctx.lookup("java:global/classes/ItemEJB04!org.agoncal.book.javaee7.chapter13.ex04.ItemEJB04");

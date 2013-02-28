@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xml:lang="en" lang="en">
+<ui:debug/>
+<head>
+  <title>HTML components</title>
+  <style type="text/css">
+    table.sample {
+      border-width: 1px 1px 1px 1px;
+      border-spacing: 2px;
+      border-style: outset outset outset outset;
+      border-color: gray gray gray gray;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    table.sample th {
+      border-width: 1px 1px 1px 1px;
+      padding: 1px 1px 1px 1px;
+      border-style: inset inset inset inset;
+      border-color: gray gray gray gray;
+      background-color: white;
+      -moz-border-radius: 0px 0px 0px 0px;
+    }
+
+    table.sample td {
+      border-width: 1px 1px 1px 1px;
+      padding: 1px 1px 1px 1px;
+      border-style: inset inset inset inset;
+      border-color: gray gray gray gray;
+      background-color: white;
+      -moz-border-radius: 0px 0px 0px 0px;
+    }
+
+    table.sample2 {
+      border-width: 0px 0px 0px 0px;
+      border-spacing: 0px;
+      border-style: none none none none;
+      border-color: gray gray gray gray;
+      border-collapse: separate;
+      background-color: white;
+    }
+
+    table.sample2 th {
+      border-width: 1px 1px 1px 1px;
+      padding: 1px 1px 1px 1px;
+      border-style: none none none none;
+      border-color: gray gray gray gray;
+      background-color: white;
+      -moz-border-radius: 0px 0px 0px 0px;
+    }
+
+    table.sample2 td {
+      border-width: 1px 1px 1px 1px;
+      padding: 1px 1px 1px 1px;
+      border-style: none none none none;
+      border-color: gray gray gray gray;
+      background-color: white;
+      -moz-border-radius: 0px 0px 0px 0px;
+    }
+  </style>
+</head>
+<body>
+<h1>Debug</h1>
+<ui:debug/>
+<h1>HTML components</h1>
+<hr/>
+<h3>javax.faces.Command</h3>
+<table border="0">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.Button</td>
+    <td>h:commandButton</td>
+    <td>
+      <h:commandButton action="#{htmlComponentController.doNext}" value="A submit button"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Button</td>
+    <td>h:commandButton</td>
+    <td>
+      <h:form>
+        <h:commandButton action="#{htmlComponentController.doNext}" type="reset" value="A reset button"/>
+      </h:form>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Button</td>
+    <td>h:commandButton</td>
+    <td>
+      <h:commandButton action="#{htmlComponentController.doNext}" image="/resources/images/book.gif"
+                       title="A button with an image"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Link</td>
+    <td>h:commandLink</td>
+    <td>
+      <h:form>
+        <h:commandLink action="#{htmlComponentController.doNext}">A hyperlink</h:commandLink>
+      </h:form>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.HtmlOutcomeTarget</h3>
+<table border="0">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.HtmlOutcomeTargetButton</td>
+    <td>h:button</td>
+    <td>
+      <h:button outcome="newBook.xhtml" value="A bookmarkable button link"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.HtmlOutcomeTargetLink</td>
+    <td>h:link</td>
+    <td>
+      <h:form>
+        <h:link outcome="newBook.xhtml" value="A bookmarkable link"/>
+      </h:form>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.Input</h3>
+<table border="0">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.Hidden</td>
+    <td>h:inputHidde</td>
+    <td>
+      <h:inputHidden value="Hidden data"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Secret</td>
+    <td>h:inputSecret</td>
+    <td>
+      <h:inputSecret maxlength="8"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Text</td>
+    <td>h:inputText</td>
+    <td>
+      <h:inputText value="An input text"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Text</td>
+    <td>h:inputText</td>
+    <td>
+      <h:inputText size="40" value="A longer input text"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Textarea</td>
+    <td>h:inputTextarea</td>
+    <td>
+      <h:inputTextarea rows="4" cols="20" value="A text area"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.File</td>
+    <td>h:inputFile</td>
+    <td>
+      <h:inputFile/>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.Output</h3>
+<table border="1">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.Label</td>
+    <td>h:outputLabel</td>
+    <td>
+      <h:outputLabel value="A label"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Link</td>
+    <td>h:outputLink</td>
+    <td>
+      <h:outputLink value="http://www.apress.com/">A link</h:outputLink>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Text</td>
+    <td>h:outputText</td>
+    <td>
+      <h:outputText value="A text"/>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.SelectBoolean</h3>
+<table class="sample">
+  <tr>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>h:selectBooleanCheckbox</td>
+    <td>
+      <h:selectBooleanCheckbox label="label" title="One checkbox"/>
+    </td>
+  </tr>
+  <tr>
+    <td>h:selectManyCheckbox</td>
+    <td>
+      <h:selectManyCheckbox disabled="false" layout="lineDirection" border="0">
+        <f:selectItem itemLabel="History" itemValue="11"/>
+        <f:selectItem itemLabel="Biography" itemValue="22"/>
+        <f:selectItem itemLabel="Literature" itemValue="33"/>
+        <f:selectItem itemLabel="Comics" itemValue="44"/>
+        <f:selectItem itemLabel="Child" itemValue="55"/>
+        <f:selectItem itemLabel="Scifi" itemValue="66"/>
+      </h:selectManyCheckbox>
+    </td>
+  </tr>
+  <tr>
+    <td>h:selectManyListbox</td>
+    <td>
+      <h:selectManyListbox>
+        <f:selectItem itemLabel="History" itemValue="11"/>
+        <f:selectItem itemLabel="Biography" itemValue="22"/>
+        <f:selectItem itemLabel="Literature" itemValue="33"/>
+        <f:selectItem itemLabel="Comics" itemValue="44"/>
+        <f:selectItem itemLabel="Child" itemValue="55"/>
+        <f:selectItem itemLabel="Scifi" itemValue="66"/>
+      </h:selectManyListbox>
+    </td>
+  </tr>
+  <tr>
+    <td>h:selectManyMenu</td>
+    <td>
+      <h:selectManyMenu>
+        <f:selectItem itemLabel="History" itemValue="11"/>
+        <f:selectItem itemLabel="Biography" itemValue="22"/>
+        <f:selectItem itemLabel="Literature" itemValue="33"/>
+        <f:selectItem itemLabel="Comics" itemValue="44"/>
+        <f:selectItem itemLabel="Child" itemValue="55"/>
+        <f:selectItem itemLabel="Scifi" itemValue="66"/>
+      </h:selectManyMenu>
+    </td>
+  </tr>
+  <tr>
+    <td>h:selectOneListbox</td>
+    <td>
+      <h:selectOneListbox>
+        <f:selectItem itemLabel="History" itemValue="11"/>
+        <f:selectItem itemLabel="Biography" itemValue="22"/>
+        <f:selectItem itemLabel="Literature" itemValue="33"/>
+        <f:selectItem itemLabel="Comics" itemValue="44"/>
+        <f:selectItem itemLabel="Child" itemValue="55"/>
+        <f:selectItem itemLabel="Scifi" itemValue="66"/>
+      </h:selectOneListbox>
+    </td>
+  </tr>
+  <tr>
+    <td>h:selectOneMenu</td>
+    <td>
+      <h:selectOneMenu>
+        <f:selectItem itemLabel="History" itemValue="11"/>
+        <f:selectItem itemLabel="Biography" itemValue="22"/>
+        <f:selectItem itemLabel="Literature" itemValue="33"/>
+        <f:selectItem itemLabel="Comics" itemValue="44"/>
+        <f:selectItem itemLabel="Child" itemValue="55"/>
+        <f:selectItem itemLabel="Scifi" itemValue="66"/>
+      </h:selectOneMenu>
+    </td>
+  </tr>
+  <tr>
+    <td>h:selectOneRadio</td>
+    <td>
+      <h:selectOneRadio>
+        <f:selectItem itemLabel="History" itemValue="11"/>
+        <f:selectItem itemLabel="Biography" itemValue="22"/>
+        <f:selectItem itemLabel="Literature" itemValue="33"/>
+        <f:selectItem itemLabel="Comics" itemValue="44"/>
+        <f:selectItem itemLabel="Child" itemValue="55"/>
+        <f:selectItem itemLabel="Scifi" itemValue="66"/>
+      </h:selectOneRadio>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.Graphic</h3>
+<table border="1">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage name="book.gif" library="images"</td>
+    <td>
+      <h:graphicImage name="book.gif" library="images"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="{resource['images:book.gif']}</td>
+    <td>
+      <h:graphicImage value="#{resource['images:book.gif']}"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="bookInJar.gif" library="externalImages"</td>
+    <td>
+      <h:graphicImage value="bookInJar.gif" library="externalImages"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="{resource['bookInJar.gif']}</td>
+    <td>
+      <h:graphicImage value="#{resource['bookInJar.gif']}"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="{resource['externalImages:bookInJar.gif']}</td>
+    <td>
+      <h:graphicImage value="#{resource['externalImages:bookInJar.gif']}"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Image</td>
+    <td>h:graphicImage value="/resources/images/book.gif"</td>
+    <td>
+      <h:graphicImage value="/resources/images/book.gif" height="200" width="320"/>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.Data</h3>
+<h:dataTable value="#{htmlComponentController.bookList}" var="bk" border="1">
+  <h:column>
+    <h:outputText value="#{bk.isbn}"/>
+  </h:column>
+  <h:column>
+    <h:outputText value="#{bk.title}"/>
+  </h:column>
+  <h:column>
+    <h:outputText value="#{bk.price}"/>
+  </h:column>
+  <h:column>
+    <h:outputText value="#{bk.description}"/>
+  </h:column>
+  <h:column>
+    <h:outputText value="#{bk.nbOfPage}"/>
+  </h:column>
+  <h:column>
+    <h:outputText value="#{bk.illustrations}"/>
+  </h:column>
+</h:dataTable>
+<br/>
+<h:panelGrid columns="3" border="1" style=".sample">
+  <h:outputLabel value="One"/>
+  <h:outputLabel value="Two"/>
+  <h:outputLabel value="Three"/>
+  <h:outputLabel value="Four"/>
+  <h:outputLabel value="Five"/>
+  <h:outputLabel value="Six"/>
+</h:panelGrid>
+<br/>
+<h:panelGrid columns="3" border="1" style=".sample">
+  <f:facet name="header">
+    <h:outputText value="Header"/>
+  </f:facet>
+  <h:outputLabel value="One"/>
+  <h:outputLabel value="Two"/>
+  <h:outputLabel value="Three"/>
+  <h:outputLabel value="Four"/>
+  <h:outputLabel value="Five"/>
+  <h:outputLabel value="Six"/>
+  <f:facet name="footer">
+    <h:outputText value="Footer"/>
+  </f:facet>
+</h:panelGrid>
+
+
+<h3>javax.faces.Form</h3>
+<table border="0">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+    fatalStyle
+  </tr>
+  <tr>
+    <td>javax.faces.Form</td>
+    <td>h:form</td>
+    <td>
+      <h:form/>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.Message</h3>
+<table border="0">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.Message</td>
+    <td>h:message</td>
+    <td>
+      <h:messages style="color:red"/>
+      <h:form>
+        Enter a title:
+        <h:inputText value="#{htmlComponentController.title}" required="true"/>
+        <h:commandButton action="#{htmlComponentController.doNew}" value="Save"/>
+      </h:form>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.Messages</h3>
+<table border="1">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.Messages</td>
+    <td>h:messages</td>
+    <td>
+      <h:messages/>
+    </td>
+  </tr>
+</table>
+
+<h3>javax.faces.NamingContainer</h3>
+
+<h3>javax.faces.Output</h3>
+<table border="1">
+  <tr>
+    <th>Class</th>
+    <th>Tag</th>
+    <th>Rendering</th>
+  </tr>
+  <tr>
+    <td>javax.faces.Body</td>
+    <td>h:body</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>javax.faces.CompositeFacet</td>
+    <td>h:outputCompositeFacet</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>javax.faces.ConsumingPageCompositeChildren</td>
+    <td>h:outputConsumingPageCompositeChildren</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>javax.faces.Format</td>
+    <td>h:outputFormat</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>javax.faces.Head</td>
+    <td>h:head</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>javax.faces.Label</td>
+    <td>h:outputLabel</td>
+    <td>
+      <h:outputLabel value="Label"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Link</td>
+    <td>h:outputLink</td>
+    <td>
+      <h:outputLink value="http://www.apress.com/">Link</h:outputLink>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.Text</td>
+    <td>h:outputText</td>
+    <td>
+      <h:outputText value="Text"/>
+    </td>
+  </tr>
+  <tr>
+    <td>javax.faces.resource.Script</td>
+    <td>h:outputScript</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>javax.faces.resource.Stylesheet</td>
+    <td>h:outputStylesheet</td>
+    <td>???</td>
+  </tr>
+</table>
+
+<h3>javax.faces.Panel</h3>
+
+
+<hr/>
+<em>APress - Beginning Java EE 7</em>
+
+</body>
+</html>

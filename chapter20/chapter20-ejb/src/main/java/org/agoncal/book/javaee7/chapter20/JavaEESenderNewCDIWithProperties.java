@@ -55,10 +55,10 @@ import java.util.logging.Logger;
 public class JavaEESenderNewCDIWithProperties {
 
     @Inject
-    @JMSConnectionFactory("java:global/jms/demoConnectionFactory") // <== could omit this and use the default
+    @JMSConnectionFactory("java:global/jms/chapter20ConnectionFactory") // <== could omit this and use the default
     private JMSContext context;
     
-    @Resource(lookup = "java:global/jms/demoQueue")
+    @Resource(lookup = "java:global/jms/chapter20Queue")
     Queue inboundQueue;
 
     public void sendMessageNewCDIWithProperties(String payload) {

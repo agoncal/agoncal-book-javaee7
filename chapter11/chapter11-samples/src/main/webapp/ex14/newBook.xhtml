@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ago="http://java.sun.com/jsf/composite/apress">
+<h:head>
+  <title>Create a new book</title>
+</h:head>
+<h:body>
+  <h1>Create a new book</h1>
+  <hr/>
+  <h:form>
+
+    <ago:newItem item="#{itemController.book}"/>
+
+    <h:panelGrid columns="2">
+      <h:outputLabel value="ISBN : "/>
+      <h:inputText value="#{itemController.book.isbn}"/>
+
+      <h:outputLabel value="Number of pages : "/>
+      <h:inputText value="#{itemController.book.nbOfPage}"/>
+
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox value="#{itemController.book.illustrations}"/>
+
+    </h:panelGrid>
+
+    <h:commandButton value="Create a book" action="#{itemController.doCreateBook}"/>
+
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+
+</h:body>
+</html>

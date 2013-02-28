@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+  <title>Checking numbers</title>
+</h:head>
+<h:body>
+  <h1>Checking numbers</h1>
+  <hr/>
+  <c:set var="upperLimit" value="20"/>
+  <c:forEach var="i" begin="3" end="#{upperLimit - 5}">
+
+    <c:choose>
+      <c:when test="#{i%2 == 0}">
+        <h:outputText value="#{i} is even"/><br/>
+      </c:when>
+      <c:otherwise>
+        <h:outputText value="#{i} is odd"/><br/>
+      </c:otherwise>
+    </c:choose>
+
+  </c:forEach>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+</h:body>
+</html>

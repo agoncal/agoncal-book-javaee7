@@ -13,14 +13,26 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 
+//@JMSDestinationDefinition(
+//        name = "java:global/jms/chapter20Queue",
+//        className = "javax.jms.Queue",
+//        destinationName = "chapter20Queue")
+//
+//@JMSConnectionFactoryDefinition(
+//        name = "java:global/jms/chapter20ConnectionFactory",
+//        className = "javax.jms.ConnectionFactory"
+//)
 @JMSDestinationDefinition(
         name = "java:global/jms/chapter20Queue",
+        description = "Queue to use in demonstration",
         className = "javax.jms.Queue",
-        destinationName = "chapter20Queue")
+        resourceAdapterName = "jmsra",
+        destinationName = "demoQueue")
 
 @JMSConnectionFactoryDefinition(
         name = "java:global/jms/chapter20ConnectionFactory",
-        className = "javax.jms.ConnectionFactory"
+        className = "javax.jms.ConnectionFactory",
+        description = "ConnectionFactory to use in demonstration"
 )
 
 @WebServlet(urlPatterns = {"/JMSServlet"})
@@ -52,8 +64,8 @@ public class JMSServlet extends HttpServlet {
   JMSContext context;
 
   // Inject a Queue object to use
-  @Resource(lookup = "java:global/jms/demoQueue")
-  Queue demoQueue;
+  @Resource(lookup = "java:global/jms/chapter20Queue")
+  Queue chapter20Queue;
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -152,12 +164,13 @@ public class JMSServlet extends HttpServlet {
   }
 
   String getQueueDepth() throws JMSException {
-    int numMessages = 0;
-    for (Enumeration queueEnumeration = context.createBrowser(demoQueue).getEnumeration(); queueEnumeration.hasMoreElements(); ) {
-      queueEnumeration.nextElement();
-      numMessages++;
-    }
-    return "<b>" + numMessages + "</b>";
+//    int numMessages = 0;
+//    for (Enumeration queueEnumeration = context.createBrowser(chapter20Queue).getEnumeration(); queueEnumeration.hasMoreElements(); ) {
+//      queueEnumeration.nextElement();
+//      numMessages++;
+//    }
+//    return "<b>" + numMessages + "</b>";
+    return "<b>toto</b>";
 
   }
 }

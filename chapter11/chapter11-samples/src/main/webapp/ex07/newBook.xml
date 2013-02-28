@@ -1,0 +1,43 @@
+<UIViewRoot>
+  <html xmlns="http://www.w3.org/1999/xhtml">
+
+    <UIOutput>
+      <title>Create a new book</title>
+    </UIOutput>
+
+    <UIOutput>
+
+      <h1>Create a new book</h1>
+      <hr/>
+
+      <HtmlForm>
+        <HtmlPanelGrid>
+
+          <HtmlOutputLabel value="ISBN : "/>
+          <HtmlInputText/>
+
+          <HtmlOutputLabel value="Title :"/>
+          <HtmlInputText/>
+
+          <HtmlOutputLabel value="Price : "/>
+          <HtmlInputText/>
+
+          <HtmlOutputLabel value="Description : "/>
+          <HtmlInputTextarea/>
+
+          <HtmlOutputLabel value="Number of pages : "/>
+          <HtmlInputText/>
+
+          <HtmlOutputLabel value="Illustrations : "/>
+          <HtmlSelectBooleanCheckbox/>
+        </HtmlPanelGrid>
+
+        <HtmlCommandButton value="Create a book"/>
+      </HtmlForm>
+
+      <hr/>
+      <HtmlOutputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+
+    </UIOutput>
+  </html>
+</UIViewRoot>

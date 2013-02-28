@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+  <title>Create a new book (validator)</title>
+</h:head>
+<h:body>
+  <h1>Create a new book</h1>
+  <hr/>
+  <h:form>
+    <h:messages showDetail="true" errorStyle="color: red" warnStyle="color: orange"
+                infoStyle="color: blue"/>
+
+    <h:panelGrid columns="2">
+      <h:outputLabel value="ISBN : "/>
+      <h:inputText value="#{bookController14.book.isbn}" validator="isbnValidator"/>
+      <!--This also works-->
+      <!--<h:inputText value="#{bookController14.book.isbn}">-->
+      <!--<f:validator validatorId="isbnValidator" />-->
+      <!--</h:inputText>-->
+
+      <h:outputLabel value="Title :"/>
+      <h:inputText id="title" value="#{bookController14.book.title}" required="true">
+        <f:validateLength minimum="2" maximum="20"/>
+      </h:inputText>
+
+      <h:outputLabel value="Price : "/>
+      <h:inputText value="#{bookController14.book.price}">
+        <f:validateLongRange minimum="1" maximum="500"/>
+      </h:inputText>
+
+      <h:outputLabel value="Description  : "/>
+      <h:inputTextarea value="#{bookController14.book.description}" cols="20" rows="5"/>
+
+      <h:outputLabel value="Number of pages : "/>
+      <h:inputText value="#{bookController14.book.nbOfPage}"/>
+
+      <h:outputLabel value="Illustrations : "/>
+      <h:selectBooleanCheckbox value="#{bookController14.book.illustrations}"/>
+
+      <h:commandButton value="Create a book" action="#{bookController14.doCreateBook}"/>
+    </h:panelGrid>
+
+  </h:form>
+  <hr/>
+  <h:outputText value="APress - Beginning Java EE 7" style="font-style: italic"/>
+
+</h:body>
+</html>

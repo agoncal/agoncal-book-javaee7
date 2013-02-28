@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+  <composite:attribute name="item" required="true"/>
+  <composite:attribute name="style" required="false"/>
+</composite:interface>
+
+<composite:implementation>
+  <h:panelGrid columns="2" style="#{cc.attrs.style}">
+
+    <h:outputLabel value="Title : "/>
+    <h:inputText value="#{cc.attrs.item.title}"/>
+
+    <h:outputLabel value="Price : "/>
+    <h:inputText value="#{cc.attrs.item.price}"/>
+
+    <h:outputLabel value="Description : "/>
+    <h:inputTextarea value="#{cc.attrs.item.description}" cols="20" rows="5"/>
+
+  </h:panelGrid>
+</composite:implementation>
+</html>

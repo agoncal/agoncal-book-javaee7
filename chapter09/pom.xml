@@ -7,7 +7,7 @@
   <artifactId>chapter09</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>09 - Callback, Timer and Security</name>
+  <name>09 - Callback and Timer</name>
 
   <parent>
     <groupId>org.agoncal.book.javaee7</groupId>
@@ -16,7 +16,9 @@
   </parent>
 
   <modules>
+    <module>chapter09-consumer</module>
     <module>chapter09-samples</module>
+    <module>chapter09-service</module>
   </modules>
 
 </project>
