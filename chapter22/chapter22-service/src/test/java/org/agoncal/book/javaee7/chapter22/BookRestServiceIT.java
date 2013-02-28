@@ -1,5 +1,8 @@
 package org.agoncal.book.javaee7.chapter22;
 
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
+import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
@@ -15,6 +18,7 @@ import java.io.StringWriter;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -33,6 +37,11 @@ public class BookRestServiceIT {
   private static Client client = ClientFactory.newClient();
 
   private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book><description>Science fiction comedy book</description><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title></book>";
+
+  @BeforeClass
+  public static void setupClass() {
+      client.configuration().register(MOXyJsonProvider.class);
+  }
 
   // ======================================
   // =              Unit tests            =
@@ -61,6 +70,31 @@ public class BookRestServiceIT {
     JAXBContext context = JAXBContext.newInstance(Books.class);
     Marshaller m = context.createMarshaller();
     m.marshal(books, writer);
+  }
+
+  @Test
+  public void shouldCreateReadAndDeleteTwoBooks() throws JAXBException {
+      Book firstBook = new Book("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);
+      Response firstResponse = client.target(uri).request().post(Entity.entity(firstBook, MediaType.APPLICATION_XML));
+      assertEquals(Response.Status.CREATED, firstResponse.getStatusInfo());
+
+      Book secondBook = new Book("The Hitchhiker's Guide to the Galaxy, part 2", 42.5F, "Science fiction comedy book", "1-84023-742-x", 23, false);
+      Response secondResponse = client.target(uri).request().post(Entity.entity(secondBook, MediaType.APPLICATION_XML));
+      assertEquals(Response.Status.CREATED, secondResponse.getStatusInfo());
+
+      Response response = client.target(uri).request(MediaType.APPLICATION_JSON).get();
+      assertEquals(Response.Status.OK, response.getStatusInfo());
+      Books books = response.readEntity(Books.class);
+      assertTrue(books.size() == 2);
+
+      response = client.target(firstResponse.getLocation()).request().delete();
+      assertEquals(Response.Status.NO_CONTENT, response.getStatusInfo());
+      response = client.target(secondResponse.getLocation()).request().delete();
+      assertEquals(Response.Status.NO_CONTENT, response.getStatusInfo());
+
+      response = client.target(uri).request(MediaType.APPLICATION_JSON).get();
+      assertEquals(Response.Status.OK, response.getStatusInfo());
+      assertTrue(response.readEntity(Books.class).isEmpty());
   }
 
 

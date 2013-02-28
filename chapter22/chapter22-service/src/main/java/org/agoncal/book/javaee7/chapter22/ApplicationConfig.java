@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter22;
 
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.eclipse.persistence.jaxb.rs.MOXyJsonProvider;
 
 import javax.ws.rs.ApplicationPath;
@@ -32,7 +33,7 @@ public class ApplicationConfig extends Application {
     HashSet<Class<?>> c = new HashSet<>();
     c.add(BookRestService.class);
 
-    c.add(MOXyJsonProvider.class);
+    c.add(JacksonJsonProvider.class);
 
     classes = Collections.unmodifiableSet(c);
   }
