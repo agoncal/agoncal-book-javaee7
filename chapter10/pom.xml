@@ -4,10 +4,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.agoncal.book.javaee7</groupId>
-  <artifactId>chapter11</artifactId>
+  <artifactId>chapter10</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>11 - JSF</name>
+  <name>10 - JSF</name>
 
   <parent>
     <groupId>org.agoncal.book.javaee7</groupId>
@@ -16,7 +16,7 @@
   </parent>
 
   <modules>
-    <module>chapter11-samples</module>
+    <module>chapter10-samples</module>
   </modules>
 
 </project>

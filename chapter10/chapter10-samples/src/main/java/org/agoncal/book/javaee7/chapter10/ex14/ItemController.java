@@ -1,9 +1,9 @@
-package org.agoncal.book.javaee7.chapter11.ex06;
+package org.agoncal.book.javaee7.chapter10.ex14;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Antonio Goncalves
@@ -14,25 +14,27 @@ import java.util.Date;
  */
 @Named
 @RequestScoped
-public class BookController {
+public class ItemController {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @Inject
-  private BookEJB bookEJB;
-
   private Book book = new Book();
-  private Date currentDate = new Date();
+  private CD cd = new CD();
+  private Item item = new Item();
+  private List<Item> itemList = new ArrayList<>();
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
   public String doCreateBook() {
-    book = bookEJB.createBook(book);
-    return "listBooks.xhtml";
+    return null;
+  }
+
+  public String doCreateCD() {
+    return null;
   }
 
   // ======================================
@@ -47,11 +49,27 @@ public class BookController {
     this.book = book;
   }
 
-  public Date getCurrentDate() {
-    return currentDate;
+  public CD getCd() {
+    return cd;
   }
 
-  public void setCurrentDate(Date currentDate) {
-    this.currentDate = currentDate;
+  public void setCd(CD cd) {
+    this.cd = cd;
+  }
+
+  public List<Item> getItemList() {
+    return itemList;
+  }
+
+  public void setItemList(List<Item> itemList) {
+    this.itemList = itemList;
+  }
+
+  public Item getItem() {
+    return item;
+  }
+
+  public void setItem(Item item) {
+    this.item = item;
   }
 }
