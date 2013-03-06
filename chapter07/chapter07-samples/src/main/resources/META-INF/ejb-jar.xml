@@ -1,0 +1,29 @@
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+         version="3.1">
+  <enterprise-beans>
+    <session>
+      <ejb-name>ItemEJB17</ejb-name>
+      <remote>org.agoncal.book.javaee7.chapter07.ex17.ItemRemote17</remote>
+      <local>org.agoncal.book.javaee7.chapter07.ex17.ItemLocal17</local>
+      <local-bean/>
+      <ejb-class>org.agoncal.book.javaee7.chapter07.ex17.ItemEJB17</ejb-class>
+      <session-type>Stateless</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+      <ejb-name>ItemEJB18</ejb-name>
+      <env-entry>
+        <env-entry-name>currencyEntry</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Dollars</env-entry-value>
+      </env-entry>
+      <env-entry>
+        <env-entry-name>changeRateEntry</env-entry-name>
+        <env-entry-type>java.lang.Float</env-entry-type>
+        <env-entry-value>0.90</env-entry-value>
+      </env-entry>
+    </session>
+  </enterprise-beans>
+</ejb-jar>
