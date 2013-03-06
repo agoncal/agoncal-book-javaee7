@@ -16,8 +16,8 @@
     <module>chapter06</module>
     <module>chapter07</module>
     <module>chapter08</module>
+    <module>chapter10</module>
     <module>chapter11</module>
-    <module>chapter12</module>
     <module>chapter13</module>
     <module>chapter14</module>
     <module>chapter19</module>
@@ -29,7 +29,7 @@
   <properties>
     <version.java>1.7</version.java>
     <!-- Java EE -->
-    <version.glassfish>4.0-b72</version.glassfish>
+    <version.glassfish>4.0-b78</version.glassfish>
     <version.weld>2.0.0.Beta3</version.weld>
     <version.jersey>2.0-m10</version.jersey>
     <version.eclipselink>2.5.0-M6</version.eclipselink>

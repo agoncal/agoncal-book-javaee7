@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<partial-response>
+  <changes>
+    <update id="errors">
+      <![CDATA[
+      <ul id="errors"><li style="color:blue">	Book created </li></ul>
+      ]]>
+    </update>
+    <update id="booklist">
+      <![CDATA[
+      <table id="booklist" border="1">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/chapter11-1.0/viewBook.faces?id=54">Java EE 6 with GlassFish 3</a></td>
+            <td>31.49</td>
+          </tr>
+          <tr>
+            <td><a href="/chapter11-1.0/viewBook.faces?id=1">Harry Potter and the Goblet of Fire</a></td>
+            <td>19.79</td>
+          </tr>
+          <tr>
+            <td><a href="/chapter11-1.0/viewBook.faces?id=51">The Hitchhiker's Guide to the Galaxy</a></td>
+            <td>23.99</td>
+          </tr>
+        </tbody>
+      </table>
+      ]]>
+    </update>
+  </changes>
+</partial-response>
