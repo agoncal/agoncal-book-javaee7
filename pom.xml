@@ -30,7 +30,7 @@
     <!-- Java EE -->
     <version.glassfish>4.0-b78</version.glassfish>
     <version.weld>2.0.0.Beta4</version.weld>
-    <version.jersey>2.0-m10</version.jersey>
+    <version.jersey>2.0-m13-1</version.jersey>
     <version.eclipselink>2.5.0-M8</version.eclipselink>
     <version.hibernate.validator>5.0.0.Alpha2</version.hibernate.validator>
     <version.json>1.0-b04</version.json>
