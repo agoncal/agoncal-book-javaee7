@@ -32,7 +32,7 @@
     <version.weld>2.0.0.Beta4</version.weld>
     <version.jersey>2.0-m13-1</version.jersey>
     <version.eclipselink>2.5.0-M8</version.eclipselink>
-    <version.hibernate.validator>5.0.0.Alpha2</version.hibernate.validator>
+    <version.hibernate.validator>5.0.0.CR1</version.hibernate.validator>
     <version.json>1.0-b04</version.json>
     <!-- Databases -->
     <version.derby>10.9.1.0</version.derby>
