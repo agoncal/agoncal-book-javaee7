@@ -8,7 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientFactory;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -40,7 +40,7 @@ public class CustomerRestService11IT {
 
   private static HttpServer server;
   private static URI uri = UriBuilder.fromUri("http://localhost/").port(8282).build();
-  private static Client client = ClientFactory.newClient();
+  private static Client client = ClientBuilder.newClient();
 
   public static final String CUSTOMER_TEXT = "Customer11{id=null, firstName='John', lastName='Smith', email='jsmith@gmail.com', phoneNumber='1234565'}";
   public static final String CUSTOMER_HTML = "<h1>Customer</h1><p>Customer11{id=null, firstName='John', lastName='Smith', email='jsmith@gmail.com', phoneNumber='1234565'}</p><hr/>";

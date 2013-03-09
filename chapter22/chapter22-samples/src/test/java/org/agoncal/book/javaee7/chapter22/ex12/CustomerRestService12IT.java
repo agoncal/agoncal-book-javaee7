@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientFactory;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.*;
 import javax.ws.rs.ext.RuntimeDelegate;
@@ -37,7 +37,7 @@ public class CustomerRestService12IT {
 
   private static HttpServer server;
   private static URI uri = UriBuilder.fromUri("http://localhost/").port(8282).build();
-  private static Client client = ClientFactory.newClient();
+  private static Client client = ClientBuilder.newClient();
 
   // ======================================
   // =          Lifecycle Methods         =

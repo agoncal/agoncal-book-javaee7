@@ -8,7 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientFactory;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -39,7 +39,7 @@ public class ItemRestService05IT {
 
   private static HttpServer server;
   private static URI uri = UriBuilder.fromUri("http://localhost/").port(8282).build();
-  private static Client client = ClientFactory.newClient();
+  private static Client client = ClientBuilder.newClient();
 
   public static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><book05><description>Science fiction comedy book</description><price>12.5</price><title>The Hitchhiker's Guide to the Galaxy</title><illustrations>false</illustrations><isbn>1-84023-742-2</isbn><nbOfPage>354</nbOfPage></book05>";
 
