@@ -17,6 +17,7 @@ public class Item06 {
   // ======================================
   // =             Attributes             =
   // ======================================
+
   @Id
   @GeneratedValue
   protected Long id;

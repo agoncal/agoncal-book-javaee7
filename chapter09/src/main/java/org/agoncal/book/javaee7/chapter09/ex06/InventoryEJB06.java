@@ -34,7 +34,7 @@ public class InventoryEJB06 {
   // =           Public Methods           =
   // ======================================
 
-  public Item06 oneItemSold(Item06 item) { // returns void in the book
+  public void oneItemSold(Item06 item) {
     try {
       ut.begin();
 
@@ -54,7 +54,6 @@ public class InventoryEJB06 {
         e1.printStackTrace();
       }
     }
-    return item;
   }
 
   private void sendShippingMessage() {

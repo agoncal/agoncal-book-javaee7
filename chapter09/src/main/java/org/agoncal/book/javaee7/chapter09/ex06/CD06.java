@@ -5,6 +5,8 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 import java.util.HashMap;
 
+import static org.agoncal.book.javaee7.chapter09.ex06.CD06.*;
+
 /**
  * @author Antonio Goncalves
  *         APress Book - Beginning Java EE 7 with Glassfish 4
@@ -13,8 +15,14 @@ import java.util.HashMap;
  *         --
  */
 @Entity
-@NamedQuery(name = "CD06.findAllCDs", query = "SELECT c FROM CD06 c")
+@NamedQuery(name = FIND_ALL, query = "SELECT c FROM CD06 c")
 public class CD06 extends Item06 {
+
+  // ======================================
+  // =             Constants              =
+  // ======================================
+
+  public static final String FIND_ALL = "CD04.findAllCDs";
 
   // ======================================
   // =             Attributes             =
