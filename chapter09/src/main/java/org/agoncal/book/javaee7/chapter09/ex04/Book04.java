@@ -3,6 +3,8 @@ package org.agoncal.book.javaee7.chapter09.ex04;
 import javax.persistence.Entity;
 import javax.persistence.NamedQuery;
 
+import static org.agoncal.book.javaee7.chapter09.ex04.Book04.*;
+
 /**
  * @author Antonio Goncalves
  *         APress Book - Beginning Java EE 7 with Glassfish 4
@@ -11,8 +13,14 @@ import javax.persistence.NamedQuery;
  *         --
  */
 @Entity
-@NamedQuery(name = "Book04.findAllBooks", query = "SELECT b FROM Book04 b")
+@NamedQuery(name = FIND_ALL, query = "SELECT b FROM Book04 b")
 public class Book04 extends Item04 {
+
+  // ======================================
+  // =             Constants              =
+  // ======================================
+
+  public static final String FIND_ALL = "Book04.findAllBooks";
 
   // ======================================
   // =             Attributes             =
