@@ -2,9 +2,12 @@ package org.agoncal.book.javaee7.chapter06.ex38;
 
 
 import org.agoncal.book.javaee7.chapter06.AbstractPersistentTest;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import static org.junit.Assert.*;
 
@@ -22,6 +25,47 @@ public class Customer38IT extends AbstractPersistentTest {
   // ======================================
 
   @Test
+  public void ageShouldBeGretaterThanZero() {
+    Customer38 customer = new Customer38("Rita", "Navalhas", "rnavalhas@gmail.com", "+351 123 4565");
+    customer.setDateOfBirth(new GregorianCalendar(1975, 5, 27).getTime());
+
+    customer.calculateAge();
+
+    int calculatedAge = customer.getAge();
+
+    assertTrue(calculatedAge >= 0);
+  }
+
+  @Test
+  public void ageShouldBe33() {
+    int expectedAge = 33;
+
+    Calendar birth = new GregorianCalendar();
+    birth.roll(Calendar.YEAR, expectedAge * (-1));
+    birth.roll(Calendar.DAY_OF_YEAR, -1);
+
+    Customer38 customer = new Customer38("Rita", "Navalhas", "rnavalhas@gmail.com", "+351 123 4565");
+    customer.setDateOfBirth(birth.getTime());
+
+    customer.calculateAge();
+
+    assertEquals(new Long(expectedAge), new Long(customer.getAge()));
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void shouldThrowExceptionCauseDateOfBirtheIsNull() {
+    Customer38 customer = new Customer38();
+
+    customer.calculateAge();
+  }
+
+  @Ignore("Test is not ready yet")
+  @Test
+  public void shouldCalculateOldAge() {
+    // some work to do
+  }
+
+  @Test @Ignore
   public void shouldCheckTheAgeOfTheCustomer() throws Exception {
 
     // Instanciates an object

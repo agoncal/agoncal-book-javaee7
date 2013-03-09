@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class ItemEJB01Test {
+public class ItemEJB01IT {
 
     // ======================================
     // =             Attributes             =
@@ -38,7 +38,7 @@ public class ItemEJB01Test {
 
     @BeforeClass
     public static void initContainer() throws Exception {
-        Map<String, Object> properties = new HashMap<String, Object>();
+        Map<String, Object> properties = new HashMap<>();
         properties.put(EJBContainer.MODULES, new File("target/classes"));
         ec = EJBContainer.createEJBContainer(properties);
         ctx = ec.getContext();

@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CacheEJB01Test {
+public class CacheEJB01IT {
 
   // ======================================
   // =             Attributes             =
