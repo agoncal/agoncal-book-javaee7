@@ -4,7 +4,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -33,12 +33,12 @@ public class ItemEJB01 {
   // ======================================
 
   public List<Book01> findBooks() {
-    Query query = em.createNamedQuery("Book01.findAllBooks");
+    TypedQuery<Book01> query = em.createNamedQuery(Book01.FIND_ALL, Book01.class);
     return query.getResultList();
   }
 
   public List<CD01> findCDs() {
-    Query query = em.createNamedQuery("CD01.findAllCDs");
+    TypedQuery<CD01> query = em.createNamedQuery(CD01.FIND_ALL, CD01.class);
     return query.getResultList();
   }
 
