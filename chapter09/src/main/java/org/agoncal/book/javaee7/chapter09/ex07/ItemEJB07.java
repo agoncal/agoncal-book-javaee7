@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -20,67 +20,67 @@ import java.util.List;
 @RolesAllowed({"user", "employee", "admin"})
 public class ItemEJB07 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @PersistenceContext(unitName = "chapter09PU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "chapter09PU")
+  private EntityManager em;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public List<Book07> findBooks() {
-        Query query = em.createNamedQuery("findAllBooks");
-        return query.getResultList();
-    }
+  public List<Book07> findBooks() {
+    Query query = em.createNamedQuery("findAllBooks");
+    return query.getResultList();
+  }
 
-    public List<CD07> findCDs() {
-        Query query = em.createNamedQuery("findAllCDs");
-        return query.getResultList();
-    }
+  public List<CD07> findCDs() {
+    Query query = em.createNamedQuery("findAllCDs");
+    return query.getResultList();
+  }
 
-    @PermitAll
-    public Book07 findBookById(Long id) {
-        return em.find(Book07.class, id);
-    }
+  @PermitAll
+  public Book07 findBookById(Long id) {
+    return em.find(Book07.class, id);
+  }
 
-    public CD07 findCDById(Long id) {
-        return em.find(CD07.class, id);
-    }
+  public CD07 findCDById(Long id) {
+    return em.find(CD07.class, id);
+  }
 
-    @RolesAllowed({"admin", "employee"})
-    public Book07 createBook(Book07 book) {
-        em.persist(book);
-        return book;
-    }
+  @RolesAllowed({"admin", "employee"})
+  public Book07 createBook(Book07 book) {
+    em.persist(book);
+    return book;
+  }
 
-    public CD07 createCD(CD07 cd) {
-        em.persist(cd);
-        return cd;
-    }
+  public CD07 createCD(CD07 cd) {
+    em.persist(cd);
+    return cd;
+  }
 
-    @RolesAllowed("employee")
-    public void deleteBook(Book07 book) {
-        em.remove(em.merge(book));
-    }
+  @RolesAllowed("employee")
+  public void deleteBook(Book07 book) {
+    em.remove(em.merge(book));
+  }
 
-    public void deleteCD(CD07 cd) {
-        em.remove(em.merge(cd));
-    }
+  public void deleteCD(CD07 cd) {
+    em.remove(em.merge(cd));
+  }
 
-    public Book07 updateBook(Book07 book) {
-        return em.merge(book);
-    }
+  public Book07 updateBook(Book07 book) {
+    return em.merge(book);
+  }
 
-    public CD07 updateCD(CD07 cd) {
-        return em.merge(cd);
-    }
+  public CD07 updateCD(CD07 cd) {
+    return em.merge(cd);
+  }
 
-    @DenyAll
-    public Book07 findConfidentialBook(Long secureId) {
-        return em.find(Book07.class, secureId);
-    }
+  @DenyAll
+  public Book07 findConfidentialBook(Long secureId) {
+    return em.find(Book07.class, secureId);
+  }
 
 }

@@ -6,7 +6,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -14,30 +14,30 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class InventoryEJB04 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @PersistenceContext(unitName = "chapter09PU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "chapter09PU")
+  private EntityManager em;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public void oneItemSold(Item04 item) throws InventoryLevelTooLowException04 {
-        item.decreaseAvailableStock();
-        sendShippingMessage();
+  public void oneItemSold(Item04 item) throws InventoryLevelTooLowException04 {
+    item.decreaseAvailableStock();
+    sendShippingMessage();
 
-        if (inventoryLevel(item) == 0)
-            throw new InventoryLevelTooLowException04();
-    }
+    if (inventoryLevel(item) == 0)
+      throw new InventoryLevelTooLowException04();
+  }
 
-    private void sendShippingMessage() {
-        // Send a message
-    }
+  private void sendShippingMessage() {
+    // Send a message
+  }
 
-    private int inventoryLevel(Item04 item) {
-        return 0;
-    }
+  private int inventoryLevel(Item04 item) {
+    return 0;
+  }
 }

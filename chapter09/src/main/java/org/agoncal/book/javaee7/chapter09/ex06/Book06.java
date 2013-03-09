@@ -14,55 +14,55 @@ import javax.persistence.NamedQuery;
 @NamedQuery(name = "Book06.findAllBooks", query = "SELECT b FROM Book06 b")
 public class Book06 extends Item06 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    private String isbn;
-    private Integer nbOfPage;
-    private Boolean illustrations;
+  private String isbn;
+  private Integer nbOfPage;
+  private Boolean illustrations;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public Book06() {
-    }
+  public Book06() {
+  }
 
-    public Book06(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.isbn = isbn;
-        this.nbOfPage = nbOfPage;
-        this.illustrations = illustrations;
-    }
+  public Book06(String title, Float price, String description, String isbn, Integer nbOfPage, Boolean illustrations) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.isbn = isbn;
+    this.nbOfPage = nbOfPage;
+    this.illustrations = illustrations;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public String getIsbn() {
-        return isbn;
-    }
+  public String getIsbn() {
+    return isbn;
+  }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+  public void setIsbn(String isbn) {
+    this.isbn = isbn;
+  }
 
-    public Integer getNbOfPage() {
-        return nbOfPage;
-    }
+  public Integer getNbOfPage() {
+    return nbOfPage;
+  }
 
-    public void setNbOfPage(Integer nbOfPage) {
-        this.nbOfPage = nbOfPage;
-    }
+  public void setNbOfPage(Integer nbOfPage) {
+    this.nbOfPage = nbOfPage;
+  }
 
-    public Boolean getIllustrations() {
-        return illustrations;
-    }
+  public Boolean getIllustrations() {
+    return illustrations;
+  }
 
-    public void setIllustrations(Boolean illustrations) {
-        this.illustrations = illustrations;
-    }
+  public void setIllustrations(Boolean illustrations) {
+    this.illustrations = illustrations;
+  }
 }

@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 /**
  * @author Antonio Goncalves
- *         APress Book07 - Beginning Java EE 6 with Glassfish
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -17,23 +17,23 @@ import java.sql.Statement;
 @Stateless
 public class ItemEJB {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Resource(lookup="java:comp/DefaultDataSource")
+  @Resource(lookup = "java:comp/DefaultDataSource")
 //    @Resource(lookup="jdbc/__default")
-    DataSource myDS;
+          DataSource myDS;
 
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public void findBooks() throws SQLException {
-        Connection conn = myDS.getConnection();
-        Statement st = conn.createStatement();
-        st.execute("select * from book01");
-        conn.close();
-    }
+  public void findBooks() throws SQLException {
+    Connection conn = myDS.getConnection();
+    Statement st = conn.createStatement();
+    st.execute("select * from book01");
+    conn.close();
+  }
 }

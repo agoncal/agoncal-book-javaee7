@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -16,33 +16,33 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class InventoryEJB03 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @PersistenceContext(unitName = "chapter09PU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "chapter09PU")
+  private EntityManager em;
 
-    @Resource
-    private SessionContext ctx;
+  @Resource
+  private SessionContext ctx;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public void oneItemSold(Item03 item) {
-        item.decreaseAvailableStock();
-        sendShippingMessage();
+  public void oneItemSold(Item03 item) {
+    item.decreaseAvailableStock();
+    sendShippingMessage();
 
-        if (inventoryLevel(item) == 0)
-            ctx.setRollbackOnly();
-    }
+    if (inventoryLevel(item) == 0)
+      ctx.setRollbackOnly();
+  }
 
-    private void sendShippingMessage() {
-        // Send a message
-    }
+  private void sendShippingMessage() {
+    // Send a message
+  }
 
-    private int inventoryLevel(Item03 item) {
-        return 0;
-    }
+  private int inventoryLevel(Item03 item) {
+    return 0;
+  }
 }

@@ -4,7 +4,7 @@ import javax.ejb.ApplicationException;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
  *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
@@ -12,10 +12,10 @@ import javax.ejb.ApplicationException;
 @ApplicationException(rollback = true)
 public class InventoryLevelTooLowException04 extends Exception {
 
-    public InventoryLevelTooLowException04() {
-    }
+  public InventoryLevelTooLowException04() {
+  }
 
-    public InventoryLevelTooLowException04(String message) {
-        super(message);
-    }
+  public InventoryLevelTooLowException04(String message) {
+    super(message);
+  }
 }

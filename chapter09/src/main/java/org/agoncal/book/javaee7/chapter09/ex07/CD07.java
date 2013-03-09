@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 /**
  * @author Antonio Goncalves
- *         APress Book - Beginning Java EE 6 with Glassfish
- *         http://www.apress.com
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
+ *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
  */
@@ -14,105 +14,105 @@ import java.util.HashMap;
 @NamedQuery(name = "CD07.findAllCDs", query = "SELECT c FROM CD07 c")
 public class CD07 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String title;
-    private Float price;
-    @Column(length = 2000)
-    private String description;
-    @Lob
-    private byte[] cover;
-    private String musicCompany;
-    private Integer numberOfCDs;
-    private Float totalDuration;
-    private String genre;
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+  @Id
+  @GeneratedValue
+  private Long id;
+  private String title;
+  private Float price;
+  @Column(length = 2000)
+  private String description;
+  @Lob
+  private byte[] cover;
+  private String musicCompany;
+  private Integer numberOfCDs;
+  private Float totalDuration;
+  private String genre;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public CD07() {
-    }
+  public CD07() {
+  }
 
-    public CD07(String title, Float price, String description, HashMap<Integer, String> tracks) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-    }
+  public CD07(String title, Float price, String description, HashMap<Integer, String> tracks) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public Float getPrice() {
-        return price;
-    }
+  public Float getPrice() {
+    return price;
+  }
 
-    public void setPrice(Float price) {
-        this.price = price;
-    }
+  public void setPrice(Float price) {
+    this.price = price;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public byte[] getCover() {
-        return cover;
-    }
+  public byte[] getCover() {
+    return cover;
+  }
 
-    public void setCover(byte[] cover) {
-        this.cover = cover;
-    }
+  public void setCover(byte[] cover) {
+    this.cover = cover;
+  }
 
-    public String getMusicCompany() {
-        return musicCompany;
-    }
+  public String getMusicCompany() {
+    return musicCompany;
+  }
 
-    public void setMusicCompany(String musicCompany) {
-        this.musicCompany = musicCompany;
-    }
+  public void setMusicCompany(String musicCompany) {
+    this.musicCompany = musicCompany;
+  }
 
-    public Integer getNumberOfCDs() {
-        return numberOfCDs;
-    }
+  public Integer getNumberOfCDs() {
+    return numberOfCDs;
+  }
 
-    public void setNumberOfCDs(Integer numberOfCDs) {
-        this.numberOfCDs = numberOfCDs;
-    }
+  public void setNumberOfCDs(Integer numberOfCDs) {
+    this.numberOfCDs = numberOfCDs;
+  }
 
-    public Float getTotalDuration() {
-        return totalDuration;
-    }
+  public Float getTotalDuration() {
+    return totalDuration;
+  }
 
-    public void setTotalDuration(Float totalDuration) {
-        this.totalDuration = totalDuration;
-    }
+  public void setTotalDuration(Float totalDuration) {
+    this.totalDuration = totalDuration;
+  }
 
-    public String getGenre() {
-        return genre;
-    }
+  public String getGenre() {
+    return genre;
+  }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+  public void setGenre(String genre) {
+    this.genre = genre;
+  }
 }
