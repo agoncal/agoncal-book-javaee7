@@ -4,7 +4,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
@@ -15,7 +15,6 @@ import java.util.List;
  *         --
  */
 @Stateless
-//@TransactionAttribute(TransactionAttributeType.SUPPORTS)
 public class ItemEJB03 {
 
   // ======================================
@@ -32,12 +31,12 @@ public class ItemEJB03 {
   // ======================================
 
   public List<Book03> findBooks() {
-    Query query = em.createNamedQuery("Book03.findAllBooks");
+    TypedQuery<Book03> query = em.createNamedQuery(Book03.FIND_ALL, Book03.class);
     return query.getResultList();
   }
 
   public List<CD03> findCDs() {
-    Query query = em.createNamedQuery("CD03.findAllCDs");
+    TypedQuery<CD03> query = em.createNamedQuery(CD03.FIND_ALL, CD03.class);
     return query.getResultList();
   }
 
@@ -49,7 +48,6 @@ public class ItemEJB03 {
     return em.find(CD03.class, id);
   }
 
-  //@TransactionAttribute(TransactionAttributeType.REQUIRED)
   public Book03 createBook(Book03 book) {
     em.persist(book);
     inventory.oneItemSold(book);

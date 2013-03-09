@@ -22,7 +22,7 @@ public class CD01 extends Item01 {
   // =             Constants              =
   // ======================================
 
-  public static final String FIND_ALL = "Book01.findAllCDs";
+  public static final String FIND_ALL = "CD01.findAllCDs";
 
   // ======================================
   // =             Attributes             =

@@ -27,7 +27,6 @@ public class ItemEJB01 {
   @EJB
   private InventoryEJB01 inventory;
 
-
   // ======================================
   // =           Public Methods           =
   // ======================================
