@@ -53,16 +53,17 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderNewCDI {
 
-    @Inject private JMSContext context;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue inboundQueue;
-               
-    public void sendMessageNewCDI(String payload) {
-        try {
-            context.createProducer().send(inboundQueue, payload);
-        } catch (JMSRuntimeException ex){
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
-        }
+  @Inject
+  private JMSContext context;
+
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue inboundQueue;
+
+  public void sendMessageNewCDI(String payload) {
+    try {
+      context.createProducer().send(inboundQueue, payload);
+    } catch (JMSRuntimeException ex) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
     }
+  }
 }

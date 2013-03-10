@@ -13,39 +13,39 @@ import java.util.Date;
  */
 public class Sender {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Resource(lookup = "jms/javaee6/ConnectionFactory")
-    private static ConnectionFactory connectionFactory;
-    @Resource(lookup = "jms/javaee6/Topic")
-    private static Topic topic;
+  @Resource(lookup = "jms/javaee6/ConnectionFactory")
+  private static ConnectionFactory connectionFactory;
+  @Resource(lookup = "jms/javaee6/Topic")
+  private static Topic topic;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        try {
-            // Creates the needed artifacts to connect to the queue
-            Connection connection = connectionFactory.createConnection();
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageProducer producer = session.createProducer(topic);
+    try {
+      // Creates the needed artifacts to connect to the queue
+      Connection connection = connectionFactory.createConnection();
+      Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+      MessageProducer producer = session.createProducer(topic);
 
-            // Sends a text message to the topic
-            TextMessage message = session.createTextMessage();
-            message.setText("This is a text message sent at " + new Date());
-            producer.send(message);
-            System.out.println("\nMessage sent !");
+      // Sends a text message to the topic
+      TextMessage message = session.createTextMessage();
+      message.setText("This is a text message sent at " + new Date());
+      producer.send(message);
+      System.out.println("\nMessage sent !");
 
-            connection.close();
+      connection.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.exit(0);
+    } catch (Exception e) {
+      e.printStackTrace();
     }
+
+    System.exit(0);
+  }
 }

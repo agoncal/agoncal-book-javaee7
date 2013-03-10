@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.agoncal.book.javaee7.chapter13</groupId>
+  <artifactId>chapter13-samples</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>13 - JMS (Samples)</name>
+
+  <parent>
+    <groupId>org.agoncal.book.javaee7</groupId>
+    <artifactId>chapter13</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.glassfish.main.extras</groupId>
+      <artifactId>glassfish-embedded-all</artifactId>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.agoncal.book.javaee7.chapter13.ex04.Receiver</mainClass>
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex04.Sender</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex05.Receiver</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex05.Listener</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex05.Sender</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex07.Receiver</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex07.Listener</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex07.Sender</mainClass>-->
+              <!--<mainClass>org.agoncal.book.javaee6.chapter13.jms.ex14.OrderSender</mainClass>-->
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

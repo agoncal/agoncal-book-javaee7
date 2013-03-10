@@ -54,18 +54,18 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderNewCDIWithProperties {
 
-    @Inject
-    @JMSConnectionFactory("java:global/jms/chapter13ConnectionFactory") // <== could omit this and use the default
-    private JMSContext context;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue inboundQueue;
+  @Inject
+  @JMSConnectionFactory("java:global/jms/chapter13ConnectionFactory") // <== could omit this and use the default
+  private JMSContext context;
 
-    public void sendMessageNewCDIWithProperties(String payload) {
-        try {
-            context.createProducer().setPriority(1).setProperty("foo", "987654").send(inboundQueue, payload);
-        } catch (JMSRuntimeException ex) {
-            Logger.getLogger(JavaEESenderOldWithProperties.class.getName()).log(Level.SEVERE, null, ex);
-        }
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue inboundQueue;
+
+  public void sendMessageNewCDIWithProperties(String payload) {
+    try {
+      context.createProducer().setPriority(1).setProperty("foo", "987654").send(inboundQueue, payload);
+    } catch (JMSRuntimeException ex) {
+      Logger.getLogger(JavaEESenderOldWithProperties.class.getName()).log(Level.SEVERE, null, ex);
     }
+  }
 }

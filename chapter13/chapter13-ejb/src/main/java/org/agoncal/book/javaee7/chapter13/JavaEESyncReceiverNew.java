@@ -50,24 +50,24 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESyncReceiverNew {
 
-    @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
-    ConnectionFactory connectionFactory;
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue chapter13Queue;
+  @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
+  ConnectionFactory connectionFactory;
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue chapter13Queue;
 
-    // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API. 
-    public String receiveMessageNew() {
-        try {
-            JMSContext context = connectionFactory.createContext();
-            try {
-                JMSConsumer consumer = context.createConsumer(chapter13Queue);
-                return "Received ";// TODO + consumer.receivePayload(String.class, 1000);
-            } finally {
-                context.close();
-            }
-        } catch (JMSRuntimeException ex) {
-            Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+  // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API.
+  public String receiveMessageNew() {
+    try {
+      JMSContext context = connectionFactory.createContext();
+      try {
+        JMSConsumer consumer = context.createConsumer(chapter13Queue);
+        return "Received ";// TODO + consumer.receivePayload(String.class, 1000);
+      } finally {
+        context.close();
+      }
+    } catch (JMSRuntimeException ex) {
+      Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return null;
+  }
 }

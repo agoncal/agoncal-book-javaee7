@@ -50,27 +50,27 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderOldWithProperties {
 
-    @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
-    ConnectionFactory connectionFactory;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue chapter13Queue;
+  @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
+  ConnectionFactory connectionFactory;
 
-    public void sendMessageOldWithProperties(String payload) {
-        try {
-            Connection connection = connectionFactory.createConnection();
-            try {
-                Session session = connection.createSession();
-                MessageProducer messageProducer = session.createProducer(chapter13Queue);
-                messageProducer.setPriority(1);
-                TextMessage textMessage = session.createTextMessage(payload);
-                textMessage.setStringProperty("foo", "bar");
-                messageProducer.send(textMessage);
-            } finally {
-                connection.close();
-            }
-        } catch (JMSException ex) {
-            Logger.getLogger(JavaEESenderOldWithProperties.class.getName()).log(Level.SEVERE, null, ex);
-        }
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue chapter13Queue;
+
+  public void sendMessageOldWithProperties(String payload) {
+    try {
+      Connection connection = connectionFactory.createConnection();
+      try {
+        Session session = connection.createSession();
+        MessageProducer messageProducer = session.createProducer(chapter13Queue);
+        messageProducer.setPriority(1);
+        TextMessage textMessage = session.createTextMessage(payload);
+        textMessage.setStringProperty("foo", "bar");
+        messageProducer.send(textMessage);
+      } finally {
+        connection.close();
+      }
+    } catch (JMSException ex) {
+      Logger.getLogger(JavaEESenderOldWithProperties.class.getName()).log(Level.SEVERE, null, ex);
     }
+  }
 }

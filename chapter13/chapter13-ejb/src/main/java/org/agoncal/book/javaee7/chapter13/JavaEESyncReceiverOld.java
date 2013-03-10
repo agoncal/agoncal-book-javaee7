@@ -50,34 +50,34 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESyncReceiverOld {
 
-    @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
-    ConnectionFactory connectionFactory;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue chapter13Queue;
-    
-    // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API. 
+  @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
+  ConnectionFactory connectionFactory;
 
-    public String receiveMessageOld() {
-        Connection connection = null;
-        try {
-            try {
-                connection = connectionFactory.createConnection();
-                connection.start();
-                Session session = connection.createSession();
-                MessageConsumer messageConsumer = session.createConsumer(chapter13Queue);
-                TextMessage textMessage = (TextMessage) messageConsumer.receive(1000);
-                if (textMessage==null){
-                    return "Received null";
-                } else {
-                    return "Received "+textMessage.getText();
-                }
-            } finally {
-                connection.close();
-            }
-        } catch (JMSException ex) {
-            Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue chapter13Queue;
+
+  // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API.
+
+  public String receiveMessageOld() {
+    Connection connection = null;
+    try {
+      try {
+        connection = connectionFactory.createConnection();
+        connection.start();
+        Session session = connection.createSession();
+        MessageConsumer messageConsumer = session.createConsumer(chapter13Queue);
+        TextMessage textMessage = (TextMessage) messageConsumer.receive(1000);
+        if (textMessage == null) {
+          return "Received null";
+        } else {
+          return "Received " + textMessage.getText();
         }
-        return null;
+      } finally {
+        connection.close();
+      }
+    } catch (JMSException ex) {
+      Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return null;
+  }
 }

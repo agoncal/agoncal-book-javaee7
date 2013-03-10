@@ -12,41 +12,41 @@ import javax.jms.*;
  */
 public class Listener implements MessageListener {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Resource(lookup = "jms/javaee6/ConnectionFactory")
-    private static ConnectionFactory connectionFactory;
-    @Resource(lookup = "jms/javaee6/Topic")
-    private static Topic topic;
+  @Resource(lookup = "jms/javaee6/ConnectionFactory")
+  private static ConnectionFactory connectionFactory;
+  @Resource(lookup = "jms/javaee6/Topic")
+  private static Topic topic;
 
-    // ======================================
-    // =           Public Methods           =
-    // ======================================
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        System.out.println("\nStarting listener....");
+    System.out.println("\nStarting listener....");
 
-        try {
-            // Creates the needed artifacts to connect to the queue
-            Connection connection = connectionFactory.createConnection();
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageConsumer consumer = session.createConsumer(topic);
-            consumer.setMessageListener(new Listener());
-            connection.start();
+    try {
+      // Creates the needed artifacts to connect to the queue
+      Connection connection = connectionFactory.createConnection();
+      Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+      MessageConsumer consumer = session.createConsumer(topic);
+      consumer.setMessageListener(new Listener());
+      connection.start();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
+  }
 
-    public void onMessage(Message message) {
-        try {
-            System.out.println("Message received: " + ((TextMessage) message).getText());
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
+  public void onMessage(Message message) {
+    try {
+      System.out.println("Message received: " + ((TextMessage) message).getText());
+    } catch (JMSException e) {
+      e.printStackTrace();
     }
+  }
 }

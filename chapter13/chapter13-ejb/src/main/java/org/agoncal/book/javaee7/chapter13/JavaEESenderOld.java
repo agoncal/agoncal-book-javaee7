@@ -50,28 +50,28 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderOld {
 
-//    @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
-    @Resource(lookup = "java:global/jms/__defaultConnectionFactory")
-    ConnectionFactory connectionFactory;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue chapter13Queue;
-    
-    // GlassFish 4.0 currently uses Java SE 6, so these examples do not make use of the Java SE 7 AutoCloseable API. 
+  //    @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
+  @Resource(lookup = "java:global/jms/__defaultConnectionFactory")
+  ConnectionFactory connectionFactory;
 
-    public void sendMessageOld(String payload) {
-        try {
-            Connection connection = connectionFactory.createConnection();
-            try {
-                Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
-                MessageProducer messageProducer = session.createProducer(chapter13Queue);
-                TextMessage textMessage = session.createTextMessage(payload);
-                messageProducer.send(textMessage);
-            } finally {
-                connection.close();
-            }
-        } catch (JMSException ex) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
-        }
-    } 
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue chapter13Queue;
+
+  // GlassFish 4.0 currently uses Java SE 6, so these examples do not make use of the Java SE 7 AutoCloseable API.
+
+  public void sendMessageOld(String payload) {
+    try {
+      Connection connection = connectionFactory.createConnection();
+      try {
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        MessageProducer messageProducer = session.createProducer(chapter13Queue);
+        TextMessage textMessage = session.createTextMessage(payload);
+        messageProducer.send(textMessage);
+      } finally {
+        connection.close();
+      }
+    } catch (JMSException ex) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
+    }
+  }
 }

@@ -51,25 +51,25 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESyncReceiverNewCDIWithProperties {
 
-    @Inject
-    @JMSConnectionFactory("java:global/jms/chapter13ConnectionFactory") // <== could omit this and use the default
-    private JMSContext context;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue chapter13Queue;
-    
-    public String receiveMessageNewCDIWithProperties() {
-                try {
-            JMSConsumer consumer = context.createConsumer(chapter13Queue);
-            TextMessage textMessage = (TextMessage) consumer.receive(1000);
-            if (textMessage==null){
-                return "Received null";
-            } else {
-               return "Payload="+textMessage.getText()+", JMSPriority="+textMessage.getJMSPriority()+", foo="+textMessage.getStringProperty("foo");
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+  @Inject
+  @JMSConnectionFactory("java:global/jms/chapter13ConnectionFactory") // <== could omit this and use the default
+  private JMSContext context;
+
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue chapter13Queue;
+
+  public String receiveMessageNewCDIWithProperties() {
+    try {
+      JMSConsumer consumer = context.createConsumer(chapter13Queue);
+      TextMessage textMessage = (TextMessage) consumer.receive(1000);
+      if (textMessage == null) {
+        return "Received null";
+      } else {
+        return "Payload=" + textMessage.getText() + ", JMSPriority=" + textMessage.getJMSPriority() + ", foo=" + textMessage.getStringProperty("foo");
+      }
+    } catch (Exception ex) {
+      Logger.getLogger(JavaEESyncReceiverOld.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return null;
+  }
 }

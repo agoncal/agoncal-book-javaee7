@@ -53,24 +53,24 @@ import java.util.logging.Logger;
 @LocalBean
 public class JavaEESenderNew {
 
-    @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
-    ConnectionFactory connectionFactory;
-    
-    @Resource(lookup = "java:global/jms/chapter13Queue")
-    Queue chapter13Queue;
-    
-    // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API. 
+  @Resource(lookup = "java:global/jms/chapter13ConnectionFactory")
+  ConnectionFactory connectionFactory;
 
-    public void sendMessageNew(String payload) {
-        try {
-            JMSContext context = connectionFactory.createContext();
-            try {
-                context.createProducer().send(chapter13Queue, payload);
-            } finally {
-                context.close();
-            }
-        } catch (JMSRuntimeException ex) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
-        }
+  @Resource(lookup = "java:global/jms/chapter13Queue")
+  Queue chapter13Queue;
+
+  // GlassFish 4.0 currently uses Java SE 6, so this example does not make use of the Java SE 7 AutoCloseable API.
+
+  public void sendMessageNew(String payload) {
+    try {
+      JMSContext context = connectionFactory.createContext();
+      try {
+        context.createProducer().send(chapter13Queue, payload);
+      } finally {
+        context.close();
+      }
+    } catch (JMSRuntimeException ex) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
     }
+  }
 }
