@@ -1,8 +1,8 @@
 package org.agoncal.book.javaee7.chapter13.ex03;
 
 import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
 import javax.jms.JMSContext;
-import javax.jms.Queue;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -29,7 +29,7 @@ public class Sender03 {
 
       // Looks up the administered objects
       ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/javaee7/ConnectionFactory");
-      Queue queue = (Queue) jndiContext.lookup("jms/javaee7/Queue");
+      Destination queue = (Destination) jndiContext.lookup("jms/javaee7/Queue");
 
       try (JMSContext context = connectionFactory.createContext()) {
         // Sends a text message to the queue

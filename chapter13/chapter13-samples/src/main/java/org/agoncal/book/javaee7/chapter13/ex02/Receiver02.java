@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.ex01;
+package org.agoncal.book.javaee7.chapter13.ex02;
 
 import javax.jms.*;
 import javax.naming.Context;
@@ -12,7 +12,7 @@ import javax.naming.NamingException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Receiver01 {
+public class Receiver02 {
 
   // ======================================
   // =           Public Methods           =
@@ -21,12 +21,12 @@ public class Receiver01 {
   public static void main(String[] args) {
 
     try {
-      // Gets the JgetTopicName()NDI context
+      // Gets the JNDI context
       Context jndiContext = new InitialContext();
 
       // Looks up the administered objects
       ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/javaee7/ConnectionFactory");
-      Queue queue = (Queue) jndiContext.lookup("jms/javaee7/Queue");
+      Destination queue = (Destination) jndiContext.lookup("jms/javaee7/Queue");
 
       // Creates the needed artifacts to connect to the queue
       Connection connection = connectionFactory.createConnection();
