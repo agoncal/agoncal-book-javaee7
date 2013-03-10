@@ -1,10 +1,7 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex14;
-
-import org.agoncal.book.javaee7.chapter13.OrderDTO;
+package org.agoncal.book.javaee7.chapter13.ex04;
 
 import javax.annotation.Resource;
 import javax.jms.*;
-import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -13,7 +10,7 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class OrderSender {
+public class Receiver {
 
     // ======================================
     // =             Attributes             =
@@ -29,37 +26,22 @@ public class OrderSender {
     // ======================================
 
     public static void main(String[] args) {
-
-        if (args.length != 1) {
-            System.out.println("usage : enter an amount");
-            System.exit(0);
-        }
-
-        System.out.println("Sending message with amount = " + args[0]);
-
-        // Creates an orderDto with a total amount parameter
-        Float totalAmount = Float.valueOf(args[0]);
-        OrderDTO order = new OrderDTO(1234l, new Date(), "Serge Gainsbourg", totalAmount);
-
         try {
             // Creates the needed artifacts to connect to the queue
             Connection connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageProducer producer = session.createProducer(queue);
+            MessageConsumer consumer = session.createConsumer(queue);
+            connection.start();
 
-            // Sends an object message to the queue
-            ObjectMessage message = session.createObjectMessage();
-            message.setObject(order);
-            message.setFloatProperty("orderAmount", totalAmount);
-            producer.send(message);
-            System.out.println("\nMessage sent : " + order.toString());
-
-            connection.close();
+            // Loops to receive the messages
+            System.out.println("\nInfinite loop. Waiting for a message...");
+            while (true) {
+                TextMessage message = (TextMessage) consumer.receive();
+                System.out.println("Message received: " + message.getText());
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.exit(0);
     }
 }

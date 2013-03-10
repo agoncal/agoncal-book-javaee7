@@ -1,8 +1,7 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex01;
+package org.agoncal.book.javaee7.chapter13.ex04;
 
+import javax.annotation.Resource;
 import javax.jms.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import java.util.Date;
 
 /**
@@ -15,19 +14,21 @@ import java.util.Date;
 public class Sender {
 
     // ======================================
+    // =             Attributes             =
+    // ======================================
+
+    @Resource(lookup = "jms/javaee6/ConnectionFactory")
+    private static ConnectionFactory connectionFactory;
+    @Resource(lookup = "jms/javaee6/Queue")
+    private static Queue queue;
+
+    // ======================================
     // =           Public Methods           =
     // ======================================
 
     public static void main(String[] args) {
 
         try {
-            // Gets the JNDI context
-            Context jndiContext = new InitialContext();
-
-            // Looks up the administered objects
-            ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/javaee6/ConnectionFactory");
-            Queue queue = (Queue) jndiContext.lookup("jms/javaee6/Queue");
-
             // Creates the needed artifacts to connect to the queue
             Connection connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);

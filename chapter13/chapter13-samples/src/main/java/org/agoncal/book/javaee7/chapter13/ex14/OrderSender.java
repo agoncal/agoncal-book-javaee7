@@ -1,7 +1,10 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex07;
+package org.agoncal.book.javaee7.chapter13.ex14;
+
+import org.agoncal.book.javaee7.chapter13.OrderDTO;
 
 import javax.annotation.Resource;
 import javax.jms.*;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -10,7 +13,7 @@ import javax.jms.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Sender {
+public class OrderSender {
 
     // ======================================
     // =             Attributes             =
@@ -18,8 +21,8 @@ public class Sender {
 
     @Resource(lookup = "jms/javaee6/ConnectionFactory")
     private static ConnectionFactory connectionFactory;
-    @Resource(lookup = "jms/javaee6/Topic")
-    private static Topic topic;
+    @Resource(lookup = "jms/javaee6/Queue")
+    private static Queue queue;
 
     // ======================================
     // =           Public Methods           =
@@ -27,25 +30,29 @@ public class Sender {
 
     public static void main(String[] args) {
 
+        if (args.length != 1) {
+            System.out.println("usage : enter an amount");
+            System.exit(0);
+        }
+
+        System.out.println("Sending message with amount = " + args[0]);
+
+        // Creates an orderDto with a total amount parameter
+        Float totalAmount = Float.valueOf(args[0]);
+        OrderDTO order = new OrderDTO(1234l, new Date(), "Serge Gainsbourg", totalAmount);
+
         try {
             // Creates the needed artifacts to connect to the queue
             Connection connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageProducer producer = session.createProducer(topic);
+            MessageProducer producer = session.createProducer(queue);
 
-            // Sends a text message to the topic
-            TextMessage message = session.createTextMessage();
-
-
-            String body;
-            for (int i = 0; i < 10; i++) {
-                message.setIntProperty("orderAmount", i);
-                body = "This is a text message with orderAmound" + i;
-                System.out.println(body);
-                message.setText(body);
-                producer.send(message);
-                message.acknowledge();
-            }
+            // Sends an object message to the queue
+            ObjectMessage message = session.createObjectMessage();
+            message.setObject(order);
+            message.setFloatProperty("orderAmount", totalAmount);
+            producer.send(message);
+            System.out.println("\nMessage sent : " + order.toString());
 
             connection.close();
 

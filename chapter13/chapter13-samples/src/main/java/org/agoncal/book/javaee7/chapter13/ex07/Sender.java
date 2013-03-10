@@ -1,8 +1,7 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex05;
+package org.agoncal.book.javaee7.chapter13.ex07;
 
 import javax.annotation.Resource;
 import javax.jms.*;
-import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -36,9 +35,17 @@ public class Sender {
 
             // Sends a text message to the topic
             TextMessage message = session.createTextMessage();
-            message.setText("This is a text message sent at " + new Date());
-            producer.send(message);
-            System.out.println("\nMessage sent !");
+
+
+            String body;
+            for (int i = 0; i < 10; i++) {
+                message.setIntProperty("orderAmount", i);
+                body = "This is a text message with orderAmound" + i;
+                System.out.println(body);
+                message.setText(body);
+                producer.send(message);
+                message.acknowledge();
+            }
 
             connection.close();
 

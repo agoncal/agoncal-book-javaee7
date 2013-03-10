@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex05;
+package org.agoncal.book.javaee7.chapter13.ex07;
 
 import javax.annotation.Resource;
 import javax.jms.*;
@@ -27,13 +27,15 @@ public class Listener implements MessageListener {
 
     public static void main(String[] args) {
 
-        System.out.println("\nStarting listener....");
+        String selector = "orderAmount between 3 and 5";
+
+        System.out.println("\nStarting listener with " + selector + "....");
 
         try {
             // Creates the needed artifacts to connect to the queue
             Connection connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageConsumer consumer = session.createConsumer(topic);
+            MessageConsumer consumer = session.createConsumer(topic, selector);
             consumer.setMessageListener(new Listener());
             connection.start();
 

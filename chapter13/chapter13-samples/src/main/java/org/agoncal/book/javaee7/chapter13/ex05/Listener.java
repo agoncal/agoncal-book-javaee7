@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex07;
+package org.agoncal.book.javaee7.chapter13.ex05;
 
 import javax.annotation.Resource;
 import javax.jms.*;
@@ -10,7 +10,7 @@ import javax.jms.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Receiver {
+public class Listener implements MessageListener {
 
     // ======================================
     // =             Attributes             =
@@ -27,25 +27,25 @@ public class Receiver {
 
     public static void main(String[] args) {
 
-        String selector = "orderAmount < 5 or orderAmount > 7";
-
-        System.out.println("\nStarting receiver with " + selector + "....");
+        System.out.println("\nStarting listener....");
 
         try {
             // Creates the needed artifacts to connect to the queue
             Connection connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageConsumer consumer = session.createConsumer(topic, selector);
+            MessageConsumer consumer = session.createConsumer(topic);
+            consumer.setMessageListener(new Listener());
             connection.start();
 
-            // Loops to receive the messages
-            System.out.println("\nInfinite loop. Waiting for a message...");
-            while (true) {
-                TextMessage message = (TextMessage) consumer.receive();
-                System.out.println("Message received: " + message.getText());
-            }
-
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onMessage(Message message) {
+        try {
+            System.out.println("Message received: " + ((TextMessage) message).getText());
+        } catch (JMSException e) {
             e.printStackTrace();
         }
     }

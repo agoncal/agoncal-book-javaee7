@@ -1,7 +1,8 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex05;
+package org.agoncal.book.javaee7.chapter13.ex05;
 
 import javax.annotation.Resource;
 import javax.jms.*;
+import java.util.Date;
 
 /**
  * @author Antonio Goncalves
@@ -10,7 +11,7 @@ import javax.jms.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Receiver {
+public class Sender {
 
     // ======================================
     // =             Attributes             =
@@ -26,22 +27,25 @@ public class Receiver {
     // ======================================
 
     public static void main(String[] args) {
+
         try {
             // Creates the needed artifacts to connect to the queue
             Connection connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageConsumer consumer = session.createConsumer(topic);
-            connection.start();
+            MessageProducer producer = session.createProducer(topic);
 
-            // Loops to receive the messages
-            System.out.println("\nInfinite loop. Waiting for a message...");
-            while (true) {
-                TextMessage message = (TextMessage) consumer.receive();
-                System.out.println("Message received: " + message.getText());
-            }
+            // Sends a text message to the topic
+            TextMessage message = session.createTextMessage();
+            message.setText("This is a text message sent at " + new Date());
+            producer.send(message);
+            System.out.println("\nMessage sent !");
+
+            connection.close();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        System.exit(0);
     }
 }

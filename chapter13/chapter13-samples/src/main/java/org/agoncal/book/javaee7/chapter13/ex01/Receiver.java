@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.jms.ex01;
+package org.agoncal.book.javaee7.chapter13.ex01;
 
 import javax.jms.*;
 import javax.naming.Context;
