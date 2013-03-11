@@ -15,7 +15,7 @@ import java.util.Date;
  *         --
  */
 @Stateless
-public class Producer05 {
+public class ProducerEJB05 {
 
   // ======================================
   // =             Attributes             =
