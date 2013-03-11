@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.ex02;
+package org.agoncal.book.javaee7.chapter13.ex04;
 
 import javax.jms.*;
 import javax.naming.Context;
@@ -12,13 +12,14 @@ import javax.naming.NamingException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Receiver02 {
+public class Listener04 implements MessageListener {
 
   // ======================================
   // =           Public Methods           =
   // ======================================
 
   public static void main(String[] args) {
+
 
     try {
       // Gets the JNDI context
@@ -28,20 +29,21 @@ public class Receiver02 {
       ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/javaee7/ConnectionFactory");
       Destination queue = (Destination) jndiContext.lookup("jms/javaee7/Queue");
 
-      // Creates the needed artifacts to connect to the queue
-      Connection connection = connectionFactory.createConnection();
-      Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-      MessageConsumer consumer = session.createConsumer(queue);
-      connection.start();
+      System.out.println("\nStarting listener....");
 
-      // Loops to receive the messages
-      System.out.println("\nInfinite loop. Waiting for a message...");
-      while (true) {
-        TextMessage message = (TextMessage) consumer.receive();
-        System.out.println("Message received: " + message.getText());
+      try (JMSContext context = connectionFactory.createContext()) {
+        context.createConsumer(queue).setMessageListener(new Listener04());
       }
 
-    } catch (NamingException | JMSException e) {
+    } catch (NamingException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void onMessage(Message message) {
+    try {
+      System.out.println("Async Message received: " + message.getBody(String.class));
+    } catch (JMSException e) {
       e.printStackTrace();
     }
   }

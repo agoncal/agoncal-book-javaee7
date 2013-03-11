@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.ex03;
+package org.agoncal.book.javaee7.chapter13.ex04;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -14,7 +14,7 @@ import javax.naming.NamingException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Receiver03 {
+public class Consumer04 {
 
   // ======================================
   // =           Public Methods           =

@@ -1,6 +1,8 @@
-package org.agoncal.book.javaee7.chapter13.ex02;
+package org.agoncal.book.javaee7.chapter13.ex04;
 
-import javax.jms.*;
+import javax.jms.ConnectionFactory;
+import javax.jms.Destination;
+import javax.jms.JMSContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -13,7 +15,7 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Sender02 {
+public class Producer04 {
 
   // ======================================
   // =           Public Methods           =
@@ -29,19 +31,13 @@ public class Sender02 {
       ConnectionFactory connectionFactory = (ConnectionFactory) jndiContext.lookup("jms/javaee7/ConnectionFactory");
       Destination queue = (Destination) jndiContext.lookup("jms/javaee7/Queue");
 
-      // Creates the needed artifacts to connect to the queue
-      Connection connection = connectionFactory.createConnection();
-      Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-      MessageProducer producer = session.createProducer(queue);
+      try (JMSContext context = connectionFactory.createContext()) {
+        // Sends a text message to the queue
+        context.createProducer().send(queue, "JMS 2.0 - This is a text message sent at " + new Date());
+        System.out.println("\nMessage sent !");
+      }
 
-      // Sends a text message to the queue
-      TextMessage message = session.createTextMessage("JMS 1.1 - This is a text message sent at " + new Date());
-      producer.send(message);
-      System.out.println("\nMessage sent !");
-
-      connection.close();
-
-    } catch (NamingException | JMSException e) {
+    } catch (NamingException e) {
       e.printStackTrace();
     }
 
