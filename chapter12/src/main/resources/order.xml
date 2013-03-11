@@ -12,5 +12,5 @@
       <unit_price>34.99</unit_price>
     </order_line>
   </content>
-  <credit_card number="123412341234" expiry_date="10/13" control_number="234" type="Visa"/>
+  <credit_card number="1357" expiry_date="10/13" control_number="234" type="Visa"/>
 </order>
