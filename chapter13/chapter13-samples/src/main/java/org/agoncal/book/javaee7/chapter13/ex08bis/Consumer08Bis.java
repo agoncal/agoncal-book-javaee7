@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.ex09;
+package org.agoncal.book.javaee7.chapter13.ex08bis;
 
 import javax.annotation.Resource;
 import javax.jms.ConnectionFactory;
@@ -13,7 +13,7 @@ import javax.jms.Queue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Consumer09 {
+public class Consumer08Bis {
 
   // ======================================
   // =             Attributes             =

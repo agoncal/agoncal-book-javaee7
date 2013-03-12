@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.ex09;
+package org.agoncal.book.javaee7.chapter13.ex08bis;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -11,7 +11,7 @@ import javax.jms.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Producer09 {
+public class Producer08Bis {
 
   // ======================================
   // =             Attributes             =
