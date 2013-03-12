@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. -->
+<xs:schema xmlns:tns="http://chapter14.javaee7.book.agoncal.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0" targetNamespace="http://chapter14.javaee7.book.agoncal.org/">
+  <xs:element name="validate" type="tns:validate"/>
+  <xs:element name="validateResponse" type="tns:validateResponse"/>
+  <xs:complexType name="validate">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:creditCard" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="creditCard">
+    <xs:sequence/>
+    <xs:attribute name="number" type="xs:string" use="required"/>
+    <xs:attribute name="expiry_date" type="xs:string" use="required"/>
+    <xs:attribute name="control_number" type="xs:int" use="required"/>
+    <xs:attribute name="type" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="validateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

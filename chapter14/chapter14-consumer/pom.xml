@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.agoncal.book.javaee7.chapter14</groupId>
+  <artifactId>chapter14-consumer</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>14 - JAX-WS (Consumer)</name>
+
+  <parent>
+    <groupId>org.agoncal.book.javaee7</groupId>
+    <artifactId>chapter14</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.glassfish.main.extras</groupId>
+      <artifactId>glassfish-embedded-all</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.agoncal.book.javaee7.chapter14.ex31.WebServiceConsumer31</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jvnet.jax-ws-commons</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <!--Stubs can be created either by wsdl URL (GlassFish need to be running with the WS deployed)-->
+              <!--Or by wsdl files (these files are located under the wsdl directory)-->
+
+              <wsdlUrls>
+                <wsdlUrl>http://localhost:8080/chapter14-service-1.0/CardValidatorService?wsdl</wsdlUrl>
+              </wsdlUrls>
+
+              <!--<wsdlFiles>-->
+              <!--<wsdlFile>CardValidatorService.wsdl</wsdlFile>-->
+              <!--</wsdlFiles>-->
+              <keep>true</keep>
+
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
