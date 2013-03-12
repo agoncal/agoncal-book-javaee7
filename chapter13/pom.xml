@@ -16,7 +16,8 @@
   </parent>
 
   <modules>
-    <module>chapter13-ejb</module>
+    <module>chapter13-mdb</module>
+    <module>chapter13-se</module>
     <module>chapter13-samples</module>
   </modules>
 

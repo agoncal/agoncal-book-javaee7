@@ -4,10 +4,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.agoncal.book.javaee7.chapter13</groupId>
-  <artifactId>chapter13-ejb</artifactId>
+  <artifactId>chapter13-se</artifactId>
   <version>1.0</version>
-  <packaging>war</packaging>
-  <name>13 - JMS (EJB)</name>
+  <packaging>jar</packaging>
+  <name>13 - JMS (Java SE)</name>
 
   <parent>
     <groupId>org.agoncal.book.javaee7</groupId>
@@ -20,20 +20,6 @@
       <groupId>org.glassfish.main.extras</groupId>
       <artifactId>glassfish-embedded-all</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter13.ex14;
+package org.agoncal.book.javaee7.chapter13;
 
 import org.agoncal.book.javaee7.chapter13.OrderDTO;
 
