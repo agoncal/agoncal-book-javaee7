@@ -20,7 +20,6 @@ public class Listener04 implements MessageListener {
 
   public static void main(String[] args) {
 
-
     try {
       // Gets the JNDI context
       Context jndiContext = new InitialContext();
