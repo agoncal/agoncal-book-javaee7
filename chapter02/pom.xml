@@ -6,7 +6,7 @@
   <groupId>org.agoncal.book.javaee7</groupId>
   <artifactId>chapter02</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>02 - CDI</name>
 
   <parent>
@@ -15,16 +15,9 @@
     <version>1.0</version>
   </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.jboss.weld.se</groupId>
-      <artifactId>weld-se</artifactId>
-    </dependency>
+  <modules>
+    <module>chapter02-samples</module>
+    <module>chapter02-putting-together</module>
+  </modules>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-
-  </dependencies>
 </project>
