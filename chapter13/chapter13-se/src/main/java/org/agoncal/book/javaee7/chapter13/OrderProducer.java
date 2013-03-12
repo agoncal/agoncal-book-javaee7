@@ -42,7 +42,7 @@ public class OrderProducer {
     Destination topic = (Destination) jndiContext.lookup("jms/javaee7/Topic");
 
     try (JMSContext jmsContext = connectionFactory.createContext()) {
-      // Sends a text message to the queue
+      // Sends an object message to the topic
       jmsContext.createProducer().setProperty("orderAmount", totalAmount).send(topic, order);
       System.out.println("\nOrder sent : " + order.toString());
     }
