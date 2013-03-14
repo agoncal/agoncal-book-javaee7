@@ -291,8 +291,7 @@
                 <compilerArguments>-Aeclipselink.persistencexml=src/main/resources/META-INF/persistence.xml
                 </compilerArguments>
                 <processors>
-                  <processor>org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor
-                  </processor>
+                  <processor>org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor</processor>
                 </processors>
               </configuration>
             </execution>
