@@ -9,12 +9,11 @@ import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
+ *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
  *         --
- *         This interceptor implements Serializable because it's used on a Stateful Session Bean who has
- *         passivation and activation lifecycle.
  */
-
 @Loggable
 @Interceptor
 public class LoggingInterceptor implements Serializable {

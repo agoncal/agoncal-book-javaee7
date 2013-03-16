@@ -1,14 +1,16 @@
 package org.agoncal.book.javaee7.chapter02;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import java.util.Random;
 import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
+ *         APress Book - Beginning Java EE 7 with Glassfish 4
+ *         http://www.apress.com/
  *         http://www.antoniogoncalves.org
+ *         --
  */
 @EightDigits
 public class IssnGenerator implements NumberGenerator {
@@ -38,6 +40,6 @@ public class IssnGenerator implements NumberGenerator {
 
   @Loggable
   public String generateNumber() {
-    return "8-" + Math.abs(new Random().nextInt());
+    return "8-" + Math.abs(suffix.nextInt());
   }
 }

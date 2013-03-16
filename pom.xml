@@ -29,6 +29,7 @@
     <version.java>1.7</version.java>
     <!-- Java EE -->
     <version.glassfish>4.0-b78</version.glassfish>
+    <version.javaee>7.0-b79</version.javaee>
     <version.weld>2.0.0.Beta4</version.weld>
     <version.jersey>2.0-m13-1</version.jersey>
     <version.eclipselink>2.5.0-M8</version.eclipselink>
@@ -67,6 +68,12 @@
         <groupId>org.glassfish.main.extras</groupId>
         <artifactId>glassfish-embedded-all</artifactId>
         <version>${version.glassfish}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>${version.javaee}</version>
         <scope>provided</scope>
       </dependency>
 
