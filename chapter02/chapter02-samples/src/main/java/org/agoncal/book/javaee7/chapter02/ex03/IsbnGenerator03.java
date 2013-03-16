@@ -1,9 +1,7 @@
-package org.agoncal.book.javaee7.chapter02.ex02;
+package org.agoncal.book.javaee7.chapter02.ex03;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
+
 import java.util.Random;
-import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
@@ -12,13 +10,13 @@ import java.util.logging.Logger;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class IssnGenerator02 implements NumberGenerator02 {
+public class IsbnGenerator03 implements NumberGenerator03 {
 
   // ======================================
   // =          Business methods          =
   // ======================================
 
   public String generateNumber() {
-    return "8-" + Math.abs(new Random().nextInt());
+    return "13-84356-" + Math.abs(new Random().nextInt());
   }
 }

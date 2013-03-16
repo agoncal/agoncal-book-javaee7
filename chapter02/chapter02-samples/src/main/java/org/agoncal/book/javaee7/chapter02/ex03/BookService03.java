@@ -1,9 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex01;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.transaction.Transactional;
-import java.util.Date;
+package org.agoncal.book.javaee7.chapter02.ex03;
 
 /**
  * @author Antonio Goncalves
@@ -12,35 +7,29 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookService01 {
+public class BookService03 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @Inject
-  private NumberGenerator01 numberGenerator;
-
-  Date instanciationDate;
+  private NumberGenerator03 numberGenerator;
 
   // ======================================
-  // =         Lifecycle methods          =
+  // =            Constructors            =
   // ======================================
 
-  @PostConstruct
-  private void initDate() {
-    instanciationDate = new Date();
+  public BookService03(NumberGenerator03 numberGenerator) {
+    this.numberGenerator = numberGenerator;
   }
 
   // ======================================
   // =          Business methods          =
   // ======================================
 
-  @Transactional
-  public Book01 createBook(String title, Float price, String description) {
-    Book01 book = new Book01(title, price, description);
+  public Book03 createBook(String title, Float price, String description) {
+    Book03 book = new Book03(title, price, description);
     book.setIsbn(numberGenerator.generateNumber());
-    book.setInstanciationDate(instanciationDate);
     return book;
   }
 }

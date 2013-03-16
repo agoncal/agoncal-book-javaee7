@@ -1,6 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex01;
-
-import java.util.Date;
+package org.agoncal.book.javaee7.chapter02.ex03;
 
 /**
  * @author Antonio Goncalves
@@ -9,7 +7,7 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Book01 {
+public class Book03 {
 
   // ======================================
   // =             Attributes             =
@@ -19,16 +17,15 @@ public class Book01 {
   private Float price;
   private String description;
   private String isbn;
-  private Date instanciationDate;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Book01() {
+  public Book03() {
   }
 
-  public Book01(String title, Float price, String description) {
+  public Book03(String title, Float price, String description) {
     this.title = title;
     this.price = price;
     this.description = description;
@@ -70,14 +67,6 @@ public class Book01 {
     this.isbn = isbn;
   }
 
-  public void setInstanciationDate(Date instanciationDate) {
-    this.instanciationDate = instanciationDate;
-  }
-
-  public Date getInstanciationDate() {
-    return instanciationDate;
-  }
-
   // ======================================
   // =         hash, equals, toString     =
   // ======================================
@@ -85,7 +74,7 @@ public class Book01 {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder();
-    sb.append("Book01");
+    sb.append("Book02");
     sb.append(", title='").append(title).append('\'');
     sb.append(", price=").append(price);
     sb.append(", description='").append(description).append('\'');

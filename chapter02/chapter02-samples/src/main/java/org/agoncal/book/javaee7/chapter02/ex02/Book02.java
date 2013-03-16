@@ -19,7 +19,6 @@ public class Book02 {
   private Float price;
   private String description;
   private String isbn;
-  private Date instanciationDate;
 
   // ======================================
   // =            Constructors            =
@@ -84,13 +83,5 @@ public class Book02 {
     sb.append(", isbn='").append(isbn).append('\'');
      sb.append('}');
     return sb.toString();
-  }
-
-  public void setInstanciationDate(Date instanciationDate) {
-    this.instanciationDate = instanciationDate;
-  }
-
-  public Date getInstanciationDate() {
-    return instanciationDate;
   }
 }

@@ -14,7 +14,23 @@ import java.util.Date;
  */
 public class BookService02 {
 
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+
   private NumberGenerator02 numberGenerator;
+
+  // ======================================
+  // =            Constructors            =
+  // ======================================
+
+  public BookService02() {
+    this.numberGenerator = new IsbnGenerator02();
+  }
+
+  // ======================================
+  // =          Business methods          =
+  // ======================================
 
   public Book02 createBook(String title, Float price, String description) {
     Book02 book = new Book02(title, price, description);
