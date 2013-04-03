@@ -9,7 +9,7 @@ import java.util.Random;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@EightDigits
+@EightDigits07
 public class IssnGenerator07 implements NumberGenerator07 {
 
   // ======================================

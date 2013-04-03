@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex07;
+package org.agoncal.book.javaee7.chapter02.ex10;
 
 
 import java.util.Random;
@@ -10,14 +10,14 @@ import java.util.Random;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@ThirteenDigits07
-public class IsbnGenerator07 implements NumberGenerator07 {
+@NumberOfDigits10(value = Digits.THIRTEEN, odd = false)
+public class IsbnEvenGenerator10 implements NumberGenerator10 {
 
   // ======================================
   // =          Business methods          =
   // ======================================
 
   public String generateNumber() {
-    return "13-84356-" + Math.abs(new Random().nextInt());
+    return "132-84356-" + Math.abs(new Random().nextInt());
   }
 }

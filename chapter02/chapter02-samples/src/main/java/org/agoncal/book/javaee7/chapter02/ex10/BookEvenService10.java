@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex07;
+package org.agoncal.book.javaee7.chapter02.ex10;
 
 import javax.inject.Inject;
 
@@ -9,21 +9,22 @@ import javax.inject.Inject;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookService07 {
+public class BookEvenService10 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  @Inject @ThirteenDigits07
-  private NumberGenerator07 numberGenerator;
+  @Inject
+  @NumberOfDigits10(value = Digits.THIRTEEN, odd = false)
+  private NumberGenerator10 numberGenerator;
 
   // ======================================
   // =          Business methods          =
   // ======================================
 
-  public Book07 createBook(String title, Float price, String description) {
-    Book07 book = new Book07(title, price, description);
+  public Book10 createBook(String title, Float price, String description) {
+    Book10 book = new Book10(title, price, description);
     book.setIsbn(numberGenerator.generateNumber());
     return book;
   }
