@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex03;
+package org.agoncal.book.javaee7.chapter02.ex04;
 
 /**
  * @author Antonio Goncalves
@@ -7,7 +7,7 @@ package org.agoncal.book.javaee7.chapter02.ex03;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class Book03 {
+public class Book04 {
 
   // ======================================
   // =             Attributes             =
@@ -22,10 +22,10 @@ public class Book03 {
   // =            Constructors            =
   // ======================================
 
-  public Book03() {
+  public Book04() {
   }
 
-  public Book03(String title, Float price, String description) {
+  public Book04(String title, Float price, String description) {
     this.title = title;
     this.price = price;
     this.description = description;

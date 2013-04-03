@@ -1,5 +1,7 @@
-package org.agoncal.book.javaee7.chapter02.ex01;
+package org.agoncal.book.javaee7.chapter02.ex04;
 
+
+import java.util.Random;
 
 /**
  * @author Antonio Goncalves
@@ -8,11 +10,13 @@ package org.agoncal.book.javaee7.chapter02.ex01;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public interface NumberGenerator01 {
+public class IsbnGenerator04 implements NumberGenerator04 {
 
   // ======================================
   // =          Business methods          =
   // ======================================
 
-  String generateNumber();
+  public String generateNumber() {
+    return "13-84356-" + Math.abs(new Random().nextInt());
+  }
 }

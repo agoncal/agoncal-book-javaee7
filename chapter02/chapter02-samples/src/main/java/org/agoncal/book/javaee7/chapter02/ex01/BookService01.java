@@ -1,7 +1,9 @@
 package org.agoncal.book.javaee7.chapter02.ex01;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Vetoed;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.Date;
 
@@ -12,6 +14,7 @@ import java.util.Date;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@Vetoed
 public class BookService01 {
 
   // ======================================
@@ -20,6 +23,8 @@ public class BookService01 {
 
   @Inject
   private NumberGenerator01 numberGenerator;
+  @Inject
+  private EntityManager em;
 
   Date instanciationDate;
 
@@ -41,6 +46,7 @@ public class BookService01 {
     Book01 book = new Book01(title, price, description);
     book.setIsbn(numberGenerator.generateNumber());
     book.setInstanciationDate(instanciationDate);
+    em.persist(book);
     return book;
   }
 }

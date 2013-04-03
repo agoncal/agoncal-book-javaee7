@@ -1,9 +1,6 @@
 package org.agoncal.book.javaee7.chapter02.ex02;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import java.util.Random;
-import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves

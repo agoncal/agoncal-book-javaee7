@@ -1,7 +1,5 @@
 package org.agoncal.book.javaee7.chapter02.ex02;
 
-import java.util.Date;
-
 /**
  * @author Antonio Goncalves
  *         APress Book - Beginning Java EE 7 with Glassfish 4
@@ -81,7 +79,7 @@ public class Book02 {
     sb.append(", price=").append(price);
     sb.append(", description='").append(description).append('\'');
     sb.append(", isbn='").append(isbn).append('\'');
-     sb.append('}');
+    sb.append('}');
     return sb.toString();
   }
 }

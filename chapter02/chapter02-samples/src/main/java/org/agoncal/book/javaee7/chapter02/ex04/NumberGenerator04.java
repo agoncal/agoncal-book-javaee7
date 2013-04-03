@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex01;
+package org.agoncal.book.javaee7.chapter02.ex04;
 
 
 /**
@@ -8,7 +8,7 @@ package org.agoncal.book.javaee7.chapter02.ex01;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public interface NumberGenerator01 {
+public interface NumberGenerator04 {
 
   // ======================================
   // =          Business methods          =

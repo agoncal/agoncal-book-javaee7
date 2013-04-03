@@ -10,9 +10,9 @@ package org.agoncal.book.javaee7.chapter02.ex02;
  */
 public interface NumberGenerator02 {
 
-    // ======================================
-    // =          Business methods          =
-    // ======================================
+  // ======================================
+  // =          Business methods          =
+  // ======================================
 
-    String generateNumber();
+  String generateNumber();
 }

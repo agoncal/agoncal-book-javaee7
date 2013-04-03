@@ -90,7 +90,7 @@ public class Book01 {
     sb.append(", price=").append(price);
     sb.append(", description='").append(description).append('\'');
     sb.append(", isbn='").append(isbn).append('\'');
-     sb.append('}');
+    sb.append('}');
     return sb.toString();
   }
 }

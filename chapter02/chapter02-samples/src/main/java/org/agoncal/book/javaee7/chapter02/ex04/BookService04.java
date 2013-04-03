@@ -1,4 +1,6 @@
-package org.agoncal.book.javaee7.chapter02.ex02;
+package org.agoncal.book.javaee7.chapter02.ex04;
+
+import javax.inject.Inject;
 
 /**
  * @author Antonio Goncalves
@@ -7,28 +9,21 @@ package org.agoncal.book.javaee7.chapter02.ex02;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class BookService02 {
+public class BookService04 {
 
   // ======================================
   // =             Attributes             =
   // ======================================
 
-  private NumberGenerator02 numberGenerator;
-
-  // ======================================
-  // =            Constructors            =
-  // ======================================
-
-  public BookService02() {
-    this.numberGenerator = new IsbnGenerator02();
-  }
+  @Inject
+  private NumberGenerator04 numberGenerator;
 
   // ======================================
   // =          Business methods          =
   // ======================================
 
-  public Book02 createBook(String title, Float price, String description) {
-    Book02 book = new Book02(title, price, description);
+  public Book04 createBook(String title, Float price, String description) {
+    Book04 book = new Book04(title, price, description);
     book.setIsbn(numberGenerator.generateNumber());
     return book;
   }
