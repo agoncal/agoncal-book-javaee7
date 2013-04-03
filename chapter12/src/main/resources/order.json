@@ -1,28 +1,32 @@
-{"@id":"1234", "@date":"19/09/2012", "@total_amount":"93.48",
-    "customer":{
-        "@first_name":"James",
-        "@last_name":"Rorrison",
-        "email":"j.rorri@me.com",
-        "phoneNumber":"+44 1234 1234"
+{
+  "order": {
+    "@id": "1234",
+    "@date": "05/06/2013",
+    "customer": {
+      "@first_name": "James",
+      "@last_name": "Rorrison",
+      "email": "j.rorri@me.com",
+      "phoneNumber": "+44 1234 1234"
     },
-    "content":{
-        "order_line":[
-            {
-                "@item":"H2G2",
-                "unit_price":"23.5",
-                "quantity":"1"
-            },
-            {
-                "@item":"Harry Potter",
-                "unit_price":"34.99",
-                "quantity":"2"
-            }
-        ]
+    "content": {
+      "order_line": [
+        {
+          "@item": "H2G2",
+          "@quantity": "1",
+          "unit_price": "23.5"
+        },
+        {
+          "@item": "Harry Potter",
+          "@quantity": "2",
+          "unit_price": "34.99"
+        }
+      ]
     },
-    "credit_card":{
-        "@number":"123412341234",
-        "expiry_date":"10/13",
-        "control_number":"234",
-        "type":"Visa"
+    "credit_card": {
+      "@number": "1357",
+      "@expiry_date": "10/13",
+      "@control_number": "234",
+      "@type": "Visa"
     }
+  }
 }
