@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class NumberGeneratorTest {
+public class NumberGenerator02Test {
 
   // ======================================
   // =              Methods               =

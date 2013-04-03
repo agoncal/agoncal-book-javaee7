@@ -1,16 +1,13 @@
-package org.agoncal.book.javaee7.chapter02.ex04;
+package org.agoncal.book.javaee7.chapter02.ex07;
 
-import org.agoncal.book.javaee7.chapter02.ex03.Book03;
-import org.agoncal.book.javaee7.chapter02.ex03.BookService03;
-import org.agoncal.book.javaee7.chapter02.ex03.IsbnGenerator03;
-import org.agoncal.book.javaee7.chapter02.ex03.IssnGenerator03;
+import org.agoncal.book.javaee7.chapter02.ex07.Book07;
+import org.agoncal.book.javaee7.chapter02.ex07.BookService07;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -20,7 +17,7 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class NumberGeneratorIT {
+public class NumberGenerator07IT {
 
   // ======================================
   // =             Attributes             =
@@ -50,8 +47,15 @@ public class NumberGeneratorIT {
 
   @Test
   public void shouldCheckNumberIsThirteenDigits() {
-    BookService04 bookService = container.instance().select(BookService04.class).get();
-    Book04 book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
+    BookService07 bookService = container.instance().select(BookService07.class).get();
+    Book07 book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
     assertTrue(book.getIsbn().startsWith("13"));
+  }
+
+  @Test
+  public void shouldCheckNumberIsEightDigits() {
+    LegacyBookService07 bookService = container.instance().select(LegacyBookService07.class).get();
+    Book07 book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
+    assertTrue(book.getIsbn().startsWith("8"));
   }
 }
