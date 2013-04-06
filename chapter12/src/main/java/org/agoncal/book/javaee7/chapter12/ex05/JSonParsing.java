@@ -3,6 +3,8 @@ package org.agoncal.book.javaee7.chapter12.ex05;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonWriter;
+import javax.json.stream.JsonGenerator;
+import java.io.IOException;
 import java.io.StringWriter;
 
 /**
@@ -26,38 +28,38 @@ public class JSonParsing {
 
     }
 
-//  public static String generateJSon() throws IOException {
-//    StringWriter s = new StringWriter();
-//    JsonGenerator generator = Json.createGenerator(s);
-//    generator.writeStartObject()
-//            .write("id", "1234")
-//            .write("date", "19/09/2012")
-//            .write("total_amount", "93.48")
-//            .writeStartObject("customer")
-//            .write("first_name", "James")
-//            .write("last_name", "Rorrison")
-//            .write("email", "j.rorri@me.com")
-//            .write("phoneNumber", "+44 1234 1234")
-//            .writeStartArray("content")
-//            .writeStartObject()
-//            .write("item", "H2G2")
-//            .write("unit_price", "23.5")
-//            .write("quantity", "1")
-//            .writeStartObject()
-//            .write("item", "Harry Potter")
-//            .write("unit_price", "34.99")
-//            .write("quantity", "2")
-//            .writeStartObject("credit_card")
-//            .write("number", "123412341234")
-//            .write("expiry_date", "10/13")
-//            .write("control_number", "234")
-//            .write("type", "Visa")
-//            .writeEnd()
-//            .writeEnd()
-//            .close();
-//    return s.toString();
-//  }
-
+  public static String generateJSon() throws IOException {
+    StringWriter s = new StringWriter();
+    JsonGenerator generator = Json.createGenerator(s);
+    generator.writeStartObject()
+            .write("id", "1234")
+            .write("date", "19/09/2012")
+            .write("total_amount", "93.48")
+            .writeStartObject("customer")
+            .write("first_name", "James")
+            .write("last_name", "Rorrison")
+            .write("email", "j.rorri@me.com")
+            .write("phoneNumber", "+44 1234 1234")
+            .writeStartArray("content")
+            .writeStartObject()
+            .write("item", "H2G2")
+            .write("unit_price", "23.5")
+            .write("quantity", "1")
+            .writeStartObject()
+            .write("item", "Harry Potter")
+            .write("unit_price", "34.99")
+            .write("quantity", "2")
+            .writeStartObject("credit_card")
+            .write("number", "123412341234")
+            .write("expiry_date", "10/13")
+            .write("control_number", "234")
+            .write("type", "Visa")
+            .writeEnd()
+            .writeEnd()
+            .close();
+    return s.toString();
+  }
+//
     public static JsonObject buildJSon() {
         JsonObject value = Json.createObjectBuilder()
                 .add("id", "1234")

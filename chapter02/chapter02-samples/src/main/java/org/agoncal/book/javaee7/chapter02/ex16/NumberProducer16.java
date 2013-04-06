@@ -26,7 +26,7 @@ public class NumberProducer16 {
 
     @Produces
     @Random16
-    public Double random() {
+    public double random() {
         return Double.valueOf(Math.abs(new Random().nextInt()));
     }
 }

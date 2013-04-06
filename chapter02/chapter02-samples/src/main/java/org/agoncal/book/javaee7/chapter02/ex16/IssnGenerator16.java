@@ -22,7 +22,7 @@ public class IssnGenerator16 implements NumberGenerator16 {
 
     @Inject
     @Random16
-    private Double postfix;
+    private double postfix;
 
     // ======================================
     // =          Business methods          =
