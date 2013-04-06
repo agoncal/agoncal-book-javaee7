@@ -12,21 +12,17 @@ import java.util.Random;
  */
 public class NumberProducer16 {
 
-    @Produces
-    @ThirteenDigits16
-    public String prefix13digits() {
-        return "13-";
-    }
+  @Produces
+  @ThirteenDigits16
+  private String prefix13digits = "13-";
 
-    @Produces
-    @EightDigits16
-    public String prefix8digits() {
-        return "8-";
-    }
+  @Produces
+  @EightDigits16
+  private String prefix8digits = "8-";
 
-    @Produces
-    @Random16
-    public double random() {
-        return Double.valueOf(Math.abs(new Random().nextInt()));
-    }
+  @Produces
+  @Random16
+  public double random() {
+    return Double.valueOf(Math.abs(new Random().nextInt()));
+  }
 }
