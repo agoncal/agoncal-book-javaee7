@@ -20,11 +20,10 @@ public class CreditCard {
 
     @XmlAttribute
     private String number;
-    @XmlAttribute(name = "expiry_date")
+    @XmlElement(name = "expiry_date")
     private String expiryDate;
-    @XmlAttribute(name = "control_number")
+    @XmlElement(name = "control_number")
     private Integer controlNumber;
-    @XmlAttribute
     private String type;
 
     // ======================================
