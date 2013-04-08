@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter02.ex14;
 
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 /**

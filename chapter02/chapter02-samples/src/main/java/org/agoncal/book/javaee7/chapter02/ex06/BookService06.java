@@ -16,7 +16,8 @@ public class BookService06 {
   // =             Attributes             =
   // ======================================
 
-  @Inject @Default
+  @Inject
+  @Default
   private NumberGenerator06 numberGenerator;
 
   // ======================================

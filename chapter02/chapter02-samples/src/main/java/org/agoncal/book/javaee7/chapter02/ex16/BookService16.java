@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter02.ex16;
 
 import javax.inject.Inject;
+import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
@@ -15,7 +16,11 @@ public class BookService16 {
   // =             Attributes             =
   // ======================================
 
-  @Inject @ThirteenDigits16
+  Logger log = Logger.getLogger(BookService16.class.getName());
+
+  @Inject
+  @ThirteenDigits16
+
   private NumberGenerator16 numberGenerator;
 
   // ======================================
@@ -23,6 +28,7 @@ public class BookService16 {
   // ======================================
 
   public Book16 createBook(String title, Float price, String description) {
+    log.warning("Debug message without injection");
     Book16 book = new Book16(title, price, description);
     book.setIsbn(numberGenerator.generateNumber());
     return book;

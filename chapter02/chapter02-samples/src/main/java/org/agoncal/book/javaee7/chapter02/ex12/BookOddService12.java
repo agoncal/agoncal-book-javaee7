@@ -16,7 +16,8 @@ public class BookOddService12 {
   // ======================================
 
   @Inject
-  @ThirteenDigits12 @Odd12
+  @ThirteenDigits12
+  @Odd12
   private NumberGenerator12 numberGenerator;
 
   // ======================================

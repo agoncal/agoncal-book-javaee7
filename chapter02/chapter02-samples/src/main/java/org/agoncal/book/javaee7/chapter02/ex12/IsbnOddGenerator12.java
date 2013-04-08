@@ -10,7 +10,8 @@ import java.util.Random;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@ThirteenDigits12 @Odd12
+@ThirteenDigits12
+@Odd12
 public class IsbnOddGenerator12 implements NumberGenerator12 {
 
   // ======================================

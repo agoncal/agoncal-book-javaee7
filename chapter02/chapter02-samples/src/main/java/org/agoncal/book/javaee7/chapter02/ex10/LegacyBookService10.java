@@ -15,7 +15,8 @@ public class LegacyBookService10 {
   // =             Attributes             =
   // ======================================
 
-  @Inject @NumberOfDigits10(value = Digits.EIGHT, odd = true)
+  @Inject
+  @NumberOfDigits10(value = Digits.EIGHT, odd = true)
   private NumberGenerator10 numberGenerator;
 
   // ======================================

@@ -2,6 +2,7 @@ package org.agoncal.book.javaee7.chapter02.ex16;
 
 
 import javax.inject.Inject;
+import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
@@ -13,23 +14,31 @@ import javax.inject.Inject;
 @ThirteenDigits16
 public class IsbnGenerator16 implements NumberGenerator16 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Inject
-    @ThirteenDigits16
-    private String prefix;
+  @Inject
+  Logger log;
 
-    @Inject
-    @Random16
-    private double postfix;
+  @Inject
+  @ThirteenDigits16
+  private String prefix;
 
-    // ======================================
-    // =          Business methods          =
-    // ======================================
+  @Inject
+  @ThirteenDigits16
+  private int editorNumber;
 
-    public String generateNumber() {
-        return prefix + "84356-" + postfix;
-    }
+  @Inject
+  @Random16
+  private double postfix;
+
+  // ======================================
+  // =          Business methods          =
+  // ======================================
+
+  public String generateNumber() {
+    log.warning("Debug message with @Inject");
+    return prefix + editorNumber + postfix;
+  }
 }

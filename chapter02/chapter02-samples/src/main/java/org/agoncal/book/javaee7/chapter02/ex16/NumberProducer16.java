@@ -17,6 +17,10 @@ public class NumberProducer16 {
   private String prefix13digits = "13-";
 
   @Produces
+  @ThirteenDigits16
+  private int editorNumber = 84356;
+
+  @Produces
   @EightDigits16
   private String prefix8digits = "8-";
 

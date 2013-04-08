@@ -12,23 +12,23 @@ import javax.inject.Inject;
 @EightDigits16
 public class IssnGenerator16 implements NumberGenerator16 {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @Inject
-    @EightDigits16
-    private String prefix;
+  @Inject
+  @EightDigits16
+  private String prefix;
 
-    @Inject
-    @Random16
-    private double postfix;
+  @Inject
+  @Random16
+  private double postfix;
 
-    // ======================================
-    // =          Business methods          =
-    // ======================================
+  // ======================================
+  // =          Business methods          =
+  // ======================================
 
-    public String generateNumber() {
-        return prefix +  postfix;
-    }
+  public String generateNumber() {
+    return prefix + postfix;
+  }
 }

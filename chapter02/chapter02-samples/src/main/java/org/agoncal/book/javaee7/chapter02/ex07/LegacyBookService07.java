@@ -15,7 +15,8 @@ public class LegacyBookService07 {
   // =             Attributes             =
   // ======================================
 
-  @Inject @EightDigits07
+  @Inject
+  @EightDigits07
   private NumberGenerator07 numberGenerator;
 
   // ======================================

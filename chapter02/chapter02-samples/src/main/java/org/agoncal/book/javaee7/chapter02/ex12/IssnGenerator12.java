@@ -9,7 +9,8 @@ import java.util.Random;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@EightDigits12 @Odd12
+@EightDigits12
+@Odd12
 public class IssnGenerator12 implements NumberGenerator12 {
 
   // ======================================

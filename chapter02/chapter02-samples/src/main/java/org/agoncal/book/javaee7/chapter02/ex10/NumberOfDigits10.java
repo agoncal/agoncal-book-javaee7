@@ -20,5 +20,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface NumberOfDigits10 {
 
   Digits value();
+
   boolean odd();
 }

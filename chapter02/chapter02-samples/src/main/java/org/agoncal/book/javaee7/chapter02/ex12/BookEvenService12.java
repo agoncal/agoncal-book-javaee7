@@ -16,7 +16,8 @@ public class BookEvenService12 {
   // ======================================
 
   @Inject
-  @ThirteenDigits12 @Even12
+  @ThirteenDigits12
+  @Even12
   private NumberGenerator12 numberGenerator;
 
   // ======================================

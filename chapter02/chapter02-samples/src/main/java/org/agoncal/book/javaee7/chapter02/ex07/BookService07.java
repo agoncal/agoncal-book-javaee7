@@ -15,7 +15,8 @@ public class BookService07 {
   // =             Attributes             =
   // ======================================
 
-  @Inject @ThirteenDigits07
+  @Inject
+  @ThirteenDigits07
   private NumberGenerator07 numberGenerator;
 
   // ======================================

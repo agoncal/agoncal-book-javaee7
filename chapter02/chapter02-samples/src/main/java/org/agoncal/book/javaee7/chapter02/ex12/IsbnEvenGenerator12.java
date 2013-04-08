@@ -10,7 +10,8 @@ import java.util.Random;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@ThirteenDigits12 @Even12
+@ThirteenDigits12
+@Even12
 public class IsbnEvenGenerator12 implements NumberGenerator12 {
 
   // ======================================
