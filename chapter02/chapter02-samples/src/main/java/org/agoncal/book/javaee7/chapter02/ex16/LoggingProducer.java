@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class LoggingProducer {
 
   @Produces
-  Logger createLogger(InjectionPoint injectionPoint) {
+  private Logger createLogger(InjectionPoint injectionPoint) {
     return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
   }
 }
