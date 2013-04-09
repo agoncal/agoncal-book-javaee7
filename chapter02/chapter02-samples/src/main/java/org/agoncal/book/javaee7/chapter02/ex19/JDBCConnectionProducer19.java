@@ -13,14 +13,14 @@ import java.sql.SQLException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class JDBCConnectionProducer {
+public class JDBCConnectionProducer19 {
 
   @Produces
   private Connection createConnection() {
     Connection conn = null;
     try {
-      Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
-      conn = DriverManager.getConnection("jdbc:derby://localhost:1527/chapter02DB;create=true", "APP", "APP");
+      Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+      conn = DriverManager.getConnection("jdbc:derby:memory:chapter02DB;create=true", "APP", "APP");
 
     } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
       e.printStackTrace();
@@ -28,7 +28,7 @@ public class JDBCConnectionProducer {
     return conn;
   }
 
-  public void closeConnection(@Disposes Connection conn) throws SQLException {
+  private void closeConnection(@Disposes Connection conn) throws SQLException {
     conn.close();
   }
 }
