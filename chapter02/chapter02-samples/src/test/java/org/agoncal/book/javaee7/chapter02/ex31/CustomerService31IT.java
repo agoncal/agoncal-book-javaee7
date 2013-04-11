@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex29;
+package org.agoncal.book.javaee7.chapter02.ex31;
 
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
@@ -13,7 +13,7 @@ import org.junit.Test;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class CustomerService29IT {
+public class CustomerService31IT {
 
   // ======================================
   // =             Attributes             =
@@ -43,7 +43,7 @@ public class CustomerService29IT {
 
   @Test
   public void shouldSeeInterceptor() throws Exception {
-    CustomerService29 customerService = container.instance().select(CustomerService29.class).get();
-    customerService.createCustomer(new Customer29());
+    CustomerService31 customerService = container.instance().select(CustomerService31.class).get();
+    customerService.createCustomer(new Customer31());
   }
 }

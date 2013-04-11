@@ -8,5 +8,7 @@
 
   <interceptors>
     <class>org.agoncal.book.javaee7.chapter02.ex29.LoggingInterceptor29</class>
+    <class>org.agoncal.book.javaee7.chapter02.ex31.LoggingInterceptor31</class>
+    <class>org.agoncal.book.javaee7.chapter02.ex31.AuditInterceptor31</class>
   </interceptors>
 </beans>
