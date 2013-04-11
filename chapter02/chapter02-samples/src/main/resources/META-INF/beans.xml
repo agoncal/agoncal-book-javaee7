@@ -5,4 +5,8 @@
     <alternatives>
         <class>org.agoncal.book.javaee7.chapter02.ex14.MockGenerator14</class>
     </alternatives>
+
+  <interceptors>
+    <class></class>
+  </interceptors>
 </beans>

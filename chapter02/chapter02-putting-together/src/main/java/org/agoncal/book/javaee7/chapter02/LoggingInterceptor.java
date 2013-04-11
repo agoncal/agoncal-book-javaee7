@@ -23,7 +23,7 @@ public class LoggingInterceptor implements Serializable {
     // ======================================
 
     @Inject
-    private transient Logger logger;
+    private Logger logger;
 
     // ======================================
     // =          Business methods          =
