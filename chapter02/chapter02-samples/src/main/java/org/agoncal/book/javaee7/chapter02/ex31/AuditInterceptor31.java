@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 @Auditable31
 @Interceptor
-@Priority(1000)
+@Priority(100)
 public class AuditInterceptor31 {
 
   // ======================================
