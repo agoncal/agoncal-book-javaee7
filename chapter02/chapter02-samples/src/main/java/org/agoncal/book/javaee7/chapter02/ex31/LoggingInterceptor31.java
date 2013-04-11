@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 @Loggable31
 @Interceptor
-@Priority(1000)
+@Priority(200)
 public class LoggingInterceptor31 {
 
   // ======================================

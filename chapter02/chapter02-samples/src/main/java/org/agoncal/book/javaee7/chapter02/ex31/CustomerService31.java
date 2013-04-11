@@ -12,7 +12,6 @@ import javax.transaction.Transactional;
  *         --
  */
 @Transactional
-@Auditable31
 @Loggable31
 public class CustomerService31 {
 
@@ -27,6 +26,7 @@ public class CustomerService31 {
   // =           Public Methods           =
   // ======================================
 
+  @Auditable31
   public void createCustomer(Customer31 customer) {
     em.persist(customer);
   }

@@ -14,9 +14,9 @@ import java.util.logging.Logger;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Loggable31
+@Auditable31
 @Interceptor
-@Priority(500)
+@Priority(1000)
 public class AuditInterceptor31 {
 
   // ======================================

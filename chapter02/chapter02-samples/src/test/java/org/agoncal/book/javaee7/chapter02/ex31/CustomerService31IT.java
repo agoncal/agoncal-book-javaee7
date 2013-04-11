@@ -45,5 +45,6 @@ public class CustomerService31IT {
   public void shouldSeeInterceptor() throws Exception {
     CustomerService31 customerService = container.instance().select(CustomerService31.class).get();
     customerService.createCustomer(new Customer31());
+    customerService.findCustomerById(1L);
   }
 }
