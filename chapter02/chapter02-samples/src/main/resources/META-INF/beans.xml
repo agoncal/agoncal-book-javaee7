@@ -2,11 +2,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/ http://xmlns.jcp.org/xml/ns/javaee//beans_1_1.xsd">
 
-    <alternatives>
-        <class>org.agoncal.book.javaee7.chapter02.ex14.MockGenerator14</class>
-    </alternatives>
+  <alternatives>
+    <class>org.agoncal.book.javaee7.chapter02.ex14.MockGenerator14</class>
+  </alternatives>
 
   <interceptors>
-    <class></class>
+    <class>org.agoncal.book.javaee7.chapter02.ex29.LoggingInterceptor29</class>
   </interceptors>
 </beans>
