@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter02.ex16;
+package org.agoncal.book.javaee7.chapter02;
 
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
