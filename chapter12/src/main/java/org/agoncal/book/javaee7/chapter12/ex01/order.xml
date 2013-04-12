@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<order id="1234" date="05/06/2013">
+  <customer first_name="James" last_name="Rorrison">
+    <email>j.rorri@me.com</email>
+    <phoneNumber>+44 1234 1234</phoneNumber>
+  </customer>
+  <content>
+    <order_line item="H2G2" quantity="1">
+      <unit_price>23.5</unit_price>
+    </order_line>
+    <order_line item="Harry Potter" quantity="2">
+      <unit_price>34.99</unit_price>
+    </order_line>
+  </content>
+  <credit_card number="1357" expiry_date="10/13" control_number="234" type="Visa"/>
+</order>
