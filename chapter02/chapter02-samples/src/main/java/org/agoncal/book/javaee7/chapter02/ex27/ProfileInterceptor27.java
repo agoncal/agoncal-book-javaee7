@@ -39,6 +39,10 @@ public class ProfileInterceptor27 {
     }
   }
 
+  // ======================================
+  // =           Public Methods           =
+  // ======================================
+
   @AroundInvoke
   public Object profile(InvocationContext ic) throws Exception {
     long initTime = System.currentTimeMillis();
