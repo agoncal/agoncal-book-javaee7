@@ -1,5 +1,6 @@
-package org.agoncal.book.javaee7.chapter12.ex02;
+package org.agoncal.book.javaee7.chapter12.ex05;
 
+import org.agoncal.book.javaee7.chapter12.ex05.DomBuilding05;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class DomBuildingTest {
+public class DomBuilding05Test {
 
     public static final String ORDER_XML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
             "<order date=\"05/06/2013\" id=\"1234\">\n" +
@@ -28,7 +29,7 @@ public class DomBuildingTest {
     @Test
     public void shouldBuildOrder() throws Exception {
 
-        String orderXML = new DomBuilding().buildOrder() ;
+        String orderXML = new DomBuilding05().buildOrder() ;
 
         assertEquals(ORDER_XML, orderXML);
 

@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12.ex02;
+package org.agoncal.book.javaee7.chapter12.ex04;
 
 import org.agoncal.book.javaee7.chapter12.OrderLine;
 import org.junit.Test;
@@ -14,11 +14,11 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class DomParsingTest {
+public class SaxParsing04Test {
 
     @Test
     public void shouldParseOrderLines() throws Exception {
-        List<OrderLine> parseOrderLines = new DomParsing().parseOrderLines();
+        List<OrderLine> parseOrderLines = new SaxParsing04().parseOrderLines();
         assertEquals(2, parseOrderLines.size());
         OrderLine orderLine = parseOrderLines.get(0);
         assertEquals("H2G2", orderLine.getItem());

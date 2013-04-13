@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12.ex03;
+package org.agoncal.book.javaee7.chapter12.ex06;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -16,10 +16,10 @@ import java.nio.file.Paths;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class XsltTransforming {
+public class XsltTransforming06 {
 
   public static void main(String[] args) {
-    String order = new XsltTransforming().transformOrder();
+    String order = new XsltTransforming06().transformOrder();
     System.out.println(order);
   }
 

@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12.ex01;
+package org.agoncal.book.javaee7.chapter12.ex04;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -10,12 +10,12 @@ import org.xml.sax.SAXException;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class SaxParsingWithValidationTest {
+public class SaxParsingWithValidation04Test {
 
     @Test(expected = SAXException.class)
     public void shouldParseOutput() throws Exception {
 
-        SaxParsingWithValidation saxParsing = new SaxParsingWithValidation();
+        SaxParsingWithValidation04 saxParsing = new SaxParsingWithValidation04();
         saxParsing.parseOrderXML();
     }
 }

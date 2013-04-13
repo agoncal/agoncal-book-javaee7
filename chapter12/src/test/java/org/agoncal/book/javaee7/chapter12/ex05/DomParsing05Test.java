@@ -1,8 +1,8 @@
-package org.agoncal.book.javaee7.chapter12.ex02;
+package org.agoncal.book.javaee7.chapter12.ex05;
 
 import org.agoncal.book.javaee7.chapter12.OrderLine;
+import org.agoncal.book.javaee7.chapter12.ex05.DomParsing05;
 import org.junit.Test;
-import org.xml.sax.SAXParseException;
 
 import java.util.List;
 
@@ -15,15 +15,19 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class DomParsingWithValidationTest {
+public class DomParsing05Test {
 
-    @Test(expected = SAXParseException.class)
+    @Test
     public void shouldParseOrderLines() throws Exception {
-        List<OrderLine> parseOrderLines = new DomParsingWithValidation().parseOrderLines();
+        List<OrderLine> parseOrderLines = new DomParsing05().parseOrderLines();
         assertEquals(2, parseOrderLines.size());
         OrderLine orderLine = parseOrderLines.get(0);
         assertEquals("H2G2", orderLine.getItem());
         assertEquals((Integer) 1, orderLine.getQuantity());
         assertEquals((Double) 23.5, orderLine.getUnitPrice());
+        orderLine = parseOrderLines.get(1);
+        assertEquals("Harry Potter", orderLine.getItem());
+        assertEquals((Integer) 2, orderLine.getQuantity());
+        assertEquals((Double) 34.99, orderLine.getUnitPrice());
     }
 }

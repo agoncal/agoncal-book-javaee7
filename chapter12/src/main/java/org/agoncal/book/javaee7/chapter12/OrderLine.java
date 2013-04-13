@@ -15,55 +15,55 @@ import javax.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OrderLine {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+  // ======================================
+  // =             Attributes             =
+  // ======================================
 
-    @XmlAttribute
-    private String item;
-    @XmlElement(name = "unit_price")
-    private Double unitPrice;
-    @XmlAttribute
-    private Integer quantity;
+  @XmlAttribute
+  private String item;
+  @XmlElement(name = "unit_price")
+  private Double unitPrice;
+  @XmlAttribute
+  private Integer quantity;
 
-    // ======================================
-    // =            Constructors            =
-    // ======================================
+  // ======================================
+  // =            Constructors            =
+  // ======================================
 
-    public OrderLine() {
-    }
+  public OrderLine() {
+  }
 
-    public OrderLine(String item, Double unitPrice, Integer quantity) {
-        this.item = item;
-        this.unitPrice = unitPrice;
-        this.quantity = quantity;
-    }
+  public OrderLine(String item, Double unitPrice, Integer quantity) {
+    this.item = item;
+    this.unitPrice = unitPrice;
+    this.quantity = quantity;
+  }
 
-    // ======================================
-    // =          Getters & Setters         =
-    // ======================================
+  // ======================================
+  // =          Getters & Setters         =
+  // ======================================
 
-    public String getItem() {
-        return item;
-    }
+  public String getItem() {
+    return item;
+  }
 
-    public void setItem(String item) {
-        this.item = item;
-    }
+  public void setItem(String item) {
+    this.item = item;
+  }
 
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
+  public Double getUnitPrice() {
+    return unitPrice;
+  }
 
-    public void setUnitPrice(Double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
+  public void setUnitPrice(Double unitPrice) {
+    this.unitPrice = unitPrice;
+  }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+  public Integer getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
 }

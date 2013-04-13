@@ -10,13 +10,13 @@ import java.util.Date;
  */
 public class DateAdapter extends XmlAdapter<String, Date> {
 
-    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+  DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Date unmarshal(String date) throws Exception {
-        return df.parse(date);
-    }
+  public Date unmarshal(String date) throws Exception {
+    return df.parse(date);
+  }
 
-    public String marshal(Date date) throws Exception {
-        return df.format(date);
-    }
+  public String marshal(Date date) throws Exception {
+    return df.format(date);
+  }
 }

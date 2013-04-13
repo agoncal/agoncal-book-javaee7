@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12.ex04;
+package org.agoncal.book.javaee7.chapter12.ex02;
 
 import com.sun.org.apache.xpath.internal.NodeSet;
 import org.junit.Test;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class XPathQueryingTest {
+public class XPathQuerying02Test {
 
   @Test
   public void shouldTransformOrder() throws Exception {
