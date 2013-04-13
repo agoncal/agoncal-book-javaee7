@@ -42,6 +42,6 @@ public class XsltTransforming06 {
       e.printStackTrace();
     }
 
-    return writer.toString().trim();
+    return writer.toString();
   }
 }
