@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12.ex05;
+package org.agoncal.book.javaee7.chapter12.ex15;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -12,9 +12,14 @@ import javax.json.JsonObjectBuilder;
  *         --
  */
 
-public class JSONBuilder {
+public class JSONBuilder15 {
   public static void main(String[] args) {
+    System.out.println(new JSONBuilder15().buildPurchaseOrder());
+  }
+
+  public JsonObject buildPurchaseOrder() {
     JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+
     objectBuilder.add("order", Json.createObjectBuilder()
             .add("@id", "1234")
             .add("@date", "05/06/2013")
@@ -38,7 +43,8 @@ public class JSONBuilder {
                     .add("@expiry_date", "10/13")
                     .add("@control_number", "234")
                     .add("@type", "Visa")));
+
     JsonObject value = objectBuilder.build();
-    System.out.println(value);
+    return value;
   }
 }
