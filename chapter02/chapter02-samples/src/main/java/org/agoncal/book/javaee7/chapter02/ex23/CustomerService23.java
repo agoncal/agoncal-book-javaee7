@@ -1,7 +1,6 @@
 package org.agoncal.book.javaee7.chapter02.ex23;
 
 import javax.inject.Inject;
-import javax.interceptor.AroundConstruct;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
@@ -37,18 +36,6 @@ public class CustomerService23 {
 
   public Customer23 findCustomerById(Long id) {
     return em.find(Customer23.class, id);
-  }
-
-  @AroundConstruct
-  private void init(InvocationContext ic) throws Exception {
-    logger.fine("Entering constructor");
-    logger.severe("Entering constructor");
-    try {
-      ic.proceed();
-    } finally {
-      logger.severe("Exiting constructor");
-      logger.fine("Exiting constructor");
-    }
   }
 
   @AroundInvoke

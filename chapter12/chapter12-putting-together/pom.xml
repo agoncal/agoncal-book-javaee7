@@ -3,20 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.agoncal.book.javaee7</groupId>
-  <artifactId>chapter12</artifactId>
+  <groupId>org.agoncal.book.javaee7.chapter12</groupId>
+  <artifactId>chapter12-putting-together</artifactId>
   <version>1.0</version>
-  <packaging>pom</packaging>
-  <name>12 - XML and JSON</name>
+  <packaging>jar</packaging>
+  <name>12 - XML and JSon (Putting It All Together)</name>
 
   <parent>
     <groupId>org.agoncal.book.javaee7</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>chapter12</artifactId>
     <version>1.0</version>
   </parent>
 
-  <modules>
-    <module>chapter12-samples</module>
-    <module>chapter12-putting-together</module>
-  </modules>
 </project>

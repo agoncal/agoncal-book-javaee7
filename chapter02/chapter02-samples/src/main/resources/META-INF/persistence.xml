@@ -10,7 +10,7 @@
     <class>org.agoncal.book.javaee7.chapter02.ex25.Customer25</class>
     <class>org.agoncal.book.javaee7.chapter02.ex27.Customer27</class>
     <class>org.agoncal.book.javaee7.chapter02.ex29.Customer29</class>
-    <class>org.agoncal.book.javaee7.chapter02.ex31.Customer31</class>
+    <class>org.agoncal.book.javaee7.chapter02.ex33.Customer33</class>
     <properties>
       <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
       <property name="javax.persistence.schema-generation-target" value="database"/>

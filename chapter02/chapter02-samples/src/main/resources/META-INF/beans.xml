@@ -8,7 +8,11 @@
 
   <interceptors>
     <class>org.agoncal.book.javaee7.chapter02.ex29.LoggingInterceptor29</class>
-    <class>org.agoncal.book.javaee7.chapter02.ex31.LoggingInterceptor31</class>
-    <class>org.agoncal.book.javaee7.chapter02.ex31.AuditInterceptor31</class>
+    <class>org.agoncal.book.javaee7.chapter02.ex33.LoggingInterceptor33</class>
+    <class>org.agoncal.book.javaee7.chapter02.ex33.AuditInterceptor33</class>
   </interceptors>
+
+  <decorators>
+    <class>org.agoncal.book.javaee7.chapter02.ex34.FromEightToThirteenDigitsDecorator34</class>
+  </decorators>
 </beans>

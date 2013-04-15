@@ -1,5 +1,6 @@
-package org.agoncal.book.javaee7.chapter02.ex29;
+package org.agoncal.book.javaee7.chapter02.ex33;
 
+import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
@@ -14,8 +15,9 @@ import java.util.logging.Logger;
  *         --
  */
 @Interceptor
-@Loggable29
-public class LoggingInterceptor29 {
+@Loggable33
+@Priority(Interceptor.Priority.PLATFORM_BEFORE)
+public class LoggingInterceptor33 {
 
   // ======================================
   // =             Attributes             =

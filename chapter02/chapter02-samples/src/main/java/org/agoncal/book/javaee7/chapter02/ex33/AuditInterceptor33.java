@@ -1,5 +1,6 @@
-package org.agoncal.book.javaee7.chapter02.ex29;
+package org.agoncal.book.javaee7.chapter02.ex33;
 
+import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
@@ -14,8 +15,9 @@ import java.util.logging.Logger;
  *         --
  */
 @Interceptor
-@Loggable29
-public class LoggingInterceptor29 {
+@Auditable33
+@Priority(Interceptor.Priority.LIBRARY_BEFORE + 10)
+public class AuditInterceptor33 {
 
   // ======================================
   // =             Attributes             =
@@ -29,14 +31,14 @@ public class LoggingInterceptor29 {
   // ======================================
 
   @AroundInvoke
-  public Object logMethod(InvocationContext ic) throws Exception {
-    logger.entering(ic.getTarget().toString(), ic.getMethod().getName());
-    logger.severe(">>>" + ic.getTarget().toString() + " - " + ic.getMethod().getName());
+  public Object profile(InvocationContext ic) throws Exception {
+    long initTime = System.currentTimeMillis();
     try {
       return ic.proceed();
     } finally {
-      logger.severe("<<<" + ic.getTarget().toString() + " - " + ic.getMethod().getName());
-      logger.exiting(ic.getTarget().toString(), ic.getMethod().getName());
+      long diffTime = System.currentTimeMillis() - initTime;
+      logger.severe("###" + ic.getMethod() + " took " + diffTime + " millis");
+      logger.fine(ic.getMethod() + " took " + diffTime + " millis");
     }
   }
 }
