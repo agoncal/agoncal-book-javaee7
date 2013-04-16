@@ -20,10 +20,10 @@ public class BookService36 {
   private NumberGenerator36 numberGenerator;
 
   @Inject @Added
-  private Event<Book36> bookAdded;
+  private Event<Book36> bookAddedEvent;
 
   @Inject @Removed
-  private Event<Book36> bookRemoved;
+  private Event<Book36> bookRemovedEvent;
 
   // ======================================
   // =          Business methods          =
@@ -32,11 +32,11 @@ public class BookService36 {
   public Book36 createBook(String title, Float price, String description) {
     Book36 book = new Book36(title, price, description);
     book.setIsbn(numberGenerator.generateNumber());
-    bookAdded.fire(book);
+    bookAddedEvent.fire(book);
     return book;
   }
 
   public void deleteBook(Book36 book) {
-    bookRemoved.fire(book);
+    bookRemovedEvent.fire(book);
   }
 }

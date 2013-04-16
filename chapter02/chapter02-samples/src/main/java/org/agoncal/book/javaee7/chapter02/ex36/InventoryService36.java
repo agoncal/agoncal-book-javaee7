@@ -34,6 +34,6 @@ public class InventoryService36 {
 
   public void removeBook(@Observes @Removed Book36 book) {
     logger.warning("#### Removing book " + book.getTitle() + " to inventory");
-    inventory.add(book);
+    inventory.remove(book);
   }
 }

@@ -12,9 +12,17 @@ import javax.inject.Inject;
 @Loggable
 public class BookService {
 
+  // ======================================
+  // =             Attributes             =
+  // ======================================
+
   @Inject
   @ThirteenDigits
   private NumberGenerator numberGenerator;
+
+  // ======================================
+  // =          Business methods          =
+  // ======================================
 
   public Book createBook(String title, Float price, String description) {
     Book book = new Book(title, price, description);

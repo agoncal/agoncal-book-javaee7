@@ -14,8 +14,8 @@ import java.util.logging.Logger;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@Loggable
 @Interceptor
+@Loggable
 public class LoggingInterceptor implements Serializable {
 
     // ======================================
