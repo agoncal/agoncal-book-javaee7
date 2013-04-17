@@ -11,9 +11,9 @@ import javax.json.JsonObject;
  *         --
  */
 
-public class JSONBuilder15 {
+public class OrderJsonBuilder15 {
   public static void main(String[] args) {
-    System.out.println(new JSONBuilder15().buildPurchaseOrder());
+    System.out.println(new OrderJsonBuilder15().buildPurchaseOrder());
   }
 
   public JsonObject buildPurchaseOrder() {

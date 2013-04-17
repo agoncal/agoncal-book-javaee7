@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12.ex05;
+package org.agoncal.book.javaee7.chapter12;
 
 import javax.json.Json;
 import javax.json.JsonObject;

@@ -1,5 +1,6 @@
 package org.agoncal.book.javaee7.chapter12.ex05;
 
+import org.agoncal.book.javaee7.chapter12.JSonParsing05;
 import org.junit.Test;
 
 import javax.json.*;

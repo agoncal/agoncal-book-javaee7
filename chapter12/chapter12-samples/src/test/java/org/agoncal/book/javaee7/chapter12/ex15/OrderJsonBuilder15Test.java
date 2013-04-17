@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class JSONBuilder15Test {
+public class OrderJsonBuilder15Test {
 
   // ======================================
   // =             Attributes             =
@@ -26,7 +26,7 @@ public class JSONBuilder15Test {
   @Test
   public void shouldBuildPurchaseOrder() {
 
-    assertEquals(creditCardXML, new JSONBuilder15().buildPurchaseOrder().toString());
+    assertEquals(creditCardXML, new OrderJsonBuilder15().buildPurchaseOrder().toString());
 
   }
 }
