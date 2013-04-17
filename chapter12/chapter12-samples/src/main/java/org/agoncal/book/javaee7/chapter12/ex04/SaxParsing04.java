@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter12.ex04;
 
-import org.agoncal.book.javaee7.chapter12.OrderLine;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -23,12 +22,12 @@ import java.util.List;
  */
 public class SaxParsing04 extends DefaultHandler {
 
-  private List<OrderLine> orderLines = new ArrayList<>();
-  private OrderLine orderLine;
+  private List<OrderLine04> orderLines = new ArrayList<>();
+  private OrderLine04 orderLine;
   private Boolean dealingWithUnitPrice = false;
   private StringBuffer unitPriceBuffer;
 
-  public List<OrderLine> parseOrderLines() {
+  public List<OrderLine04> parseOrderLines() {
 
     try {
       File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();
@@ -50,7 +49,7 @@ public class SaxParsing04 extends DefaultHandler {
     switch (qualifiedName) {
       // Getting the order_line node
       case "order_line":
-        orderLine = new OrderLine();
+        orderLine = new OrderLine04();
         for (int i = 0; i < attrs.getLength(); i++) {
           switch (attrs.getLocalName(i)) {
             case "item":

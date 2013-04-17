@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter12.ex04;
 
-import org.agoncal.book.javaee7.chapter12.OrderLine;
 import org.junit.Test;
 
 import java.util.List;
@@ -18,9 +17,9 @@ public class SaxParsing04Test {
 
     @Test
     public void shouldParseOrderLines() throws Exception {
-        List<OrderLine> parseOrderLines = new SaxParsing04().parseOrderLines();
+        List<OrderLine04> parseOrderLines = new SaxParsing04().parseOrderLines();
         assertEquals(2, parseOrderLines.size());
-        OrderLine orderLine = parseOrderLines.get(0);
+        OrderLine04 orderLine = parseOrderLines.get(0);
         assertEquals("H2G2", orderLine.getItem());
         assertEquals((Integer) 1, orderLine.getQuantity());
         assertEquals((Double) 23.5, orderLine.getUnitPrice());

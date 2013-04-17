@@ -1,6 +1,7 @@
 package org.agoncal.book.javaee7.chapter12.ex02;
 
 import com.sun.org.apache.xpath.internal.NodeSet;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -23,7 +24,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class XPathQuerying02Test {
 
-  @Test
+  @Test @Ignore
   public void shouldTransformOrder() throws Exception {
 
     File xmlDocument = Paths.get("src/main/resources/order.xml").toFile();

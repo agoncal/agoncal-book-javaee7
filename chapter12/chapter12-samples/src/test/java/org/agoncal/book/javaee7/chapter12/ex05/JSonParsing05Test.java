@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class JSonParsingTest {
+public class JSonParsing05Test {
 
     public static final String ORDER_JSON = "{\"id\":\"1234\",\"date\":\"19/09/2012\",\"total_amount\":\"93.48\",\"customer\":{\"first_name\":\"James\",\"last_name\":\"Rorrison\",\"email\":\"j.rorri@me.com\",\"phoneNumber\":\"+44 1234 1234\"},\"content\":[{\"item\":\"H2G2\",\"unit_price\":\"23.5\",\"quantity\":\"1\"},{\"item\":\"Harry Potter\",\"unit_price\":\"34.99\",\"quantity\":\"2\"}],\"credit_card\":{\"number\":\"123412341234\",\"expiry_date\":\"10/13\",\"control_number\":\"234\",\"type\":\"Visa\"}}";
 
@@ -26,7 +26,7 @@ public class JSonParsingTest {
     @Test
     public void shouldBuildJSon() throws Exception {
 
-        JsonObject jsonObject = JSonParsing.buildJSon();
+        JsonObject jsonObject = JSonParsing05.buildJSon();
         JsonValue value = jsonObject.get("id");
         assertEquals(JsonValue.ValueType.STRING, value.getValueType());
         assertEquals("1234", value.toString());
@@ -41,7 +41,7 @@ public class JSonParsingTest {
     @Test
     public void shouldBuildJSonWithArray() throws Exception {
 
-        JsonObject jsonObject = JSonParsing.buildJSonWithArray();
+        JsonObject jsonObject = JSonParsing05.buildJSonWithArray();
         StringWriter orderJSON = new StringWriter();
         JsonWriter writer = Json.createWriter(orderJSON);
         writer.writeObject(jsonObject);
@@ -52,7 +52,7 @@ public class JSonParsingTest {
     @Test
     public void shouldBuildJSonWithArraySeperate() throws Exception {
 
-        JsonObject jsonObject = JSonParsing.buildJSonWithArraySeperate();
+        JsonObject jsonObject = JSonParsing05.buildJSonWithArraySeperate();
         StringWriter orderJSON = new StringWriter();
         JsonWriter writer = Json.createWriter(orderJSON);
         writer.writeObject(jsonObject);

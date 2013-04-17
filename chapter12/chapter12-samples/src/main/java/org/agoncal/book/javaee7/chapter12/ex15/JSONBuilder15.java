@@ -2,7 +2,6 @@ package org.agoncal.book.javaee7.chapter12.ex15;
 
 import javax.json.Json;
 import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 
 /**
  * @author Antonio Goncalves
@@ -18,9 +17,7 @@ public class JSONBuilder15 {
   }
 
   public JsonObject buildPurchaseOrder() {
-    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-
-    objectBuilder.add("order", Json.createObjectBuilder()
+    return Json.createObjectBuilder().add("order", Json.createObjectBuilder()
             .add("@id", "1234")
             .add("@date", "05/06/2013")
             .add("customer", Json.createObjectBuilder()
@@ -42,9 +39,6 @@ public class JSONBuilder15 {
                     .add("@number", "1357")
                     .add("@expiry_date", "10/13")
                     .add("@control_number", "234")
-                    .add("@type", "Visa")));
-
-    JsonObject value = objectBuilder.build();
-    return value;
+                    .add("@type", "Visa"))).build();
   }
 }

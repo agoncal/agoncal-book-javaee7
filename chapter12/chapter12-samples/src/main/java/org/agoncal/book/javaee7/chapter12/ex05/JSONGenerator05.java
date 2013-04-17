@@ -1,7 +1,5 @@
 package org.agoncal.book.javaee7.chapter12.ex05;
 
-import org.agoncal.book.javaee7.chapter12.CreditCard;
-
 import javax.json.Json;
 import javax.json.stream.JsonGenerator;
 import java.io.StringWriter;
@@ -13,9 +11,9 @@ import java.io.StringWriter;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class JSONGenerator {
+public class JSONGenerator05 {
   public static void main(String[] args) {
-    CreditCard creditCard = new CreditCard("1234", "12/09", 6398, "Visa");
+    CreditCard05 creditCard = new CreditCard05("1234", "12/09", 6398, "Visa");
     StringWriter writer = new StringWriter();
     JsonGenerator generator = Json.createGenerator(writer);
     generator.writeStartObject()

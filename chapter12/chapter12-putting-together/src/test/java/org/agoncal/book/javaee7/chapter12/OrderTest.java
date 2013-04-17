@@ -65,7 +65,7 @@ public class OrderTest {
         Marshaller m = context.createMarshaller();
         m.marshal(order, writer);
 
-//        System.out.println(writer);
+        System.out.println(writer);
 
         assertEquals(orderXML, writer.toString());
 

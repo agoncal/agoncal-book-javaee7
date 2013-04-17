@@ -1,6 +1,5 @@
 package org.agoncal.book.javaee7.chapter12.ex05;
 
-import org.agoncal.book.javaee7.chapter12.OrderLine;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -27,9 +26,9 @@ import java.util.List;
  */
 public class DomParsingWithValidation05 {
 
-  public List<OrderLine> parseOrderLines() throws Exception {
+  public List<OrderLine05> parseOrderLines() throws Exception {
 
-    List<OrderLine> orderLines = new ArrayList<>();
+    List<OrderLine05> orderLines = new ArrayList<>();
     File xmlDocument = Paths.get("src/main/resources/invalidOrder.xml").toFile();
     File xmlSchema = Paths.get("src/main/resources/order.xsd").toFile();
 
@@ -50,7 +49,7 @@ public class DomParsingWithValidation05 {
     NodeList orderLinesNode = document.getElementsByTagName("order_line");
     for (int i = 0; i < orderLinesNode.getLength(); i++) {
       Element orderLineNode = (Element) orderLinesNode.item(i);
-      OrderLine orderLine = new OrderLine();
+      OrderLine05 orderLine = new OrderLine05();
       orderLine.setItem(orderLineNode.getAttribute("item"));
       orderLine.setQuantity(Integer.valueOf(orderLineNode.getAttribute("quantity")));
 
