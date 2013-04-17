@@ -35,7 +35,7 @@ public class CreditCardJSonTest {
   // ======================================
 
   @Test
-  public void shouldGenerateACreditCard() throws JAXBException {
+  public void shouldGenerateACreditCard() {
 
     CreditCard creditCard = new CreditCard("12345678", "10/14", 566, "Visa");
 
