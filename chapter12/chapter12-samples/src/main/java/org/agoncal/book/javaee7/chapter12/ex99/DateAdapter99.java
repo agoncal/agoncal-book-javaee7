@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12;
+package org.agoncal.book.javaee7.chapter12.ex99;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.text.DateFormat;
@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * @author Antonio Goncalves
  */
-public class DateAdapter extends XmlAdapter<String, Date> {
+public class DateAdapter99 extends XmlAdapter<String, Date> {
 
   DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 

@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12;
+package org.agoncal.book.javaee7.chapter12.ex99;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  *         --
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Customer {
+public class Customer99 {
 
   // ======================================
   // =             Attributes             =
@@ -29,10 +29,10 @@ public class Customer {
 // =            Constructors            =
 // ======================================
 
-  public Customer() {
+  public Customer99() {
   }
 
-  public Customer(String firstName, String lastName, String email, String phoneNumber) {
+  public Customer99(String firstName, String lastName, String email, String phoneNumber) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;

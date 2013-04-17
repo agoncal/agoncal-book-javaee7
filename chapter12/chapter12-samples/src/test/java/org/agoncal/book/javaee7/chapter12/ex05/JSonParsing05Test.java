@@ -1,6 +1,6 @@
 package org.agoncal.book.javaee7.chapter12.ex05;
 
-import org.agoncal.book.javaee7.chapter12.JSonParsing05;
+import org.agoncal.book.javaee7.chapter12.ex99.JSonParsing99;
 import org.junit.Test;
 
 import javax.json.*;
@@ -27,7 +27,7 @@ public class JSonParsing05Test {
     @Test
     public void shouldBuildJSon() throws Exception {
 
-        JsonObject jsonObject = JSonParsing05.buildJSon();
+        JsonObject jsonObject = JSonParsing99.buildJSon();
         JsonValue value = jsonObject.get("id");
         assertEquals(JsonValue.ValueType.STRING, value.getValueType());
         assertEquals("1234", value.toString());
@@ -42,7 +42,7 @@ public class JSonParsing05Test {
     @Test
     public void shouldBuildJSonWithArray() throws Exception {
 
-        JsonObject jsonObject = JSonParsing05.buildJSonWithArray();
+        JsonObject jsonObject = JSonParsing99.buildJSonWithArray();
         StringWriter orderJSON = new StringWriter();
         JsonWriter writer = Json.createWriter(orderJSON);
         writer.writeObject(jsonObject);
@@ -53,7 +53,7 @@ public class JSonParsing05Test {
     @Test
     public void shouldBuildJSonWithArraySeperate() throws Exception {
 
-        JsonObject jsonObject = JSonParsing05.buildJSonWithArraySeperate();
+        JsonObject jsonObject = JSonParsing99.buildJSonWithArraySeperate();
         StringWriter orderJSON = new StringWriter();
         JsonWriter writer = Json.createWriter(orderJSON);
         writer.writeObject(jsonObject);

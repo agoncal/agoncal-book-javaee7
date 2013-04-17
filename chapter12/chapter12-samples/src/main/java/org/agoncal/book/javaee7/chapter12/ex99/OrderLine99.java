@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12;
+package org.agoncal.book.javaee7.chapter12.ex99;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlElement;
  *         --
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class OrderLine {
+public class OrderLine99 {
 
   // ======================================
   // =             Attributes             =
@@ -30,10 +30,10 @@ public class OrderLine {
   // =            Constructors            =
   // ======================================
 
-  public OrderLine() {
+  public OrderLine99() {
   }
 
-  public OrderLine(String item, Double unitPrice, Integer quantity) {
+  public OrderLine99(String item, Double unitPrice, Integer quantity) {
     this.item = item;
     this.unitPrice = unitPrice;
     this.quantity = quantity;

@@ -1,4 +1,4 @@
-package org.agoncal.book.javaee7.chapter12;
+package org.agoncal.book.javaee7.chapter12.ex99;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -16,7 +16,7 @@ import java.util.List;
 @XmlRootElement
 @XmlType(propOrder = {"id", "creationDate", "customer", "orderLines", "creditCard"})
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Order {
+public class Order99 {
 
   // ======================================
   // =             Attributes             =
@@ -25,26 +25,26 @@ public class Order {
   @XmlAttribute
   private Long id;
   @XmlAttribute(name = "date")
-  @XmlJavaTypeAdapter(DateAdapter.class)
+  @XmlJavaTypeAdapter(DateAdapter99.class)
   private Date creationDate;
   @XmlTransient
   private Double totalAmount;
   @XmlElementWrapper(name = "content")
   @XmlElement(name = "order_line", required = true)
-  private List<OrderLine> orderLines;
+  private List<OrderLine99> orderLines;
   @XmlElement(required = true)
-  private Customer customer;
+  private Customer99 customer;
   @XmlElement(name = "credit_card")
-  private CreditCard creditCard;
+  private CreditCard99 creditCard;
 
   // ======================================
   // =            Constructors            =
   // ======================================
 
-  public Order() {
+  public Order99() {
   }
 
-  public Order(Long id, Double totalAmount, Date creationDate) {
+  public Order99(Long id, Double totalAmount, Date creationDate) {
     this.id = id;
     this.totalAmount = totalAmount;
     this.creationDate = creationDate;
@@ -54,7 +54,7 @@ public class Order {
   // =           Public Methods           =
   // ======================================
 
-  public void addOrderLine(OrderLine orderLine) {
+  public void addOrderLine(OrderLine99 orderLine) {
     if (orderLines == null)
       orderLines = new ArrayList<>();
     orderLines.add(orderLine);
@@ -80,11 +80,11 @@ public class Order {
     this.creationDate = creationDate;
   }
 
-  public List<OrderLine> getOrderLines() {
+  public List<OrderLine99> getOrderLines() {
     return orderLines;
   }
 
-  public void setOrderLines(List<OrderLine> orderLines) {
+  public void setOrderLines(List<OrderLine99> orderLines) {
     this.orderLines = orderLines;
   }
 
@@ -96,19 +96,19 @@ public class Order {
     this.totalAmount = totalAmount;
   }
 
-  public Customer getCustomer() {
+  public Customer99 getCustomer() {
     return customer;
   }
 
-  public void setCustomer(Customer customer) {
+  public void setCustomer(Customer99 customer) {
     this.customer = customer;
   }
 
-  public CreditCard getCreditCard() {
+  public CreditCard99 getCreditCard() {
     return creditCard;
   }
 
-  public void setCreditCard(CreditCard creditCard) {
+  public void setCreditCard(CreditCard99 creditCard) {
     this.creditCard = creditCard;
   }
 }

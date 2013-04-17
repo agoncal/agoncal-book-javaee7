@@ -1,6 +1,9 @@
-package org.agoncal.book.javaee7.chapter12;
+package org.agoncal.book.javaee7.chapter12.ex99;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * @author Antonio Goncalves
@@ -9,9 +12,8 @@ import javax.xml.bind.annotation.*;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CreditCard {
+public class CreditCard99 {
 
   // ======================================
   // =             Attributes             =
@@ -29,10 +31,10 @@ public class CreditCard {
   // =            Constructors            =
   // ======================================
 
-  public CreditCard() {
+  public CreditCard99() {
   }
 
-  public CreditCard(String number, String expiryDate, Integer controlNumber, String type) {
+  public CreditCard99(String number, String expiryDate, Integer controlNumber, String type) {
     this.number = number;
     this.expiryDate = expiryDate;
     this.controlNumber = controlNumber;
@@ -73,30 +75,5 @@ public class CreditCard {
 
   public void setType(String type) {
     this.type = type;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    CreditCard that = (CreditCard) o;
-
-    if (controlNumber != null ? !controlNumber.equals(that.controlNumber) : that.controlNumber != null)
-      return false;
-    if (expiryDate != null ? !expiryDate.equals(that.expiryDate) : that.expiryDate != null) return false;
-    if (number != null ? !number.equals(that.number) : that.number != null) return false;
-    if (type != null ? !type.equals(that.type) : that.type != null) return false;
-
-    return true;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = number != null ? number.hashCode() : 0;
-    result = 31 * result + (expiryDate != null ? expiryDate.hashCode() : 0);
-    result = 31 * result + (controlNumber != null ? controlNumber.hashCode() : 0);
-    result = 31 * result + (type != null ? type.hashCode() : 0);
-    return result;
   }
 }
