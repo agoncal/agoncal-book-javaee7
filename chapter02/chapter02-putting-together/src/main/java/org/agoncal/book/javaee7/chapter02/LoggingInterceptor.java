@@ -38,5 +38,4 @@ public class LoggingInterceptor {
             logger.info("<<< " + ic.getTarget().getClass().getName() + "-" + ic.getMethod().getName());
         }
     }
-
 }
