@@ -31,11 +31,11 @@ public class LoggingInterceptor {
 
     @AroundInvoke
     public Object logMethod(InvocationContext ic) throws Exception {
-        logger.info(">>> " + ic.getTarget().getClass().getName() + "-" + ic.getMethod().getName());
+        logger.entering(ic.getTarget().getClass().getName(), ic.getMethod().getName());
         try {
             return ic.proceed();
         } finally {
-            logger.info("<<< " + ic.getTarget().getClass().getName() + "-" + ic.getMethod().getName());
+            logger.exiting(ic.getTarget().getClass().getName(), ic.getMethod().getName());
         }
     }
 }
