@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 @Interceptor
 @Loggable
-public class LoggingInterceptor implements Serializable {
+public class LoggingInterceptor {
 
     // ======================================
     // =             Attributes             =
