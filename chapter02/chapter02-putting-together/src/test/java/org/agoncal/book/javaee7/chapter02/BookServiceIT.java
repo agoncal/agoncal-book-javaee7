@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
  *         http://www.antoniogoncalves.org
  *         --
  */
-public class NumberGeneratorIT {
+public class BookServiceIT {
 
   // ======================================
   // =              Methods               =
@@ -29,7 +29,7 @@ public class NumberGeneratorIT {
 
     Book book = bookService.createBook("H2G2", 12.5f, "Geeky scifi Book");
 
-    assertTrue(book.getIsbn().startsWith("MOCK"));
+    assertTrue(book.getNumber().startsWith("MOCK"));
 
     weld.shutdown();
   }

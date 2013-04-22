@@ -26,7 +26,7 @@ public class BookService {
 
   public Book createBook(String title, Float price, String description) {
     Book book = new Book(title, price, description);
-    book.setIsbn(numberGenerator.generateNumber());
+    book.setNumber(numberGenerator.generateNumber());
     return book;
   }
 }

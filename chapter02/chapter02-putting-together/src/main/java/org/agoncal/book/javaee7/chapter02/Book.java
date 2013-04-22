@@ -16,7 +16,7 @@ public class Book {
   private String title;
   private Float price;
   private String description;
-  private String isbn;
+  private String number;
 
   // ======================================
   // =            Constructors            =
@@ -59,12 +59,12 @@ public class Book {
     this.description = description;
   }
 
-  public String getIsbn() {
-    return isbn;
+  public String getNumber() {
+    return number;
   }
 
-  public void setIsbn(String isbn) {
-    this.isbn = isbn;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
   // ======================================
@@ -74,11 +74,11 @@ public class Book {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder();
-    sb.append("Book02");
-    sb.append(", title='").append(title).append('\'');
+    sb.append("Book{");
+    sb.append("title='").append(title).append('\'');
     sb.append(", price=").append(price);
     sb.append(", description='").append(description).append('\'');
-    sb.append(", isbn='").append(isbn).append('\'');
+    sb.append(", number='").append(number).append('\'');
      sb.append('}');
     return sb.toString();
   }
