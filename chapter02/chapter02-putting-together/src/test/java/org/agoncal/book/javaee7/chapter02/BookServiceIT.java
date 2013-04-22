@@ -20,7 +20,7 @@ public class BookServiceIT {
   // ======================================
 
   @Test
-  public void shouldCheckNumberIsThirteenDigits() {
+  public void shouldCheckNumberIsMock() {
 
     Weld weld = new Weld();
     WeldContainer container = weld.initialize();
