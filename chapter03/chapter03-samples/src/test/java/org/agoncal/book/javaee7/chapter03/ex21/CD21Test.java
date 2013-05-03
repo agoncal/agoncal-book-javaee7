@@ -77,7 +77,7 @@ public class CD21Test {
     assertEquals(0, constraints.size());
   }
 
-  @Test @Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
+  @Test //@Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
   public void shouldRaiseConstraintViolationValidatingNumberOfCDsProperty() {
 
     CD21 cd = new CD21();
@@ -118,7 +118,7 @@ public class CD21Test {
     assertEquals(0, constraints.size());
   }
 
-  @Test @Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
+  @Test //@Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
   public void shouldRaiseMethodParameterConstraintViolationCauseRateIsLow() throws NoSuchMethodException {
 
     CD21 cd = new CD21("Kind of Blue", 12.5f);
