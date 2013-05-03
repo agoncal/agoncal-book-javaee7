@@ -74,14 +74,13 @@ public class Item10Test {
   }
 
   @Test
-  @Ignore("Strange, shouldn't have ClassCastException: java.lang.Class cannot be cast to java.lang.Number")
   public void shouldRaiseNoConstraintViolationOnCalculateVAT() throws NoSuchMethodException {
 
     Item10 item = new Item10("H2G2", 12.5f, "Best IT Scifi Book");
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculateVAT");
-    Set<ConstraintViolation<Item10>> constraints = methodValidator.validateReturnValue(item, method, Float.class);
+    Set<ConstraintViolation<Item10>> constraints = methodValidator.validateReturnValue(item, method, new Float(10.0));
     assertEquals(0, constraints.size());
   }
 
