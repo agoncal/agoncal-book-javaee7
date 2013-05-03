@@ -66,7 +66,7 @@ public class CustomerIT {
     Set<ConstraintViolation<Customer>> constraints = validator.validate(customer);
     assertEquals(1, constraints.size());
     assertEquals("invalid email address", constraints.iterator().next().getMessage());
-    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
+    assertEquals("DummyEmail", constraints.iterator().next().getInvalidValue());
     assertEquals("{org.agoncal.book.javaee7.chapter03.Email.message}", constraints.iterator().next().getMessageTemplate());
   }
 }
