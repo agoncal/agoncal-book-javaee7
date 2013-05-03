@@ -32,7 +32,7 @@
     <version.javaee>7.0-b79</version.javaee>
     <version.weld>2.0.0.CR2</version.weld>
     <version.jersey>2.0-m13-1</version.jersey>
-    <version.eclipselink>2.5.0-M8</version.eclipselink>
+    <version.eclipselink>2.5.0-RC1</version.eclipselink>
     <version.hibernate.validator>5.0.1.Final</version.hibernate.validator>
     <version.el>3.0-b07</version.el>
     <version.json>1.0-b04</version.json>
