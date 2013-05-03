@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.validation.*;
+import javax.validation.executable.ExecutableValidator;
 import javax.validation.groups.Default;
 import java.lang.reflect.Method;
 import java.util.Set;
@@ -111,7 +112,7 @@ public class CD21Test {
 
     CD21 cd = new CD21("Kind of Blue", 12.5f);
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD21.class.getMethod("calculatePrice", Float.class);
     Set<ConstraintViolation<CD21>> constraints = methodValidator.validateParameters(cd, method, new Object[]{new Float(2.2)});
     assertEquals(0, constraints.size());
@@ -122,7 +123,7 @@ public class CD21Test {
 
     CD21 cd = new CD21("Kind of Blue", 12.5f);
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD21.class.getMethod("calculatePrice", Float.class);
     Set<ConstraintViolation<CD21>> constraints = methodValidator.validateParameters(cd, method, new Object[]{new Float(1.2)});
     displayContraintViolations(constraints);
