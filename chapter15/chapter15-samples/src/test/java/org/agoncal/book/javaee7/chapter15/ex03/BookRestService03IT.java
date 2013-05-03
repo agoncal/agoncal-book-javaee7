@@ -90,7 +90,7 @@ public class BookRestService03IT {
 
     assertEquals("H2G2", entity);
     assertEquals(Response.Status.OK, response.getStatusInfo());
-    assertEquals("H2G2 is 4 characters", 4, response.getLength());
+    assertEquals("H2G2 is 4 characters", 4, entity.length());
   }
 
   @Test
@@ -104,7 +104,7 @@ public class BookRestService03IT {
 
     assertEquals("H2G2", entity);
     assertEquals(Response.Status.OK, response.getStatusInfo());
-    assertEquals("H2G2 is 4 characters", 4, response.getLength());
+    assertEquals("H2G2 is 4 characters", 4, entity.length());
   }
 
 // TODO  @Test
