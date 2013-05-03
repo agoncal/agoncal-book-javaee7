@@ -135,14 +135,13 @@ public class CD10Test {
 
 
   @Test
-  @Ignore("Strange, shouldn't have ClassCastException: java.lang.Class cannot be cast to java.lang.Number")
   public void shouldRaiseNoConstraintViolationOnCalculateVAT() throws NoSuchMethodException {
 
     CD10 cd = new CD10("title", 12.80f, "Beatles master piece", "Apple", 1, 53.32f, "Pop");
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD10.class.getMethod("calculateVAT");
-    Set<ConstraintViolation<CD10>> constraints = methodValidator.validateReturnValue(cd, method, Float.class);
+    Set<ConstraintViolation<CD10>> constraints = methodValidator.validateReturnValue(cd, method, new Float(10.0));
     assertEquals(0, constraints.size());
   }
 
