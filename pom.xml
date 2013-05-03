@@ -34,6 +34,7 @@
     <version.jersey>2.0-m13-1</version.jersey>
     <version.eclipselink>2.5.0-M8</version.eclipselink>
     <version.hibernate.validator>5.0.1.Final</version.hibernate.validator>
+    <version.el>3.0-b07</version.el>
     <version.json>1.0-b04</version.json>
     <!-- Databases -->
     <version.derby>10.9.1.0</version.derby>
@@ -89,6 +90,13 @@
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-validator</artifactId>
         <version>${version.hibernate.validator}</version>
+      </dependency>
+
+      <!-- EL -->
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>${version.el}</version>
       </dependency>
 
       <!-- JPA -->
