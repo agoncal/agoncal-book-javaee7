@@ -47,7 +47,7 @@ public class CardValidator04Test {
   // =              Methods               =
   // ======================================
 
-  @Test @Ignore
+  @Test
   public void shouldRaiseNoConstraintViolation() throws NoSuchMethodException {
 
     CreditCard04 creditCard = new CreditCard04("12341234", "10/10", 1234, "VISA");
@@ -58,7 +58,7 @@ public class CardValidator04Test {
     Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
     assertEquals(0, constraints.size());
 
-    constraints = methodValidator.validateReturnValue(cardValidator, method, new Object[]{creditCard});
+    constraints = methodValidator.validateReturnValue(cardValidator, method, Boolean.TRUE);
     assertEquals(0, constraints.size());
   }
 
