@@ -4,7 +4,6 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
@@ -23,6 +22,7 @@ import java.net.URI;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Antonio Goncalves
@@ -153,14 +153,13 @@ public class CustomerRestService07IT {
   @Test
   public void shouldEchoUserAgentValue() {
     String response = client.target("http://localhost:8282/07/customer/userAgent").request().get(String.class);
-    assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_04) from the server", response);
+    assertTrue(response.startsWith("Jersey/2.0"));
   }
 
   @Test
-  @Ignore
   public void shouldEchoUserAgentWithReponse() {
     Response response = client.target("http://localhost:8282/07/customer/userAgentRep").request().get();
     assertEquals(200, response.getStatus());
-    assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_04) from the server", response.getEntity());
+    assertTrue(response.readEntity(String.class).startsWith("Jersey/2.0"));
   }
 }
