@@ -45,8 +45,9 @@ public class CD10 extends Item10 {
   // =           Public Methods           =
   // ======================================
 
-  @NotNull @DecimalMin("5.8")
-  public Float calculatePrice(@DecimalMin("1.4") Float rate) {
+  @NotNull
+  @DecimalMin("5.8")
+  public Float calculatePrice(Float rate) {
     return price * rate;
   }
 
