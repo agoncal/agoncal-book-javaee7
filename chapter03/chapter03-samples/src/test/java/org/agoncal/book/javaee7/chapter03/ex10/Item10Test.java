@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.validation.*;
+import javax.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -73,7 +74,7 @@ public class Item10Test {
 
     Item10 item = new Item10("H2G2", 12.5f, "Best IT Scifi Book");
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculateVAT");
     Set<ConstraintViolation<Item10>> constraints = methodValidator.validateParameters(item, method, null);
     assertEquals(0, constraints.size());
@@ -84,7 +85,7 @@ public class Item10Test {
 
     Item10 item = new Item10("H2G2", 12.5f, "Best IT Scifi Book");
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculatePrice", Float.class);
     Set<ConstraintViolation<Item10>> constraints = methodValidator.validateParameters(item, method, new Object[]{new Float(4.5)});
     assertEquals(0, constraints.size());
@@ -95,7 +96,7 @@ public class Item10Test {
 
     Item10 item = new Item10("H2G2", 12.5f, "Best IT Scifi Book");
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculatePrice", Float.class);
     Set<ConstraintViolation<Item10>> constraints = methodValidator.validateParameters(item, method, new Object[]{new Float(0.5)});
     displayContraintViolations(constraints);
