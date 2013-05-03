@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.validation.*;
+import javax.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -52,7 +53,7 @@ public class CardValidator04Test {
     CreditCard04 creditCard = new CreditCard04("12341234", "10/10", 1234, "VISA");
     CardValidator04 cardValidator = new CardValidator04();
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
     Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
     assertEquals(0, constraints.size());
@@ -66,7 +67,7 @@ public class CardValidator04Test {
 
     CardValidator04 cardValidator = new CardValidator04();
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
     Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{null});
     displayContraintViolations(constraints);
@@ -79,7 +80,7 @@ public class CardValidator04Test {
     CreditCard04 creditCard = new CreditCard04(null, null, null, null);
     CardValidator04 cardValidator = new CardValidator04();
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
     Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
     displayContraintViolations(constraints);
