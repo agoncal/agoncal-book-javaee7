@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.validation.*;
+import javax.validation.executable.ExecutableValidator;
 import java.lang.reflect.Constructor;
 import java.util.Set;
 
@@ -48,7 +49,7 @@ public class Book03Test {
   @Test
   public void shouldRaiseNoConstraintViolation() throws NoSuchMethodException {
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
     Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
     assertEquals(0, constraints.size());
@@ -57,7 +58,7 @@ public class Book03Test {
   @Test
   public void shouldRaiseConstraintViolationCausePriceLow() throws NoSuchMethodException {
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
     Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
     displayContraintViolations(constraints);
@@ -67,7 +68,7 @@ public class Book03Test {
   @Test
   public void shouldRaiseConstraintsViolationCauseTitleAndPriceNull() throws NoSuchMethodException {
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
     Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{null, null, null, null, null, null});
     displayContraintViolations(constraints);
