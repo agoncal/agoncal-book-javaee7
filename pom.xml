@@ -216,6 +216,7 @@
         <version>${version.maven.surefire.plugin}</version>
         <configuration>
           <skipTests>${skipUTs}</skipTests>
+          <argLine>-Duser.language=en -Duser.country=EN</argLine>
         </configuration>
       </plugin>
       <plugin>
@@ -225,6 +226,7 @@
         <configuration>
           <skipTests>${skipTests}</skipTests>
           <skipITs>${skipITs}</skipITs>
+          <argLine>-Duser.language=en -Duser.country=EN</argLine>
         </configuration>
         <executions>
           <execution>
