@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.validation.*;
+import javax.validation.executable.ExecutableValidator;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -134,7 +135,7 @@ public class CD10Test {
 
     CD10 cd = new CD10("title", 12.80f, "Beatles master piece", "Apple", 1, 53.32f, "Pop");
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD10.class.getMethod("calculateVAT");
     Set<ConstraintViolation<CD10>> constraints = methodValidator.validateParameters(cd, method, null);
     assertEquals(0, constraints.size());
@@ -145,7 +146,7 @@ public class CD10Test {
 
     CD10 cd = new CD10("title", 12.80f, "Beatles master piece", "Apple", 1, 53.32f, "Pop");
 
-    MethodValidator methodValidator = validator.forMethods();
+    ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD10.class.getMethod("calculatePrice", Float.class);
     Set<ConstraintViolation<CD10>> constraints = methodValidator.validateParameters(cd, method, new Object[]{new Float(4.5)});
   }
