@@ -11,6 +11,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.validation.ConstraintViolationException;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -75,8 +77,8 @@ public class BookIT {
     assertNotNull("ID should not be null", book.getId());
 
     // Retrieves all the books from the database
-//    List<Book> books = em.createNamedQuery("findBookH2G2", Book.class).getResultList();
-//    assertEquals(2, books.size());
+    List<Book> books = em.createNamedQuery("findBookH2G2", Book.class).getResultList();
+    assertEquals(1, books.size());
     book = em.createNamedQuery("findBookH2G2", Book.class).getSingleResult();
     assertEquals("The Hitchhiker's Guide to the Galaxy", book.getDescription());
   }
