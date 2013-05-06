@@ -8,14 +8,13 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>org.agoncal.book.javaee7.chapter04.Book</class>
     <properties>
-      <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
-      <property name="javax.persistence.schema-generation-target" value="database-and-scripts"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/chapter04DB;create=true"/>
       <property name="javax.persistence.jdbc.user" value="APP"/>
       <property name="javax.persistence.jdbc.password" value="APP"/>
       <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
-      <property name="eclipselink.logging.level" value="INFO"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
     </properties>
   </persistence-unit>
 
@@ -23,13 +22,11 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>org.agoncal.book.javaee7.chapter04.Book</class>
     <properties>
-      <property name="javax.persistence.schema-generation-action" value="drop-and-create"/>
-      <property name="javax.persistence.schema-generation-target" value="database"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:chapter04DB;create=true"/>
       <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
-      <property name="eclipselink.logging.level" value="INFO"/>
-
+      <property name="eclipselink.logging.level" value="FINE"/>
     </properties>
   </persistence-unit>
 
