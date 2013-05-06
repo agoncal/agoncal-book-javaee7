@@ -7,7 +7,7 @@
   <persistence-unit name="chapter11PU" transaction-type="JTA">
     <jta-data-source>java:global/jdbc/lab11DS</jta-data-source>
     <properties>
-      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="eclipselink.logging.level" value="INFO"/>
     </properties>
   </persistence-unit>
