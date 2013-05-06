@@ -1,16 +1,11 @@
 package org.agoncal.book.javaee7.chapter02.ex04;
 
-import org.agoncal.book.javaee7.chapter02.ex03.Book03;
-import org.agoncal.book.javaee7.chapter02.ex03.BookService03;
-import org.agoncal.book.javaee7.chapter02.ex03.IsbnGenerator03;
-import org.agoncal.book.javaee7.chapter02.ex03.IssnGenerator03;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
