@@ -37,14 +37,14 @@
     <version.el>3.0-b07</version.el>
     <version.json>1.0-b05</version.json>
     <!-- Databases -->
-    <version.derby>10.9.1.0</version.derby>
+    <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
     <!-- Test -->
     <skipTests>false</skipTests>
     <skipITs>${skipTests}</skipITs>
     <skipUTs>${skipTests}</skipUTs>
     <version.junit>4.11</version.junit>
-    <version.xmlunit>1.3</version.xmlunit>
+    <version.xmlunit>1.4</version.xmlunit>
     <version.mockito>1.9.5</version.mockito>
     <!-- Maven Plugins -->
     <version.maven.jar.plugin>2.4</version.maven.jar.plugin>
