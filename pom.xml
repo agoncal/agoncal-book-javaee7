@@ -35,7 +35,7 @@
     <version.eclipselink>2.5.0-RC1</version.eclipselink>
     <version.hibernate.validator>5.0.1.Final</version.hibernate.validator>
     <version.el>3.0-b07</version.el>
-    <version.json>1.0-b04</version.json>
+    <version.json>1.0-b05</version.json>
     <!-- Databases -->
     <version.derby>10.9.1.0</version.derby>
     <version.mysql>5.1.21</version.mysql>
