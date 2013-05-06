@@ -10,11 +10,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.validation.ConstraintViolationException;
-import java.sql.SQLException;
-import java.util.List;
 
-import static junit.framework.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Antonio Goncalves
