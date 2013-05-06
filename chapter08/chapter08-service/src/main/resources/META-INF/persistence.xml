@@ -8,8 +8,7 @@
   <persistence-unit name="chapter08PU" transaction-type="JTA">
     <jta-data-source>java:global/jdbc/chapter08DS</jta-data-source>
     <properties>
-      <property name="eclipselink.target-database" value="DERBY"/>
-      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       <property name="eclipselink.logging.level" value="INFO"/>
     </properties>
   </persistence-unit>
