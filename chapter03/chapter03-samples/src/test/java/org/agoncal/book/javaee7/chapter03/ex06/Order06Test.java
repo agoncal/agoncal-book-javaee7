@@ -72,8 +72,8 @@ public class Order06Test {
     order.setPaymentDate(paymentDate);
     order.setDeliveryDate(deliveryDate);
 
-    Set<ConstraintViolation<Order06>> constraints = validator.validate(order);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Order06>> violations = validator.validate(order);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -87,9 +87,9 @@ public class Order06Test {
     order.setPaymentDate(paymentDate);
     order.setDeliveryDate(deliveryDate);
 
-    Set<ConstraintViolation<Order06>> constraints = validator.validate(order);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Order06>> violations = validator.validate(order);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Order06>> constraintViolations) {

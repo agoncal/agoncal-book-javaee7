@@ -52,8 +52,8 @@ public class Book01Test {
 
     Book01 book = new Book01("H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false);
 
-    Set<ConstraintViolation<Book01>> constraints = validator.validate(book);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Book01>> violations = validator.validate(book);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -61,9 +61,9 @@ public class Book01Test {
 
     Book01 book = new Book01("H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false);
 
-    Set<ConstraintViolation<Book01>> constraints = validator.validate(book);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Book01>> violations = validator.validate(book);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -71,9 +71,9 @@ public class Book01Test {
 
     Book01 book = new Book01();
 
-    Set<ConstraintViolation<Book01>> constraints = validator.validate(book);
-    displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<Book01>> violations = validator.validate(book);
+    displayContraintViolations(violations);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -81,17 +81,17 @@ public class Book01Test {
 
     Book01 book = new Book01();
 
-    Set<ConstraintViolation<Book01>> constraints = validator.validateProperty(book, "title");
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Book01>> violations = validator.validateProperty(book, "title");
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
   public void shouldRaiseConstraintsViolationCheckingTheTitleValue() {
 
-    Set<ConstraintViolation<Book01>> constraints = validator.validateValue(Book01.class, "title", null);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Book01>> violations = validator.validateValue(Book01.class, "title", null);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Book01>> constraintViolations) {

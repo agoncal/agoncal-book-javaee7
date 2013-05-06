@@ -53,8 +53,8 @@ public class CustomerIT {
 
     Customer customer = new Customer("John", "Smith", "jsmith@gmail.com");
 
-    Set<ConstraintViolation<Customer>> constraints = validator.validate(customer);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Customer>> violations = validator.validate(customer);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -63,10 +63,10 @@ public class CustomerIT {
 
     Customer customer = new Customer("John", "Smith", "DummyEmail");
 
-    Set<ConstraintViolation<Customer>> constraints = validator.validate(customer);
-    assertEquals(1, constraints.size());
-    assertEquals("invalid email address", constraints.iterator().next().getMessage());
-    assertEquals("DummyEmail", constraints.iterator().next().getInvalidValue());
-    assertEquals("{org.agoncal.book.javaee7.chapter03.Email.message}", constraints.iterator().next().getMessageTemplate());
+    Set<ConstraintViolation<Customer>> violations = validator.validate(customer);
+    assertEquals(1, violations.size());
+    assertEquals("invalid email address", violations.iterator().next().getMessage());
+    assertEquals("DummyEmail", violations.iterator().next().getInvalidValue());
+    assertEquals("{org.agoncal.book.javaee7.chapter03.Email.message}", violations.iterator().next().getMessageTemplate());
   }
 }

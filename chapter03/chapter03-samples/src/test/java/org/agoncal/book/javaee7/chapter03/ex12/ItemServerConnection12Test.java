@@ -52,8 +52,8 @@ public class ItemServerConnection12Test {
 
     ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<ItemServerConnection12>> violations = validator.validate(itemServer);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -61,11 +61,11 @@ public class ItemServerConnection12Test {
 
     ItemServerConnection12 itemServer = new ItemServerConnection12("dummy", "http://www.cdbookstore.com/book/1234", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
-    assertEquals("Malformed URL", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<ItemServerConnection12>> violations = validator.validate(itemServer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("dummy", violations.iterator().next().getInvalidValue());
+    assertEquals("Malformed URL", violations.iterator().next().getMessage());
   }
 
   @Test
@@ -73,11 +73,11 @@ public class ItemServerConnection12Test {
 
     ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "dummy", "ftp://www.cdbookstore.com:21");
 
-    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
-    assertEquals("Malformed URL", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<ItemServerConnection12>> violations = validator.validate(itemServer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("dummy", violations.iterator().next().getInvalidValue());
+    assertEquals("Malformed URL", violations.iterator().next().getMessage());
   }
 
   @Test
@@ -85,11 +85,11 @@ public class ItemServerConnection12Test {
 
     ItemServerConnection12 itemServer = new ItemServerConnection12("http://www.cdbookstore.com/book/123", "http://www.cdbookstore.com/book/1234", "dummy");
 
-    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("dummy", constraints.iterator().next().getInvalidValue());
-    assertEquals("Malformed URL", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<ItemServerConnection12>> violations = validator.validate(itemServer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("dummy", violations.iterator().next().getInvalidValue());
+    assertEquals("Malformed URL", violations.iterator().next().getMessage());
   }
 
   @Test
@@ -97,9 +97,9 @@ public class ItemServerConnection12Test {
 
     ItemServerConnection12 itemServer = new ItemServerConnection12("dummy1", "dummy2", "dummy3");
 
-    Set<ConstraintViolation<ItemServerConnection12>> constraints = validator.validate(itemServer);
-    displayContraintViolations(constraints);
-    assertEquals(3, constraints.size());
+    Set<ConstraintViolation<ItemServerConnection12>> violations = validator.validate(itemServer);
+    displayContraintViolations(violations);
+    assertEquals(3, violations.size());
   }
 
   @Test(expected = UnexpectedTypeException.class)

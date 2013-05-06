@@ -51,8 +51,8 @@ public class Book03Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
-    Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Book03>> violations = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 12.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -60,9 +60,9 @@ public class Book03Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
-    Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Book03>> violations = methodValidator.validateConstructorParameters(constructor, new Object[]{"H2G2", 0.5f, "Best IT Scifi Book", "1234-4566-9876", 247, false});
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -70,9 +70,9 @@ public class Book03Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Constructor<Book03> constructor = Book03.class.getConstructor(String.class, Float.class, String.class, String.class, Integer.class, Boolean.class);
-    Set<ConstraintViolation<Book03>> constraints = methodValidator.validateConstructorParameters(constructor, new Object[]{null, null, null, null, null, null});
-    displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<Book03>> violations = methodValidator.validateConstructorParameters(constructor, new Object[]{null, null, null, null, null, null});
+    displayContraintViolations(violations);
+    assertEquals(2, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Book03>> constraintViolations) {

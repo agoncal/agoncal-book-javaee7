@@ -56,8 +56,8 @@ public class Customer05Test {
 
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -68,9 +68,9 @@ public class Customer05Test {
 
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -81,9 +81,9 @@ public class Customer05Test {
 
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -93,9 +93,9 @@ public class Customer05Test {
     Customer05 customer = new Customer05("John", "Smith", "jsmithgmail.com", "recovery@gmail.com", "1234565", new Date(), new Date());
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -105,9 +105,9 @@ public class Customer05Test {
     Customer05 customer = new Customer05();
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(3, constraints.size());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(3, violations.size());
   }
 
   @Test
@@ -117,10 +117,10 @@ public class Customer05Test {
     Customer05 customer = new Customer05("John", "Smith", "dummy", "recovery@gmail.com", "1234565", new Date(), new Date());
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("Email address doesn't look good", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("Email address doesn't look good", violations.iterator().next().getMessage());
   }
 
   @Test
@@ -130,10 +130,10 @@ public class Customer05Test {
     Customer05 customer = new Customer05("John", "Smith", "jsmith@gmail.com", "dummy", "1234565", new Date(), new Date());
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("Recovery email is not a valid email address", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("Recovery email is not a valid email address", violations.iterator().next().getMessage());
   }
 
   @Test
@@ -144,10 +144,10 @@ public class Customer05Test {
     customer.setAge(10);
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("Customer is too young. Should be older that 18", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("Customer is too young. Should be older that 18", violations.iterator().next().getMessage());
   }
 
   @Test
@@ -157,10 +157,10 @@ public class Customer05Test {
     Customer05 customer = new Customer05("J", "Smith", "jsmith@gmail.com", "recovery@gmail.com", "1234565", new Date(), new Date());
 
     // Validate the cd
-    Set<ConstraintViolation<Customer05>> constraints = validator.validate(customer);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("Firstname should be between 4 and 50", constraints.iterator().next().getMessage());
+    Set<ConstraintViolation<Customer05>> violations = validator.validate(customer);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("Firstname should be between 4 and 50", violations.iterator().next().getMessage());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Customer05>> constraintViolations) {

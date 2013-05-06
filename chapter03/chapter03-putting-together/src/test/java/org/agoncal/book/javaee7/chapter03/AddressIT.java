@@ -31,8 +31,8 @@ public class AddressIT {
 
     Address address = new Address("233 Spring Street", "New York", "NY", "DummyZip", "USA");
 
-    Set<ConstraintViolation<Address>> constraints = validator.validate(address);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Address>> violations = validator.validate(address);
+    assertEquals(1, violations.size());
 
     vf.close();
   }

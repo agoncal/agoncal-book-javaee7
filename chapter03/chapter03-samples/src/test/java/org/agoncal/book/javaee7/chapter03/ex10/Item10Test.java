@@ -57,8 +57,8 @@ public class Item10Test {
     Item10 book = new Item10("H2G2", 12.5f, "Best IT Scifi Book");
 
     // Validate the cd
-    Set<ConstraintViolation<Item10>> constraints = validator.validate(book);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Item10>> violations = validator.validate(book);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -68,9 +68,9 @@ public class Item10Test {
     Item10 book = new Item10();
 
     // Validate the cd
-    Set<ConstraintViolation<Item10>> constraints = validator.validate(book);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Item10>> violations = validator.validate(book);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -80,8 +80,8 @@ public class Item10Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculateVAT");
-    Set<ConstraintViolation<Item10>> constraints = methodValidator.validateReturnValue(item, method, new Float(10.0));
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Item10>> violations = methodValidator.validateReturnValue(item, method, new Float(10.0));
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -91,8 +91,8 @@ public class Item10Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<Item10>> constraints = methodValidator.validateParameters(item, method, new Object[]{new Float(4.5)});
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Item10>> violations = methodValidator.validateParameters(item, method, new Object[]{new Float(4.5)});
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -102,9 +102,9 @@ public class Item10Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = Item10.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<Item10>> constraints = methodValidator.validateParameters(item, method, new Object[]{new Float(0.5)});
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Item10>> violations = methodValidator.validateParameters(item, method, new Object[]{new Float(0.5)});
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Item10>> constraintViolations) {

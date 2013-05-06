@@ -53,8 +53,8 @@ public class CD21Test {
 
     CD21 cd = new CD21("Kind of Blue", 12.5f);
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -62,9 +62,9 @@ public class CD21Test {
 
     CD21 cd = new CD21();
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -73,8 +73,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setNumberOfCDs(2);
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validateProperty(cd, "numberOfCDs");
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validateProperty(cd, "numberOfCDs");
+    assertEquals(0, violations.size());
   }
 
   @Test //@Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
@@ -83,28 +83,28 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setNumberOfCDs(7);
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validateProperty(cd, "numberOfCDs");
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("must be less than or equal to 5", constraints.iterator().next().getMessage());
-    assertEquals(7, constraints.iterator().next().getInvalidValue());
-    assertEquals("{javax.validation.constraints.Max.message}", constraints.iterator().next().getMessageTemplate());
+    Set<ConstraintViolation<CD21>> violations = validator.validateProperty(cd, "numberOfCDs");
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("must be less than or equal to 5", violations.iterator().next().getMessage());
+    assertEquals(7, violations.iterator().next().getInvalidValue());
+    assertEquals("{javax.validation.constraints.Max.message}", violations.iterator().next().getMessageTemplate());
   }
 
   @Test
   public void shouldRaiseNoConstraintViolationValidatingNumberOfCDsPropertyValue() {
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validateValue(CD21.class, "numberOfCDs", 2);
-    displayContraintViolations(constraints);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validateValue(CD21.class, "numberOfCDs", 2);
+    displayContraintViolations(violations);
+    assertEquals(0, violations.size());
   }
 
   @Test
   public void shouldRaiseConstraintViolationValidatingNumberOfCDsPropertyValue() {
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validateValue(CD21.class, "numberOfCDs", 7);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validateValue(CD21.class, "numberOfCDs", 7);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -114,8 +114,8 @@ public class CD21Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD21.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<CD21>> constraints = methodValidator.validateParameters(cd, method, new Object[]{new Float(2.2)});
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = methodValidator.validateParameters(cd, method, new Object[]{new Float(2.2)});
+    assertEquals(0, violations.size());
   }
 
   @Test //@Ignore("Make sure your local is EN, if not use the following JVM parameters : -Duser.language=en -Duser.country=EN")
@@ -125,12 +125,12 @@ public class CD21Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD21.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<CD21>> constraints = methodValidator.validateParameters(cd, method, new Object[]{new Float(1.2)});
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
-    assertEquals("must be greater than or equal to 1.4", constraints.iterator().next().getMessage());
-    assertEquals(new Float(1.2), constraints.iterator().next().getInvalidValue());
-    assertEquals("{javax.validation.constraints.DecimalMin.message}", constraints.iterator().next().getMessageTemplate());
+    Set<ConstraintViolation<CD21>> violations = methodValidator.validateParameters(cd, method, new Object[]{new Float(1.2)});
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
+    assertEquals("must be greater than or equal to 1.4", violations.iterator().next().getMessage());
+    assertEquals(new Float(1.2), violations.iterator().next().getInvalidValue());
+    assertEquals("{javax.validation.constraints.DecimalMin.message}", violations.iterator().next().getMessageTemplate());
   }
 
   @Test
@@ -139,8 +139,8 @@ public class CD21Test {
     CD21 cd = new CD21("Kind of Blue", 12.5f);
     cd.setDescription("Best Jazz CD ever");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, PrintingCatalog.class);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, PrintingCatalog.class);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -149,8 +149,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setDescription("Best Jazz CD ever");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, PrintingCatalog.class);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, PrintingCatalog.class);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -159,8 +159,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setDescription("Best Jazz CD ever");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, Default.class, PrintingCatalog.class);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, Default.class, PrintingCatalog.class);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -169,8 +169,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setDescription("Best Jazz CD ever");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -179,8 +179,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setDescription("Best Jazz CD ever");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, Default.class);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, Default.class);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -189,8 +189,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setDescription("Jazz");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, Default.class, PrintingCatalog.class);
-    assertEquals(3, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, Default.class, PrintingCatalog.class);
+    assertEquals(3, violations.size());
   }
 
   @Test
@@ -199,8 +199,8 @@ public class CD21Test {
     CD21 cd = new CD21();
     cd.setDescription("Too short");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, PrintingCatalog.class);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, PrintingCatalog.class);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -209,8 +209,8 @@ public class CD21Test {
     CD21 cd = new CD21("Kind of Blue", 12.5f);
     cd.setDescription("Jazz");
 
-    Set<ConstraintViolation<CD21>> constraints = validator.validate(cd, PrintingCatalog.class);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CD21>> violations = validator.validate(cd, PrintingCatalog.class);
+    assertEquals(1, violations.size());
   }
 
 

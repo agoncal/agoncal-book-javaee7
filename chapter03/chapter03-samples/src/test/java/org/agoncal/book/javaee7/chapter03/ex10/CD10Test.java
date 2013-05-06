@@ -57,8 +57,8 @@ public class CD10Test {
     CD10 cd = new CD10("title", 12.80f, "Beatles master piece", "Apple", 1, 53.32f, "Pop");
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -68,9 +68,9 @@ public class CD10Test {
     CD10 cd = new CD10();
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -80,9 +80,9 @@ public class CD10Test {
     CD10 cd = new CD10("St Pepper", 12.80f, "Beatles master piece", "apple", 1, 53.32f, "Pop");
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -92,9 +92,9 @@ public class CD10Test {
     CD10 cd = new CD10("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "Pop");
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -104,9 +104,9 @@ public class CD10Test {
     CD10 cd = new CD10("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "pop");
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -116,9 +116,9 @@ public class CD10Test {
     CD10 cd = new CD10("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "P");
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(2, violations.size());
   }
 
   @Test
@@ -128,9 +128,9 @@ public class CD10Test {
     CD10 cd = new CD10("St Pepper", 12.80f, "Beatles master piece", "Apple", 11, 53.32f, "Poooooooooooooooooooooooooooooooooooooooooooooooooooooop");
 
     // Validate the cd
-    Set<ConstraintViolation<CD10>> constraints = validator.validate(cd);
-    displayContraintViolations(constraints);
-    assertEquals(2, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = validator.validate(cd);
+    displayContraintViolations(violations);
+    assertEquals(2, violations.size());
   }
 
 
@@ -141,8 +141,8 @@ public class CD10Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD10.class.getMethod("calculateVAT");
-    Set<ConstraintViolation<CD10>> constraints = methodValidator.validateReturnValue(cd, method, new Float(10.0));
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CD10>> violations = methodValidator.validateReturnValue(cd, method, new Float(10.0));
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -152,7 +152,7 @@ public class CD10Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CD10.class.getMethod("calculatePrice", Float.class);
-    Set<ConstraintViolation<CD10>> constraints = methodValidator.validateParameters(cd, method, new Object[]{new Float(4.5)});
+    Set<ConstraintViolation<CD10>> violations = methodValidator.validateParameters(cd, method, new Object[]{new Float(4.5)});
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<CD10>> constraintViolations) {

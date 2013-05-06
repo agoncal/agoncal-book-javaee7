@@ -70,20 +70,20 @@ public class Order09Test {
 
     order.setCreationDate(creationDate);
 
-    Set<ConstraintViolation<Order09>> constraints = validator.validate(order);
-    displayContraintViolations(constraints);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Order09>> violations = validator.validate(order);
+    displayContraintViolations(violations);
+    assertEquals(0, violations.size());
 
     order.setPaymentDate(paymentDate);
 
-    constraints = validator.validate(order, Payment.class);
-    displayContraintViolations(constraints);
-    assertEquals(0, constraints.size());
+    violations = validator.validate(order, Payment.class);
+    displayContraintViolations(violations);
+    assertEquals(0, violations.size());
 
     order.setDeliveryDate(deliveryDate);
 
-    constraints = validator.validate(order, Delivery.class);
-    assertEquals(0, constraints.size());
+    violations = validator.validate(order, Delivery.class);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -95,18 +95,18 @@ public class Order09Test {
 
     order.setCreationDate(creationDate);
 
-    Set<ConstraintViolation<Order09>> constraints = validator.validate(order);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Order09>> violations = validator.validate(order);
+    assertEquals(0, violations.size());
 
     order.setPaymentDate(creationDate);
 
-    constraints = validator.validate(order, Payment.class);
-    assertEquals(0, constraints.size());
+    violations = validator.validate(order, Payment.class);
+    assertEquals(0, violations.size());
 
     order.setDeliveryDate(creationDate);
 
-    constraints = validator.validate(order, Delivery.class);
-    assertEquals(1, constraints.size());
+    violations = validator.validate(order, Delivery.class);
+    assertEquals(1, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Order09>> constraintViolations) {

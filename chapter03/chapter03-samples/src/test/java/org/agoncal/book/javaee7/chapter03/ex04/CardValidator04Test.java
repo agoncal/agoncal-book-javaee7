@@ -55,11 +55,11 @@ public class CardValidator04Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
-    Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<CardValidator04>> violations = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
+    assertEquals(0, violations.size());
 
-    constraints = methodValidator.validateReturnValue(cardValidator, method, Boolean.TRUE);
-    assertEquals(0, constraints.size());
+    violations = methodValidator.validateReturnValue(cardValidator, method, Boolean.TRUE);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -69,9 +69,9 @@ public class CardValidator04Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
-    Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{null});
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<CardValidator04>> violations = methodValidator.validateParameters(cardValidator, method, new Object[]{null});
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -82,9 +82,9 @@ public class CardValidator04Test {
 
     ExecutableValidator methodValidator = validator.forExecutables();
     Method method = CardValidator04.class.getMethod("validate", CreditCard04.class);
-    Set<ConstraintViolation<CardValidator04>> constraints = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
-    displayContraintViolations(constraints);
-    assertEquals(3, constraints.size());
+    Set<ConstraintViolation<CardValidator04>> violations = methodValidator.validateParameters(cardValidator, method, new Object[]{creditCard});
+    displayContraintViolations(violations);
+    assertEquals(3, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<CardValidator04>> constraintViolations) {

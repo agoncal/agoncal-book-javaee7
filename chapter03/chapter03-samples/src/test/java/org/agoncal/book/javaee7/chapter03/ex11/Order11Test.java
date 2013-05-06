@@ -55,8 +55,8 @@ public class Order11Test {
     Order11 order = new Order11();
     order.setOrderId("CA45678");
 
-    Set<ConstraintViolation<Order11>> constraints = validator.validate(order);
-    assertEquals(0, constraints.size());
+    Set<ConstraintViolation<Order11>> violations = validator.validate(order);
+    assertEquals(0, violations.size());
   }
 
   @Test
@@ -65,9 +65,9 @@ public class Order11Test {
     Order11 order = new Order11();
     order.setOrderId("FA45678");
 
-    Set<ConstraintViolation<Order11>> constraints = validator.validate(order);
-    displayContraintViolations(constraints);
-    assertEquals(1, constraints.size());
+    Set<ConstraintViolation<Order11>> violations = validator.validate(order);
+    displayContraintViolations(violations);
+    assertEquals(1, violations.size());
   }
 
   private void displayContraintViolations(Set<ConstraintViolation<Order11>> constraintViolations) {
