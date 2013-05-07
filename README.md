@@ -153,7 +153,7 @@ To compile, package and execute the code you need the following software :
 ## Management, Security, and other specifications
 
 * DI 1.0 - [JSR 330](http://jcp.org/en/jsr/detail?id=330)
-* CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346) - [Mailing lists](http://seamframework.org/Community/MailingLists) - [Documentation](http://docs.jboss.org/cdi/spec/) - [JIRA](https://issues.jboss.org/browse/CDI)
+* CDI 1.1 - [JSR 346](http://jcp.org/en/jsr/detail?id=346) - [Mailing lists](http://seamframework.org/Community/MailingLists) - [Documentation](http://docs.jboss.org/cdi/spec/1.1/cdi-spec.html) - [JIRA](https://issues.jboss.org/browse/CDI)
 * JACC 1.4 - [JSR 115](http://jcp.org/en/jsr/detail?id=115)
 * Bean Validation 1.1 - [JSR 349](http://jcp.org/en/jsr/detail?id=349) - [Mailing lists](https://lists.jboss.org/mailman/listinfo/beanvalidation-dev) - [Web site](http://beanvalidation.org/)
 * (Prunned) Java EE Application Deployment 1.2 - [JSR 88](http://jcp.org/en/jsr/detail?id=88)
