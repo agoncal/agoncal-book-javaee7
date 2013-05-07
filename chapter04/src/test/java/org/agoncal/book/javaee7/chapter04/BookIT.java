@@ -1,8 +1,7 @@
 package org.agoncal.book.javaee7.chapter04;
 
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -10,7 +9,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.validation.ConstraintViolationException;
-
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -29,7 +27,7 @@ public class BookIT {
   // =             Attributes             =
   // ======================================
 
-  private static EntityManagerFactory emf;
+  private EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter04TestPU");
   private static EntityManager em;
   private static EntityTransaction tx;
 
@@ -37,21 +35,15 @@ public class BookIT {
   // =          Lifecycle Methods         =
   // ======================================
 
-  @BeforeClass
-  public static void initEntityManager() throws Exception {
-    emf = Persistence.createEntityManagerFactory("chapter04TestPU");
-    em = emf.createEntityManager();
-  }
-
-  @AfterClass
-  public static void closeEntityManager() throws Exception {
-    if (em != null) em.close();
-    if (emf != null) emf.close();
-  }
-
   @Before
-  public void initTransaction() {
+  public void initEntityManager() throws Exception {
+    em = emf.createEntityManager();
     tx = em.getTransaction();
+  }
+
+  @After
+  public void closeEntityManager() throws Exception {
+    if (em != null) em.close();
   }
 
   // ======================================
