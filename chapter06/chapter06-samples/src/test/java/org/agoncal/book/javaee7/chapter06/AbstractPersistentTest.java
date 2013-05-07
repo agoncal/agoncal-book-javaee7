@@ -1,8 +1,7 @@
 package org.agoncal.book.javaee7.chapter06;
 
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,29 +24,24 @@ public abstract class AbstractPersistentTest {
   // ======================================
   // =             Attributes             =
   // ======================================
-  protected static EntityManagerFactory emf;
-  protected static EntityManager em;
-  protected static EntityTransaction tx;
+
+  protected EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+  protected EntityManager em;
+  protected EntityTransaction tx;
 
   // ======================================
   // =          Lifecycle Methods         =
   // ======================================
 
-  @BeforeClass
-  public static void initEntityManager() throws Exception {
-    emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    em = emf.createEntityManager();
-  }
-
-  @AfterClass
-  public static void closeEntityManager() throws SQLException {
-    if (em != null) em.close();
-    if (emf != null) emf.close();
-  }
-
   @Before
-  public void initTransaction() {
+  public void initEntityManager() throws Exception {
+    em = emf.createEntityManager();
     tx = em.getTransaction();
+  }
+
+  @After
+  public void closeEntityManager() throws SQLException {
+    if (em != null) em.close();
   }
 
   protected Long getRandomId() {
