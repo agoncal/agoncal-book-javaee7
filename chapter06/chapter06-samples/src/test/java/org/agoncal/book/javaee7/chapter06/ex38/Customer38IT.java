@@ -65,7 +65,7 @@ public class Customer38IT extends AbstractPersistentTest {
     // some work to do
   }
 
-  @Test @Ignore
+  @Test
   public void shouldCheckTheAgeOfTheCustomer() throws Exception {
 
     // Instanciates an object
@@ -103,7 +103,7 @@ public class Customer38IT extends AbstractPersistentTest {
     tx.commit();
   }
 
-  @Test(expected = IllegalStateException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void shouldThrowAnExceptionBecauseLastNameIsNull() throws Exception {
 
     // Instanciates an object
