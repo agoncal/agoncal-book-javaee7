@@ -52,11 +52,11 @@ public class Customer38IT extends AbstractPersistentTest {
     assertEquals(new Long(expectedAge), new Long(customer.getAge()));
   }
 
-  @Test(expected = NullPointerException.class)
-  public void shouldThrowExceptionCauseDateOfBirtheIsNull() {
+  @Test
+  public void shouldCheckAgeIsNullCauseDateOfBirtheIsNull() {
     Customer38 customer = new Customer38();
-
     customer.calculateAge();
+    assertNull(customer.getAge());
   }
 
   @Ignore("Test is not ready yet")
