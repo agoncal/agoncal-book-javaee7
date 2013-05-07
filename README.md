@@ -124,7 +124,7 @@ To compile, package and execute the code you need the following software :
 * (Prunned) JAX-RPC 1.1 - [JSR 101](http://jcp.org/en/jsr/detail?id=101) - [Project](http://java.net/projects/jax-rpc)
 * JAX-WS 2.2a - [JSR 224](http://jcp.org/en/jsr/detail?id=224) - [Project](http://java.net/projects/jax-ws) - [Mailing lists](http://java.net/projects/jax-ws/lists)
 * JAXB 2.2 - [JSR 222](http://jcp.org/en/jsr/detail?id=222) - [Project](http://jaxb.java.net/) - [Mailing lists](http://java.net/projects/jaxb/lists/)
-* Web Services 1.3 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
+* Web Services 1.4 - [JSR 109](http://jcp.org/en/jsr/detail?id=109)
 * Web Services Metadata 2.1 - [JSR 181](http://jcp.org/en/jsr/detail?id=181)
 * JAX-RS 2.0 - [JSR 339](http://jcp.org/en/jsr/detail?id=339) - [Project](http://java.net/projects/jax-rs-spec) - [Mailing lists](http://java.net/projects/jax-rs-spec/lists) - [Jersey](http://jersey.java.net/) - [@gf_jersey](https://twitter.com/gf_jersey) - [Code on GitHub](https://github.com/jersey/jersey)
 * JSON-P 1.0 - [JSR 353](http://jcp.org/en/jsr/detail?id=353) - [Project](http://java.net/projects/json-processing-spec) - [Mailing lists](http://java.net/projects/json-processing-spec/lists) - [JIRA](http://java.net/jira/browse/JSON_PROCESSING_SPEC)
