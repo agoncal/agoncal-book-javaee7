@@ -27,9 +27,9 @@ public class BookIT {
   // =             Attributes             =
   // ======================================
 
-  private EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter04TestPU");
-  private static EntityManager em;
-  private static EntityTransaction tx;
+  private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("chapter04TestPU");
+  private EntityManager em;
+  private EntityTransaction tx;
 
   // ======================================
   // =          Lifecycle Methods         =
