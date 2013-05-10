@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.cdi.Transactional;
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**

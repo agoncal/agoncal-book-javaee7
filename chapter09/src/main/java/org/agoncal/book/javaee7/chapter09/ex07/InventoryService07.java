@@ -2,7 +2,7 @@ package org.agoncal.book.javaee7.chapter09.ex07;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.cdi.Transactional;
+import javax.transaction.Transactional;
 
 /**
  * @author Antonio Goncalves
