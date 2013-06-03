@@ -1,7 +1,7 @@
-# Beginning Java EE 7 Platform with GlassFish 4: From Novice to Professional
+# Beginning Java EE 7
 
 * [Antonio Goncalves](http://http://www.antoniogoncalves.org)
-* Apress Java EE 7 Book
+* [Java EE 7 Book](http://antoniogoncalves.org/category/books/)
 * [Download code on GitHub](https://github.com/agoncal/agoncal-book-javaee7)
 
 # Structure of the book
@@ -13,75 +13,31 @@ Section 1 - Introduction
 Section 2 - Cross concerns
 
 * Chapter 2 - Context & Dependency Injection
-* Chapter 3 - Resources Injection & Scopes
-* Chapter 4 - Loose Coupling
-* Chapter 5 - Bean Validation
+* Chapter 3 - Bean Validation
 
 Section 3 - Building a domain model
 
-* Chapter 6 - Persistence
-* Chapter 7 - Object-Relational Mapping
-* Chapter 8 - Managing Persistent Object
-* Chapter 9 - Callbacks & Listeners
+* Chapter 4 - Persistence
+* Chapter 5 - Object-Relational Mapping
+* Chapter 6 - Managing Persistent Object
 
 Section 4 - Implementing business logic
 
-* Chapter 10 - Enterprise Java Beans
-* Chapter 11 - Session Beans
-* Chapter 12 - Callback & Timer Service
-* Chapter 13 - Transactions & security
+* Chapter 7 - Enterprise Java Beans
+* Chapter 8 - Callback & Timer Service
+* Chapter 9 - Transactions
 
 Section 5 - Adding a web & user interface
 
-* Chapter 14 - Servlets
-* Chapter 15 - Java Server Pages
-* Chapter 16 - JavaServer Faces
-* Chapter 17 - Pages & components
-* Chapter 18 - Processing & Navigation
+* Chapter 10 - JavaServer Faces
+* Chapter 11 - Processing & Navigation
 
 Section 6 - Interoperability
 
-* Chapter 19 - XML & JSON
-* Chapter 20 - Messaging
-* Chapter 21 (44) - SOAP Web Services
-* Chapter 22 (49) - RESTful Web Service
-
-
-
-Section 1 - Introduction
-
-* Chapter  1 - Java EE 7 Environment
-
-Section 2 - Cross concerns
-
-* Chapter  2 - Context & Dependency Injection
-* Chapter  3 - Bean Validation
-
-Section 3 - Building a domain model
-
-* Chapter  4 - Persistence
-* Chapter  5 - Object-Relational Mapping
-* Chapter  6 - Managing Persistent Object
-* Chapter  7 - Callbacks & Listeners
-
-Section 4 - Implementing business logic
-
-* Chapter  8 (40) - Enterprise Java Beans (intro 11/session bean 29)
-* Chapter  9 (27) - Timer Service, Callback and Security (5/6/7/putting 9)
-* Chapter 10 - Interceptors & Transactions
-
-Section 5 - Adding a web & user interface
-
-* Chapter 11 - Servlets
-* Chapter 12 - Java Server Pages
-* Chapter 13 - JavaServer Faces
-
-Section 6 - Interoperability
-
-* Chapter 13 - XML & JSON
-* Chapter 14 - Messaging
-* Chapter 15 (44) - SOAP Web Services
-* Chapter 16 (49) - RESTful Web Service
+* Chapter 12 - XML & JSON
+* Chapter 13 - Messaging
+* Chapter 14 - SOAP Web Services
+* Chapter 15 - RESTful Web Service
 
 # Structure of the code and Maven modules
 
