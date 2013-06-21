@@ -6,7 +6,7 @@
   <groupId>org.agoncal.book.javaee7</groupId>
   <artifactId>chapter09</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>09 - Transaction and security</name>
 
   <parent>
@@ -15,16 +15,8 @@
     <version>1.0</version>
   </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.glassfish.main.extras</groupId>
-      <artifactId>glassfish-embedded-all</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>chapter09-samples</module>
+  </modules>
 
 </project>
