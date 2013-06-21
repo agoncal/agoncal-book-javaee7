@@ -6,7 +6,7 @@
   <groupId>org.agoncal.book.javaee7</groupId>
   <artifactId>chapter04</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <name>04 - JPA</name>
 
   <parent>
@@ -15,47 +15,8 @@
     <version>1.0</version>
   </parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-    </dependency>
+  <modules>
+    <module>chapter04-putting-together</module>
+  </modules>
 
-    <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derby</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.derby</groupId>
-      <artifactId>derbyclient</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <mainClass>org.agoncal.book.javaee7.chapter04.Main</mainClass>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
