@@ -28,7 +28,7 @@
   <properties>
     <version.java>1.7</version.java>
     <!-- Java EE -->
-    <version.glassfish>4.0-b87</version.glassfish>
+    <version.glassfish>4.0-b72</version.glassfish>
     <version.javaee>7.0-b79</version.javaee>
     <version.weld>2.0.0.Final</version.weld>
     <version.jersey>2.0-rc1</version.jersey>
