@@ -2,4 +2,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
        version="1.1" bean-discovery-mode="all">
+
+    <interceptors>
+        <class>org.agoncal.book.javaee7.chapter02.LoggingInterceptor</class>
+    </interceptors>
 </beans>
