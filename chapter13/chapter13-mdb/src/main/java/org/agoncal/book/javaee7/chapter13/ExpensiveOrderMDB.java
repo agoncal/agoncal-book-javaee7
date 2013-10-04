@@ -18,7 +18,7 @@ import javax.jms.*;
 @JMSConnectionFactoryDefinition(name = "jms/javaee7/ConnectionFactory",
         className = "javax.jms.ConnectionFactory")
 @JMSDestinationDefinition(name = "jms/javaee7/Topic",
-        className = "javax.jms.Topic")
+        className = "javax.jms.Topic", interfaceName = "javax.jms.Topic")
 public class ExpensiveOrderMDB implements MessageListener {
 
   // ======================================
