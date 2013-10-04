@@ -30,7 +30,7 @@ public class JSonParsing05Test {
         JsonObject jsonObject = JSonParsing99.buildJSon();
         JsonValue value = jsonObject.get("id");
         assertEquals(JsonValue.ValueType.STRING, value.getValueType());
-        assertEquals("1234", value.toString());
+        assertEquals("\"1234\"", value.toString());
 
         StringWriter orderJSON = new StringWriter();
         JsonWriter writer = Json.createWriter(orderJSON);
