@@ -21,8 +21,7 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.jpa.modelgen</artifactId>
-      <version>2.3.2</version>
+      <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
     </dependency>
 
     <dependency>
@@ -35,31 +34,13 @@
     </dependency>
   </dependencies>
 
-  <!--<build>-->
-    <!--<plugins>-->
-      <!--<plugin>-->
-        <!--<groupId>org.bsc.maven</groupId>-->
-        <!--<artifactId>maven-processor-plugin</artifactId>-->
-        <!--<version>${version.maven.processor.plugin}</version>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>process</id>-->
-            <!--<goals>-->
-              <!--<goal>process</goal>-->
-            <!--</goals>-->
-            <!--<phase>generate-sources</phase>-->
-            <!--<configuration>-->
-              <!--<compilerArguments>-Aeclipselink.persistencexml=src/main/resources/META-INF/persistence.xml-->
-              <!--</compilerArguments>-->
-              <!--<processors>-->
-                <!--<processor>org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor-->
-                <!--</processor>-->
-              <!--</processors>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
-      <!--</plugin>-->
-    <!--</plugins>-->
-  <!--</build>-->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.bsc.maven</groupId>
+        <artifactId>maven-processor-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

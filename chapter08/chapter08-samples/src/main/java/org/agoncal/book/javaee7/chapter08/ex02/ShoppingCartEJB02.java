@@ -27,8 +27,7 @@ public class ShoppingCartEJB02 {
   // =             Attributes             =
   // ======================================
 
-    @Resource(lookup = "java:global/jdbc/__default")
-//  @Resource(lookup = "java:comp/defaultDataSource")
+  @Resource(lookup = "java:comp/DefaultDataSource")
   private DataSource ds;
   private Connection connection;
   private List<Item02> cartItems = new ArrayList<>();

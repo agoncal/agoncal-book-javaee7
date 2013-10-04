@@ -28,14 +28,14 @@
   <properties>
     <version.java>1.7</version.java>
     <!-- Java EE -->
-    <version.glassfish>4.0-b87</version.glassfish>
-    <version.javaee>7.0-b79</version.javaee>
-    <version.weld>2.0.0.Final</version.weld>
-    <version.jersey>2.0-rc1</version.jersey>
-    <version.eclipselink>2.5.0</version.eclipselink>
+    <version.glassfish>4.0</version.glassfish>
+    <version.javaee>7.0</version.javaee>
+    <version.weld>2.0.1.Final</version.weld>
+    <version.jersey>2.3.1</version.jersey>
+    <version.eclipselink>2.5.1</version.eclipselink>
     <version.hibernate.validator>5.0.1.Final</version.hibernate.validator>
-    <version.el>3.0-b07</version.el>
-    <version.json>1.0-b05</version.json>
+    <version.el>3.0.0</version.el>
+    <version.json>1.0.2</version.json>
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
@@ -48,15 +48,15 @@
     <version.mockito>1.9.5</version.mockito>
     <!-- Maven Plugins -->
     <version.maven.jar.plugin>2.4</version.maven.jar.plugin>
-    <version.maven.war.plugin>2.2</version.maven.war.plugin>
-    <version.maven.processor.plugin>2.1.0</version.maven.processor.plugin>
-    <version.maven.compiler.plugin>2.5.1</version.maven.compiler.plugin>
-    <version.maven.dependency.plugin>2.5</version.maven.dependency.plugin>
-    <version.maven.help.plugin>2.1.1</version.maven.help.plugin>
+    <version.maven.war.plugin>2.4</version.maven.war.plugin>
+    <version.maven.processor.plugin>2.2.4</version.maven.processor.plugin>
+    <version.maven.compiler.plugin>3.1</version.maven.compiler.plugin>
+    <version.maven.dependency.plugin>2.8</version.maven.dependency.plugin>
+    <version.maven.help.plugin>2.2</version.maven.help.plugin>
     <version.maven.exec.plugin>1.2.1</version.maven.exec.plugin>
     <version.maven.jaxws.plugin>2.2</version.maven.jaxws.plugin>
-    <version.maven.surefire.plugin>2.12.4</version.maven.surefire.plugin>
-    <version.maven.failsafe.plugin>2.12.4</version.maven.failsafe.plugin>
+    <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
+    <version.maven.failsafe.plugin>2.16</version.maven.failsafe.plugin>
     <!-- Project -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -103,11 +103,6 @@
       <dependency>
         <groupId>org.eclipse.persistence</groupId>
         <artifactId>org.eclipse.persistence.jpa</artifactId>
-        <version>${version.eclipselink}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.persistence</groupId>
-        <artifactId>org.eclipse.persistence.jpa.modelgen</artifactId>
         <version>${version.eclipselink}</version>
       </dependency>
       <dependency>
@@ -305,8 +300,6 @@
               </goals>
               <phase>generate-sources</phase>
               <configuration>
-                <compilerArguments>-Aeclipselink.persistencexml=src/main/resources/META-INF/persistence.xml
-                </compilerArguments>
                 <processors>
                   <processor>org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor</processor>
                 </processors>
@@ -318,60 +311,5 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <repositories>
-    <repository>
-      <!-- http://maven.eclipse.org/nexus -->
-      <id>EclipseLink</id>
-      <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-    </repository>
-    <repository>
-      <id>apache-snapshot</id>
-      <url>https://repository.apache.org/content/repositories/snapshots/</url>
-    </repository>
-    <repository>
-      <id>jboss-public-repository-group</id>
-      <name>JBoss Public Maven Repository Group</name>
-      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-      <layout>default</layout>
-    </repository>
-    <repository>
-      <id>java.net-public-repository-group</id>
-      <name>Java.Net Public Maven Repository Group</name>
-      <url>https://maven.java.net/content/groups/public</url>
-    </repository>
-    <repository>
-      <id>java.net-promoted-repository-group</id>
-      <name>Java.Net Promoted Maven Repository Group</name>
-      <url>https://maven.java.net/content/groups/promoted</url>
-    </repository>
-    <repository>
-      <id>java.net-staging-repository-group</id>
-      <name>Java.Net Staging Maven Repository Group</name>
-      <url>https://maven.java.net/content/groups/staging</url>
-    </repository>
-    <repository>
-      <id>java.net-releases-repository-group</id>
-      <name>Java.Net Releases Maven Repository Group</name>
-      <url>https://maven.java.net/content/repositories/releases</url>
-    </repository>
-    <repository>
-      <id>java.net-snapshots-repository-group</id>
-      <name>Java.Net Snapshots Maven Repository Group</name>
-      <url>https://maven.java.net/content/repositories/snapshots</url>
-      <layout>default</layout>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>apache-snapshot</id>
-      <url>https://repository.apache.org/content/repositories/snapshots/</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>maven-central</id>
-      <url>http://repo1.maven.org/maven2/</url>
-    </pluginRepository>
-  </pluginRepositories>
 
 </project>

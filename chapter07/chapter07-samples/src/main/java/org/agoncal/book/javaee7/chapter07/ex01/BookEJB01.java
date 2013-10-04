@@ -3,6 +3,7 @@ package org.agoncal.book.javaee7.chapter07.ex01;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.SynchronizationType;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class BookEJB01 {
   // =             Attributes             =
   // ======================================
 
-  @PersistenceContext(unitName = "chapter07PU")
+  @PersistenceContext(unitName = "chapter07PU", synchronization = SynchronizationType.UNSYNCHRONIZED)
   private EntityManager em;
 
   // ======================================
@@ -31,6 +32,7 @@ public class BookEJB01 {
 
   public List<Book01> findBooks() {
     TypedQuery<Book01> query = em.createNamedQuery(FIND_ALL, Book01.class);
+      em.joinTransaction();
     return query.getResultList();
   }
 
