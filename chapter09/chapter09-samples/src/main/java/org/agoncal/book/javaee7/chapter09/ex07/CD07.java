@@ -5,7 +5,7 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 import java.util.HashMap;
 
-import static org.agoncal.book.javaee7.chapter09.ex01.CD01.FIND_ALL;
+import static org.agoncal.book.javaee7.chapter09.ex07.CD07.FIND_ALL;
 
 /**
  * @author Antonio Goncalves
