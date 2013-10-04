@@ -73,10 +73,10 @@ public class BookRestService03IT {
 
     Client client = ClientBuilder.newClient();
     WebTarget target = client.target("http://localhost:8282/03/book");
-    assertEquals(Response.Status.OK, target.request(MediaType.TEXT_PLAIN).get().getStatusInfo());
+    assertEquals(Response.Status.OK.getStatusCode(), target.request(MediaType.TEXT_PLAIN).get().getStatus());
     URI uri = new URI("http://localhost:8282/03/book");
     target = client.target(uri);
-    assertEquals(Response.Status.OK, target.request(MediaType.TEXT_PLAIN).get().getStatusInfo());
+    assertEquals(Response.Status.OK.getStatusCode(), target.request(MediaType.TEXT_PLAIN).get().getStatus());
   }
 
   @Test
@@ -89,7 +89,7 @@ public class BookRestService03IT {
     String entity = response.readEntity(String.class);
 
     assertEquals("H2G2", entity);
-    assertEquals(Response.Status.OK, response.getStatusInfo());
+    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
     assertEquals("H2G2 is 4 characters", 4, entity.length());
   }
 
@@ -103,7 +103,7 @@ public class BookRestService03IT {
     String entity = response.readEntity(String.class);
 
     assertEquals("H2G2", entity);
-    assertEquals(Response.Status.OK, response.getStatusInfo());
+    assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
     assertEquals("H2G2 is 4 characters", 4, entity.length());
   }
 
@@ -138,13 +138,13 @@ public class BookRestService03IT {
   @Test
   public void shouldCheckForWrongMediaType() {
     Response response = ClientBuilder.newClient().target("http://localhost:8282/03/book").request(MediaType.APPLICATION_OCTET_STREAM).get();
-    assertEquals(Response.Status.NOT_ACCEPTABLE, response.getStatusInfo());
+    assertEquals(Response.Status.NOT_ACCEPTABLE.getStatusCode(), response.getStatus());
   }
 
   @Test
   public void shouldCheckForWrongURI() {
     Response response = ClientBuilder.newClient().target("http://localhost:8282/03/dummy").request(MediaType.TEXT_PLAIN).get();
-    assertEquals(Response.Status.NOT_FOUND, response.getStatusInfo());
+    assertEquals(Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
   }
 
   @Test

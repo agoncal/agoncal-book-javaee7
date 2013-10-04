@@ -113,7 +113,7 @@ public class CustomerRestService13IT {
   public void shouldCreateCustomer() {
     Response response = client.target("http://localhost:8282/13/customer").request().post(Entity.entity(new Customer13("John", "Smith", "jsmith@gmail.com", "1334565"), MediaType.APPLICATION_XML));
     assertEquals(201, response.getStatus());
-    assertEquals("/13/customer/1334", response.getLocation().toString());
+    assertEquals("http://localhost:8282/13/customer/1334", response.getLocation().toString());
   }
 
   @Test

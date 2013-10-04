@@ -153,13 +153,13 @@ public class CustomerRestService07IT {
   @Test
   public void shouldEchoUserAgentValue() {
     String response = client.target("http://localhost:8282/07/customer/userAgent").request().get(String.class);
-    assertTrue(response.startsWith("Jersey/2.0"));
+    assertTrue(response.startsWith("Jersey/2."));
   }
 
   @Test
   public void shouldEchoUserAgentWithReponse() {
     Response response = client.target("http://localhost:8282/07/customer/userAgentRep").request().get();
     assertEquals(200, response.getStatus());
-    assertTrue(response.readEntity(String.class).startsWith("Jersey/2.0"));
+    assertTrue(response.readEntity(String.class).startsWith("Jersey/2."));
   }
 }

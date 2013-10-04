@@ -84,7 +84,7 @@ public class CustomerRestService16IT {
   public void shouldCreateCustomerXML() {
     Response response = client.target("http://localhost:8282/16/customer").request().post(Entity.xml(new Customer16("1234", "John", "Smith")));
     assertEquals(201, response.getStatus());
-    assertEquals("/16/customer/1234", response.getLocation().toString());
+    assertEquals("http://localhost:8282/16/customer/1234", response.getLocation().toString());
   }
 
   @Test
