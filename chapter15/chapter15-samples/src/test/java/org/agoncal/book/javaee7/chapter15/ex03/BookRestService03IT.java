@@ -167,6 +167,6 @@ public class BookRestService03IT {
 
   @Test
   public void shouldCheckForApplicationWadl() {
-    assertTrue(ClientBuilder.newClient().target(uri).path("application.wadl").request(MediaTypes.WADL).get(String.class).length() > 0);
+    assertTrue(ClientBuilder.newClient().target(uri).path("application.wadl").request(MediaTypes.WADL_TYPE).get(String.class).length() > 0);
   }
 }
