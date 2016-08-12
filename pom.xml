@@ -224,6 +224,7 @@
           <skipTests>${skipTests}</skipTests>
           <skipITs>${skipITs}</skipITs>
           <argLine>-Duser.language=en -Duser.country=EN</argLine>
+          <reuseForks>false</reuseForks>
         </configuration>
         <executions>
           <execution>
