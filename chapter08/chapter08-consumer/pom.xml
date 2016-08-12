@@ -22,8 +22,8 @@
       <version>1.0</version>
     </dependency>
     <dependency>
-      <groupId>org.glassfish.main.extras</groupId>
-      <artifactId>glassfish-embedded-all</artifactId>
+      <groupId>fish.payara.extras</groupId>
+        <artifactId>payara-embedded-all</artifactId>
       <scope>runtime</scope>
     </dependency>
   </dependencies>

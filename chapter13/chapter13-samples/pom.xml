@@ -17,8 +17,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.glassfish.main.extras</groupId>
-      <artifactId>glassfish-embedded-all</artifactId>
+      <groupId>fish.payara.extras</groupId>
+        <artifactId>payara-embedded-all</artifactId>
       <scope>compile</scope>
     </dependency>
   </dependencies>
