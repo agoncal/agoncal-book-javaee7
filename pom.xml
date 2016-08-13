@@ -31,7 +31,7 @@
     <version.glassfish>4.1.1.162</version.glassfish>
     <version.javaee>7.0</version.javaee>
     <version.weld>2.3.2.Final</version.weld>
-    <version.jersey>2.22.1</version.jersey>
+    <version.jersey>2.22.2</version.jersey>
     <version.eclipselink>2.6.2</version.eclipselink>
     <version.hibernate.validator>5.1.2.Final</version.hibernate.validator>
     <version.el>3.0.1-b03</version.el>
