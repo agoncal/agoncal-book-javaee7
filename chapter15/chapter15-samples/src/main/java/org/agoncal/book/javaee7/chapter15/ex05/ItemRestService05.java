@@ -58,7 +58,7 @@ public class ItemRestService05 {
    * curl http://localhost:8080/chapter15-service-1.0/rs/05/items/books/1234
    */
   @GET
-  @Path("/book/{bookid}")
+  @Path("/book/{bookid : \\d+}")
   public Book05 getBook(@PathParam("bookid") String id) {
     System.out.println("getBook : " + id);
     return new Book05("The Hitchhiker's Guide to the Galaxy", 12.5F, "Science fiction comedy book", "1-84023-742-2", 354, false);

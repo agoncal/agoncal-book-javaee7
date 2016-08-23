@@ -67,14 +67,14 @@ public class CustomerRestService15IT {
 
   @Test
   public void shouldPing() {
-//    assertEquals("ping", client.target("http://localhost:8282/15/customer/ping").request(MediaType.TEXT_PLAIN).get(String.class));
-    assertEquals("ping", client.target("http://localhost:8080/chapter15-service-1.0/rs/15/customer/ping").request(MediaType.TEXT_PLAIN).get(String.class));
+    assertEquals("ping", client.target("http://localhost:8282/15/customer/ping").request(MediaType.TEXT_PLAIN).get(String.class));
+//    assertEquals("ping", client.target("http://localhost:8080/chapter15-service-1.0/rs/15/customer/ping").request(MediaType.TEXT_PLAIN).get(String.class));
   }
 
   @Test
   public void getGetDefaultMediaType() {
-//    Response response = client.target("http://localhost:8282/15/customer/locale").request().get();
-    Response response = client.target("http://localhost:8080/chapter15-service-1.0/rs/15/customer/media").request().get();
+    Response response = client.target("http://localhost:8282/15/customer/media").request().get();
+//    Response response = client.target("http://localhost:8080/chapter15-service-1.0/rs/15/customer/media").request().get();
     assertEquals(200, response.getStatus());
     assertTrue(response.hasEntity());
     assertEquals("text/html", response.readEntity(String.class));
@@ -82,9 +82,9 @@ public class CustomerRestService15IT {
 
   @Test
   public void shouldCreateCustomer() {
-//    Response response = client.target("http://localhost:8282/15/customer/locale").request().get();
-    Response response = client.target("http://localhost:8080/chapter15-service-1.0/rs/15/customer").request().post(Entity.entity(new Customer15(1L, "John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
+    Response response = client.target("http://localhost:8282/15/customer").request().post(Entity.entity(new Customer15(1L, "John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
+//    Response response = client.target("http://localhost:8080/chapter15-service-1.0/rs/15/customer").request().post(Entity.entity(new Customer15(1L, "John", "Smith", "jsmith@gmail.com", "1234565"), MediaType.APPLICATION_XML));
     assertEquals(201, response.getStatus());
-    assertEquals("http://localhost:8080/chapter15-service-1.0/rs/15/customer/1",response.getLocation().toString());
+    assertEquals("http://localhost:8282/15/customer/1",response.getLocation().toString());
   }
 }

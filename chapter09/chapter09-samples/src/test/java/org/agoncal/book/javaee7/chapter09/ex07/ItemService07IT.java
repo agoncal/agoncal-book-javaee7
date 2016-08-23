@@ -10,6 +10,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.enterprise.inject.spi.BeanManager;
+import javax.naming.NamingException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -65,8 +67,7 @@ public class ItemService07IT {
     book.setNbOfPage(354);
     book.setIllustrations(false);
 
-    // Looks up the EJB
-    ItemService07 itemService = (ItemService07) ctx.lookup("java:global/classes/ItemService07!org.agoncal.book.javaee7.chapter09.ex07.ItemService07");
+    ItemServiceGateway itemService = lookupItemService();
 
     // Persists the book to the database
     book = itemService.createBook(book);
@@ -78,6 +79,12 @@ public class ItemService07IT {
     List<Book07> books = itemService.findBooks();
     assertNotNull(books);
   }
+
+    public ItemServiceGateway lookupItemService() throws NamingException {
+        // Looks up the EJB, that passes to CDI bean
+        ItemServiceGateway itemService = (ItemServiceGateway) ctx.lookup("java:global/classes/ItemServiceGateway");
+        return itemService;
+    }
 
   @Test
   public void shouldCreateACD() throws Exception {
@@ -93,7 +100,7 @@ public class ItemService07IT {
     cd.setGenre("Rock");
 
     // Looks up the Service
-    ItemService07 itemService = (ItemService07) ctx.lookup("java:global/classes/ItemService07!org.agoncal.book.javaee7.chapter09.ex07.ItemService07");
+    ItemServiceGateway itemService = lookupItemService();
 
     // Persists the book to the database
     cd = itemService.createCD(cd);

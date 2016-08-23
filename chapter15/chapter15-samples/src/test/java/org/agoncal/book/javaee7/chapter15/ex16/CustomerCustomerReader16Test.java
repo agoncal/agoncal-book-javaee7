@@ -34,16 +34,6 @@ public class CustomerCustomerReader16Test {
     // convert String into InputStream
     InputStream is = new ByteArrayInputStream(str.getBytes());
 
-    // read it with BufferedReader
-    BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-    String line;
-    while ((line = br.readLine()) != null) {
-      System.out.println(line);
-    }
-
-    br.close();
-
     return is;
   }
 }
