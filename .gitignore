@@ -27,3 +27,5 @@ vpproject
 .lock
 teamworkUser.xml
 projectFilesBackup*
+create.sql
+drop.sql
