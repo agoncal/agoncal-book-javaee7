@@ -145,7 +145,7 @@ public class BookClient {
   private static void wadl() {
     System.out.println("-- WADL --");
     System.out.println("--------------------------");
-    response = client.target(uri).path("application.wadl").request(MediaTypes.WADL).get();
+    response = client.target(uri).path("application.wadl").request(MediaTypes.WADL_TYPE).get();
     System.out.println("\tStatus : " + response.getStatus());
     System.out.println("\tEntity : " + response.readEntity(String.class));
   }

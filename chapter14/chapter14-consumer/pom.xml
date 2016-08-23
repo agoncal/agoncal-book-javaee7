@@ -17,8 +17,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.glassfish.main.extras</groupId>
-      <artifactId>glassfish-embedded-all</artifactId>
+      <groupId>fish.payara.extras</groupId>
+        <artifactId>payara-embedded-all</artifactId>
     </dependency>
 
   </dependencies>
@@ -49,13 +49,13 @@
               <!--Stubs can be created either by wsdl URL (GlassFish need to be running with the WS deployed)-->
               <!--Or by wsdl files (these files are located under the wsdl directory)-->
 
-              <wsdlUrls>
+<!--              <wsdlUrls>
                 <wsdlUrl>http://localhost:8080/chapter14-service-1.0/CardValidatorService?wsdl</wsdlUrl>
-              </wsdlUrls>
+              </wsdlUrls>-->
 
-              <!--<wsdlFiles>-->
-              <!--<wsdlFile>CardValidatorService.wsdl</wsdlFile>-->
-              <!--</wsdlFiles>-->
+              <wsdlFiles>
+                 <wsdlFile>CardValidatorService.wsdl</wsdlFile>
+              </wsdlFiles>
               <keep>true</keep>
 
             </configuration>

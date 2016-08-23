@@ -15,7 +15,6 @@ import java.net.URI;
  */
 @Path("/13/customer")
 @Produces(MediaType.APPLICATION_XML)
-@Consumes(MediaType.APPLICATION_XML)
 public class CustomerRestService13 {
 
   // ======================================

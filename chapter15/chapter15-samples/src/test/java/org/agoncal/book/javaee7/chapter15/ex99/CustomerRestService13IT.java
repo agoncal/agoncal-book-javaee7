@@ -24,6 +24,7 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 
 /**
  * @author Antonio Goncalves
@@ -32,6 +33,7 @@ import static org.junit.Assert.assertEquals;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@Ignore("This example was not wrriten")
 public class CustomerRestService13IT {
 
   // ======================================

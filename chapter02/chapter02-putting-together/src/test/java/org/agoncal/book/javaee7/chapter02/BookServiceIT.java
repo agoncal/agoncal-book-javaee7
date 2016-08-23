@@ -23,6 +23,9 @@ public class BookServiceIT {
   public void shouldCheckNumberIsMock() {
 
     Weld weld = new Weld();
+    // with 2.2 weld treats the two beans.xml files a two separate archives. To have test alternative override that
+    // we need to switch off this feature
+    System.setProperty(Weld.ARCHIVE_ISOLATION_SYSTEM_PROPERTY, "false");
     WeldContainer container = weld.initialize();
 
     BookService bookService = container.instance().select(BookService.class).get();
