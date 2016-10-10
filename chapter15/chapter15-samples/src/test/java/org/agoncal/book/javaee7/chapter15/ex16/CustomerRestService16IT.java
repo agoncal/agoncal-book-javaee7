@@ -97,8 +97,9 @@ public class CustomerRestService16IT {
 
   @Test
   public void shouldCreateCustomerCustom() {
+    client.register(CustomCustomerWriter16.class);
     Response response = client.target("http://localhost:8282/16/customer").request().post(Entity.entity(new Customer16("5678", "John", "Smith"), "custom/format"));
     assertEquals(201, response.getStatus());
-    assertEquals("/16/customer/5678", response.getLocation().toString());
+    assertTrue(response.getLocation().toString().endsWith("/16/customer/5678"));
   }
 }

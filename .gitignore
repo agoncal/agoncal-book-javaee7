@@ -27,5 +27,5 @@ vpproject
 .lock
 teamworkUser.xml
 projectFilesBackup*
-chapter04/chapter04-putting-together/create.sql
-chapter04/chapter04-putting-together/drop.sql
+create.sql
+drop.sql

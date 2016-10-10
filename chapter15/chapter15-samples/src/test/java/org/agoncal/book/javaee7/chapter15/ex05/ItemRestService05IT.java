@@ -115,7 +115,7 @@ public class ItemRestService05IT {
   @Test
   public void shouldCheckGetBookURIWithWrongParam() {
     Response response = client.target("http://localhost:8282/05/items/book/abc").request().get();
-    assertEquals(200, response.getStatus());
+    assertEquals(404, response.getStatus());
   }
 
   @Test
@@ -133,7 +133,7 @@ public class ItemRestService05IT {
   @Test
   public void shouldCheckDeleteBookURIWithWrongParam() {
     Response response = client.target("http://localhost:8282/05/items/book/abc").request().delete();
-    assertEquals(204, response.getStatus());
+    assertEquals(404, response.getStatus());
   }
 
   @Test

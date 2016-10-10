@@ -28,14 +28,14 @@
   <properties>
     <version.java>1.7</version.java>
     <!-- Java EE -->
-    <version.glassfish>4.0</version.glassfish>
+    <version.glassfish>4.1.1.162</version.glassfish>
     <version.javaee>7.0</version.javaee>
-    <version.weld>2.0.1.Final</version.weld>
-    <version.jersey>2.3.1</version.jersey>
-    <version.eclipselink>2.5.1</version.eclipselink>
-    <version.hibernate.validator>5.0.1.Final</version.hibernate.validator>
-    <version.el>3.0.0</version.el>
-    <version.json>1.0.2</version.json>
+    <version.weld>2.3.2.Final</version.weld>
+    <version.jersey>2.22.2</version.jersey>
+    <version.eclipselink>2.6.2</version.eclipselink>
+    <version.hibernate.validator>5.1.2.Final</version.hibernate.validator>
+    <version.el>3.0.1-b03</version.el>
+    <version.json>1.0.4</version.json>
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
@@ -68,8 +68,8 @@
     <dependencies>
       <!-- This has most of the needed dependencies : Derby, JPA, EJB, Java EE 6... -->
       <dependency>
-        <groupId>org.glassfish.main.extras</groupId>
-        <artifactId>glassfish-embedded-all</artifactId>
+        <groupId>fish.payara.extras</groupId>
+        <artifactId>payara-embedded-all</artifactId>
         <version>${version.glassfish}</version>
         <scope>provided</scope>
       </dependency>
@@ -224,6 +224,7 @@
           <skipTests>${skipTests}</skipTests>
           <skipITs>${skipITs}</skipITs>
           <argLine>-Duser.language=en -Duser.country=EN</argLine>
+          <reuseForks>false</reuseForks>
         </configuration>
         <executions>
           <execution>
