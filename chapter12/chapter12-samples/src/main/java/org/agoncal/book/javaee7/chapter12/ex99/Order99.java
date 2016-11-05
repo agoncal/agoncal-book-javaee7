@@ -13,7 +13,7 @@ import java.util.List;
  *         http://www.antoniogoncalves.org
  *         --
  */
-@XmlRootElement
+@XmlRootElement(name = "order")
 @XmlType(propOrder = {"id", "creationDate", "customer", "orderLines", "creditCard"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Order99 {

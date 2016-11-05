@@ -52,7 +52,7 @@ public class Order99Test {
   // =              Unit tests            =
   // ======================================
 
-  @Test @Ignore
+  @Test
   public void shouldMarshallAnOrder() throws JAXBException {
 
     Order99 order = new Order99(1234L, 93.48, creationDate);
@@ -72,7 +72,7 @@ public class Order99Test {
 
   }
 
-  @Test @Ignore
+  @Test
   public void shouldUnmarshallAnOrder() throws JAXBException {
     StringReader reader = new StringReader(orderXML);
     JAXBContext context = JAXBContext.newInstance(Order99.class);
