@@ -4,6 +4,8 @@
 * [Java EE 7 Book](http://www.amazon.com/gp/product/143022889X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=143022889X&linkCode=as2&tag=antgonblo-20)
 * [Download code on GitHub](https://github.com/agoncal/agoncal-book-javaee7)
 
+[![Build Status][travis-image]][travis-url]
+
 # Structure of the book
 
 Section 1 - Introduction
@@ -161,3 +163,5 @@ Embedded mode is good for testing, but it means that no database is really creat
 
 4. Run the test with Maven : mvn clean test
 5. Once finished, shutdown the database with : java -jar %DERBY_HOME%\lib\derbyrun.jar server shutdown (or stopNetworkServer.bat)
+
+[travis-url]: https://travis-ci.org/agoncal/agoncal-book-javaee7
