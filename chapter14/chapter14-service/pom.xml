@@ -45,6 +45,7 @@
             <configuration>
               <!--Optional-->
               <!--Reads a JAX-WS service endpoint implementation class and generates all of the portable artifacts for a JAX-WS web service-->
+              <sei>org.agoncal.book.javaee7.chapter14.CardValidator</sei>
               <genWsdl>true</genWsdl>
               <verbose>true</verbose>
               <keep>true</keep>
