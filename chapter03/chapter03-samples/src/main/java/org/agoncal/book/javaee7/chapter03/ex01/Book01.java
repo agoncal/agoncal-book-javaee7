@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
  *         http://www.antoniogoncalves.org
  *         --
  */
+// tag::snippets[]
 public class Book01 {
 
   // ======================================
@@ -27,7 +28,8 @@ public class Book01 {
   private String isbn;
   private Integer nbOfPage;
   private Boolean illustrations;
-
+// end::snippets[]
+  
   // ======================================
   // =            Constructors            =
   // ======================================
