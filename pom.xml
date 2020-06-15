@@ -33,7 +33,7 @@
     <version.weld>2.3.2.Final</version.weld>
     <version.jersey>2.22.2</version.jersey>
     <version.eclipselink>2.6.2</version.eclipselink>
-    <version.hibernate.validator>5.1.2.Final</version.hibernate.validator>
+    <version.hibernate.validator>5.3.5.Final</version.hibernate.validator>
     <version.el>3.0.1-b03</version.el>
     <version.json>1.0.4</version.json>
     <!-- Databases -->
