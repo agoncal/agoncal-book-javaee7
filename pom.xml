@@ -43,7 +43,7 @@
     <skipTests>false</skipTests>
     <skipITs>${skipTests}</skipITs>
     <skipUTs>${skipTests}</skipUTs>
-    <version.junit>4.11</version.junit>
+    <version.junit>4.13.1</version.junit>
     <version.xmlunit>1.4</version.xmlunit>
     <version.mockito>1.9.5</version.mockito>
     <!-- Maven Plugins -->
