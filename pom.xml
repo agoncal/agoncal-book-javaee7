@@ -37,7 +37,7 @@
     <version.el>3.0.1-b03</version.el>
     <version.json>1.0.4</version.json>
     <!-- Databases -->
-    <version.derby>10.10.1.1</version.derby>
+    <version.derby>10.14.2.0</version.derby>
     <version.mysql>5.1.21</version.mysql>
     <!-- Test -->
     <skipTests>false</skipTests>
